@@ -17,7 +17,7 @@
                             id="eventTitle" 
                             placeholder="Event Title"
                             class="form-control" 
-                            [(ngModel)]="submission.title"
+                            [(ngModel)]="submission.data.title"
                             name="eventTitle"
                             required/>
                         </md-input-container>
@@ -25,22 +25,30 @@
 
                     <div class="form-group">
                         <label for="eventOccurance">Is Your Event...</label>
-                        <form action="" method="post">
-                            <md-radio-group>
+                            <md-radio-group [(ngModel)]="submission.data.occurance">
                                 <md-radio-button class="block-input" name="occurance" value="annual">Annual</md-radio-button>
                                 <md-radio-button class="block-input" name="occurance" value="every2yrs">Every-Other-Year (once every 2 years)</md-radio-button>
                                 <md-radio-button class="block-input" name="occurance" value="once">One Time Only</md-radio-button>
-                                <md-radio-button class="block-input" name="occurance" value="other">Other...</md-radio-button>
+                                <md-radio-button class="block-input" name="occurance" value="other">
+                                    <md-input-container class="full-width">
+                                        <input md-input mdInput type="text"
+                                        placeholder="Other occurance"
+                                        id="eventOccurance" 
+                                        class="form-control" 
+                                        [(ngModel)]="eventOccurance"
+                                        name="eventOccurance"
+                                        required/>
+                                    </md-input-container> 
+                                </md-radio-button>
                             </md-radio-group>
                             <div class="form-group" [hidden]="!other">
                                 <input type="text"
                                 id="eventOccurance" 
                                 class="form-control" 
-                                [(ngModel)]="submission.occurance"
+                                [(ngModel)]="submission.data.occurance"
                                 name="eventOccurance"
                                 required/>
                             </div>
-                        </form>
                     </div>
 
                     <div class="form-group">
@@ -50,7 +58,7 @@
                             placeholder="Event Website"
                             id="eventUrl" 
                             class="form-control" 
-                            [(ngModel)]="submission.url"
+                            [(ngModel)]="submission.data.url"
                             name="eventUrl"
                             required/>
                         </md-input-container>
@@ -63,7 +71,7 @@
                             placeholder="Parent or Sponsoring Organization(s)"
                             id="eventParent" 
                             class="form-control" 
-                            [(ngModel)]="submission.parent"
+                            [(ngModel)]="submission.data.parent"
                             name="eventParent"
                             required/>
                         </md-input-container>
@@ -77,7 +85,7 @@
                             placeholder="Topic/Emphasis/Theme"
                             id="eventTopic" 
                             class="form-control" 
-                            [(ngModel)]="submission.topic"
+                            [(ngModel)]="submission.data.topic"
                             name="eventTopic"
                             required/>
                         </md-input-container>
@@ -90,7 +98,7 @@
                             placeholder="Event Description"
                             id="eventDesc" 
                             class="form-control" 
-                            [(ngModel)]="submission.desc"
+                            [(ngModel)]="submission.data.description"
                             name="eventDesc"
                             required/>
                         </md-input-container>
@@ -99,11 +107,11 @@
                     <div class="form-group">
                         <!--<label for="eventDate">Event Start Date</label>-->
                         <md-input-container>
-                            <input md-input mdInput type ="date" 
+                            <input md-input mdInput type="date" 
                             placeholder="Event Date"
                             id="eventDate" 
                             class="form-control" 
-                            [(ngModel)]="submission.date"
+                            [(ngModel)]="submission.data.eventDate"
                             name="eventDate"
                             rerquired/>
                         </md-input-container>
@@ -111,15 +119,13 @@
 
                     <div class="form-group">
                         <label for="eventCost">Registration Cost</label>
-                        <form action="" method="post">
-                            <md-radio-group>
+                            <md-radio-group [(ngModel)]="submission.data.cost">
                                 <md-radio-button class="block-input" name="cost" value="free">Free</md-radio-button>
                                 <md-radio-button class="block-input" name="cost" value="under100">Under $100</md-radio-button>
                                 <md-radio-button class="block-input" name="cost" value="100to200">Between $100 and $250</md-radio-button>
                                 <md-radio-button class="block-input" name="cost" value="250to500">Between $250 and $500</md-radio-button>
                                 <md-radio-button class="block-input" name="cost" value="over1000">Over $1000</md-radio-button>
                             </md-radio-group>
-                        </form>
                     </div> 
 
                     <div class="form-group">
@@ -129,7 +135,7 @@
                             placeholder="Event City"
                             id="eventCity" 
                             class="form-control" 
-                            [(ngModel)]="submission.city"
+                            [(ngModel)]="submission.data.city"
                             name="eventCity"
                             required/>
                         </md-input-container>
@@ -142,7 +148,7 @@
                             placeholder="Event State"
                             id="eventState" 
                             class="form-control" 
-                            [(ngModel)]="submission.state"
+                            [(ngModel)]="submission.data.state"
                             name="eventState"
                             required/>
                         </md-input-container>
@@ -155,7 +161,7 @@
                             placeholder="Event Country"
                             id="eventCountry" 
                             class="form-control" 
-                            [(ngModel)]="submission.country"
+                            [(ngModel)]="submission.data.country"
                             name="eventCountry"
                             required/>
                         </md-input-container>
@@ -163,16 +169,14 @@
 
                     <div class="form-group">
                         <label for="eventCost">Is a Hymn Society member involved?</label>
-                        <form action="" method="post">
-                            <md-radio-group>
-                                <md-radio-button class="block-input" name="cost" value="yes">Yes</md-radio-button>
-                                <md-radio-button class="block-input" name="cost" value="no">No</md-radio-button>
+                            <md-radio-group [(ngModel)]="submission.data.hymn_soc_member">
+                                <md-radio-button class="block-input" name="hymn_soc_member" value="yes">Yes</md-radio-button>
+                                <md-radio-button class="block-input" name="hymn_soc_member" value="no">No</md-radio-button>
                             </md-radio-group>
-                        </form>
                     </div>   
 
                     <div>
-                        <a class="btn btn-block btn-primary" >Submit</a>
+                        <a class="btn btn-block btn-primary" (click)=submit()>Submit</a>
                         <a class="btn btn-block btn-link" routerLink="/">Return to home</a>
                     </div>              
 
