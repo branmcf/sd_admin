@@ -9,16 +9,17 @@ import { EntryOrgsComponent } from './entryOrgs/entryOrgs.component';
 import { EntryEventComponent } from './entryEvent/entryEvent.component';
 import { EntryReviewComponent } from './entryReview/entryReview.component';
 import { EntryLandingComponent } from './entryLanding/entryLanding.component';
+import { UserService } from './../services/user.service';
 
 const routes: Routes = [
-    { path: '', component: EntryComponent} ,
-    { path: 'welcome', component: EntryLandingComponent },
-    { path: 'resources', component: EntryResourcesComponent },
-    { path: 'person', component: EntryPersonComponent },
-    { path: 'congregations', component: EntryCongregationComponent },
-    { path: 'orgs', component: EntryOrgsComponent },
-    { path: 'events', component: EntryEventComponent },
-    { path: 'review', component: EntryReviewComponent },
+    { path: '', component: EntryComponent },
+    { path: 'welcome', component: EntryLandingComponent, canActivate: [UserService] },
+    { path: 'resources', component: EntryResourcesComponent, canActivate: [UserService] },
+    { path: 'person', component: EntryPersonComponent, canActivate: [UserService] },
+    { path: 'congregations', component: EntryCongregationComponent, canActivate: [UserService] },
+    { path: 'orgs', component: EntryOrgsComponent, canActivate: [UserService] },
+    { path: 'events', component: EntryEventComponent, canActivate: [UserService] },
+    { path: 'review', component: EntryReviewComponent, canActivate: [UserService] },
 ];
 
 @NgModule({
