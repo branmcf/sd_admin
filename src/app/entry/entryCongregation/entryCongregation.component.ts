@@ -7,7 +7,7 @@ import { ContentfulService } from './../../services/contentful.service';
 
 @Component({
   selector: 'hymn-entry-congregation',
-  template: require('./entryCongregation.html')
+  templateUrl: './entryCongregation.html',
 })
 
 export class EntryCongregationComponent {

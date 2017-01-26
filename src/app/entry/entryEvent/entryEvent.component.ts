@@ -6,7 +6,7 @@ import { SubmitService } from './../../services/submit.service';
 
 @Component({
   selector: 'hymn-entry-event',
-  template: require('./entryEvent.html'),
+  templateUrl: './entryEvent.html',
 })
 
 export class EntryEventComponent implements OnInit {

@@ -3,7 +3,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 
 @Component({
   selector: 'hymn-entry-review',
-  template: require('./entryReview.html'),
+  templateUrl: './entryReview.html',
 //   styleUrls: ['app/shared/entryNavbar/entryNavbar.css']
 })
 

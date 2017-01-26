@@ -6,7 +6,7 @@ import { SubmitService } from './../../services/submit.service';
 
 @Component({
   selector: 'hymn-entry-person',
-  template: require('./entryPerson.html'),
+  templateUrl: './entryPerson.html',
 })
 
 export class EntryPersonComponent implements OnInit {

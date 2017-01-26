@@ -6,7 +6,7 @@ import { UserService } from './../../services/user.service'
 
 @Component({
   selector: 'hymn-entry-login',
-  template: require('./entryLogin.html'),
+  templateUrl: './entryLogin.html',
 })
 
 export class EntryComponent {

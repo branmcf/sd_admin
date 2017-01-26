@@ -5,7 +5,7 @@ import { SubmitService } from './../../services/submit.service';
 
 @Component({
   selector: 'hymn-entry-resources',
-  template: require('./entryResources.html'),
+  templateUrl: './entryResources.html',
   providers: [ContentfulService]
 })
 

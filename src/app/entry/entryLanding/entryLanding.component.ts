@@ -5,7 +5,7 @@ import { UserService } from './../../services/user.service'
 
 @Component({
   selector: 'hymn-entry-landing',
-  template: require('./entryLanding.html'),
+  templateUrl: './entryLanding.html',
 })
 
 export class EntryLandingComponent {
