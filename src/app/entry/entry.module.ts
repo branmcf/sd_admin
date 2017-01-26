@@ -4,13 +4,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
-import { MdCoreModule } from '@angular2-material/core';
-import { MdButtonModule } from '@angular2-material/button';
-import { MdCardModule } from '@angular2-material/card';
-import { MdRadioModule } from '@angular2-material/radio';
-import { MdCheckboxModule } from '@angular2-material/checkbox';
-import { MdTooltipModule } from '@angular2-material/tooltip';
-import { MdSliderModule } from '@angular2-material/slider';
 
 import { EntryComponent } from './entryLogin/entryLogin.component';
 import { EntryResourcesComponent } from './entryResources/entryResources.component';

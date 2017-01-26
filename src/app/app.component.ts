@@ -5,7 +5,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  template: require('./app.component.html')
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
   constructor(private contentful: ContentfulService) {}

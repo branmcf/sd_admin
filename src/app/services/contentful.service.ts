@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import * as contentful from 'contentful';
-import * as util from 'util';
 import { Observable } from 'rxjs/Rx';
 import { environment } from '../../environments/environment';
 
@@ -26,7 +25,6 @@ export class ContentfulService {
     getEntries() {
         this.client.getEntries()
         .then(function (entries) {
-            console.log(util.inspect(entries, {depth: null}));
             return entries;
         });
     }
