@@ -1,0 +1,18 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "node6",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "4200"
+    }
+  ],
+  "Volumes": [
+    {
+      "HostDirectory": "/var/app/src",
+      "ContainerDirectory": "/usr/src/app"
+    }
+  ]
+}
