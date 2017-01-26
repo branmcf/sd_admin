@@ -2,6 +2,6 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'hymn-header',
-  template: require('./header.html')
+  templateUrl: './header.html'
 })
 export class HeaderComponent {}
