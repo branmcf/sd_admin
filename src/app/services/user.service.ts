@@ -21,7 +21,7 @@ export class UserService implements CanActivate {
 
     login(user): Promise<any> {
         return this.http
-            .post(this._apiUrl + '/login', user)
+            .post(this._apiUrl + 'login', user)
             .toPromise()
             .then(this.extractData)
             .catch(x => alert('Invalid username or password'));
