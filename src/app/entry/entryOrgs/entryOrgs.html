@@ -98,7 +98,7 @@
                                     <md-input-container>
                                     <input md-input mdInput type="text" 
                                     placeholder="Other Denomination/Tradition"
-                                    [(ngModel)]="denomOther"
+                                    [(ngModel)]="submission.data.denomination"
                                     name=orgDenominationOther/>
                                     </md-input-container>
                                 </md-radio-button>
@@ -152,12 +152,12 @@
                             <md-radio-group [(ngModel)]="submission.data.country" name="orgCountry" required>
                                 <md-radio-button class="block-input" name="country" value="US" required>US</md-radio-button>
                                 <md-radio-button class="block-input" name="country" value="Canada">Canada</md-radio-button>
-                                <md-radio-button class="block-input" name="country" value="other">
+                                <md-radio-button class="block-input" name="country">
                                     <md-input-container>
                                     <input md-input mdInput type="text" 
                                     placeholder="Other Country"
                                     [(ngModel)]="countryOther"
-                                    name="orgCountryOther"/>
+                                    name="submission.data.country"/>
                                     </md-input-container>
                                 </md-radio-button>  
                             </md-radio-group>  
@@ -166,17 +166,17 @@
                     <div class="form-group">
                         <label for="orgGeogrpahics">What geographic area(s) do you serve?</label>
                             <md-radio-group [(ngModel)]="submission.data.geographic_area" name="orgGeographics" required>
-                                <md-radio-button class="block-input" name="geographics" value="city" required>Our City Only</md-radio-button>
-                                <md-radio-button class="block-input" name="geographics" value="state">Our State Only</md-radio-button>
-                                <md-radio-button class="block-input" name="geographics" value="region">Our Region Only</md-radio-button>
-                                <md-radio-button class="block-input" name="geographics" value="us">U.S. Only</md-radio-button>
-                                <md-radio-button class="block-input" name="geographics" value="canada">Canada Only</md-radio-button>
-                                <md-radio-button class="block-input" name="geographics" value="worldwide">Worldwide</md-radio-button>
-                                <md-radio-button class="block-input" name="geographics" value="other">
+                                <md-radio-button class="block-input" name="geographics" value="Our City Only" required>Our City Only</md-radio-button>
+                                <md-radio-button class="block-input" name="geographics" value="Our State Only">Our State Only</md-radio-button>
+                                <md-radio-button class="block-input" name="geographics" value="Our Region Only">Our Region Only</md-radio-button>
+                                <md-radio-button class="block-input" name="geographics" value="U.S. Only">U.S. Only</md-radio-button>
+                                <md-radio-button class="block-input" name="geographics" value="Canada Only">Canada Only</md-radio-button>
+                                <md-radio-button class="block-input" name="geographics" value="Worldwide">Worldwide</md-radio-button>
+                                <md-radio-button class="block-input" name="geographics">
                                     <md-input-container>
                                     <input md-input mdInput type="text" 
                                     placeholder="Other Geographic Area"
-                                    [(ngModel)]="geoOther"
+                                    [(ngModel)]="submission.data.geographic_area"
                                     name="orgGeogrphicsOther"/>
                                     </md-input-container>
                                 </md-radio-button>       
@@ -188,7 +188,7 @@
                             <md-radio-group [(ngModel)]="submission.data.resource_free" name="orgResource" required>
                                 <md-radio-button class="block-input" name="resource" value="yes" required>Yes</md-radio-button>
                                 <md-radio-button class="block-input" name="resource" value="no">No</md-radio-button>
-                                <md-radio-button class="block-input" name="resource" value="noresource">We don't offer resources</md-radio-button>
+                                <md-radio-button class="block-input" name="resource" value="We don't offer resources">We don't offer resources</md-radio-button>
                             </md-radio-group>
                     </div>
 
@@ -197,7 +197,7 @@
                             <md-radio-group [(ngModel)]="submission.data.event_free" name="orgConference" required>
                                 <md-radio-button class="block-input" name="conference" value="yes" required>Yes</md-radio-button>
                                 <md-radio-button class="block-input" name="conference" value="no">No</md-radio-button>
-                                <md-radio-button class="block-input" name="conference" value="noconference">We don't offer events/conferences</md-radio-button>
+                                <md-radio-button class="block-input" name="conference" value="We don't offer events/conferences">We don't offer events/conferences</md-radio-button>
                             </md-radio-group>
                     </div>      
 
@@ -206,7 +206,7 @@
                             <md-radio-group [(ngModel)]="submission.data.membership_free" name="orgMembership" required>
                                 <md-radio-button class="block-input" name="membership" value="yes" required>Yes</md-radio-button>
                                 <md-radio-button class="block-input" name="membership" value="no">No</md-radio-button>
-                                <md-radio-button class="block-input" name="membership" value="nomembership">We don't offer memberships</md-radio-button>
+                                <md-radio-button class="block-input" name="membership" value="We don't offer memberships">We don't offer memberships</md-radio-button>
                             </md-radio-group>
                     </div>
 
