@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class SubmitService {
 
     // private _apiUrl = 'https://private-91abd-node46.apiary-mock.com/';
-	private _apiUrl = 'localhost:3000/';
+	private _apiUrl = environment.API_URL;
     constructor(private http: Http) { }
 
     submitCongregation(submission): Promise<any> {

@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { CanActivate } from '@angular/router';
 import 'rxjs/add/operator/toPromise';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class UserService implements CanActivate {
     // private _apiUrl = 'https://private-91abd-node46.apiary-mock.com';
-    private _apiUrl = 'localhost:3000/';
+    private _apiUrl = environment.API_URL;
 
 
     constructor(private http: Http) {}
