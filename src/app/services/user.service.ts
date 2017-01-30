@@ -5,9 +5,11 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class UserService implements CanActivate {
-    private _apiUrl = 'https://private-91abd-node46.apiary-mock.com';
+    // private _apiUrl = 'https://private-91abd-node46.apiary-mock.com';
+    private _apiUrl = 'localhost:3000/';
 
-    constructor(private http: Http){}
+
+    constructor(private http: Http) {}
 
     get(user_id: number): Promise<any> {
         return this.http
@@ -21,6 +23,10 @@ export class UserService implements CanActivate {
             .post(this._apiUrl + '/login', user)
             .toPromise()
             .then(this.extractData);
+    }
+
+    logout() {
+        sessionStorage.clear();
     }
 
     private extractData(res: Response) {

@@ -10,8 +10,8 @@ declare var process: any;
 export class ContentfulService {
 
     private client = contentful.createClient({
-        space: '65c06hb0hter',
-        accessToken: '7e4d86d07d34ee962ad350414402cb15349bb43f799e7d060288ab38006176e8'
+        space: environment.CONTENTFUL_SPACE,
+        accessToken: environment.CONTENTFUL_TOKEN
     });
     constructor() {
 

@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 export class SubmitService {
 
     // private _apiUrl = 'https://private-91abd-node46.apiary-mock.com/';
-    private _apiUrl = 'https://private-7e6d8-node46.apiary-mock.com/';
+	private _apiUrl = 'localhost:3000/';
     constructor(private http: Http) { }
 
     submitCongregation(submission): Promise<any> {
