@@ -22,6 +22,7 @@ export class EntryPersonComponent implements OnInit {
   ngOnInit() {
     this.contentful.getPersonForm().then((content) => {
       this.content = JSON.parse(content);
+      window.scrollTo(0, 0);
     });
     this.route.params.forEach(x => this.load(+x['user.id']));
 

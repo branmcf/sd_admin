@@ -40,14 +40,14 @@
             <div class="form-group">
                 <label for="resourceType">Resource Type</label>
                 <md-radio-group [(ngModel)]="submission.data.type" name="radioType">
-                    <md-radio-button class="block-input" name="type" value="book" required> Book</md-radio-button>
-                    <md-radio-button class="block-input" name="type" value="blog"> Blog</md-radio-button>
-                    <md-radio-button class="block-input" name="type" value="podcast"> Podcast</md-radio-button>
-                    <md-radio-button class="block-input" name="type" value="news"> Newsletter/E-News</md-radio-button>
-                    <md-radio-button class="block-input" name="type" value="forum"> Forum</md-radio-button>
-                    <md-radio-button class="block-input" name="type" value="audio"> Audio Track(s)</md-radio-button>
-                    <md-radio-button class="block-input" name="type" value="video"> Video/Visual(s)</md-radio-button>
-                    <md-radio-button class="block-input" name="type">                                         
+                    <md-radio-button class="block-input" name="type" value="Book" required> Book</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Blog"> Blog</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Podcast"> Podcast</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Newsletter/E-News"> Newsletter/E-News</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Forum"> Forum</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Audio Track(s)"> Audio Track(s)</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Video/Visual(s)"> Video/Visual(s)</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="other">                                         
                         <md-input-container class="full-width">
                         <input md-input mdInput type="text"
                         placeholder="Other resource type"
@@ -118,7 +118,7 @@
                     placeholder="Resource Description"
                     id="resourceDescription" 
                     class="form-control" 
-                    [(ngModel)]="submission.data.desc"
+                    [(ngModel)]="submission.data.description"
                     name="resourceDescription"
                     required/>
                 </md-input-container>
@@ -458,19 +458,19 @@
 
             <div class="form-group">
                 <label for="resourceIsInvolved">Is a Hymn Society member involved?</label>
-                <md-radio-group name="resourceIsInvolved" [(ngModel)]="submission.data.hymn_soc_member" >
-                    <md-radio-button class="block-input" value="yes" required> Yes</md-radio-button>
-                    <md-radio-button class="block-input" value="no"> No</md-radio-button>
-                    <md-radio-button class="block-input" value="unknown"> Unknown</md-radio-button>
+                <md-radio-group name="resourceIsInvolved" [(ngModel)]="submission.data.hymn_soc_member" required>
+                    <md-radio-button class="block-input" value="Yes" required> Yes</md-radio-button>
+                    <md-radio-button class="block-input" value="Yo"> No</md-radio-button>
+                    <md-radio-button class="block-input" value="Unknown"> Unknown</md-radio-button>
                 </md-radio-group>
             </div>
 
             <div class="form-group">
                 <label for="resourceFree">Is this resource free?</label>
-                <md-radio-group name="resourceFree" [(ngModel)]="submission.data.is_free" aria-required="">
-                    <md-radio-button class="block-input" value="yes" required> Yes</md-radio-button>
-                    <md-radio-button class="block-input" value="partially"> Partially with paywall</md-radio-button>
-                    <md-radio-button class="block-input" value="no"> No</md-radio-button>
+                <md-radio-group name="resourceFree" [(ngModel)]="submission.data.is_free" required>
+                    <md-radio-button class="block-input" value="Yes" required> Yes</md-radio-button>
+                    <md-radio-button class="block-input" value="Partially with paywall"> Partially with paywall</md-radio-button>
+                    <md-radio-button class="block-input" value="No"> No</md-radio-button>
                 </md-radio-group>
             </div>
 

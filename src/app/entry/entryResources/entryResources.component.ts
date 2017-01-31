@@ -23,6 +23,7 @@ export class EntryResourcesComponent implements OnInit {
   ngOnInit() {
     this.contentful.getResourcesForm().then((content) => {
       this.content = JSON.parse(content);
+      window.scrollTo(0, 0);
     });
 
     this.route.params.forEach(x => this.load(+x['user.id']));

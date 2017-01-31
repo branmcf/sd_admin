@@ -110,11 +110,11 @@
                         <md-radio-group [(ngModel)]="submission.data.country" name="congregationCountry" required>
                             <md-radio-button class="block-input" value="USA" required> USA</md-radio-button>
                             <md-radio-button class="block-input" value="Canada"> Canada</md-radio-button>
-                            <md-radio-button class="block-input">
+                            <md-radio-button class="block-input" value="other">
                                 <md-input-container>
                                 <input md-input mdInput type="text" 
                                 placeholder="Other Country"
-                                [(ngModel)]="countryOtherText"
+                                [(ngModel)]="countryOther"
                                 name="otherCountry"/>
                                 </md-input-container>
                             </md-radio-button>
@@ -133,7 +133,7 @@
                             <md-radio-button class="block-input" value="Baptist/Free-Church" >Baptist/Free-Church</md-radio-button>
                             <md-radio-button class="block-input" value="Pentecostal" >Pentecostal</md-radio-button>
                             <md-radio-button class="block-input" value="Non-Denominational" >Non-Denominational</md-radio-button>
-                            <md-radio-button class="block-input">   
+                            <md-radio-button class="block-input" value="other">   
                                 <md-input-container>
                                 <input md-input mdInput type="text" 
                                 placeholder="Other Denomination/Tradition"
@@ -283,7 +283,7 @@
                             <md-radio-button class="block-input" value="5-Fold Pattern (Gathering, Word, Response, Table, Sending)" required> 5-Fold Pattern (Gathering, Word, Response, Table, Sending)</md-radio-button>
                             <md-radio-button class="block-input" value="4-Fold Pattern (Gathering, Word, Response, Sending) - Communion monthly or quarterly"> 4-Fold Pattern (Gathering, Word, Response, Sending) - Communion monthly or quarterly</md-radio-button>
                             <md-radio-button class="block-input" value="2-Fold Pattern (Praise & Teaching)"> 2-Fold Pattern (Praise & Teaching)</md-radio-button>
-                            <md-radio-button class="block-input"> 
+                            <md-radio-button class="block-input" value="other"> 
                                 <md-input-container>
                                 <input md-input mdInput type="text" 
                                 placeholder="Other Shape"
