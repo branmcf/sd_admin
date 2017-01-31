@@ -94,11 +94,11 @@
                                 <md-radio-button class="block-input" name="denomination" value="Reformed (Presbyterian, RCA, etc...)">Reformed (Presbyterian, RCA, etc...)</md-radio-button>
                                 <md-radio-button class="block-input" name="denomination" value="Baptist/Free-Church">Baptist/Free-Church</md-radio-button>
                                 <md-radio-button class="block-input" name="denomination" value="Pentecostal">Pentecostal</md-radio-button>
-                                <md-radio-button class="block-input" name="denomination">
+                                <md-radio-button class="block-input" name="denomination" value="other">
                                     <md-input-container>
                                     <input md-input mdInput type="text" 
                                     placeholder="Other Denomination/Tradition"
-                                    [(ngModel)]="orgsDenomOther"
+                                    [(ngModel)]="denomOther"
                                     name=orgDenominationOther/>
                                     </md-input-container>
                                 </md-radio-button>
@@ -152,12 +152,12 @@
                             <md-radio-group [(ngModel)]="submission.data.country" name="orgCountry" required>
                                 <md-radio-button class="block-input" name="country" value="US" required>US</md-radio-button>
                                 <md-radio-button class="block-input" name="country" value="Canada">Canada</md-radio-button>
-                                <md-radio-button class="block-input" name="country">
+                                <md-radio-button class="block-input" name="country" value="other">
                                     <md-input-container>
                                     <input md-input mdInput type="text" 
                                     placeholder="Other Country"
-                                    [(ngModel)]="orgsCountryOther"
-                                    name="submission.data.country"/>
+                                    [(ngModel)]="countryOther"
+                                    name="countryOther"/>
                                     </md-input-container>
                                 </md-radio-button>  
                             </md-radio-group>  
@@ -172,11 +172,11 @@
                                 <md-radio-button class="block-input" name="geographics" value="U.S. Only">U.S. Only</md-radio-button>
                                 <md-radio-button class="block-input" name="geographics" value="Canada Only">Canada Only</md-radio-button>
                                 <md-radio-button class="block-input" name="geographics" value="Worldwide">Worldwide</md-radio-button>
-                                <md-radio-button class="block-input" name="geographics">
+                                <md-radio-button class="block-input" name="geographics" value="other">
                                     <md-input-container>
                                     <input md-input mdInput type="text" 
                                     placeholder="Other Geographic Area"
-                                    [(ngModel)]="orgsGeoOther"
+                                    [(ngModel)]="geoOther"
                                     name="orgGeogrphicsOther"/>
                                     </md-input-container>
                                 </md-radio-button>       

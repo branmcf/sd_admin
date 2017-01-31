@@ -14,7 +14,7 @@ export class EntryCongregationComponent {
   content: JSON;
   data: any;
   submission: any;
-  countryOtherText: string;
+  countryOther: string;
   denomOther: string;
   shapeOther: string;
 
@@ -121,8 +121,8 @@ export class EntryCongregationComponent {
     this.submission.user = obj.first_name + ' ' + obj.last_name;
     this.submission.uid = obj.user_id;
 
-    if (this.countryOtherText) {
-      this.submission.data.country = this.countryOtherText;
+    if (this.countryOther) {
+      this.submission.data.country = this.countryOther;
     }
     if (this.denomOther) {
       this.submission.data.denomination = this.denomOther;
