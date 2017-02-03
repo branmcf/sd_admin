@@ -171,24 +171,35 @@
                         <!--<label for="personSocial">Facebook, Twitter, and other Social Media Connections</label>-->
                         <md-input-container class="full-width">
                             <input md-input mdInput type="url" 
-                            placeholder="Facebook, Twitter, and other Social Media Connections"
-                            id="personSocial" 
+                            placeholder="Facebook Link"
+                            id="personSocialFacebook" 
                             class="form-control" 
-                            [(ngModel)]="submission.data.social_url"
-                            name="personSocial"
-                            #personSocial="ngModel"
-                            required/>
+                            [(ngModel)]="submission.data.social_facebook"
+                            name="personSocialFacebook"/>
                         </md-input-container>
-                        <div class="alert alert-danger" *ngIf="personSocial.errors && personSocial.touched">
-                            <ul>
-                                <li [hidden]="!personSocial.errors.required">
-                                    Social media URL is required
-                                </li>
-                                <li>
-                                    Please follow this format: https://www.google.com
-                                </li>
-                            </ul>
-                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <md-input-container class="full-width">
+                            <input md-input mdInput type="url" 
+                            placeholder="Twitter Link"
+                            id="personSocialTwitter" 
+                            class="form-control" 
+                            [(ngModel)]="submission.data.social_twitter"
+                            name="personSocialTwitter"/>
+                        </md-input-container>
+                    </div>
+
+                    <div class="form-group">
+                        <!--<label for="personSocial">Facebook, Twitter, and other Social Media Connections</label>-->
+                        <md-input-container class="full-width">
+                            <input md-input mdInput type="url" 
+                            placeholder="Other Social Media Connections"
+                            id="personSocialOther" 
+                            class="form-control" 
+                            [(ngModel)]="submission.data.social_other"
+                            name="personSocialOther"/>
+                        </md-input-container>
                     </div>
 
                     <div class="form-group">

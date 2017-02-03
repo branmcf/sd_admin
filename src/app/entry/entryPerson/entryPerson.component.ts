@@ -36,7 +36,9 @@ export class EntryPersonComponent implements OnInit {
         state: '',
         country: '',
         url: '',
-        social_url: '',
+        social_facebook: '',
+        social_twitter: '',
+        social_other: '',
         emphasis: '',
         hymn_soc_member: '',
         topics: {
