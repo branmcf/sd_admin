@@ -69,17 +69,9 @@
                             id="orgParent" 
                             class="form-control"
                             [(ngModel)]="submission.data.parent"
-                            name="orgParent"
-                            #orgParent="ngModel"/>
+                            name="orgParent"/>
                         </md-input-container>
                     </div>  
-                    <div class="alert alert-danger" *ngIf="orgParent.errors && orgParent.touched">
-                        <ul>
-                            <li [hidden]="!orgParent.errors.required">
-                                Parent organization is required
-                            </li>
-                        </ul>
-                    </div>
 
                     <div class="form-group">
                         <label for="orgDenomination">Are you related to or a part of a specific denomination or tradition?</label>

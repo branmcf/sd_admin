@@ -86,18 +86,8 @@
                             id="eventParent" 
                             class="form-control" 
                             [(ngModel)]="submission.data.parent"
-                            name="eventParent"
-                            #eventParent="ngModel"
-                            required/>
-                        </md-input-container>
-                        <div class="alert alert-danger" *ngIf="eventParent.errors && eventParent.touched">
-                            <ul>
-                                <li [hidden]="!eventParent.errors.required">
-                                    Parent/Sponsoring rganization is required
-                                </li>
-                            </ul>
-                        </div>
-                        
+                            name="eventParent"/>
+                        </md-input-container>          
                     </div>
 
                     <div class="form-group">
