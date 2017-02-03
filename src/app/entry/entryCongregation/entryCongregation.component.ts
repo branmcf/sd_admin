@@ -17,6 +17,7 @@ export class EntryCongregationComponent {
   countryOther: string;
   denomOther: string;
   shapeOther: string;
+  attireOther: string;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -54,6 +55,7 @@ export class EntryCongregationComponent {
           Older_hymn_text_set_to_a_new_contemporary_tune_or_retuned: false,
           Song_from_another_country_or_World_Song: false,
           Secular_Song: false,
+          Other: ''
         },
         instruments: {
           Acappella: false,
@@ -64,7 +66,7 @@ export class EntryCongregationComponent {
           Orchestra_Wind_Ensemble: false,
           Handbells: false,
           Obligato_instruments_flute_clarinet_trumpet_etc: false,
-          congInstruOther: ''
+          Other: ''
         },
         shape: '',
         clothing: '',
@@ -76,23 +78,12 @@ export class EntryCongregationComponent {
           Native_American_Indigenous_Peoples: false,
           Asian: false,
           Middle_Eastern: false,
-          congEthOther: ''
+          Other: ''
         },
         attendance: ''
       }
     };
   }
-
-  typesOptions = [
-    "A hymn written prior to 1970",
-    "Newly composed hymn (within the last 10 years)",
-    "Praise and Worship Song (CCM)",
-    "Psalm Setting",
-    "Chant (Gregorian, Anglican, Pointed or Taize)",
-    "Older hymn text set to a new contemporary tune (or 're-tuned')",
-    "Song from another country (or 'World Song')",
-    "Secular Song"
-  ]
 
   private getUser() {
 
@@ -129,6 +120,9 @@ export class EntryCongregationComponent {
     }
     if (this.shapeOther) {
       this.submission.data.shape = this.shapeOther;
+    }
+    if (this.attireOther) {
+      this.submission.data.clothing = this.attireOther;
     }
     console.log(this.submission);
     this.submitService.submitCongregation(this.submission);

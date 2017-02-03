@@ -70,8 +70,7 @@
                             class="form-control"
                             [(ngModel)]="submission.data.parent"
                             name="orgParent"
-                            #orgParent="ngModel"
-                            required/>
+                            #orgParent="ngModel"/>
                         </md-input-container>
                     </div>  
                     <div class="alert alert-danger" *ngIf="orgParent.errors && orgParent.touched">
@@ -167,7 +166,7 @@
                         <label for="orgGeogrpahics">What geographic area(s) do you serve?</label>
                             <md-radio-group [(ngModel)]="submission.data.geographic_area" name="orgGeographics" required>
                                 <md-radio-button class="block-input" name="geographics" value="Our City Only" required>Our City Only</md-radio-button>
-                                <md-radio-button class="block-input" name="geographics" value="Our State Only">Our State Only</md-radio-button>
+                                <md-radio-button class="block-input" name="geographics" value="Our Region/Synod/Presbytery/Dioceses Only">Our Region/Synod/Presbytery/Dioceses Only</md-radio-button>
                                 <md-radio-button class="block-input" name="geographics" value="Our Region Only">Our Region Only</md-radio-button>
                                 <md-radio-button class="block-input" name="geographics" value="U.S. Only">U.S. Only</md-radio-button>
                                 <md-radio-button class="block-input" name="geographics" value="Canada Only">Canada Only</md-radio-button>
