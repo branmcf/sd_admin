@@ -136,18 +136,36 @@
                         <!--<label for="eventDate">Event Start Date</label>-->
                         <md-input-container>
                             <input md-input mdInput type="date" 
-                            placeholder="Event Date"
-                            id="eventDate" 
+                            placeholder="Event Start Date"
+                            id="eventStartDate" 
                             class="form-control" 
-                            [(ngModel)]="submission.data.event_date"
-                            name="eventDate"
-                            #eventDate="ngModel"
+                            [(ngModel)]="submission.data.event_start_date"
+                            name="eventStartDate"
+                            #eventStartDate="ngModel"
                             rerquired/>
                         </md-input-container>
-                        <div class="alert alert-danger" *ngIf="eventDate.errors && eventDate.touched">
+                        <div class="alert alert-danger" *ngIf="eventStartDate.errors && eventStartDate.touched">
                             <ul>
-                                <li [hidden]="!eventDate.errors.required">
-                                    Date is required
+                                <li [hidden]="!eventStartDate.errors.required">
+                                    Start date is required
+                                </li>
+                            </ul>
+                        </div>
+
+                        <md-input-container>
+                            <input md-input mdInput type="date" 
+                            placeholder="Event End Date"
+                            id="eventEndDate" 
+                            class="form-control" 
+                            [(ngModel)]="submission.data.event_end_date"
+                            name="eventEndDate"
+                            #eventEndDate="ngModel"
+                            rerquired/>
+                        </md-input-container>
+                        <div class="alert alert-danger" *ngIf="eventEndDate.errors && eventEndDate.touched">
+                            <ul>
+                                <li [hidden]="!eventEndDate.errors.required">
+                                    End date is required
                                 </li>
                             </ul>
                         </div>

@@ -9,4 +9,7 @@ import { Route, Router, RoutesRecognized, ActivatedRoute, Params } from '@angula
 
 export class EntryNavComponent {
 	constructor() {}
+	
 }
+
+document.getElementsByClassName("navOption");

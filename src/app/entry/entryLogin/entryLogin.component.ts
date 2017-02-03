@@ -28,6 +28,7 @@ export class EntryComponent {
             var responseInfo = JSON.parse(x);
             console.log(responseInfo);
             sessionStorage.setItem('userInfo', JSON.stringify(responseInfo));
+            sessionStorage.setItem('hasClicked', "false");
             this.router.navigateByUrl('entry/welcome');
         });
     }
