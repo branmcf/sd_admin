@@ -94,10 +94,28 @@
                                     </md-input-container>
                                 </md-radio-button>
                             </md-radio-group>
-                    </div>                              
+                    </div>
 
                     <div class="form-group">
-                        <!--<label for="orgCity">What city are you located/headquartered?</label>-->
+                        <label for="orgCountry">What country are you located/headquartered?</label><br>
+                        <md-select [(ngModel)]="submission.data.country" name="country" required>
+                            <md-option *ngFor="let country of all_countries" [value]="country">
+                                {{country}}
+                            </md-option>
+                        </md-select>
+                    </div>    
+
+                    <div *ngIf="countries.getCountryByName(submission.data.country).provinces" class="form-group">
+                        <label for="orgState">What state are you located/headquartered?</label><br>
+                         <md-select placeholder="State/Province" [(ngModel)]="submission.data.state" name="eventState">
+                            <md-option *ngFor="let state of countries.getCountryByName(submission.data.country).provinces" [value]="state">
+                                {{state.name}}
+                            </md-option>
+                        </md-select>
+                    </div>
+                              
+
+                    <div class="form-group">
                         <md-input-container class="full-width">
                             <input md-input mdInput type="text"
                             placeholder="What city are you located/headquartered?"
@@ -117,8 +135,8 @@
                         </ul>
                     </div> 
 
-                    <div class="form-group">
-                        <!--<label for="orgState">What state are you located/headquartered?</label>-->
+                    <!--<div class="form-group">
+                        <!--<label for="orgState">What state are you located/headquartered?</label>
                         <md-input-container class="full-width">
                             <input md-input mdInput type="text"
                             placeholder="What state are you located/headquartered?"
@@ -152,7 +170,7 @@
                                     </md-input-container>
                                 </md-radio-button>  
                             </md-radio-group>  
-                    </div>
+                    </div>-->
 
                     <div class="form-group">
                         <label for="orgGeogrpahics">What geographic area(s) do you serve?</label>

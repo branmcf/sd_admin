@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-
 import { SubmitService } from './../../services/submit.service';
 import { ContentfulService } from './../../services/contentful.service';
+import * as country_list from 'country-list';
+import * as countries from 'node-countries';
 
 
 @Component({
@@ -18,12 +19,15 @@ export class EntryCongregationComponent {
   denomOther: string;
   shapeOther: string;
   attireOther: string;
+  all_countries: [any];
+  countries: any;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
     private submitService : SubmitService,
     private contentful: ContentfulService) {
-
+      this.all_countries = country_list().getNames();
+      this.countries = countries;
   }
 
   ngOnInit() {
@@ -44,7 +48,7 @@ export class EntryCongregationComponent {
         denomination: '',
         city: '',
         state: '',
-        country: '',
+        country: 'United States',
         hymn_soc_member: '',
         categories: {
           A_hymn_written_prior_to_1970: false,

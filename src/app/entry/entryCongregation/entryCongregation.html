@@ -64,7 +64,22 @@
                     </div>
 
                     <div class="form-group">
-                        <!--<label for="congregationCity">City</label>-->
+                        <md-select placeholder="Country" [(ngModel)]="submission.data.country" name="country" required>
+                            <md-option *ngFor="let country of all_countries" [value]="country">
+                                {{country}}
+                            </md-option>
+                        </md-select>
+                    </div>    
+
+                    <div class="form-group">
+                         <md-select *ngIf="countries.getCountryByName(submission.data.country).provinces" placeholder="State/Province" [(ngModel)]="submission.data.state" name="eventState">
+                            <md-option *ngFor="let state of countries.getCountryByName(submission.data.country).provinces" [value]="state">
+                                {{state.name}}
+                            </md-option>
+                        </md-select>
+                    </div>
+
+                    <div class="form-group">
                         <md-input-container class="full-width">
                             <input md-input mdInput type="text"
                             placeholder="City"
@@ -82,44 +97,6 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <!--<label for="congregationState">State</label>-->
-                        <md-input-container class="full-width">
-                            <input md-input mdInput type="text"
-                            placeholder="State"
-                            id="congregationState" 
-                            class="form-control" 
-                            [(ngModel)]="submission.data.state"
-                            name="congregationState"
-                            #congregationState="ngModel"
-                            required/>
-                        </md-input-container>
-                        <div class="alert alert-danger" *ngIf="congregationState.errors && congregationState.touched">
-                            <ul>
-                                <li [hidden]="!congregationState.errors.required">
-                                    State is required
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="congregationCountry">Country</label>
-                        <md-radio-group [(ngModel)]="submission.data.country" name="congregationCountry" required>
-                            <md-radio-button class="block-input" value="USA" required> USA</md-radio-button>
-                            <md-radio-button class="block-input" value="Canada"> Canada</md-radio-button>
-                            <md-radio-button class="block-input" value="other">
-                                <md-input-container>
-                                <input md-input mdInput type="text" 
-                                placeholder="Other Country"
-                                [(ngModel)]="countryOther"
-                                name="otherCountry"/>
-                                </md-input-container>
-                            </md-radio-button>
-                            
-                        </md-radio-group>
                     </div>
 
                     <div class="form-group">

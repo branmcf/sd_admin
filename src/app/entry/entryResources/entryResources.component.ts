@@ -14,11 +14,11 @@ export class EntryResourcesComponent implements OnInit {
   submission: any;
   resourceTypeOther: any;
 
-	constructor (private route: ActivatedRoute,
+  constructor (private route: ActivatedRoute,
     private router: Router,
     private contentful: ContentfulService,
     private submitService: SubmitService) {
-}
+  }
 
   ngOnInit() {
     this.contentful.getResourcesForm().then((content) => {

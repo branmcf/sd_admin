@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ContentfulService } from './../../services/contentful.service';
 import { SubmitService } from './../../services/submit.service';
+import * as country_list from 'country-list';
+import * as countries from 'node-countries';
 
 
 @Component({
@@ -13,12 +15,15 @@ export class EntryEventComponent implements OnInit {
   content: JSON;
   submission: any;
   eventOccurance: any;
+  all_countries: [any];
+  countries: any;
 
   constructor (private route: ActivatedRoute,
     private router: Router,
     private contentful: ContentfulService,
     private submitService: SubmitService) {
-
+      this.all_countries = country_list().getNames();
+      this.countries = countries;
   }
 
   ngOnInit() {
@@ -42,7 +47,7 @@ export class EntryEventComponent implements OnInit {
         cost: '',
         city: '',
         state: '',
-        country: '',
+        country: 'United States',
         hymn_soc_member: ''
       }
     };

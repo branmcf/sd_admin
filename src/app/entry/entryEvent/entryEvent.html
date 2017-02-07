@@ -183,7 +183,22 @@
                     </div> 
 
                     <div class="form-group">
-                        <!--<label for="eventCity">Event City</label>-->
+                        <md-select placeholder="Event Country" [(ngModel)]="submission.data.country" name="eventCountry" required>
+                            <md-option *ngFor="let country of all_countries" [value]="country">
+                                {{country}}
+                            </md-option>
+                        </md-select>
+                    </div>    
+
+                    <div class="form-group">
+                         <md-select *ngIf="countries.getCountryByName(submission.data.country).provinces" placeholder="State/Province" [(ngModel)]="submission.data.state" name="eventState">
+                            <md-option *ngFor="let state of countries.getCountryByName(submission.data.country).provinces" [value]="state">
+                                {{state.name}}
+                            </md-option>
+                        </md-select>
+                    </div>
+
+                    <div class="form-group">
                         <md-input-container class="full-width">
                             <input md-input mdInput type="text"
                             placeholder="Event City"
@@ -202,48 +217,7 @@
                             </ul>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <!--<label for="eventState">Event State</label>-->
-                        <md-input-container class="full-width">
-                            <input md-input mdInput type="text"
-                            placeholder="Event State"
-                            id="eventState" 
-                            class="form-control" 
-                            [(ngModel)]="submission.data.state"
-                            name="eventState"
-                            #eventState="ngModel"
-                            required/>
-                        </md-input-container>
-                        <div class="alert alert-danger" *ngIf="eventState.errors && eventState.touched">
-                            <ul>
-                                <li [hidden]="!eventState.errors.required">
-                                    City is required
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                     
-                    <div class="form-group">
-                        <!--<label for="eventCountry">Event Country</label>-->
-                        <md-input-container class="full-width">
-                            <input md-input mdInput type="text"
-                            placeholder="Event Country"
-                            id="eventCountry" 
-                            class="form-control" 
-                            [(ngModel)]="submission.data.country"
-                            name="eventCountry"
-                            #eventCountry="ngModel"
-                            required/>
-                        </md-input-container>
-                        <div class="alert alert-danger" *ngIf="eventCountry.errors && eventCountry.touched">
-                            <ul>
-                                <li [hidden]="!eventCountry.errors.required">
-                                    Country is required
-                                </li>
-                            </ul>
-                        </div>
-                    </div>    
 
                     <div class="form-group">
                         <label for="eventMember">Is a Hymn Society member involved?</label>

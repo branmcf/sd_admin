@@ -102,45 +102,19 @@
                     </div>
 
                     <div class="form-group">
-                        <!--<label for="personState">State/Province</label>-->
-                        <md-input-container class="full-width">
-                            <input md-input mdInput type="text"
-                            placeholder="State/Province"
-                            id="personState" 
-                            class="form-control" 
-                            [(ngModel)]="submission.data.state"
-                            name="personState"
-                            #personState="ngModel"
-                            required/>
-                        </md-input-container>
-                        <div class="alert alert-danger" *ngIf="personState.errors && personState.touched">
-                            <ul>
-                                <li [hidden]="!personState.errors.required">
-                                    State is required
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                        <md-select placeholder="Country" [(ngModel)]="submission.data.country" name="country" required>
+                            <md-option *ngFor="let country of all_countries" [value]="country">
+                                {{country}}
+                            </md-option>
+                        </md-select>
+                    </div>    
 
                     <div class="form-group">
-                        <!--<label for="personCountry">Country</label>-->
-                        <md-input-container class="full-width">
-                            <input md-input mdInput type="text"
-                            placeholder="Country"
-                            id="personCountry" 
-                            class="form-control" 
-                            [(ngModel)]="submission.data.country"
-                            name="personCountry"
-                            #personCountry="ngModel"
-                            required/>
-                        </md-input-container>
-                        <div class="alert alert-danger" *ngIf="personCountry.errors && personCountry.touched">
-                            <ul>
-                                <li [hidden]="!personCountry.errors.required">
-                                    Country is required
-                                </li>
-                            </ul>
-                        </div>
+                         <md-select *ngIf="countries.getCountryByName(submission.data.country).provinces" placeholder="State/Province" [(ngModel)]="submission.data.state" name="eventState">
+                            <md-option *ngFor="let state of countries.getCountryByName(submission.data.country).provinces" [value]="state">
+                                {{state.name}}
+                            </md-option>
+                        </md-select>
                     </div>
 
                     <div class="form-group">

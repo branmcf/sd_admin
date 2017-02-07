@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ContentfulService } from './../../services/contentful.service';
 import { SubmitService } from './../../services/submit.service';
+import * as country_list from 'country-list';
+import * as countries from 'node-countries';
 
 
 @Component({
@@ -12,11 +14,15 @@ import { SubmitService } from './../../services/submit.service';
 export class EntryPersonComponent implements OnInit {
   content: JSON;
   submission: any;
+  all_countries: [any];
+  countries: any;
 
   constructor (private route: ActivatedRoute,
     private router: Router,
     private contentful: ContentfulService,
     private submitService: SubmitService) {
+      this.all_countries = country_list().getNames();
+      this.countries = countries;
   }
 
   ngOnInit() {
@@ -34,7 +40,7 @@ export class EntryPersonComponent implements OnInit {
         email: '',
         city: '',
         state: '',
-        country: '',
+        country: 'United States',
         url: '',
         social_facebook: '',
         social_twitter: '',
