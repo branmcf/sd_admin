@@ -1,10 +1,10 @@
 <div class="col-sm-3 col-md-2 sidebar">
     <ul class="nav-sidebar">
-      <li><a routerLink="/entry/resources">Resources</a></li>
-      <li><a routerLink="/entry/person">Person</a></li>
-      <li><a routerLink="/entry/congregations">Congregation</a></li>
-      <li><a routerLink="/entry/orgs">Organization</a></li>
-      <li><a routerLink="/entry/events">Event</a></li>
+      <li><a md-button (click)="openDialog('/entry/resources')">Resources</a></li>
+      <li><a md-button (click)="openDialog('/entry/person')">Person</a></li>
+      <li><a md-button (click)="openDialog('/entry/congregations')">Congregation</a></li>
+      <li><a md-button (click)="openDialog('/entry/orgs')">Organization</a></li>
+      <li><a md-button (click)="openDialog('/entry/events')">Event</a></li>
     </ul>
 </div>
 <div>

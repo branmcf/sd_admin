@@ -1,6 +1,6 @@
 import { Component, OnInit, Injectable, EventEmitter, Input, ViewContainerRef} from '@angular/core';
 import { Route, Router, RoutesRecognized, ActivatedRoute, Params } from '@angular/router';
-import {MdDialog, MdDialogRef} from '@angular/material';
+import { MdDialog, MdDialogRef } from '@angular/material';
 
 
 @Component({

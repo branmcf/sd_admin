@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { EntryNavComponent } from './entryNavbar/entryNavbar.component';
+import { EntryNavComponent, NavConfirm } from './entryNavbar/entryNavbar.component';
 import { EntryNavModalComponent, NavDialog } from './entryNavModal/entryNavModal.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
@@ -17,9 +17,11 @@ import 'hammerjs';
         EntryNavComponent,
 		EntryNavModalComponent,
 		NavDialog,
+		NavConfirm
     ],
 	entryComponents: [
 		NavDialog,
+		NavConfirm
 	],
     exports: [
         EntryNavComponent,

@@ -7,7 +7,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 })
 export class LandingComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
