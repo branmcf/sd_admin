@@ -14,7 +14,7 @@ export class EntryNavComponent {
     this.dialogRef = this.dialog.open(NavConfirm, {
       disableClose: false,
       width: '30%',
-      height: '25%',
+      height: '30%',
       position: {left: '40%'},
     });
 
@@ -35,7 +35,7 @@ export class EntryNavComponent {
   template: `
     <div class="nav-dialog">
       <h1 md-dialog-title>Are you sure you want to leave?</h1>
-
+      <md-dialog-content>You will lose your work!</md-dialog-content>
       <md-dialog-actions>
           <button md-button md-dialog-close>Cancel</button>
 		  <button md-button color="primary" (click)="dialogRef.close(link)">Yes</button>
