@@ -2,14 +2,12 @@ import { Component, OnInit, Injectable, EventEmitter, Input } from '@angular/cor
 import { Route, Router, RoutesRecognized, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-	// tslint:disable-next-line:component-selector-prefix
-	selector: 'entry-nav',
-	templateUrl: './entryNavbar.html',
+  selector: 'entry-nav',
+  templateUrl: './entryNavbar.html',
 })
 
 export class EntryNavComponent {
-	constructor() {}
-	
+  constructor() {}
 }
 
-document.getElementsByClassName("navOption");
+document.getElementsByClassName('navOption');

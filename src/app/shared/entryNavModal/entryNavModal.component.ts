@@ -4,25 +4,23 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 
 
 @Component({
-	// tslint:disable-next-line:component-selector-prefix
-	selector: 'entry-nav-modal',
-	templateUrl: './entryNavModal.html',
+  selector: 'entry-nav-modal',
+  templateUrl: './entryNavModal.html',
 })
 
 export class EntryNavModalComponent {
-	dialogRef: MdDialogRef<NavDialog>;
-	constructor(public dialog: MdDialog) {}
+  dialogRef: MdDialogRef<NavDialog>;
+  constructor(public dialog: MdDialog) {}
 
-	openDialog() {
+  openDialog() {
     this.dialogRef = this.dialog.open(NavDialog, {
       disableClose: false,
       width: '50%',
-      height: '50%',
+      height: '60%',
       position: {left: '25%'},
     });
 
     this.dialogRef.afterClosed().subscribe(result => {
-      console.log('result: ' + result);
       this.dialogRef = null;
     });
   }
@@ -36,15 +34,15 @@ export class EntryNavModalComponent {
 
       <md-dialog-content>
           <ul class="nav-sidebar">
-              <li><button md-dialog-close><a routerLink="/entry/resources">Resources</a></button></li>
-              <li><button md-dialog-close><a routerLink="/entry/person">Person</a></button></li>
-              <li><button md-dialog-close><a routerLink="/entry/congregations">Congregation</a></button></li>
-              <li><button md-dialog-close><a routerLink="/entry/orgs">Organization</a></button></li>
-              <li><button md-dialog-close><a routerLink="/entry/events">Event</a></button></li>
+              <li><a md-button md-dialog-close routerLink="/entry/resources">Resources</a></li>
+              <li><a md-button md-dialog-close routerLink="/entry/person">Person</a></li>
+              <li><a md-button md-dialog-close routerLink="/entry/congregations">Congregation</a></li>
+              <li><a md-button md-dialog-close routerLink="/entry/orgs">Organization</a></li>
+              <li><a md-button md-dialog-close routerLink="/entry/events">Event</a></li>
           </ul>
       </md-dialog-content>
       <md-dialog-actions>
-          <button md-dialog-close>Cancel</button>
+          <button md-button md-dialog-close>Cancel</button>
       </md-dialog-actions>
     </div>
   `
