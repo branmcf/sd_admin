@@ -4,6 +4,7 @@ import { SubmitService } from './../../services/submit.service';
 import { ContentfulService } from './../../services/contentful.service';
 import * as country_list from 'country-list';
 import * as countries from 'node-countries';
+import { MdDialog, MdDialogRef } from '@angular/material';
 
 
 @Component({
@@ -21,13 +22,27 @@ export class EntryCongregationComponent {
   attireOther: string;
   all_countries: [any];
   countries: any;
+  dialogRef: MdDialogRef<CongDialog>;
+  selected: string;
 
   constructor(private route: ActivatedRoute,
+    public dialog: MdDialog,
     private router: Router,
     private submitService : SubmitService,
     private contentful: ContentfulService) {
       this.all_countries = country_list().getNames();
       this.countries = countries;
+  }
+
+  openDialog() {
+    let dialogRef = this.dialog.open(CongDialog, {
+      disableClose: false,
+      width: '20%',
+      height: '20%',
+    });
+    dialogRef.afterClosed().subscribe(result=> {
+      this.submit();
+    });
   }
 
   ngOnInit() {
@@ -130,9 +145,24 @@ export class EntryCongregationComponent {
     }
     console.log(this.submission);
     this.submitService.submitCongregation(this.submission);
+    location.reload();
   }
+}
 
-  next() {
-    this.router.navigate(['entry/orgs']);
-  }
+@Component({
+  selector: 'cong-dialog',
+  template: `
+    <div class="cong-dialog">
+      <h1 md-dialog-title>Are you sure you want to submit?</h1>
+      <md-dialog-actions>
+          <button md-button md-raised-button color="primary" md-dialog-close>Submit</button>
+          <button md-button md-dialog-close>Cancel</button>
+      </md-dialog-actions>
+    </div>
+  `,
+})
+
+export class CongDialog {
+  constructor() {}
+
 }

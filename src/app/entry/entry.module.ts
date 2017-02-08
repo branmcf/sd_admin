@@ -8,7 +8,7 @@ import { MaterialModule } from '@angular/material';
 import { EntryComponent } from './entryLogin/entryLogin.component';
 import { EntryResourcesComponent } from './entryResources/entryResources.component';
 import { EntryPersonComponent } from './entryPerson/entryPerson.component';
-import { EntryCongregationComponent } from './entryCongregation/entryCongregation.component';
+import { EntryCongregationComponent , CongDialog } from './entryCongregation/entryCongregation.component';
 import { EntryOrgsComponent } from './entryOrgs/entryOrgs.component';
 import { EntryEventComponent } from './entryEvent/entryEvent.component';
 import { EntryReviewComponent } from './entryReview/entryReview.component';
@@ -32,6 +32,7 @@ import { UserService } from '../services/user.service';
     EntryOrgsComponent,
     EntryEventComponent,
     EntryReviewComponent,
+    CongDialog,
   ],
   imports: [
     CommonModule,
