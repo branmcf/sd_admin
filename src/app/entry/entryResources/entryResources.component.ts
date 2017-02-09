@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ContentfulService } from './../../services/contentful.service';
 import { SubmitService } from './../../services/submit.service';
+import { MdDialog, MdDialogRef } from '@angular/material';
 
 @Component({
   selector: 'hymn-entry-resources',
@@ -13,11 +14,24 @@ export class EntryResourcesComponent implements OnInit {
   content: JSON;
   submission: any;
   resourceTypeOther: any;
+  dialogRef: MdDialogRef<ResourceDialog>;
 
   constructor (private route: ActivatedRoute,
+   public dialog: MdDialog,
     private router: Router,
     private contentful: ContentfulService,
     private submitService: SubmitService) {
+  }
+
+    openDialog() {
+    let dialogRef = this.dialog.open(ResourceDialog, {
+      disableClose: false,
+      width: '20%',
+      height: '20%',
+    });
+    dialogRef.afterClosed().subscribe(result=> {
+      this.submit();
+    });
   }
 
   ngOnInit() {
@@ -123,9 +137,24 @@ export class EntryResourcesComponent implements OnInit {
     }
     console.log((this.submission));
     this.submitService.submitResource(this.submission);
+    location.reload();  
   }
+}
 
-	next() {
-  	this.router.navigate(['entry/person']);
-	}
+@Component({
+  selector: 'resource-dialog',
+  template: `
+    <div class="cong-dialog">
+      <h1 md-dialog-title>Are you sure you want to submit?</h1>
+      <md-dialog-actions>
+          <button md-button md-raised-button color="primary" md-dialog-close>Submit</button>
+          <button md-button md-dialog-close>Cancel</button>
+      </md-dialog-actions>
+    </div>
+  `,
+})
+
+export class ResourceDialog {
+  constructor() {}
+
 }

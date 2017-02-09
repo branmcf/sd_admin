@@ -14,7 +14,7 @@
                     <md-card-title><h4 class="card-title">{{content?.fields.title}}</h4></md-card-title>
 
                     <form name="congregationForm"
-                    (ngSubmit)="submit()"
+                    (ngSubmit)="openDialog()"
                     #congregationForm="ngForm"
                     *ngIf="submission">
 
@@ -411,8 +411,8 @@
                         Return to home
                         </button>
                     </md-card-actions>
-                    </form>                      
-                    
+                    </form>  
+
                 </md-card-content> <!-- end class card-block-->
             </md-card> <!-- end class card -->
         </div> <!-- end class col-md-8 offset-md-2 -->
