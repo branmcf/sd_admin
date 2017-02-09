@@ -12,6 +12,11 @@ export class UserService implements CanActivate {
 
     constructor(private http: Http) {}
 
+    private createAuthorizationHeader(headers: Headers, user:JSON) {
+        headers.append('Authorization', 'Basic ' +
+        btoa(user['email'] + ':' + user['password']));
+    }
+
     get(user_id: number): Promise<any> {
         return this.http
             .get(`${this._apiUrl}/user/${user_id}`)
@@ -29,9 +34,13 @@ export class UserService implements CanActivate {
     // }
 
 
-    login(user){
+    login(user) {
+        let headers = new Headers();
+        this.createAuthorizationHeader(headers, user);
         return this.http
-            .get(this._apiUrl + 'login', user)
+            .get(this._apiUrl + 'login', {
+                headers: headers
+            })
             .toPromise()
             .then(x => x['_body'] as any);
     }

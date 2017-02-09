@@ -33,7 +33,7 @@ import { UserService } from '../services/user.service';
     EntryEventComponent,
     EntryReviewComponent,
     CongDialog,
-    ,PersonDialog,
+    PersonDialog,
     ResourceDialog,
     EventDialog,
     OrgsDialog,
