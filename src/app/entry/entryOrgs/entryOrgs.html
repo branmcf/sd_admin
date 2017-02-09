@@ -12,7 +12,7 @@
                     <md-card-title><h4 class="card-title">{{content?.fields.title}}</h4></md-card-title>
                     
                     <form name="orgsForm"
-                    (ngSubmit)="submit()"
+                    (ngSubmit)="openDialog()"
                     #orgsForm="ngForm"
                     *ngIf="submission">
 
