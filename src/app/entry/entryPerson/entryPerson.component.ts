@@ -4,6 +4,7 @@ import { ContentfulService } from './../../services/contentful.service';
 import { SubmitService } from './../../services/submit.service';
 import * as country_list from 'country-list';
 import * as countries from 'node-countries';
+import { MdDialog, MdDialogRef } from '@angular/material';
 
 
 @Component({
@@ -16,13 +17,26 @@ export class EntryPersonComponent implements OnInit {
   submission: any;
   all_countries: [any];
   countries: any;
+  dialogRef: MdDialogRef<PersonDialog>;
 
   constructor (private route: ActivatedRoute,
+   public dialog: MdDialog,
     private router: Router,
     private contentful: ContentfulService,
     private submitService: SubmitService) {
       this.all_countries = country_list().getNames();
       this.countries = countries;
+  }
+
+    openDialog() {
+    let dialogRef = this.dialog.open(PersonDialog, {
+      disableClose: false,
+      width: '20%',
+      height: '20%',
+    });
+    dialogRef.afterClosed().subscribe(result=> {
+      this.submit();
+    });
   }
 
   ngOnInit() {
@@ -102,9 +116,25 @@ export class EntryPersonComponent implements OnInit {
     this.submission.uid = obj.user_id;
 
     console.log(this.submission);
-
     this.submitService.submitPerson(this.submission);
+    location.reload();
   }
+}
 
-	
+@Component({
+  selector: 'person-dialog',
+  template: `
+    <div class="cong-dialog">
+      <h1 md-dialog-title>Are you sure you want to submit?</h1>
+      <md-dialog-actions>
+          <button md-button md-raised-button color="primary" md-dialog-close>Submit</button>
+          <button md-button md-dialog-close>Cancel</button>
+      </md-dialog-actions>
+    </div>
+  `,
+})
+
+export class PersonDialog {
+  constructor() {}
+
 }

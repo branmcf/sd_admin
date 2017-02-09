@@ -6,11 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 
 import { EntryComponent } from './entryLogin/entryLogin.component';
-import { EntryResourcesComponent } from './entryResources/entryResources.component';
-import { EntryPersonComponent } from './entryPerson/entryPerson.component';
+import { EntryResourcesComponent, ResourceDialog } from './entryResources/entryResources.component';
+import { EntryPersonComponent, PersonDialog } from './entryPerson/entryPerson.component';
 import { EntryCongregationComponent , CongDialog } from './entryCongregation/entryCongregation.component';
-import { EntryOrgsComponent } from './entryOrgs/entryOrgs.component';
-import { EntryEventComponent } from './entryEvent/entryEvent.component';
+import { EntryOrgsComponent, OrgsDialog } from './entryOrgs/entryOrgs.component';
+import { EntryEventComponent, EventDialog } from './entryEvent/entryEvent.component';
 import { EntryReviewComponent } from './entryReview/entryReview.component';
 import { EntryLandingComponent } from './entryLanding/entryLanding.component';
 import { HeaderModule } from '../header/header.module';
@@ -33,6 +33,10 @@ import { UserService } from '../services/user.service';
     EntryEventComponent,
     EntryReviewComponent,
     CongDialog,
+    ,PersonDialog,
+    ResourceDialog,
+    EventDialog,
+    OrgsDialog,
   ],
   imports: [
     CommonModule,

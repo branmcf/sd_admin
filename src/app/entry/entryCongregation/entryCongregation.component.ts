@@ -23,7 +23,6 @@ export class EntryCongregationComponent {
   all_countries: [any];
   countries: any;
   dialogRef: MdDialogRef<CongDialog>;
-  selected: string;
 
   constructor(private route: ActivatedRoute,
     public dialog: MdDialog,
