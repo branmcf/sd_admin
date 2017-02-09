@@ -111,7 +111,7 @@
 
                     <div class="form-group">
                          <md-select *ngIf="countries.getCountryByName(submission.data.country).provinces" placeholder="State/Province" [(ngModel)]="submission.data.state" name="eventState">
-                            <md-option *ngFor="let state of countries.getCountryByName(submission.data.country).provinces" [value]="state">
+                            <md-option *ngFor="let state of countries.getCountryByName(submission.data.country).provinces" [value]="state.name">
                                 {{state.name}}
                             </md-option>
                         </md-select>

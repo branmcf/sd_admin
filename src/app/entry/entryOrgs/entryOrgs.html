@@ -76,7 +76,7 @@
                     <div class="form-group">
                         <label for="orgDenomination">Are you related to or a part of a specific denomination or tradition?</label>
                             <md-radio-group [(ngModel)]="submission.data.denomination" name="orgDenomination" required>
-                                <md-radio-button class="block-input" name="denomination" value="Ecumenical/Multi-Denominational" required>Ecumenical/Multi-Denominational</md-radio-button>
+                                <md-radio-button class="block-input" name="denomination" value="Ecumenical/Multi-Denominational">Ecumenical/Multi-Denominational</md-radio-button>
                                 <md-radio-button class="block-input" name="denomination" value="Non-Denominational">Non-Denominational</md-radio-button>
                                 <md-radio-button class="block-input" name="denomination" value="Roman Catholic">Roman Catholic</md-radio-button>
                                 <md-radio-button class="block-input" name="denomination" value="Anglican/Episcopal">Anglican/Episcopal</md-radio-button>
@@ -107,8 +107,8 @@
 
                     <div *ngIf="countries.getCountryByName(submission.data.country).provinces" class="form-group">
                         <label for="orgState">What state are you located/headquartered?</label><br>
-                         <md-select placeholder="State/Province" [(ngModel)]="submission.data.state" name="eventState">
-                            <md-option *ngFor="let state of countries.getCountryByName(submission.data.country).provinces" [value]="state">
+                         <md-select [(ngModel)]="submission.data.state" name="eventState">
+                            <md-option *ngFor="let state of countries.getCountryByName(submission.data.country).provinces" [value]="state.name">
                                 {{state.name}}
                             </md-option>
                         </md-select>
