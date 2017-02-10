@@ -9,23 +9,27 @@ import { MdDialog, MdDialogRef } from '@angular/material';
 
 export class EntryNavComponent {
   dialogRef: MdDialogRef<NavConfirm>;
-  constructor(public dialog: MdDialog, private router: Router) {}
+  constructor(public dialog: MdDialog, private router: Router, private route: ActivatedRoute) {}
   openDialog(link: string) {
-    this.dialogRef = this.dialog.open(NavConfirm, {
-      disableClose: false,
-      width: '30%',
-      height: '30%',
-      position: {left: '40%'},
-    });
+    if (this.router.url === '/entry/welcome') {
+      this.router.navigate([link]);
+    } else {
+      this.dialogRef = this.dialog.open(NavConfirm, {
+        disableClose: false,
+        width: '30%',
+        height: '30%',
+        position: {left: '40%'},
+      });
 
-	this.dialogRef.componentInstance.link = link;
+      this.dialogRef.componentInstance.link = link;
 
-    this.dialogRef.afterClosed().subscribe(result => {
-	  if (result) {
-		 this.router.navigate([result]);
-	  }
-      this.dialogRef = null;
-    });
+      this.dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.router.navigate([result]);
+      }
+        this.dialogRef = null;
+      });
+    }
   }
 }
 
