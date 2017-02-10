@@ -54,7 +54,7 @@ export class EntryEventComponent implements OnInit {
         occurance: '',
         url: '',
         parent: '',
-        topic: '',
+        theme: '',
         description: '',
         event_start_date: '',
         event_end_date: '',
@@ -88,7 +88,7 @@ export class EntryEventComponent implements OnInit {
     var obj = (JSON.parse(userInfo));
 
     this.submission.user = obj.first_name + ' ' + obj.last_name;
-    this.submission.uid = obj.user_id;
+    this.submission.uid = obj.id;
 
     if(this.eventOccurance) {
       this.submission.data.occurance = this.eventOccurance;

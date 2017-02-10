@@ -60,11 +60,11 @@ export class EntryOrgsComponent implements OnInit {
         state: '',
         country: 'United States',
         geographic_area: '',
-        resource_free: '',
-        event_free: '',
+        is_org_free: '',
+        events_free: '',
         membership_free: '',
         mission: '',
-        method: ''
+        process: ''
         }
     };
   }
@@ -88,7 +88,7 @@ export class EntryOrgsComponent implements OnInit {
     var obj = (JSON.parse(userInfo));
 
     this.submission.user = obj.first_name + ' ' + obj.last_name;
-    this.submission.uid = obj.user_id;
+    this.submission.uid = obj.id;
 
     console.log((this.submission));
     if (this.countryOther) {

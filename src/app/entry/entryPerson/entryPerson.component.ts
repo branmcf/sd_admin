@@ -79,7 +79,7 @@ export class EntryPersonComponent implements OnInit {
           Middle_Eastern: false,
           Other: ''
         },
-        categories: {
+        ensembles: {
           Choir: false,
           Cantor: false,
           Song_Enlivener: false,
@@ -113,7 +113,7 @@ export class EntryPersonComponent implements OnInit {
     var obj = (JSON.parse(userInfo));
 
     this.submission.user = obj.first_name + ' ' + obj.last_name;
-    this.submission.uid = obj.user_id;
+    this.submission.uid = obj.id;
 
     console.log(this.submission);
     this.submitService.submitPerson(this.submission);

@@ -208,21 +208,21 @@
                         ng-true-value = "true"
                         ng-false-value = "false"
                         name="resourceTopicOne"
-                        [(ngModel)]="submission.data.topic.Psalm_Setting">
+                        [(ngModel)]="submission.data.topics.Psalm_Setting">
                         Psalm Setting
                     </md-checkbox>
                     <md-checkbox class="block-input"
                         ng-true-value = "true"
                         ng-false-value = "false"
                         name="resourceTopicTwo"
-                        [(ngModel)]="submission.data.topic.Lectionary_Based">
+                        [(ngModel)]="submission.data.topics.Lectionary_Based">
                         Lectionary Based
                     </md-checkbox>
                     <md-checkbox class="block-input"
                         ng-true-value = "true"
                         ng-false-value = "false"
                         name="resourceTopicThree"
-                        [(ngModel)]="submission.data.topic.Social_Justice">
+                        [(ngModel)]="submission.data.topics.Social_Justice">
                         Social Justice
                     </md-checkbox>
                     <md-checkbox class="block-input">                    
@@ -230,7 +230,7 @@
                         <input md-input mdInput type="text"
                         id="resourceTopic" 
                         class="form-control" 
-                        [(ngModel)]="submission.data.topic.Other"
+                        [(ngModel)]="submission.data.topics.Other"
                         name="resourceTopic"
                         placeholder="Other Topic"/>
                         </md-input-container>

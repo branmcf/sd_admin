@@ -128,7 +128,7 @@ export class EntryCongregationComponent {
     var obj = (JSON.parse(userInfo));
 
     this.submission.user = obj.first_name + ' ' + obj.last_name;
-    this.submission.uid = obj.user_id;
+    this.submission.uid = obj.id;
 
     if (this.countryOther) {
       this.submission.data.country = this.countryOther;

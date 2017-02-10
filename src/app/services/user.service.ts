@@ -24,26 +24,26 @@ export class UserService implements CanActivate {
             .then(x => x['_body'] as any);
     }
 
-    // login(user): Promise<any> {
-    //     return this.http
-    //         .post(this._apiUrl + 'login', user)
-    //         .toPromise()
-    //         .then(this.extractData)
-    //         .catch(x => alert('Invalid username or password'));
-
-    // }
-
-
-    login(user) {
-        let headers = new Headers();
-        this.createAuthorizationHeader(headers, user);
+    login(user): Promise<any> {
         return this.http
-            .get(this._apiUrl + 'login', {
-                headers: headers
-            })
+            .post(this._apiUrl + 'login', user)
             .toPromise()
-            .then(x => x['_body'] as any);
+            .then(this.extractData)
+            .catch(x => alert('Invalid username or password'));
+
     }
+
+
+    // login(user) {
+    //     let headers = new Headers();
+    //     this.createAuthorizationHeader(headers, user);
+    //     return this.http
+    //         .get(this._apiUrl + 'login', {
+    //             headers: headers
+    //         })
+    //         .toPromise()
+    //         .then(x => x['_body'] as any);
+    // }
 
     logout() {
         sessionStorage.clear();

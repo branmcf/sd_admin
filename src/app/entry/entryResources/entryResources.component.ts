@@ -65,7 +65,7 @@ export class EntryResourcesComponent implements OnInit {
           Secular_Song: false,
           Other: ''
         },
-        topic: {
+        topics: {
           Psalm_Setting: false,
           Lectionary_Based: false,
           Social_Justice: false,
@@ -131,7 +131,7 @@ export class EntryResourcesComponent implements OnInit {
     var obj = (JSON.parse(userInfo));
 
     this.submission.user = obj.first_name + ' ' + obj.last_name;
-    this.submission.uid = obj.user_id;
+    this.submission.uid = obj.id;
     if (this.resourceTypeOther) {
       this.submission.data.type = this.resourceTypeOther;
     }
