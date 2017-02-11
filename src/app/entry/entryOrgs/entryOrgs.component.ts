@@ -34,11 +34,13 @@ export class EntryOrgsComponent implements OnInit {
     openDialog() {
     let dialogRef = this.dialog.open(OrgsDialog, {
       disableClose: false,
-      width: '20%',
-      height: '20%',
+      width: '30%',
+      height: '30%',
     });
-    dialogRef.afterClosed().subscribe(result=> {
-      this.submit();
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'submit') {
+        this.submit();
+      }
     });
   }
 
@@ -112,7 +114,7 @@ export class EntryOrgsComponent implements OnInit {
     <div class="cong-dialog">
       <h1 md-dialog-title>Are you sure you want to submit?</h1>
       <md-dialog-actions>
-          <button md-button md-raised-button color="primary" md-dialog-close>Submit</button>
+          <button md-button md-raised-button color="primary" (click)="dialogRef.close('submit')">Submit</button>
           <button md-button md-dialog-close>Cancel</button>
       </md-dialog-actions>
     </div>
@@ -120,6 +122,6 @@ export class EntryOrgsComponent implements OnInit {
 })
 
 export class OrgsDialog {
-  constructor() {}
+  constructor(public dialogRef: MdDialogRef<OrgsDialog>) {}
 
 }

@@ -27,7 +27,7 @@ export class EntryCongregationComponent {
   constructor(private route: ActivatedRoute,
     public dialog: MdDialog,
     private router: Router,
-    private submitService : SubmitService,
+    private submitService: SubmitService,
     private contentful: ContentfulService) {
       this.all_countries = country_list().getNames();
       this.countries = countries;
@@ -36,11 +36,13 @@ export class EntryCongregationComponent {
   openDialog() {
     let dialogRef = this.dialog.open(CongDialog, {
       disableClose: false,
-      width: '20%',
-      height: '20%',
+      width: '30%',
+      height: '30%',
     });
-    dialogRef.afterClosed().subscribe(result=> {
-      this.submit();
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'submit') {
+        this.submit();
+      }
     });
   }
 
@@ -154,7 +156,7 @@ export class EntryCongregationComponent {
     <div class="cong-dialog">
       <h1 md-dialog-title>Are you sure you want to submit?</h1>
       <md-dialog-actions>
-          <button md-button md-raised-button color="primary" md-dialog-close>Submit</button>
+          <button md-button md-raised-button color="primary" (click)="dialogRef.close('submit')">Submit</button>
           <button md-button md-dialog-close>Cancel</button>
       </md-dialog-actions>
     </div>
@@ -162,6 +164,6 @@ export class EntryCongregationComponent {
 })
 
 export class CongDialog {
-  constructor() {}
+  constructor(public dialogRef: MdDialogRef<CongDialog>) {}
 
 }
