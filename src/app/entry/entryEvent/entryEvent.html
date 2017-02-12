@@ -225,6 +225,18 @@
                                 <md-radio-button class="block-input" name="hymn_soc_member" value="Yes" required>Yes</md-radio-button>
                                 <md-radio-button class="block-input" name="hymn_soc_member" value="No">No</md-radio-button>
                             </md-radio-group>
+                    </div> 
+
+                    <div class="form-group">
+                        <label for="eventPractSchol">Is this resource practical or scholarly or both??</label>
+                        <md-radio-group [(ngModel)]="submission.data.pract_schol" name="eventPractSchol" required>
+                            <md-radio-button class="block-input" value="Practical" required> 
+                                Practical</md-radio-button>
+                            <md-radio-button class="block-input" value="Scholarly"> 
+                                Scholarly</md-radio-button>
+                            <md-radio-button class="block-input" value="Both"> 
+                                Both</md-radio-button>
+                        </md-radio-group>
                     </div>   
 
                     <md-card-actions>

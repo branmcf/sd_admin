@@ -100,7 +100,8 @@ export class EntryCongregationComponent {
           Middle_Eastern: false,
           Other: ''
         },
-        attendance: ''
+        attendance: '',
+        pract_schol: '',
       }
     };
   }

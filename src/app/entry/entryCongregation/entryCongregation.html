@@ -402,6 +402,18 @@
                         </md-radio-group>
                     </div>
 
+                    <div class="form-group">
+                        <label for="congregationPractSchol">Is this resource practical or scholarly or both??</label>
+                        <md-radio-group [(ngModel)]="submission.data.pract_schol" name="congregationPractSchol" required>
+                            <md-radio-button class="block-input" value="Practical" required> 
+                                Practical</md-radio-button>
+                            <md-radio-button class="block-input" value="Scholarly"> 
+                                Scholarly</md-radio-button>
+                            <md-radio-button class="block-input" value="Both"> 
+                                Both</md-radio-button>
+                        </md-radio-group>
+                    </div> 
+
                     <md-card-actions>
                         <button md-raised-button color="primary" type="submit" 
                         [disabled]="congregationForm.invalid">

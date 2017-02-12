@@ -66,7 +66,8 @@ export class EntryOrgsComponent implements OnInit {
         events_free: '',
         membership_free: '',
         mission: '',
-        process: ''
+        process: '',
+        pract_schol: '',
         }
     };
   }

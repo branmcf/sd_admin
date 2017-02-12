@@ -87,8 +87,8 @@ export class EntryPersonComponent implements OnInit {
           Song_Enlivener: false,
           Solo: false,
           Lead_Singer_from_Band_with_Other_Vocalists: false,
-          Other: ''
-
+          Other: '',
+        pract_schol: '',
         }
       }
     };

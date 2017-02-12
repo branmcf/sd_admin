@@ -109,7 +109,8 @@ export class EntryResourcesComponent implements OnInit {
           Other: ''
         },
         hymn_soc_member: '',
-        is_free: ''
+        is_free: '',
+        pract_schol: '',
       }
     };
   }

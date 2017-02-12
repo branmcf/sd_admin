@@ -64,7 +64,8 @@ export class EntryEventComponent implements OnInit {
         city: '',
         state: '',
         country: 'United States',
-        hymn_soc_member: ''
+        hymn_soc_member: '',
+        pract_schol: '',
       }
     };
 

@@ -6,8 +6,8 @@ import { environment } from '../../environments/environment';
 
 @Injectable()
 export class UserService implements CanActivate {
-    // private _apiUrl = 'https://private-91abd-node46.apiary-mock.com/';
-    private _apiUrl = environment.API_URL;
+     private _apiUrl = 'https://private-91abd-node46.apiary-mock.com/';
+    // private _apiUrl = environment.API_URL;
 
 
     constructor(private http: Http) {}
