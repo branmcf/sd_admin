@@ -397,9 +397,16 @@
                     <md-checkbox class="block-input"
                         ng-true-value="true"
                         ng-false-value="false"
-                        name="resourceEthnicityOne"
-                        [(ngModel)]="submission.data.ethnicities.White">
-                        White
+                        name="resourceEthnicitySix"
+                        [(ngModel)]="submission.data.ethnicities.African">
+                        African
+                    </md-checkbox>
+                    <md-checkbox class="block-input"
+                        ng-true-value="true"
+                        ng-false-value="false"
+                        name="resourceEthnicityFive"
+                        [(ngModel)]="submission.data.ethnicities.Asian">
+                        Asian
                     </md-checkbox>
                     <md-checkbox class="block-input"
                         ng-true-value="true"
@@ -418,6 +425,13 @@
                     <md-checkbox class="block-input"
                         ng-true-value="true"
                         ng-false-value="false"
+                        name="resourceEthnicitySeven"
+                        [(ngModel)]="submission.data.ethnicities.Middle_Eastern">
+                        Middle Eastern
+                    </md-checkbox>
+                    <md-checkbox class="block-input"
+                        ng-true-value="true"
+                        ng-false-value="false"
                         name="resourceEthnicityFour"
                         [(ngModel)]="submission.data.ethnicities.Native_American_Indigenous_Peoples">
                         Native American/Indigenous Peoples
@@ -425,23 +439,9 @@
                     <md-checkbox class="block-input"
                         ng-true-value="true"
                         ng-false-value="false"
-                        name="resourceEthnicityFive"
-                        [(ngModel)]="submission.data.ethnicities.Asian">
-                        Asian
-                    </md-checkbox>
-                    <md-checkbox class="block-input"
-                        ng-true-value="true"
-                        ng-false-value="false"
-                        name="resourceEthnicitySix"
-                        [(ngModel)]="submission.data.ethnicities.African">
-                        African
-                    </md-checkbox>
-                    <md-checkbox class="block-input"
-                        ng-true-value="true"
-                        ng-false-value="false"
-                        name="resourceEthnicitySeven"
-                        [(ngModel)]="submission.data.ethnicities.Middle_Eastern">
-                        Middle Eastern
+                        name="resourceEthnicityOne"
+                        [(ngModel)]="submission.data.ethnicities.White">
+                        White
                     </md-checkbox>
                     <md-checkbox class="block-input">
                         <md-input-container class="full-width">
@@ -451,7 +451,6 @@
                         name="resourceEthnicityEight"
                         [(ngModel)]="submission.data.ethnicities.Other"
                         placeholder="Other Ethnicity"/>
-
                         </md-input-container>
                     </md-checkbox>
             </div>
