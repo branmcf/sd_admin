@@ -12,6 +12,7 @@ import { EntryCongregationComponent , CongDialog } from './entryCongregation/ent
 import { EntryOrgsComponent, OrgsDialog } from './entryOrgs/entryOrgs.component';
 import { EntryEventComponent, EventDialog } from './entryEvent/entryEvent.component';
 import { EntryReviewComponent } from './entryReview/entryReview.component';
+import { EntryRegisterComponent } from './entryRegister/entryRegister.component';
 import { EntryLandingComponent } from './entryLanding/entryLanding.component';
 import { HeaderModule } from '../header/header.module';
 import { SharedModule } from './../shared/shared.module';
@@ -37,6 +38,7 @@ import { UserService } from '../services/user.service';
     ResourceDialog,
     EventDialog,
     OrgsDialog,
+    EntryRegisterComponent,
   ],
   imports: [
     CommonModule,

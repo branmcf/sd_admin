@@ -10,6 +10,7 @@ import { EntryEventComponent, EventDialog } from './entryEvent/entryEvent.compon
 import { EntryReviewComponent } from './entryReview/entryReview.component';
 import { EntryLandingComponent } from './entryLanding/entryLanding.component';
 import { UserService } from './../services/user.service';
+import { EntryRegisterComponent } from './entryRegister/entryRegister.component';
 
 const routes: Routes = [
     { path: '', component: EntryComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
     { path: 'events', component: EntryEventComponent, canActivate: [UserService] },
     { path: 'events', component: EventDialog},
     { path: 'review', component: EntryReviewComponent, canActivate: [UserService] },
+    { path: 'register', component: EntryRegisterComponent, canActivate: [UserService] },
 ];
 
 @NgModule({

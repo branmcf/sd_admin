@@ -29,21 +29,9 @@ export class UserService implements CanActivate {
             .post(this._apiUrl + 'login', user)
             .toPromise()
             .then(this.extractData)
-            .catch(x => alert('Invalid username or password'));
+            .catch(x => alert('Invalid username or password.'));
 
     }
-
-
-    // login(user) {
-    //     let headers = new Headers();
-    //     this.createAuthorizationHeader(headers, user);
-    //     return this.http
-    //         .get(this._apiUrl + 'login', {
-    //             headers: headers
-    //         })
-    //         .toPromise()
-    //         .then(x => x['_body'] as any);
-    // }
 
     logout() {
         sessionStorage.clear();
@@ -60,6 +48,14 @@ export class UserService implements CanActivate {
             return true;
         }
         return false;
+    }
+
+    register(user) {
+        return this.http
+            .post(this._apiUrl + 'register', user)
+            .toPromise()
+            .then(this.extractData)
+            .catch(x => alert('Invalid parameters for register.'));
     }
 }
 
