@@ -88,7 +88,6 @@ export class EntryPersonComponent implements OnInit {
           Solo: false,
           Lead_Singer_from_Band_with_Other_Vocalists: false,
           Other: '',
-        pract_schol: '',
         }
       }
     };

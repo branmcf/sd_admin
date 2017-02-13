@@ -101,7 +101,6 @@ export class EntryCongregationComponent {
           Other: ''
         },
         attendance: '',
-        pract_schol: '',
       }
     };
   }
