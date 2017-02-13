@@ -7,9 +7,16 @@ import { MdDialog, MdDialogRef } from '@angular/material';
   templateUrl: './entryNavbar.html',
 })
 
-export class EntryNavComponent {
+export class EntryNavComponent implements OnInit {
   dialogRef: MdDialogRef<NavConfirm>;
+  isAdmin: any;
   constructor(public dialog: MdDialog, private router: Router, private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    const userInfo = sessionStorage.getItem('userInfo');
+    this.isAdmin = JSON.parse(userInfo).is_admin;
+  }
+
   openDialog(link: string) {
     if (this.router.url === '/entry/welcome') {
       this.router.navigate([link]);

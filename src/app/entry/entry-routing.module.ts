@@ -10,6 +10,7 @@ import { EntryEventComponent, EventDialog } from './entryEvent/entryEvent.compon
 import { EntryReviewComponent } from './entryReview/entryReview.component';
 import { EntryLandingComponent } from './entryLanding/entryLanding.component';
 import { UserService } from './../services/user.service';
+import { AdminService } from './../services/admin.service';
 import { EntryRegisterComponent } from './entryRegister/entryRegister.component';
 
 const routes: Routes = [
@@ -20,13 +21,13 @@ const routes: Routes = [
     { path: 'person', component: EntryPersonComponent, canActivate: [UserService] },
     { path: 'person', component: PersonDialog},
     { path: 'congregations', component: EntryCongregationComponent, canActivate: [UserService] },
-    { path: 'congregations', component: CongDialog}, 
+    { path: 'congregations', component: CongDialog},
     { path: 'orgs', component: EntryOrgsComponent, canActivate: [UserService] },
     { path: 'orgs', component: OrgsDialog},
     { path: 'events', component: EntryEventComponent, canActivate: [UserService] },
     { path: 'events', component: EventDialog},
     { path: 'review', component: EntryReviewComponent, canActivate: [UserService] },
-    { path: 'register', component: EntryRegisterComponent, canActivate: [UserService] },
+    { path: 'register', component: EntryRegisterComponent, canActivate: [AdminService] },
 ];
 
 @NgModule({

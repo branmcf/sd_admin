@@ -5,7 +5,7 @@
         <div class="col-md-8 offset-md-3">
             <md-card>
                 <md-card-subtitle>Register Users</md-card-subtitle>
-                <md-card-title><h4>Please enter a user</h4></md-card-title>
+                <md-card-title><h4>Please enter a user information</h4></md-card-title>
                 <md-card-content>
                     
                     <form name="registerForm"
@@ -19,7 +19,7 @@
                             id="registerFName" 
                             placeholder="First Name"
                             class="form-control" 
-                            [(ngModel)]="user.fname"
+                            [(ngModel)]="user.first_name"
                             name="registerFName"
                             #registerFName="ngModel"
                             required/>
@@ -39,7 +39,7 @@
                             id="registerLName" 
                             placeholder="Last Name"
                             class="form-control" 
-                            [(ngModel)]="user.lname"
+                            [(ngModel)]="user.last_name"
                             name="registerLName"
                             #registerLName="ngModel"
                             required/>
@@ -75,7 +75,7 @@
 
                     <div class="form-group">
                         <md-input-container class="full-width">
-                            <input md-input mdInput type="text"
+                            <input md-input mdInput type="password"
                             id="registerPass" 
                             placeholder="Password"
                             class="form-control" 
@@ -92,6 +92,14 @@
                             </ul>
                         </div> 
                     </div>
+                    
+                    <div class="form-group">
+                        <label for="eventMember">Is this person an admin?</label>
+                            <md-radio-group [(ngModel)]="user.is_admin" name="isAdmin" required>
+                                <md-radio-button class="block-input" name="isAdmin" value=1>Yes</md-radio-button>
+                                <md-radio-button class="block-input" name="isAdmin" value=0>No</md-radio-button>
+                            </md-radio-group>
+                    </div> 
 
                     <md-card-actions>
                         <button md-raised-button color="primary" type="submit" 

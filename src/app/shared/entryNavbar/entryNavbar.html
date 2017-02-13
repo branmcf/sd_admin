@@ -1,13 +1,17 @@
 <div class="col-sm-3 col-md-2 sidebar">
     <ul class="nav-sidebar">
+      <li>Resource Entry</li>
       <li><a md-button (click)="openDialog('/entry/resources')">Resources</a></li>
       <li><a md-button (click)="openDialog('/entry/person')">Person</a></li>
       <li><a md-button (click)="openDialog('/entry/congregations')">Congregation</a></li>
       <li><a md-button (click)="openDialog('/entry/orgs')">Organization</a></li>
       <li><a md-button (click)="openDialog('/entry/events')">Event</a></li>
     </ul>
+    <ul class="nav-sidebar" *ngIf="isAdmin">
+      <li>Admin Options</li>
+      <li><a md-button (click)="openDialog('/entry/register')">Register Users</a></li>
+    </ul>
 </div>
 <div>
   
 </div>
-

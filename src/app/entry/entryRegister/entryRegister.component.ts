@@ -21,6 +21,7 @@ export class EntryRegisterComponent {
     this.route.params.forEach(x => this.load(+x['user.id']));
 
     this.user = {
+      is_admin: 0
     };
   }
 
@@ -41,6 +42,6 @@ export class EntryRegisterComponent {
     register() {
     console.log(this.user);
     this.userService.register(this.user);
-    // location.reload();
+    location.reload();
     }
 }

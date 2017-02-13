@@ -21,6 +21,7 @@ import { EntryRoutingModule } from './entry-routing.module';
 import { SubmitService } from '../services/submit.service';
 import { ContentfulService } from '../services/contentful.service';
 import { UserService } from '../services/user.service';
+import { AdminService } from '../services/admin.service';
 
 @NgModule({
   id: 'entry',
@@ -53,6 +54,7 @@ import { UserService } from '../services/user.service';
     SubmitService,
     ContentfulService,
     UserService,
+    AdminService
   ],
   exports: [
     EntryRoutingModule
