@@ -65,14 +65,12 @@ export class EntryResourcesComponent implements OnInit {
           Older_hymn_text_set_to_a_new_contemporary_tune_or_retuned: false,
           Song_from_another_country_or_World_Song: false,
           Secular_Song: false,
-          Other: ''
         },
         topics: {
           Psalm_Setting: false,
           Lectionary_Based: false,
           Social_Justice: false,
           Worship: false,
-          Other: ''
         },
         accompaniment: {
           Acappella: false,
@@ -83,13 +81,11 @@ export class EntryResourcesComponent implements OnInit {
           Orchestra: false,
           Handbells: false,
           Obligato: false,
-          Other: ''
         },
         languages: {
           English: false,
           Spanish: false,
           French: false,
-          Other: ''
         },
         ensembles: {
           Choir: false,
@@ -97,7 +93,6 @@ export class EntryResourcesComponent implements OnInit {
           Song_Enlivener: false,
           Solo: false,
           Lead_Singer_from_Band_with_Other_Vocalists: false,
-          Other: ''
         },
         ethnicities: {
           White: false,
@@ -107,7 +102,6 @@ export class EntryResourcesComponent implements OnInit {
           Asian: false,
           African: false,
           Middle_Eastern: false,
-          Other: ''
         },
         hymn_soc_member: '',
         is_free: '',
@@ -141,7 +135,7 @@ export class EntryResourcesComponent implements OnInit {
     }
     console.log((this.submission));
     this.submitService.submitResource(this.submission);
-    // location.reload();
+    location.reload();
   }
 }
 

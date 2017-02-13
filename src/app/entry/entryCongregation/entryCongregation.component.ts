@@ -75,7 +75,6 @@ export class EntryCongregationComponent {
           Older_hymn_text_set_to_a_new_contemporary_tune_or_retuned: false,
           Song_from_another_country_or_World_Song: false,
           Secular_Song: false,
-          Other: ''
         },
         instruments: {
           Acappella: false,
@@ -86,7 +85,6 @@ export class EntryCongregationComponent {
           Orchestra_Wind_Ensemble: false,
           Handbells: false,
           Obligato_instruments_flute_clarinet_trumpet_etc: false,
-          Other: ''
         },
         shape: '',
         clothing: '',
@@ -98,7 +96,6 @@ export class EntryCongregationComponent {
           Native_American_Indigenous_Peoples: false,
           Asian: false,
           Middle_Eastern: false,
-          Other: ''
         },
         attendance: '',
       }

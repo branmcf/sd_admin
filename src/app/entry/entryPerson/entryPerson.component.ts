@@ -79,7 +79,6 @@ export class EntryPersonComponent implements OnInit {
           Native_American_Indigenous_Peoples: false,
           Asian: false,
           Middle_Eastern: false,
-          Other: ''
         },
         ensembles: {
           Choir: false,
@@ -87,7 +86,6 @@ export class EntryPersonComponent implements OnInit {
           Song_Enlivener: false,
           Solo: false,
           Lead_Singer_from_Band_with_Other_Vocalists: false,
-          Other: '',
         },
         categories: {
           A_hymn_written_prior_to_1970: false,
@@ -98,7 +96,6 @@ export class EntryPersonComponent implements OnInit {
           Older_hymn_text_set_to_a_new_contemporary_tune_or_retuned: false,
           Song_from_another_country_or_World_Song: false,
           Secular_Song: false,
-          Other: ''
         },
         instruments: {
           Acappella: false,
@@ -109,7 +106,6 @@ export class EntryPersonComponent implements OnInit {
           Orchestra_Wind_Ensemble: false,
           Handbells: false,
           Obligato_instruments_flute_clarinet_trumpet_etc: false,
-          Other: ''
         },
       }
     };
@@ -140,7 +136,7 @@ export class EntryPersonComponent implements OnInit {
 
     console.log(this.submission);
     this.submitService.submitPerson(this.submission);
-    // location.reload();
+    location.reload();
   }
 }
 

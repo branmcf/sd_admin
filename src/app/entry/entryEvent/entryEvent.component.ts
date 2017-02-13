@@ -73,7 +73,6 @@ export class EntryEventComponent implements OnInit {
           Song_Enlivener: false,
           Solo: false,
           Lead_Singer_from_Band_with_Other_Vocalists: false,
-          Other: '',
         },
         clothing: '',
         attendance: '',
@@ -97,14 +96,14 @@ export class EntryEventComponent implements OnInit {
   }
 
 
-	submit() {
+  submit() {
     var userInfo = sessionStorage.getItem('userInfo');
     var obj = (JSON.parse(userInfo));
 
     this.submission.user = obj.first_name + ' ' + obj.last_name;
     this.submission.uid = obj.id;
 
-    if(this.eventOccurance) {
+    if (this.eventOccurance) {
       this.submission.data.occurance = this.eventOccurance;
     }
     if (this.shapeOther) {
@@ -115,8 +114,8 @@ export class EntryEventComponent implements OnInit {
     }
     console.log(this.submission);
     this.submitService.submitEvent(this.submission);
-    // location.reload();
-	}
+    location.reload();
+  }
 }
 
 @Component({

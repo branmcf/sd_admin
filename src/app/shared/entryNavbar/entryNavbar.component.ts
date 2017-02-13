@@ -49,7 +49,7 @@ export class EntryNavComponent implements OnInit {
       <md-dialog-content>You will lose your work!</md-dialog-content>
       <md-dialog-actions>
           <button md-button md-dialog-close>Cancel</button>
-		  <button md-button color="primary" (click)="dialogRef.close(link)">Yes</button>
+		  <button md-button color="warn" (click)="dialogRef.close(link)">Yes</button>
       </md-dialog-actions>
     </div>
   `
