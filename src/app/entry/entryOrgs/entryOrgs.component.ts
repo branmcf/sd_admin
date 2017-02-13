@@ -18,6 +18,8 @@ export class EntryOrgsComponent implements OnInit {
   countryOther: any;
   denomOther: any;
   geoOther: any;
+  shapeOther: string;
+  attireOther: string;
   all_countries: [any];
   countries: any;
   dialogRef: MdDialogRef<OrgsDialog>;
@@ -67,6 +69,39 @@ export class EntryOrgsComponent implements OnInit {
         membership_free: '',
         mission: '',
         process: '',
+        categories: {
+          A_hymn_written_prior_to_1970: false,
+          Newly_composed_hymn_within_the_last_10_years: false,
+          Praise_and_Worship_Song_CCM: false,
+          Psalm_Setting: false,
+          Chant_Gregorian_Anglican_Pointed_or_Taize: false,
+          Older_hymn_text_set_to_a_new_contemporary_tune_or_retuned: false,
+          Song_from_another_country_or_World_Song: false,
+          Secular_Song: false,
+          Other: ''
+        },
+        instruments: {
+          Acappella: false,
+          Organ: false,
+          Piano: false,
+          Guitar_not_full_band: false,
+          Band_guitar_bass_drums_etc: false,
+          Orchestra_Wind_Ensemble: false,
+          Handbells: false,
+          Obligato_instruments_flute_clarinet_trumpet_etc: false,
+          Other: ''
+        },
+        clothing: '',
+        ethnicities: {
+          White: false,
+          Black: false,
+          Hispanic_Latinx_Caribbean: false,
+          Native_American_Indigenous_Peoples: false,
+          Asian: false,
+          African: false,
+          Middle_Eastern: false,
+          Other: ''
+        },
         }
     };
   }
@@ -92,7 +127,6 @@ export class EntryOrgsComponent implements OnInit {
     this.submission.user = obj.first_name + ' ' + obj.last_name;
     this.submission.uid = obj.id;
 
-    console.log((this.submission));
     if (this.countryOther) {
       this.submission.data.country = this.countryOther;
     }
@@ -102,9 +136,15 @@ export class EntryOrgsComponent implements OnInit {
     if (this.geoOther) {
       this.submission.data.geographic_area = this.geoOther;
     }
+    if (this.shapeOther) {
+      this.submission.data.shape = this.shapeOther;
+    }
+    if (this.attireOther) {
+      this.submission.data.clothing = this.attireOther;
+    }
     console.log(this.submission);
     this.submitService.submitOrgs(this.submission);
-    location.reload();
+    // location.reload();
   }
 }
 

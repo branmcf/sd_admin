@@ -17,7 +17,6 @@
                     *ngIf="submission">
 
                     <div class="form-group">
-                        <!--<label for="orgName">Organization Name</label>-->
                         <md-input-container class="full-width">
                             <input md-input mdInput type="text"
                             placeholder="Organization Name"
@@ -38,7 +37,6 @@
                     </div> 
 
                     <div class="form-group">
-                        <!--<label for="orgUrl">Organization Website</label>-->
                         <md-input-container class="full-width">
                             <input md-input mdInput type="url" 
                             placeholder="Organization Website"
@@ -62,7 +60,6 @@
                     </div>
 
                     <div class="form-group">
-                        <!--<label for="orgParent">Do you have a parent organization? (Are you officially housed or sponsored by a denomination, school, or other larger organization?)</label>-->
                         <md-input-container class="full-width">
                             <input md-input mdInput type="text"
                             placeholder="Do you have a parent organization? (Are you officially housed or sponsored by a denomination, school, or other larger organization?)"
@@ -135,43 +132,6 @@
                         </ul>
                     </div> 
 
-                    <!--<div class="form-group">
-                        <!--<label for="orgState">What state are you located/headquartered?</label>
-                        <md-input-container class="full-width">
-                            <input md-input mdInput type="text"
-                            placeholder="What state are you located/headquartered?"
-                            id="orgState" 
-                            class="form-control" 
-                            [(ngModel)]="submission.data.state"
-                            name="orgState"
-                            #orgState="ngModel"
-                            required/>
-                        </md-input-container>
-                    </div>
-                    <div class="alert alert-danger" *ngIf="orgState.errors && orgState.touched">
-                        <ul>
-                            <li [hidden]="!orgState.errors.required">
-                                State is required
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="orgCountry">What country are you located/headquartered?</label>
-                            <md-radio-group [(ngModel)]="submission.data.country" name="orgCountry" required>
-                                <md-radio-button class="block-input" name="country" value="US" required>US</md-radio-button>
-                                <md-radio-button class="block-input" name="country" value="Canada">Canada</md-radio-button>
-                                <md-radio-button class="block-input" name="country" value="other">
-                                    <md-input-container>
-                                    <input md-input mdInput type="text" 
-                                    placeholder="Other Country"
-                                    [(ngModel)]="countryOther"
-                                    name="countryOther"/>
-                                    </md-input-container>
-                                </md-radio-button>  
-                            </md-radio-group>  
-                    </div>-->
-
                     <div class="form-group">
                         <label for="orgGeogrpahics">What geographic area(s) do you serve?</label>
                             <md-radio-group [(ngModel)]="submission.data.geographic_area" name="orgGeographics" required>
@@ -220,7 +180,6 @@
                     </div>
 
                     <div class="form-group">
-                        <!--<label for="orgMission">What is the mission of your organization?</label>-->
                         <md-input-container class="full-width">
                             <input md-input mdInput type="text"
                             placeholder="What is the mission of your organization?"
@@ -241,7 +200,6 @@
                     </div>                                       
                     
                      <div class="form-group">
-                        <!--<label for="orgMethod">How does your organization encourage, promote, or enliven congregational song?</label>-->
                         <md-input-container class="full-width">
                             <input md-input mdInput type="text"
                             placeholder="How does your organization encourage, promote, or enliven congregational song?"
@@ -260,6 +218,244 @@
                             </ul>
                         </div>
                     </div>  
+
+                    <div class="form-group" >
+                        <label for="orgTypes">Which types of song/hymn(s) has your organization sung in the last 2 months?</label>
+                        
+                            <md-checkbox class="block-input" 
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                [(ngModel)]="submission.data.categories.A_hymn_written_prior_to_1970"
+                                name="orgTypeOne"
+                                >A hymn written prior to 1970</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="orgTypeTwo"
+                                [(ngModel)]="submission.data.categories.Newly_composed_hymn_within_the_last_10_years">Newly composed hymn (within the last 10 years)</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="orgTypeThree"
+                                [(ngModel)]="submission.data.categories.Praise_and_Worship_Song_CCM">Praise and Worship Song (CCM)</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="orgTypeFour"
+                                [(ngModel)]="submission.data.categories.Psalm_Setting">Psalm Setting</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="orgTypeFive"
+                                [(ngModel)]="submission.data.categories.Chant_Gregorian_Anglican_Pointed_or_Taize">Chant (Gregorian, Anglican, Pointed or Taize)</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="orgTypeSix"
+                                [(ngModel)]="submission.data.categories.Older_hymn_text_set_to_a_new_contemporary_tune_or_retuned">Older hymn text set to a new contemporary tune (or 're-tuned')</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="orgTypeSeven"
+                                [(ngModel)]="submission.data.categories.Song_from_another_country_or_World_Song">Song from another country (or 'World Song')</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="orgTypeEight"
+                                [(ngModel)]="submission.data.categories.Secular_Song">Secular Song</md-checkbox>
+
+                            <md-checkbox class="block-input">                        
+                                <md-input-container class="full-width">
+                                <input md-input mdInput type="text"
+                                id="orgCategoryOther" 
+                                class="form-control" 
+                                [(ngModel)]="submission.data.categories.Other"
+                                name="orgCategoryOther"
+                                placeholder="Other Type"
+                                name="orgCategoryOther"/>
+                                </md-input-container>
+                            </md-checkbox>
+                    </div>
+
+                    <div class="form-group" >
+                        <label for="orgInstruments">Which types of instruments does your organization use?</label>
+                        
+                            <md-checkbox class="block-input" 
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="orgInstrumentOne"
+                                [(ngModel)]="submission.data.instruments.Acappella">
+                                Acappella</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="orgInstrumentTwo"
+                                [(ngModel)]="submission.data.instruments.Organ">
+                                Organ</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="orgInstrumentThree"
+                                [(ngModel)]="submission.data.instruments.Piano">
+                                Piano</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="orgInstrumentFour"
+                                [(ngModel)]="submission.data.instruments.Guitar_not_full_band">
+                                Guitar (not full band)</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="orgInstrumentFive"
+                                [(ngModel)]="submission.data.instruments.Band_guitar_bass_drums_etc">
+                                Band (guitar, bass, drums, etc...)</md-checkbox>
+
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="orgInstrumentSix"
+                                [(ngModel)]="submission.data.instruments.Orchestra_Wind_Ensemble">
+                                Orchestra/Wind Ensemble</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="orgInstrumentSeven"
+                                [(ngModel)]="submission.data.instruments.Handbells">
+                                Handbells</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="orgInstrumentEight"
+                                [(ngModel)]="Obligato_instruments_flute_clarinet_trumpet_etc">
+                                Obligato Instruments (flute, clarinet, trumpet, etc...)</md-checkbox>
+                    
+                            <md-checkbox class="block-input">                        
+                                <md-input-container class="full-width">
+                                <input md-input mdInput type="text"
+                                id="orgInstruments" 
+                                class="form-control" 
+                                [(ngModel)]="submission.data.instruments.Other"
+                                name="orgInstruments"
+                                placeholder="Other Instruments"
+                                name="orgInstrumentOther"/>
+                                </md-input-container>
+                            </md-checkbox>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="orgShape">Which best describes the shape of your worship?</label>
+                        <md-radio-group [(ngModel)]="submission.data.shape" name="orgShape" required>
+                            <md-radio-button class="block-input" value="5-Fold Pattern (5-Fold Pattern (Gathering, Word, Response, Table, Sending) - Roman Catholic Mass and similar structures" required> 
+                                5-Fold Pattern (5-Fold Pattern (Gathering, Word, Response, Table, Sending) - Roman Catholic Mass and similar structures</md-radio-button>
+                            <md-radio-button class="block-input" value="4-Fold Pattern (Gathering, Word, Response, Sending) - Communion monthly or quarterly"> 
+                                4-Fold Pattern (Gathering, Word, Response, Sending) - Communion monthly or quarterly</md-radio-button>
+                            <md-radio-button class="block-input" value="2-Fold Pattern (Praise & Teaching) - Most Praise and Worship services"> 
+                                2-Fold Pattern (Praise & Teaching) - Most Praise and Worship services</md-radio-button>
+                            <md-radio-button class="block-input" value="other"> 
+                                <md-input-container>
+                                <input md-input mdInput type="text" 
+                                placeholder="Other Shape"
+                                [(ngModel)]="shapeOther"
+                                name=shapeOther/>
+                                </md-input-container>
+                            </md-radio-button>
+                        </md-radio-group>
+                    </div> 
+
+                    <div class="form-group">
+                        <label for="orgAttire">What does your pastor/priest wear when he/she preaches?</label>
+                        <md-radio-group [(ngModel)]="submission.data.clothing" name="orgAttire" required>
+                            <md-radio-button class="block-input" value="Vestments" required> Vestments</md-radio-button>
+                            <md-radio-button class="block-input" value="Robes, with or without stoles" > Robes, with or without stoles</md-radio-button>
+                            <md-radio-button class="block-input" value="Business Attire" > Business Attire</md-radio-button>
+                            <md-radio-button class="block-input" value="Casual" > Casual</md-radio-button>
+                            <md-radio-button class="block-input" value="other">   
+                                <md-input-container>
+                                <input md-input mdInput type="text" 
+                                placeholder="Other form of attire"
+                                [(ngModel)]="attireOther"
+                                name="otherAttire"/>
+                                </md-input-container>
+                            </md-radio-button>
+                        </md-radio-group>
+                    </div> 
+
+            <div class="form-group">
+                <label for="orgEthnicity">What ethnicities does this resource represent?</label>
+                    <md-checkbox class="block-input"
+                        ng-true-value="true"
+                        ng-false-value="false"
+                        name="orgEthnicitySix"
+                        [(ngModel)]="submission.data.ethnicities.African">
+                        African
+                    </md-checkbox>
+                    <md-checkbox class="block-input"
+                        ng-true-value="true"
+                        ng-false-value="false"
+                        name="orgEthnicityFive"
+                        [(ngModel)]="submission.data.ethnicities.Asian">
+                        Asian
+                    </md-checkbox>
+                    <md-checkbox class="block-input"
+                        ng-true-value="true"
+                        ng-false-value="false"
+                        name="orgEthnicityTwo"
+                        [(ngModel)]="submission.data.ethnicities.Black">
+                        Black
+                    </md-checkbox>
+                    <md-checkbox class="block-input"
+                        ng-true-value="true"
+                        ng-false-value="false"
+                        name="orgEthnicityThree"
+                        [(ngModel)]="submission.data.ethnicities.Hispanic_Latinx_Caribbean">
+                        Hispanic/Latinx/Caribbean
+                    </md-checkbox>
+                    <md-checkbox class="block-input"
+                        ng-true-value="true"
+                        ng-false-value="false"
+                        name="orgEthnicitySeven"
+                        [(ngModel)]="submission.data.ethnicities.Middle_Eastern">
+                        Middle Eastern
+                    </md-checkbox>
+                    <md-checkbox class="block-input"
+                        ng-true-value="true"
+                        ng-false-value="false"
+                        name="orgEthnicityFour"
+                        [(ngModel)]="submission.data.ethnicities.Native_American_Indigenous_Peoples">
+                        Native American/Indigenous Peoples
+                    </md-checkbox>
+                    <md-checkbox class="block-input"
+                        ng-true-value="true"
+                        ng-false-value="false"
+                        name="orgEthnicityOne"
+                        [(ngModel)]="submission.data.ethnicities.White">
+                        White
+                    </md-checkbox>
+                    <md-checkbox class="block-input">
+                        <md-input-container class="full-width">
+                        <input md-input mdInput type="text"
+                        id="orgEthnicityOther" 
+                        class="form-control" 
+                        name="orgEthnicityEight"
+                        [(ngModel)]="submission.data.ethnicities.Other"
+                        placeholder="Other Ethnicity"/>
+                        </md-input-container>
+                    </md-checkbox>
+            </div>
 
                     <md-card-actions>
                         <button md-raised-button color="primary" type="submit" 

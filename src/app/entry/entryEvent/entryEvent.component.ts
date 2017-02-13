@@ -16,6 +16,8 @@ export class EntryEventComponent implements OnInit {
   content: JSON;
   submission: any;
   eventOccurance: any;
+  shapeOther: string;
+  attireOther: string;
   all_countries: [any];
   countries: any;
    dialogRef: MdDialogRef<EventDialog>;
@@ -65,6 +67,16 @@ export class EntryEventComponent implements OnInit {
         state: '',
         country: 'United States',
         hymn_soc_member: '',
+        ensembles: {
+          Choir: false,
+          Cantor: false,
+          Song_Enlivener: false,
+          Solo: false,
+          Lead_Singer_from_Band_with_Other_Vocalists: false,
+          Other: '',
+        },
+        clothing: '',
+        attendance: '',
       }
     };
 
@@ -95,9 +107,15 @@ export class EntryEventComponent implements OnInit {
     if(this.eventOccurance) {
       this.submission.data.occurance = this.eventOccurance;
     }
+    if (this.shapeOther) {
+      this.submission.data.shape = this.shapeOther;
+    }
+    if (this.attireOther) {
+      this.submission.data.clothing = this.attireOther;
+    }
     console.log(this.submission);
     this.submitService.submitEvent(this.submission);
-    location.reload();
+    // location.reload();
 	}
 }
 

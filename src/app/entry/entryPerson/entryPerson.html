@@ -368,6 +368,143 @@
                                 </md-input-container>
                             </md-checkbox>
                     </div>
+
+                    <div class="form-group" >
+                        <label for="personTypes">Which types of song/hymn(s) has your congregation sung in the last 2 months?</label>
+                        
+                            <md-checkbox class="block-input" 
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                [(ngModel)]="submission.data.categories.A_hymn_written_prior_to_1970"
+                                name="personTypeOne"
+                                >A hymn written prior to 1970</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personTypeTwo"
+                                [(ngModel)]="submission.data.categories.Newly_composed_hymn_within_the_last_10_years">Newly composed hymn (within the last 10 years)</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personTypeThree"
+                                [(ngModel)]="submission.data.categories.Praise_and_Worship_Song_CCM">Praise and Worship Song (CCM)</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personTypeFour"
+                                [(ngModel)]="submission.data.categories.Psalm_Setting">Psalm Setting</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personTypeFive"
+                                [(ngModel)]="submission.data.categories.Chant_Gregorian_Anglican_Pointed_or_Taize">Chant (Gregorian, Anglican, Pointed or Taize)</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personTypeSix"
+                                [(ngModel)]="submission.data.categories.Older_hymn_text_set_to_a_new_contemporary_tune_or_retuned">Older hymn text set to a new contemporary tune (or 're-tuned')</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personTypeSeven"
+                                [(ngModel)]="submission.data.categories.Song_from_another_country_or_World_Song">Song from another country (or 'World Song')</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personTypeEight"
+                                [(ngModel)]="submission.data.categories.Secular_Song">Secular Song</md-checkbox>
+
+                            <md-checkbox class="block-input">                        
+                                <md-input-container class="full-width">
+                                <input md-input mdInput type="text"
+                                id="personCategoryOther" 
+                                class="form-control" 
+                                [(ngModel)]="submission.data.categories.Other"
+                                name="personCategoryOther"
+                                placeholder="Other Type"
+                                name="personCategoryOther"/>
+                                </md-input-container>
+                            </md-checkbox>
+                    </div>
+
+                    <div class="form-group" >
+                        <label for="personInstruments">Which types of instruments does your congregation use during congregational singing?</label>
+                        
+                            <md-checkbox class="block-input" 
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personInstrumentOne"
+                                [(ngModel)]="submission.data.instruments.Acappella">
+                                Acappella</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personInstrumentTwo"
+                                [(ngModel)]="submission.data.instruments.Organ">
+                                Organ</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personInstrumentThree"
+                                [(ngModel)]="submission.data.instruments.Piano">
+                                Piano</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personInstrumentFour"
+                                [(ngModel)]="submission.data.instruments.Guitar_not_full_band">
+                                Guitar (not full band)</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personInstrumentFive"
+                                [(ngModel)]="submission.data.instruments.Band_guitar_bass_drums_etc">
+                                Band (guitar, bass, drums, etc...)</md-checkbox>
+
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personInstrumentSix"
+                                [(ngModel)]="submission.data.instruments.Orchestra_Wind_Ensemble">
+                                Orchestra/Wind Ensemble</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personInstrumentSeven"
+                                [(ngModel)]="submission.data.instruments.Handbells">
+                                Handbells</md-checkbox>
+                    
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personInstrumentEight"
+                                [(ngModel)]="Obligato_instruments_flute_clarinet_trumpet_etc">
+                                Obligato Instruments (flute, clarinet, trumpet, etc...)</md-checkbox>
+                    
+                            <md-checkbox class="block-input">                        
+                                <md-input-container class="full-width">
+                                <input md-input mdInput type="text"
+                                id="personInstruments" 
+                                class="form-control" 
+                                [(ngModel)]="submission.data.instruments.Other"
+                                name="personInstruments"
+                                placeholder="Other Instruments"
+                                name="personInstrumentOther"/>
+                                </md-input-container>
+                            </md-checkbox>
+                    </div>
           
                     <md-card-actions>
                         <button md-raised-button color="primary" type="submit" 
