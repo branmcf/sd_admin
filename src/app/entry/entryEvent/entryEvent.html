@@ -227,6 +227,103 @@
                             </md-radio-group>
                     </div> 
 
+                    <div class="form-group">
+                        <label for="eventEnsemble">What ensembles help lead your event?</label>
+                            <md-checkbox class="block-input"
+                                ng-true-value="true"
+                                ng-false-value="false"
+                                name="eventEnsembleOne"
+                                [(ngModel)]="submission.data.ensembles.Choir">
+                                Choir
+                            </md-checkbox>
+                            <md-checkbox class="block-input"
+                                ng-true-value="true"
+                                ng-false-value="false"
+                                name="eventEnsembleTwo"
+                                [(ngModel)]="submission.data.ensembles.Cantor">
+                                Cantor
+                            </md-checkbox>
+                            <md-checkbox class="block-input"
+                                ng-true-value="true"
+                                ng-false-value="false"
+                                name="eventEnsembleThree"
+                                [(ngModel)]="submission.data.ensembles.Song_Enlivener">
+                                Song-Enlivener
+                            </md-checkbox>
+                            <md-checkbox class="block-input"
+                                ng-true-value="true"
+                                ng-false-value="false"
+                                name="eventEnsembleFour"
+                                [(ngModel)]="submission.data.ensembles.Solo">
+                                Lead Singer from Band (Solo)
+                            </md-checkbox>
+                            <md-checkbox class="block-input"
+                                ng-true-value="true"
+                                ng-false-value="false"
+                                name="eventEnsembleFive"
+                                [(ngModel)]="submission.data.ensembles.Lead_Singer_from_Band_with_Other_Vocalists">
+                            Lead Singer from Band with Other Vocalists</md-checkbox>
+                            <md-checkbox class="block-input" name="other">
+                                <md-input-container class="full-width">
+                                <input md-input mdInput type="text"
+                                id="eventTopic" 
+                                class="form-control" 
+                                [(ngModel)]="submission.data.ensembles.Other"
+                                name="eventTopicOther"
+                                placeholder="Other Ensemble"/>
+                                </md-input-container>
+                            </md-checkbox>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventShape">Which best describes the shape of your worship?</label>
+                        <md-radio-group [(ngModel)]="submission.data.shape" name="eventShape" required>
+                            <md-radio-button class="block-input" value="5-Fold Pattern (5-Fold Pattern (Gathering, Word, Response, Table, Sending) - Roman Catholic Mass and similar structures" required> 
+                                5-Fold Pattern (5-Fold Pattern (Gathering, Word, Response, Table, Sending) - Roman Catholic Mass and similar structures</md-radio-button>
+                            <md-radio-button class="block-input" value="4-Fold Pattern (Gathering, Word, Response, Sending) - Communion monthly or quarterly"> 
+                                4-Fold Pattern (Gathering, Word, Response, Sending) - Communion monthly or quarterly</md-radio-button>
+                            <md-radio-button class="block-input" value="2-Fold Pattern (Praise & Teaching) - Most Praise and Worship services"> 
+                                2-Fold Pattern (Praise & Teaching) - Most Praise and Worship services</md-radio-button>
+                            <md-radio-button class="block-input" value="other"> 
+                                <md-input-container>
+                                <input md-input mdInput type="text" 
+                                placeholder="Other Shape"
+                                [(ngModel)]="shapeOther"
+                                name=shapeOther/>
+                                </md-input-container>
+                            </md-radio-button>
+                        </md-radio-group>
+                    </div> 
+
+                    <div class="form-group">
+                        <label for="eventAttire">What does your pastor/priest wear when he/she preaches?</label>
+                        <md-radio-group [(ngModel)]="submission.data.clothing" name="eventAttire" required>
+                            <md-radio-button class="block-input" value="Vestments" required> Vestments</md-radio-button>
+                            <md-radio-button class="block-input" value="Robes, with or without stoles" > Robes, with or without stoles</md-radio-button>
+                            <md-radio-button class="block-input" value="Business Attire" > Business Attire</md-radio-button>
+                            <md-radio-button class="block-input" value="Casual" > Casual</md-radio-button>
+                            <md-radio-button class="block-input" value="other">   
+                                <md-input-container>
+                                <input md-input mdInput type="text" 
+                                placeholder="Other form of attire"
+                                [(ngModel)]="attireOther"
+                                name="otherAttire"/>
+                                </md-input-container>
+                            </md-radio-button>
+                        </md-radio-group>
+                    </div> 
+
+                    <div class="form-group">
+                        <label for="eventAttendance">On average, how many people will attend your event?</label>
+                        <md-radio-group [(ngModel)]="submission.data.attendance" name="eventAttendance" required>
+                            <md-radio-button class="block-input" value="Under 100" required> Under 100</md-radio-button>
+                            <md-radio-button class="block-input" value="Between 100 and 250"> Between 100 and 250</md-radio-button>
+                            <md-radio-button  class="block-input" value="Between 250 and 500"> Between 250 and 500</md-radio-button>
+                            <md-radio-button  class="block-input" value="Between 500 and 1000"> Between 500 and 1000</md-radio-button>
+                            <md-radio-button  class="block-input" value="Over 1000"> Over 1000</md-radio-button>
+                        </md-radio-group>
+                    </div>
+
                     <md-card-actions>
                         <button md-raised-button color="primary" type="submit" 
                         [disabled]="eventForm.invalid">
