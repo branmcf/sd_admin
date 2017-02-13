@@ -71,6 +71,7 @@ export class EntryResourcesComponent implements OnInit {
           Psalm_Setting: false,
           Lectionary_Based: false,
           Social_Justice: false,
+          Worship: false,
           Other: ''
         },
         accompaniment: {
