@@ -16,11 +16,13 @@ export class ReviewResourcesComponent implements OnInit {
   constructor (private route: ActivatedRoute,
     private router: Router,
     private reviewService: ReviewService) {
-      this.reviewService.getAllResources().then(x => this.resources = x);
-      console.log(this.resources);
+      this.reviewService.getAllResources().then(x => {
+        this.resources = x;
+        console.log(this.resources);
+      });
   }
 
-  ngOnInit(){
+  ngOnInit() {
 
   }
 

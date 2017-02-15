@@ -13,7 +13,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.display = this.userservice.canActivate();
-    console.log(this.display);
   }
 
   logout() {
