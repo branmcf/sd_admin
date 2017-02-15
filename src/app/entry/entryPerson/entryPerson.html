@@ -142,7 +142,6 @@
                     </div>
 
                     <div class="form-group">
-                        <!--<label for="personSocial">Facebook, Twitter, and other Social Media Connections</label>-->
                         <md-input-container class="full-width">
                             <input md-input mdInput type="url" 
                             placeholder="Facebook Link"
@@ -155,8 +154,8 @@
 
                     <div class="form-group">
                         <md-input-container class="full-width">
-                            <input md-input mdInput type="url" 
-                            placeholder="Twitter Link"
+                            <input md-input mdInput type="text" 
+                            placeholder="Twitter Handle"
                             id="personSocialTwitter" 
                             class="form-control" 
                             [(ngModel)]="submission.data.social_twitter"
@@ -225,8 +224,8 @@
                                 ng-true-value="true" 
                                 ng-false-value="false"
                                 name="personTopicThree"
-                                [(ngModel)]="submission.data.topics.Musician_Pastor_Relationship_Song_Band">
-                            Musician/Pastor Relationship Song/Band
+                                [(ngModel)]="submission.data.topics.Musician_Pastor_Relationship">
+                            Musician/Pastor Relationship
                             </md-checkbox>
                             <md-checkbox class="block-input"
                                 ng-true-value="true" 

@@ -66,7 +66,7 @@ export class EntryPersonComponent implements OnInit {
         topics: {
           Contemporary_Song_Band: false,
           Traditional_Hymnody: false,
-          Musician_Pastor_Relationship_Song_Band: false,
+          Musician_Pastor_Relationship: false,
           Cantoring: false,
           Song_Enlivening: false,
           Keyboards: false,

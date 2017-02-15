@@ -220,7 +220,7 @@
                     </div>  
 
                     <div class="form-group" >
-                        <label for="orgTypes">Which types of song/hymn(s) has your organization sung in the last 2 months?</label>
+                        <label for="orgTypes">Which types of song/hymn(s) has your organization used or referenced over the past year?</label>
                         
                             <md-checkbox class="block-input" 
                                 ng-true-value="true" 
@@ -285,7 +285,7 @@
                     </div>
 
                     <div class="form-group" >
-                        <label for="orgInstruments">Which types of instruments does your organization use?</label>
+                        <label for="orgInstruments">Which types of instruments does your organization use/reference?</label>
                         
                             <md-checkbox class="block-input" 
                                 ng-true-value="true" 
@@ -357,7 +357,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="orgShape">Which best describes the shape of your worship?</label>
+                        <label for="orgShape">What worship patterns does your organization use/reference?</label>
                         <md-radio-group [(ngModel)]="submission.data.shape" name="orgShape" required>
                             <md-radio-button class="block-input" value="5-Fold Pattern (5-Fold Pattern (Gathering, Word, Response, Table, Sending) - Roman Catholic Mass and similar structures" required> 
                                 5-Fold Pattern (5-Fold Pattern (Gathering, Word, Response, Table, Sending) - Roman Catholic Mass and similar structures</md-radio-button>
@@ -377,7 +377,7 @@
                     </div> 
 
                     <div class="form-group">
-                        <label for="orgAttire">What does your pastor/priest wear when he/she preaches?</label>
+                        <label for="orgAttire">What do pastors/priests wear for the majority of the congregations you serve?</label>
                         <md-radio-group [(ngModel)]="submission.data.clothing" name="orgAttire" required>
                             <md-radio-button class="block-input" value="Vestments" required> Vestments</md-radio-button>
                             <md-radio-button class="block-input" value="Robes, with or without stoles" > Robes, with or without stoles</md-radio-button>
@@ -395,7 +395,7 @@
                     </div> 
 
             <div class="form-group">
-                <label for="orgEthnicity">What ethnicities does this resource represent?</label>
+                <label for="orgEthnicity">What ethnicities make up at least 10% of your organization?</label>
                     <md-checkbox class="block-input"
                         ng-true-value="true"
                         ng-false-value="false"
