@@ -5,7 +5,6 @@ import { environment } from '../../environments/environment';
 
 @Injectable()
 export class SubmitService {
-
     // private _apiUrl = 'https://private-91abd-node46.apiary-mock.com/';
 	private _apiUrl = environment.API_URL;
     constructor(private http: Http) { }
@@ -49,5 +48,4 @@ export class SubmitService {
 			.then(() => submission)
 			.catch(x => alert(x.json().error));
     }
-
 }
