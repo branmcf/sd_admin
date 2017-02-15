@@ -11,17 +11,20 @@ import { EntryPersonComponent, PersonDialog } from './entryPerson/entryPerson.co
 import { EntryCongregationComponent , CongDialog } from './entryCongregation/entryCongregation.component';
 import { EntryOrgsComponent, OrgsDialog } from './entryOrgs/entryOrgs.component';
 import { EntryEventComponent, EventDialog } from './entryEvent/entryEvent.component';
-import { EntryReviewComponent } from './entryReview/entryReview.component';
 import { EntryRegisterComponent } from './entryRegister/entryRegister.component';
 import { EntryLandingComponent } from './entryLanding/entryLanding.component';
 import { HeaderModule } from '../header/header.module';
 import { SharedModule } from './../shared/shared.module';
 import { EntryRoutingModule } from './entry-routing.module';
 
+import { ReviewLandingComponent } from './../review/reviewLanding/reviewLanding.component';
+import { ReviewResourcesComponent } from './../review/reviewResources/reviewResources.component';
+
 import { SubmitService } from '../services/submit.service';
 import { ContentfulService } from '../services/contentful.service';
 import { UserService } from '../services/user.service';
 import { AdminService } from '../services/admin.service';
+import { ReviewService } from '../services/review.service';
 
 @NgModule({
   id: 'entry',
@@ -33,13 +36,14 @@ import { AdminService } from '../services/admin.service';
     EntryCongregationComponent,
     EntryOrgsComponent,
     EntryEventComponent,
-    EntryReviewComponent,
     CongDialog,
     PersonDialog,
     ResourceDialog,
     EventDialog,
     OrgsDialog,
     EntryRegisterComponent,
+    ReviewLandingComponent,
+    ReviewResourcesComponent,
   ],
   imports: [
     CommonModule,
@@ -54,7 +58,8 @@ import { AdminService } from '../services/admin.service';
     SubmitService,
     ContentfulService,
     UserService,
-    AdminService
+    AdminService,
+    ReviewService,
   ],
   exports: [
     EntryRoutingModule
