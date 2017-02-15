@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { SubmitService } from './../../services/submit.service';
 import { ReviewService } from './../../services/review.service';
@@ -17,11 +17,8 @@ export class ReviewResourcesComponent implements OnInit {
     private router: Router,
     private reviewService: ReviewService) {
       this.reviewService.getAllResources().then(x => this.resources = x);
-      console.log(this.resources);
   }
 
   ngOnInit(){
-
   }
-
 }
