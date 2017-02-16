@@ -11,6 +11,8 @@ import { ReviewCongregationsComponent } from './reviewCongregations/reviewCongre
 import { ReviewPersonsComponent } from './reviewPersons/reviewPersons.component';
 import { ReviewOrganizationsComponent } from './reviewOrganizations/reviewOrganizations.component';
 
+import { EditResourcesComponent } from './../edit/editResources/editResources.component';
+
 const routes: Routes = [
     { path: '', component: ReviewLandingComponent, canActivate: [AdminService]},
     { path: 'resources', component: ReviewResourcesComponent, canActivate: [AdminService] },
@@ -18,6 +20,8 @@ const routes: Routes = [
     { path: 'events', component: ReviewEventsComponent, canActivate: [AdminService] },
     { path: 'organizations', component: ReviewOrganizationsComponent, canActivate: [AdminService] },
     { path: 'congregations', component: ReviewCongregationsComponent, canActivate: [AdminService] },
+    { path: 'resources/:id', component: EditResourcesComponent, canActivate: [AdminService] },
+
 ];
 
 @NgModule({

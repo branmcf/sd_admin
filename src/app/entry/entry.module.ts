@@ -16,7 +16,6 @@ import { EntryLandingComponent } from './entryLanding/entryLanding.component';
 import { HeaderModule } from '../header/header.module';
 import { SharedModule } from './../shared/shared.module';
 import { EntryRoutingModule } from './entry-routing.module';
-
 import { SubmitService } from '../services/submit.service';
 import { ContentfulService } from '../services/contentful.service';
 import { UserService } from '../services/user.service';

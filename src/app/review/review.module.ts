@@ -15,6 +15,7 @@ import { ReviewEventsComponent } from './reviewEvents/reviewEvents.component';
 import { ReviewCongregationsComponent } from './reviewCongregations/reviewCongregations.component';
 import { ReviewPersonsComponent } from './reviewPersons/reviewPersons.component';
 import { ReviewOrganizationsComponent } from './reviewOrganizations/reviewOrganizations.component';
+import { EditResourcesComponent } from './../edit/editResources/editResources.component';
 
 import { SubmitService } from '../services/submit.service';
 import { ContentfulService } from '../services/contentful.service';
@@ -30,7 +31,8 @@ import { ReviewService } from '../services/review.service';
     ReviewCongregationsComponent,
     ReviewEventsComponent,
     ReviewPersonsComponent,
-    ReviewOrganizationsComponent
+    ReviewOrganizationsComponent,
+    EditResourcesComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,7 @@ import { ReviewService } from '../services/review.service';
     HeaderModule,
     SharedModule,
     MaterialModule.forRoot(),
-    ReviewRoutingModule
+    ReviewRoutingModule,
   ],
   providers: [
     SubmitService,
