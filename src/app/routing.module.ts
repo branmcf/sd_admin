@@ -10,6 +10,10 @@ const routes: Routes = [
     {
         path: 'entry',
         loadChildren: './entry/entry.module#EntryModule'
+    },
+    {
+        path: 'review',
+        loadChildren: './review/review.module#ReviewModule'
     }
 ];
 

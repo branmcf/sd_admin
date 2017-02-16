@@ -15,11 +15,6 @@ export class ContentfulService {
     });
     constructor() {
 
-        // this.getLandingPage()
-        // .then((contents) => {
-        //     console.log(contents);
-        // });
-
     }
 
     getEntries() {

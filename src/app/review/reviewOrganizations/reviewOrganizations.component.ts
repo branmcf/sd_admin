@@ -5,11 +5,11 @@ import { ReviewService } from './../../services/review.service';
 import { Resource } from './../../domain/submissions/submission';
 
 @Component({
-  selector: 'hymn-review-resources',
-  templateUrl: './reviewResources.html',
+  selector: 'hymn-review-organizations',
+  templateUrl: './reviewOrganizations.html',
 })
 
-export class ReviewResourcesComponent implements OnInit {
+export class ReviewOrganizationsComponent implements OnInit {
   resources: Resource[];
   id: number;
 
@@ -17,7 +17,7 @@ export class ReviewResourcesComponent implements OnInit {
     private router: Router,
     private reviewService: ReviewService) {
 
-      this.reviewService.getAllResources().then(x => this.resources = x);
+      this.reviewService.getAllOrganizations().then(x => this.resources = x);
   }
 
   ngOnInit() {}

@@ -7,13 +7,37 @@ import { Resource } from './../domain/submissions/submission';
 
 @Injectable()
 export class ReviewService {
-  private _apiUrl = 'https://private-91abd-node46.apiary-mock.com/';
-  // private _apiUrl = environment.API_URL;
+  // private _apiUrl = 'https://private-91abd-node46.apiary-mock.com/';
+  private _apiUrl = environment.API_URL;
   constructor(private http: Http) { }
 
   getAllResources(): Promise<any[]> {
     return this.http.
-      get(this._apiUrl + 'review/resource')
+      get(this._apiUrl + 'resource')
+        .toPromise()
+        .then(x => x.json() as any[]);
+  }
+  getAllCongregations(): Promise<any[]> {
+    return this.http.
+      get(this._apiUrl + 'congregation')
+        .toPromise()
+        .then(x => x.json() as any[]);
+  }
+  getAllEvents(): Promise<any[]> {
+    return this.http.
+      get(this._apiUrl + 'event')
+        .toPromise()
+        .then(x => x.json() as any[]);
+  }
+  getAllOrganizations(): Promise<any[]> {
+    return this.http.
+      get(this._apiUrl + 'orgs')
+        .toPromise()
+        .then(x => x.json() as any[]);
+  }
+  getAllPersons(): Promise<any[]> {
+    return this.http.
+      get(this._apiUrl + 'person')
         .toPromise()
         .then(x => x.json() as any[]);
   }
