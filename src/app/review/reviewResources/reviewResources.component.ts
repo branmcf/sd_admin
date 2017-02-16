@@ -2,7 +2,6 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { SubmitService } from './../../services/submit.service';
 import { ReviewService } from './../../services/review.service';
-import { Resource } from './../../domain/submissions/submission'
 
 @Component({
   selector: 'hymn-review-resources',
@@ -10,7 +9,7 @@ import { Resource } from './../../domain/submissions/submission'
 })
 
 export class ReviewResourcesComponent implements OnInit {
-  resources: Resource[];
+  resources: any[];
   id: number;
 
   constructor (private route: ActivatedRoute,
@@ -20,5 +19,10 @@ export class ReviewResourcesComponent implements OnInit {
   }
 
   ngOnInit(){
+    
+  }
+
+  edit(id) {
+    this.router.navigate(['/entry/review/resources', id]);
   }
 }

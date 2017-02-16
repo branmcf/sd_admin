@@ -16,6 +16,8 @@ import { EntryRegisterComponent } from './entryRegister/entryRegister.component'
 import { ReviewLandingComponent } from './../review/reviewLanding/reviewLanding.component';
 import { ReviewResourcesComponent } from './../review/reviewResources/reviewResources.component';
 
+import { EditResourcesComponent } from './../edit/editResources/editResources.component';
+
 const routes: Routes = [
     { path: '', component: EntryComponent },
     { path: 'welcome', component: EntryLandingComponent, canActivate: [UserService] },
@@ -32,6 +34,7 @@ const routes: Routes = [
     { path: 'register', component: EntryRegisterComponent, canActivate: [AdminService] },
     { path: 'review', component: ReviewLandingComponent, canActivate: [AdminService] },
     { path: 'review/resources', component: ReviewResourcesComponent, canActivate: [AdminService] },
+    { path: 'review/resources/:id', component: EditResourcesComponent, canActivate: [AdminService] },
 ];
 
 @NgModule({

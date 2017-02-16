@@ -20,6 +20,8 @@ import { EntryRoutingModule } from './entry-routing.module';
 import { ReviewLandingComponent } from './../review/reviewLanding/reviewLanding.component';
 import { ReviewResourcesComponent } from './../review/reviewResources/reviewResources.component';
 
+import { EditResourcesComponent } from './../edit/editResources/editResources.component';
+
 import { SubmitService } from '../services/submit.service';
 import { ContentfulService } from '../services/contentful.service';
 import { UserService } from '../services/user.service';
@@ -44,6 +46,7 @@ import { ReviewService } from '../services/review.service';
     EntryRegisterComponent,
     ReviewLandingComponent,
     ReviewResourcesComponent,
+    EditResourcesComponent,
   ],
   imports: [
     CommonModule,

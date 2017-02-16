@@ -1,0 +1,46 @@
+<div class="entry-container">
+  <entry-nav class="left"></entry-nav>
+  <hymn-header></hymn-header>
+  <entry-nav-modal></entry-nav-modal>
+  <div class="entry-body row">
+    <div class="col-md-8 offset-md-3">
+      <md-card>
+        <md-card-content>
+            <md-card-subtitle class="entry-card-header">
+                Resources
+            </md-card-subtitle>
+            <md-card-title><h4 class="card-title">Review this resource</h4></md-card-title>
+            <br>
+            <div class="form-group">
+                <b style="font-weight: 700;">Title:</b> {{ resource?.data.title }}
+                <br>
+                <br>
+                <b style="font-weight: 700;">Type:</b> {{ resource?.data.type}}
+                <br>
+                <br>
+                <b style="font-weight: 700;">Type:</b> {{ resource?.data.type }}
+                <br>
+                <br>
+                <b style="font-weight: 700;">URL:</b> {{ resource?.data.url }}
+                <br>
+                <br>
+                <b style="font-weight: 700;">Author/Creator:</b> {{ resource?.data.title }}
+                <br>
+                <br>
+                <b style="font-weight: 700;">Parent Organization or Source:</b> {{ resource?.data.parent }}
+                <br>
+                <br>
+                <b style="font-weight: 700;">Description:</b>  {{ resource?.data.description }}
+                <br>
+                <br>
+                <b style="font-weight: 700;">What categories does this resource fit into or relate to?</b> {{ resource?.data.categories }}
+                <br>
+                <br>
+                <b style="font-weight: 700;">Type:</b>
+            </div>
+
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</div>

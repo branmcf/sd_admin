@@ -3,8 +3,6 @@ import { Http, Headers, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { environment } from '../../environments/environment';
 
-import { Resource } from './../domain/submissions/submission';
-
 @Injectable()
 export class ReviewService {
     private _apiUrl = 'https://private-91abd-node46.apiary-mock.com/';
@@ -13,8 +11,16 @@ export class ReviewService {
 
     getAllResources() : Promise<any[]> {
 		return this.http.
-            get(this._apiUrl + 'review/resource')
+            get(this._apiUrl + 'resource')
 		    .toPromise()
 		    .then(x => x.json() as any[]);
 	}	
+
+    getResourceByID(id: number): Promise<any> {
+        var pluck = x => (x && x.length) ? x[0] : undefined;
+		return this.http
+			.get(`${this._apiUrl}resource/${id}`)
+			.toPromise()
+            .then(x => x.json() as any);
+    }
 }
