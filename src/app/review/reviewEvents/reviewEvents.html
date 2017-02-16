@@ -10,26 +10,20 @@
                 <md-card-content>
 
                     <div *ngIf="resources?.length == 0" class="well">
-                        There are no unapproves resources in the database.
+                        There are no unapproved resources in the database.
                     </div>
 
                     <div *ngIf="resources?.length > 0">
                         <div class="media" *ngFor="let resources of resources; let index = index;">
                             <div class="media-body">
                                 <div>
-                                    <h4 class="media-heading">
-
-                                        {{ resources.user }}
-
-                                        <!--<a class="glyphicon glyphicon-edit" 
-                                            [routerLink]="resource.data.id">
-                                        </a>
-
-                                        <a class="glyphicon glyphicon-trash" 
-                                            (click)="delete(resource.data.id, index)">
-                                        </a>-->
-
-                                    </h4>
+                                    <h6 class="media-heading">
+                                        <ul>
+                                            <li>
+                                                <a [routerLink]="resources.id" md-button>{{ resources.title }}, submitted by {{ resources.user }} </a>
+                                            </li>
+                                       </ul>
+                                    </h6>
                                 </div>
 
                             </div>

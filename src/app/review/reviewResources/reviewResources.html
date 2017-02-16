@@ -10,7 +10,7 @@
                 <md-card-content>
 
                     <div *ngIf="resources?.length == 0" class="well">
-                        There are no unapproves resources in the database.
+                        There are no unapproved resources in the database.
                     </div>
 
                     <div *ngIf="resources?.length > 0">
@@ -20,7 +20,7 @@
                                     <h6 class="media-heading">
                                         <ul>
                                             <li>
-                                                <a [routerLink]="resources.id" style="color: black;"> <b>Title:</b> {{ resources.title }} <b>User:</b> {{ resources.user }} </a>
+                                                <a [routerLink]="resources.id" md-button>{{ resources.title }}, submitted by {{ resources.user }} </a>
                                             </li>
                                        </ul>
                                     </h6>
