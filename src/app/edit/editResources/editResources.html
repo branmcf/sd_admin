@@ -15,28 +15,74 @@
                 <b style="font-weight: 700;">Title:</b> {{ resource?.data.title }}
                 <br>
                 <br>
+                <br>
                 <b style="font-weight: 700;">Type:</b> {{ resource?.data.type}}
+                <br>
                 <br>
                 <br>
                 <b style="font-weight: 700;">Type:</b> {{ resource?.data.type }}
                 <br>
                 <br>
+                <br>
                 <b style="font-weight: 700;">URL:</b> {{ resource?.data.url }}
+                <br>
                 <br>
                 <br>
                 <b style="font-weight: 700;">Author/Creator:</b> {{ resource?.data.title }}
                 <br>
                 <br>
+                <br>
                 <b style="font-weight: 700;">Parent Organization or Source:</b> {{ resource?.data.parent }}
+                <br>
                 <br>
                 <br>
                 <b style="font-weight: 700;">Description:</b>  {{ resource?.data.description }}
                 <br>
                 <br>
+                <br>
                 <b style="font-weight: 700;">What categories does this resource fit into or relate to?</b> {{ resource?.data.categories }}
                 <br>
                 <br>
-                <b style="font-weight: 700;">Type:</b>
+                <br>
+                <b style="font-weight: 700;">Does this resource address any of these specific topics/concerns?</b> {{ resource?.data.topics }}
+                <br>
+                <br>
+                <br> 
+                <b style="font-weight: 700;">What kind of accompaniment does this resource address or lend itself toward?</b> {{ resource?.data.accompaniment }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">What languages are represented in this resource?</b> {{ resource?.data.languages }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">What types of ensembles are addressed in this resource?</b> {{ resource?.data.ensembles }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">What ethnicities does this resource represent?</b> {{ resource?.data.ethnicities }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Is a Hymn Society member involved?</b> {{ resource?.data.hymn_soc_member }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Is this resource free?</b> {{ resource?.data.is_free }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Is this resource practical or scholarly or both?</b> {{ resource?.data.pract_schol }}
+                <br>
+                <br>
+                <br>
+                <br>
+                <button md-raised-button color="primary" type="submit" (click)="approve()">
+                    Approve
+                </button>
+                <button md-button (click)="delete()">
+                    Delete
+                </button>
             </div>
 
         </md-card-content>

@@ -40,10 +40,42 @@ export class ReviewService {
         .then(x => x.json() as any[]);
   }
 
-    getResourceByID(id: number): Promise<any> {
-      var pluck = x => (x && x.length) ? x[0] : undefined;
-      return this.http
+  getResourceByID(id: number): Promise<any> {
+    var pluck = x => (x && x.length) ? x[0] : undefined;
+    return this.http
         .get(`${this._apiUrl}resource/${id}`)
+        .toPromise()
+        .then(x => x.json() as any);
+    }
+
+  getCongregationByID(id: number): Promise<any> {
+    var pluck = x => (x && x.length) ? x[0] : undefined;
+    return this.http
+        .get(`${this._apiUrl}congregation/${id}`)
+        .toPromise()
+        .then(x => x.json() as any);
+    }
+
+  getEventByID(id: number): Promise<any> {
+    var pluck = x => (x && x.length) ? x[0] : undefined;
+    return this.http
+        .get(`${this._apiUrl}event/${id}`)
+        .toPromise()
+        .then(x => x.json() as any);
+    }
+
+  getOrganizationByID(id: number): Promise<any> {
+    var pluck = x => (x && x.length) ? x[0] : undefined;
+    return this.http
+        .get(`${this._apiUrl}organization/${id}`)
+        .toPromise()
+        .then(x => x.json() as any);
+    }
+
+  getPersonByID(id: number): Promise<any> {
+    var pluck = x => (x && x.length) ? x[0] : undefined;
+    return this.http
+        .get(`${this._apiUrl}person/${id}`)
         .toPromise()
         .then(x => x.json() as any);
     }

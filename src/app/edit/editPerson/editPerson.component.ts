@@ -4,11 +4,11 @@ import { SubmitService } from './../../services/submit.service';
 import { ReviewService } from './../../services/review.service';
 
 @Component({
-  selector: 'hymn-edit-resources',
-  templateUrl: './editResources.html',
+  selector: 'hymn-edit-person',
+  templateUrl: './editPerson.html',
 })
 
-export class EditResourcesComponent implements OnInit {
+export class EditPersonComponent implements OnInit {
   id: number;
   resource: any;
   catArr: any[];
@@ -37,15 +37,15 @@ export class EditResourcesComponent implements OnInit {
             } else {
             }
         };      
-        this.reviewService.getResourceByID(id).then(onload);
+        this.reviewService.getPersonByID(id).then(onload);
     }
 
 
     approve(id) {
-        this.router.navigate(['/review/resources']);
+        this.router.navigate(['/review/person']);
     }
 
     delete(id) {
-        this.router.navigate(['/review/resources']);
+        this.router.navigate(['/review/person']);
     }
 }
