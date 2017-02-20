@@ -79,4 +79,11 @@ export class ReviewService {
         .toPromise()
         .then(x => x.json() as any);
     }
+
+    approveResource(id: number): Promise<any> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    return this.http
+      .put(`${this._apiUrl}resource/approved/1/${id}`, id, headers)
+			.toPromise();
+    }
 }

@@ -28,13 +28,11 @@ export class EditPersonComponent implements OnInit {
         if(!id) {
             return;
         }
-        else {
-        }
 
         var onload = (data) => {
             if(data){
+                this.id = id;
                 this.resource = data;
-            } else {
             }
         };      
         this.reviewService.getPersonByID(id).then(onload);

@@ -10,7 +10,7 @@ import { ReviewService } from './../../services/review.service';
 
 export class EditCongregationsComponent implements OnInit {
   id: number;
-  resource: any;
+  congregation: any;
   catArr: any[];
   approved: boolean;
   eleted: boolean;
@@ -28,15 +28,12 @@ export class EditCongregationsComponent implements OnInit {
         if(!id) {
             return;
         }
-        else {
-        }
 
         var onload = (data) => {
             if(data){
-                this.resource = data;
+                this.id = id;
+                this.congregation = data;
             } 
-            else {
-            }
         };      
         this.reviewService.getCongregationByID(id).then(onload);
     }

@@ -1,0 +1,83 @@
+<div class="entry-container">
+  <entry-nav class="left"></entry-nav>
+  <hymn-header></hymn-header>
+  <entry-nav-modal></entry-nav-modal>
+  <div class="entry-body row">
+    <div class="col-md-8 offset-md-3">
+      <md-card>
+        <md-card-content>
+            <md-card-subtitle class="entry-card-header">
+                Congregations
+            </md-card-subtitle>
+            <md-card-title><h4 class="card-title">Review this congregation</h4></md-card-title>
+            <br>
+            <div class="form-group">
+                <b style="font-weight: 700;">Name:</b> {{ congregation?.data.name }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Website:</b> {{ congregation?.data.url }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Country:</b> {{ congregation?.data.country }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">State/Province:</b> {{ congregation?.data.state }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">City:</b> {{ congregation?.data.city }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Denomination/Tradition:</b> {{ congregation?.data.denomination }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Are there any Hymn Society members in your congregation or on your church staff?:</b>  {{ congregation?.data.hymn_soc_member }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Which types of song/hymn(s) has your congregation sung in the last 2 months?</b> {{ congregation?.data.categories }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Which types of instruments does your congregation use during congregational singing?</b> {{ congregation?.data.instruments }}
+                <br>
+                <br>
+                <br> 
+                <b style="font-weight: 700;">Which best describes the shape of your worship?</b> {{ congregation?.data.shape }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">What does your pastor/priest wear when he/she preaches?</b> {{ congregation?.data.clothing }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Is your congregation...</b> {{ congregation?.data.geography }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">What ethnicities make up at least 20% of your congregation?</b> {{ congregation?.data.ethnicities }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">On average, how many people attend your weekly worship services?</b> {{ congregation?.data.attendance }}
+                <br>
+                <br>
+                <br>
+                <button md-raised-button color="primary" type="submit" (click)="approve(congregation?.id)">
+                    Approve
+                </button>
+                <button md-button (click)="delete()">
+                    Delete
+                </button>
+            </div>
+
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</div>

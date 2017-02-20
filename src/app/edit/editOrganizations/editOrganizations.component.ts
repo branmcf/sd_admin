@@ -28,15 +28,12 @@ export class EditOrganizationsComponent implements OnInit {
         if(!id) {
             return;
         }
-        else {
-        }
 
         var onload = (data) => {
             if(data){
+                this.id = id;
                 this.resource = data;
             } 
-            else {
-            }
         };      
         this.reviewService.getOrganizationByID(id).then(onload);
     }

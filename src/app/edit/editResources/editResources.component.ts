@@ -9,6 +9,9 @@ import { ReviewService } from './../../services/review.service';
 })
 
 export class EditResourcesComponent implements OnInit {
+  obj: {   
+      id: number;
+  }
   id: number;
   resource: any;
   catArr: any[];
@@ -28,20 +31,20 @@ export class EditResourcesComponent implements OnInit {
         if(!id) {
             return;
         }
-        else {
-        }
 
         var onload = (data) => {
             if(data){
+                this.id = id;
                 this.resource = data;
-            } else {
             }
-        };      
+        };
         this.reviewService.getResourceByID(id).then(onload);
     }
 
 
     approve(id) {
+        console.log(this.id);
+        this.reviewService.approveResource(this.id);
         this.router.navigate(['/review/resources']);
     }
 
