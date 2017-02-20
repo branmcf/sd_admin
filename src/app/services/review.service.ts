@@ -41,7 +41,7 @@ export class ReviewService {
   }
 
   getResourceByID(id: number): Promise<any> {
-    var pluck = x => (x && x.length) ? x[0] : undefined;
+    let pluck = x => (x && x.length) ? x[0] : undefined;
     return this.http
         .get(`${this._apiUrl}resource/${id}`)
         .toPromise()
@@ -49,7 +49,7 @@ export class ReviewService {
     }
 
   getCongregationByID(id: number): Promise<any> {
-    var pluck = x => (x && x.length) ? x[0] : undefined;
+    let pluck = x => (x && x.length) ? x[0] : undefined;
     return this.http
         .get(`${this._apiUrl}congregation/${id}`)
         .toPromise()
@@ -57,7 +57,7 @@ export class ReviewService {
     }
 
   getEventByID(id: number): Promise<any> {
-    var pluck = x => (x && x.length) ? x[0] : undefined;
+    let pluck = x => (x && x.length) ? x[0] : undefined;
     return this.http
         .get(`${this._apiUrl}event/${id}`)
         .toPromise()
@@ -65,7 +65,7 @@ export class ReviewService {
     }
 
   getOrganizationByID(id: number): Promise<any> {
-    var pluck = x => (x && x.length) ? x[0] : undefined;
+    let pluck = x => (x && x.length) ? x[0] : undefined;
     return this.http
         .get(`${this._apiUrl}orgs/${id}`)
         .toPromise()
@@ -73,7 +73,7 @@ export class ReviewService {
     }
 
   getPersonByID(id: number): Promise<any> {
-    var pluck = x => (x && x.length) ? x[0] : undefined;
+    let pluck = x => (x && x.length) ? x[0] : undefined;
     return this.http
         .get(`${this._apiUrl}person/${id}`)
         .toPromise()
@@ -81,9 +81,14 @@ export class ReviewService {
     }
 
     approveResource(id: number): Promise<any> {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
     return this.http
-      .put(`${this._apiUrl}resource/approved/1/${id}`, id, headers)
+      .put(`${this._apiUrl}resource/approved/1/${id}`, id)
 			.toPromise();
+    }
+
+    deleteResource(id: number): Promise<any> {
+    return this.http
+        .delete(`${this._apiUrl}resource/delete/${id}`)
+        .toPromise();
     }
 }

@@ -9,9 +9,7 @@ import { ReviewService } from './../../services/review.service';
 })
 
 export class EditResourcesComponent implements OnInit {
-  obj: {   
-      id: number;
-  }
+
   id: number;
   resource: any;
   catArr: any[];
@@ -50,6 +48,7 @@ export class EditResourcesComponent implements OnInit {
     }
 
     delete(id) {
+        this.reviewService.deleteResource(this.id);
         this.router.navigate(['/review/resources']);
     }
 }
