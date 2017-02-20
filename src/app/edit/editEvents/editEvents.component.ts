@@ -10,7 +10,7 @@ import { ReviewService } from './../../services/review.service';
 
 export class EditEventsComponent implements OnInit {
   id: number;
-  resource: any;
+  event: any;
   catArr: any[];
   approved: boolean;
   eleted: boolean;
@@ -24,15 +24,15 @@ export class EditEventsComponent implements OnInit {
     this.route.params.forEach(x => this.load(+x['id']));
   }
 
-    private load(id){
-        if(!id) {
+    private load(id) {
+        if (!id) {
             return;
         }
 
         var onload = (data) => {
-            if(data){
+            if (data) {
                 this.id = id;
-                this.resource = data;
+                this.event = data;
             }
         };
         this.reviewService.getEventByID(id).then(onload);

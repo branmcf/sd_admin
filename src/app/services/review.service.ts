@@ -67,7 +67,7 @@ export class ReviewService {
   getOrganizationByID(id: number): Promise<any> {
     var pluck = x => (x && x.length) ? x[0] : undefined;
     return this.http
-        .get(`${this._apiUrl}organization/${id}`)
+        .get(`${this._apiUrl}orgs/${id}`)
         .toPromise()
         .then(x => x.json() as any);
     }

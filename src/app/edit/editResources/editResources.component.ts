@@ -35,6 +35,7 @@ export class EditResourcesComponent implements OnInit {
         var onload = (data) => {
             if(data){
                 this.id = id;
+                data.categories = JSON.stringify(data);
                 this.resource = data;
             }
         };

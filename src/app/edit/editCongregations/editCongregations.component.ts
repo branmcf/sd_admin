@@ -30,11 +30,11 @@ export class EditCongregationsComponent implements OnInit {
         }
 
         var onload = (data) => {
-            if(data){
+            if (data) {
                 this.id = id;
                 this.congregation = data;
-            } 
-        };      
+            }
+        };
         this.reviewService.getCongregationByID(id).then(onload);
     }
 

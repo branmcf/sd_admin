@@ -10,7 +10,7 @@ import { ReviewService } from './../../services/review.service';
 
 export class EditOrganizationsComponent implements OnInit {
   id: number;
-  resource: any;
+  organization: any;
   catArr: any[];
   approved: boolean;
   eleted: boolean;
@@ -30,11 +30,11 @@ export class EditOrganizationsComponent implements OnInit {
         }
 
         var onload = (data) => {
-            if(data){
+            if (data) {
                 this.id = id;
-                this.resource = data;
-            } 
-        };      
+                this.organization = data;
+            }
+        };
         this.reviewService.getOrganizationByID(id).then(onload);
     }
 

@@ -26,10 +26,11 @@ const routes: Routes = [
     { path: 'organizations', component: ReviewOrganizationsComponent, canActivate: [AdminService] },
     { path: 'congregations', component: ReviewCongregationsComponent, canActivate: [AdminService] },
     { path: 'resources/:id', component: EditResourcesComponent, canActivate: [AdminService] },
-    { path: 'person/:id', component: EditResourcesComponent, canActivate: [AdminService] },
-    { path: 'events/:id', component: EditResourcesComponent, canActivate: [AdminService] },
-    { path: 'organizations/:id', component: EditResourcesComponent, canActivate: [AdminService] },
-    { path: 'congregations/:id', component: EditResourcesComponent, canActivate: [AdminService] },
+    { path: 'person/:id', component: EditPersonComponent, canActivate: [AdminService] },
+    { path: 'events/:id', component: EditEventsComponent, canActivate: [AdminService] },
+    { path: 'organizations/:id', component: EditOrganizationsComponent, canActivate: [AdminService] },
+    { path: 'congregations/:id', component: EditCongregationsComponent, canActivate: [AdminService] },
+
 
 ];
 

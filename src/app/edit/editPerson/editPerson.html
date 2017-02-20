@@ -1,0 +1,87 @@
+<div class="entry-container">
+  <entry-nav class="left"></entry-nav>
+  <hymn-header></hymn-header>
+  <entry-nav-modal></entry-nav-modal>
+  <div class="entry-body row">
+    <div class="col-md-8 offset-md-3">
+      <md-card>
+        <md-card-content>
+            <md-card-subtitle class="entry-card-header">
+                Person
+            </md-card-subtitle>
+            <md-card-title><h4 class="card-title">Review this Clinician/Consultant</h4></md-card-title>
+            <br>
+            <div class="form-group">
+                <b style="font-weight: 700;">Name:</b> {{ person?.data.first_name }} {{ person?.data.last_name }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Email:</b> {{ person?.data.email }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Country:</b> {{ person?.data.country }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">State/Province:</b> {{ person?.data.state }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">City:</b> {{ person?.data.city }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Website:</b> {{ person?.data.url }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Facebook:</b> {{ person?.data.social_facebook }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Twitter:</b> {{ person?.data.social_twitter }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Other social media connections:</b> {{ person?.data.social_other }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Main Topic/Emphasis</b> {{ person?.data.emphasis }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Are you a Hymn Society members</b>  {{ person?.data.hymn_soc_member }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">What types of ensembles are you comfortable working with?</b> {{ person?.data.ensembles }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Which types of song/hymn(s) has your congregation sung in the last 2 months?</b> {{ person?.data.categories }}
+                <br>
+                <br>
+                <br>
+                <b style="font-weight: 700;">Which types of instruments does your congregation use during congregational singing?</b> {{ person?.data.instruments }}
+                <br>
+                <br>
+                <br> 
+                <b style="font-weight: 700;">What ethnicities do you work with in at least 20% of your events</b> {{ person?.data.ethnicities }}
+                <br>
+                <br>
+                <br>
+                <button md-raised-button color="primary" type="submit" (click)="approve(person?.id)">
+                    Approve
+                </button>
+                <button md-button (click)="delete()">
+                    Delete
+                </button>
+            </div>
+
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</div>

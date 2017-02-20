@@ -10,7 +10,7 @@ import { ReviewService } from './../../services/review.service';
 
 export class EditPersonComponent implements OnInit {
   id: number;
-  resource: any;
+  person: any;
   catArr: any[];
   approved: boolean;
   eleted: boolean;
@@ -24,17 +24,17 @@ export class EditPersonComponent implements OnInit {
     this.route.params.forEach(x => this.load(+x['id']));
   }
 
-    private load(id){
-        if(!id) {
+    private load(id) {
+        if (!id) {
             return;
         }
 
         var onload = (data) => {
-            if(data){
+            if (data) {
                 this.id = id;
-                this.resource = data;
+                this.person = data;
             }
-        };      
+        };
         this.reviewService.getPersonByID(id).then(onload);
     }
 
