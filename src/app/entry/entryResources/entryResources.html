@@ -400,53 +400,95 @@
             </div>
 
             <div class="form-group">
-                <label for="resourceEthnicity">What ethnicities does this resource represent?</label>
+                <label for="resourceEthnicity">What ethnicities/races does this resource represent?</label>
                     <md-checkbox class="block-input"
                         ng-true-value="true"
                         ng-false-value="false"
-                        name="resourceEthnicitySix"
-                        [(ngModel)]="submission.data.ethnicities.African">
-                        African
+                        name="congregationEthnicityFive"
+                        [(ngModel)]="submission.data.ethnicities.Asian_Chinese_Heritage_Language">
+                        Asian - Chinese Language/Heritage
                     </md-checkbox>
                     <md-checkbox class="block-input"
                         ng-true-value="true"
                         ng-false-value="false"
-                        name="resourceEthnicityFive"
-                        [(ngModel)]="submission.data.ethnicities.Asian">
-                        Asian
+                        name="congregationEthnicityFive"
+                        [(ngModel)]="submission.data.ethnicities.Asian_Indian">
+                        Asian - Indian
+                    </md-checkbox>
+                     <md-checkbox class="block-input"
+                        ng-true-value="true"
+                        ng-false-value="false"
+                        name="congregationEthnicityFive"
+                        [(ngModel)]="submission.data.ethnicities.Asian_Southeast_Asian_Non_Chinese">
+                        Asian - Southest Asian Non-Chinese
                     </md-checkbox>
                     <md-checkbox class="block-input"
                         ng-true-value="true"
                         ng-false-value="false"
-                        name="resourceEthnicityTwo"
-                        [(ngModel)]="submission.data.ethnicities.Black">
-                        Black
+                        name="congregationEthnicityFive"
+                        [(ngModel)]="submission.data.ethnicities.Asian_Korean">
+                        Asian - Korean
                     </md-checkbox>
                     <md-checkbox class="block-input"
                         ng-true-value="true"
                         ng-false-value="false"
-                        name="resourceEthnicityThree"
-                        [(ngModel)]="submission.data.ethnicities.Hispanic_Latinx_Caribbean">
-                        Hispanic/Latinx/Caribbean
+                        name="congregationEthnicityFive"
+                        [(ngModel)]="submission.data.ethnicities.Asian_Japanese">
+                        Asian - Japanese
                     </md-checkbox>
                     <md-checkbox class="block-input"
                         ng-true-value="true"
                         ng-false-value="false"
-                        name="resourceEthnicitySeven"
-                        [(ngModel)]="submission.data.ethnicities.Middle_Eastern">
-                        Middle Eastern
+                        name="congregationEthnicitySix"
+                        [(ngModel)]="submission.data.ethnicities.Black_African_American">
+                        Black - African/American
+                    </md-checkbox>
+                     <md-checkbox class="block-input"
+                        ng-true-value="true"
+                        ng-false-value="false"
+                        name="congregationEthnicitySix"
+                        [(ngModel)]="submission.data.ethnicities.Black_Sub_Saharan_African">
+                        Black - Sub-Saharan African
                     </md-checkbox>
                     <md-checkbox class="block-input"
                         ng-true-value="true"
                         ng-false-value="false"
-                        name="resourceEthnicityFour"
+                        name="congregationEthnicityFour"
+                        [(ngModel)]="submission.data.ethnicities.Hispanic_Latino_Spanish_Central_South_American">
+                        Hispanic/Latino/Spanish - Central/South American
+                    </md-checkbox>
+                    <md-checkbox class="block-input"
+                        ng-true-value="true"
+                        ng-false-value="false"
+                        name="congregationEthnicityFour"
+                        [(ngModel)]="submission.data.ethnicities.Hispanic_Latino_Spanish_Caribbean">
+                        Hispanic/Latino/Spanish - Caribbean
+                    </md-checkbox>
+                    <md-checkbox class="block-input"
+                        ng-true-value="true"
+                        ng-false-value="false"
+                        name="congregationEthnicitySeven"
                         [(ngModel)]="submission.data.ethnicities.Native_American_Indigenous_Peoples">
                         Native American/Indigenous Peoples
                     </md-checkbox>
                     <md-checkbox class="block-input"
                         ng-true-value="true"
                         ng-false-value="false"
-                        name="resourceEthnicityOne"
+                        name="congregationEthnicitySeven"
+                        [(ngModel)]="submission.data.ethnicities.Native_Hawaiian_Pacific_Islander">
+                        Native American/Pacific Islander
+                    </md-checkbox>
+                    <md-checkbox class="block-input"
+                        ng-true-value="true"
+                        ng-false-value="false"
+                        name="congregationEthnicitySeven"
+                        [(ngModel)]="submission.data.ethnicities.North_African_Middle_Eastern">
+                        North African/Middle Eastern
+                    </md-checkbox>
+                    <md-checkbox class="block-input"
+                        ng-true-value="true"
+                        ng-false-value="false"
+                        name="congregationEthnicityOne"
                         [(ngModel)]="submission.data.ethnicities.White">
                         White
                     </md-checkbox>

@@ -20,6 +20,7 @@ export class EntryCongregationComponent {
   denomOther: string;
   shapeOther: string;
   attireOther: string;
+  geographyOther: string;
   all_countries: [any];
   countries: any;
   dialogRef: MdDialogRef<CongDialog>;
@@ -91,11 +92,18 @@ export class EntryCongregationComponent {
         geography: '',
         ethnicities: {
           White: false,
-          Black: false,
-          Hispanic_Latin_American_Caribbean: false,
+          Asian_Chinese_Heritage_Language: false,
+          Asian_Indian: false,
+          Asian_Southeast_Asian_Non_Chinese: false,
+          Asian_Korean: false,
+          Asian_Japanese: false,
+          Black_African_American: false,
+          Black_Sub_Saharan_African: false,
+          Hispanic_Latino_Spanish_Central_South_American: false,
+          Hispanic_Latino_Spanish_Caribbean: false,
           Native_American_Indigenous_Peoples: false,
-          Asian: false,
-          Middle_Eastern: false,
+          Native_Hawaiian_Pacific_Islander: false,
+          North_African_Middle_Eastern: false,
         },
         attendance: '',
       }
@@ -140,6 +148,9 @@ export class EntryCongregationComponent {
     }
     if (this.attireOther) {
       this.submission.data.clothing = this.attireOther;
+    }
+    if (this.geographyOther) {
+      this.submission.data.geography = this.geographyOther;
     }
     console.log(this.submission);
     this.submitService.submitCongregation(this.submission);
