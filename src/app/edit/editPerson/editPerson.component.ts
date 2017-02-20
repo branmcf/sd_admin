@@ -40,10 +40,12 @@ export class EditPersonComponent implements OnInit {
 
 
     approve(id) {
+        this.reviewService.approvePerson(this.id);
         this.router.navigate(['/review/person']);
     }
 
     delete(id) {
+        this.reviewService.deletePerson(this.id);
         this.router.navigate(['/review/person']);
     }
 }

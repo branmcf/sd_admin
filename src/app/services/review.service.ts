@@ -80,15 +80,59 @@ export class ReviewService {
         .then(x => x.json() as any);
     }
 
-    approveResource(id: number): Promise<any> {
+  approveResource(id: number): Promise<any> {
     return this.http
-      .put(`${this._apiUrl}resource/approved/1/${id}`, id)
-			.toPromise();
-    }
+    .put(`${this._apiUrl}resource/approved/1/${id}`, id)
+    .toPromise();
+  }
 
-    deleteResource(id: number): Promise<any> {
+  deleteResource(id: number): Promise<any> {
     return this.http
-        .delete(`${this._apiUrl}resource/delete/${id}`)
-        .toPromise();
-    }
+      .put(`${this._apiUrl}resource/is_active/0/${id}`, id)
+      .toPromise();
+  }
+  approvePerson(id: number): Promise<any> {
+    return this.http
+    .put(`${this._apiUrl}person/approved/1/${id}`, id)
+    .toPromise();
+  }
+
+  deletePerson(id: number): Promise<any> {
+    return this.http
+      .put(`${this._apiUrl}person/is_active/0/${id}`, id)
+      .toPromise();
+  }
+  approveEvent(id: number): Promise<any> {
+    return this.http
+    .put(`${this._apiUrl}event/approved/1/${id}`, id)
+    .toPromise();
+  }
+
+  deleteEvent(id: number): Promise<any> {
+    return this.http
+      .put(`${this._apiUrl}event/is_active/0/${id}`, id)
+      .toPromise();
+  }
+  approveCongregation(id: number): Promise<any> {
+    return this.http
+    .put(`${this._apiUrl}congregation/approved/1/${id}`, id)
+    .toPromise();
+  }
+
+  deleteCongregation(id: number): Promise<any> {
+    return this.http
+      .put(`${this._apiUrl}congregation/is_active/0/${id}`, id)
+      .toPromise();
+  }
+  approveOrganization(id: number): Promise<any> {
+    return this.http
+    .put(`${this._apiUrl}orgs/approved/1/${id}`, id)
+    .toPromise();
+  }
+
+  deleteOrganization(id: number): Promise<any> {
+    return this.http
+      .put(`${this._apiUrl}orgs/is_active/0/${id}`, id)
+      .toPromise();
+  }
 }

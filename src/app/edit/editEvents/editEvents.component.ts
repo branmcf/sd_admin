@@ -39,10 +39,12 @@ export class EditEventsComponent implements OnInit {
     }
 
     approve(id) {
+        this.reviewService.approveEvent(this.id);
         this.router.navigate(['/review/events']);
     }
 
     delete(id) {
+        this.reviewService.deleteEvent(this.id);
         this.router.navigate(['/review/events']);
     }
 }
