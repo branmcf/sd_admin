@@ -153,8 +153,7 @@ export class EntryCongregationComponent {
       this.submission.data.geography = this.geographyOther;
     }
     console.log(this.submission);
-    this.submitService.submitCongregation(this.submission);
-    // location.reload();
+    this.submitService.submitCongregation(this.submission).then(() => location.reload();
   }
 }
 

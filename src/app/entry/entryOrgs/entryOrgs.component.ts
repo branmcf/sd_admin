@@ -146,8 +146,7 @@ export class EntryOrgsComponent implements OnInit {
       this.submission.data.clothing = this.attireOther;
     }
     console.log(this.submission);
-    this.submitService.submitOrgs(this.submission);
-    location.reload();
+    this.submitService.submitOrgs(this.submission).then(() => location.reload();
   }
 }
 
