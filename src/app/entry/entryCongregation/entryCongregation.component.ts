@@ -154,7 +154,7 @@ export class EntryCongregationComponent {
     }
     console.log(this.submission);
     this.submitService.submitCongregation(this.submission);
-    location.reload();
+    // location.reload();
   }
 }
 

@@ -141,7 +141,7 @@ export class EntryResourcesComponent implements OnInit {
     }
     console.log((this.submission));
     this.submitService.submitResource(this.submission);
-    location.reload();
+    // location.reload();
   }
 }
 
