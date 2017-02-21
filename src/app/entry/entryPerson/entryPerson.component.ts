@@ -142,7 +142,7 @@ export class EntryPersonComponent implements OnInit {
     this.submission.uid = obj.id;
 
     console.log(this.submission);
-    this.submitService.submitPerson(this.submission).then(() => location.reload();
+    this.submitService.submitPerson(this.submission).then(() => location.reload());
   }
 }
 
