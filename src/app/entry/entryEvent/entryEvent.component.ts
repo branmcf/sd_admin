@@ -113,7 +113,7 @@ export class EntryEventComponent implements OnInit {
       this.submission.data.clothing = this.attireOther;
     }
     console.log(this.submission);
-    this.submitService.submitEvent(this.submission).then(() => location.reload();
+    this.submitService.submitEvent(this.submission).then(() => location.reload());
   }
 }
 
