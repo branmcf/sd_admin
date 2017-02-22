@@ -15,7 +15,6 @@ export class ReviewResourcesComponent implements OnInit {
   constructor (private route: ActivatedRoute,
     private router: Router,
     private reviewService: ReviewService) {
-
       this.reviewService.getAllResources().then(x => this.resources = x);
   }
 

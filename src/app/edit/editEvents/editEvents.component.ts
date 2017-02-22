@@ -6,6 +6,7 @@ import { ReviewService } from './../../services/review.service';
 @Component({
   selector: 'hymn-edit-event',
   templateUrl: './editEvents.html',
+  styleUrls: ['./editEvents.scss']
 })
 
 export class EditEventsComponent implements OnInit {
