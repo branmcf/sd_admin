@@ -18,8 +18,6 @@ export class EntryCongregationComponent {
   submission: any;
   countryOther: string;
   denomOther: string;
-  shapeOther: string;
-  attireOther: string;
   geographyOther: string;
   all_countries: [any];
   countries: any;
@@ -87,8 +85,17 @@ export class EntryCongregationComponent {
           Handbells: false,
           Obligato_instruments_flute_clarinet_trumpet_etc: false,
         },
-        shape: '',
-        clothing: '',
+        shape: {
+          '5-Fold Pattern': false,
+          '4-Fold Pattern': false,
+          '2-Fold Pattern': false,
+        },
+        clothing: {
+          'Vestments': false,
+          'Robes, with or without stoles': false,
+          'Business Attire': false,
+          'Casual': false
+        },
         geography: '',
         ethnicities: {
           White: false,
@@ -142,12 +149,6 @@ export class EntryCongregationComponent {
     }
     if (this.denomOther) {
       this.submission.data.denomination = this.denomOther;
-    }
-    if (this.shapeOther) {
-      this.submission.data.shape = this.shapeOther;
-    }
-    if (this.attireOther) {
-      this.submission.data.clothing = this.attireOther;
     }
     if (this.geographyOther) {
       this.submission.data.geography = this.geographyOther;

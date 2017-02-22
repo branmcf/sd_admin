@@ -18,8 +18,6 @@ export class EntryOrgsComponent implements OnInit {
   countryOther: any;
   denomOther: any;
   geoOther: any;
-  shapeOther: string;
-  attireOther: string;
   all_countries: [any];
   countries: any;
   dialogRef: MdDialogRef<OrgsDialog>;
@@ -79,6 +77,17 @@ export class EntryOrgsComponent implements OnInit {
           Song_from_another_country_or_World_Song: false,
           Secular_Song: false,
         },
+        shape: {
+          '5-Fold Pattern': false,
+          '4-Fold Pattern': false,
+          '2-Fold Pattern': false,
+        },
+        clothing: {
+          'Vestments': false,
+          'Robes, with or without stoles': false,
+          'Business Attire': false,
+          'Casual': false
+        },
         instruments: {
           Acappella: false,
           Organ: false,
@@ -89,7 +98,6 @@ export class EntryOrgsComponent implements OnInit {
           Handbells: false,
           Obligato_instruments_flute_clarinet_trumpet_etc: false,
         },
-        clothing: '',
         ethnicities: {
           White: false,
           Asian_Chinese_Heritage_Language: false,
@@ -138,12 +146,6 @@ export class EntryOrgsComponent implements OnInit {
     }
     if (this.geoOther) {
       this.submission.data.geographic_area = this.geoOther;
-    }
-    if (this.shapeOther) {
-      this.submission.data.shape = this.shapeOther;
-    }
-    if (this.attireOther) {
-      this.submission.data.clothing = this.attireOther;
     }
     console.log(this.submission);
     this.submitService.submitOrgs(this.submission).then(() => location.reload());

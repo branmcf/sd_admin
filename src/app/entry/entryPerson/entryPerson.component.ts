@@ -72,6 +72,11 @@ export class EntryPersonComponent implements OnInit {
           Keyboards: false,
           Worship_Planning: false
         },
+        languages: {
+          English: false,
+          Spanish: false,
+          French: false,
+        },
         ethnicities: {
           White: false,
           Asian_Chinese_Heritage_Language: false,

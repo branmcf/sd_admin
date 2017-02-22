@@ -358,40 +358,84 @@
 
                     <div class="form-group">
                         <label for="orgShape">What worship patterns does your organization use/reference?</label>
-                        <md-radio-group [(ngModel)]="submission.data.shape" name="orgShape" required>
-                            <md-radio-button class="block-input" value="5-Fold Pattern (5-Fold Pattern (Gathering, Word, Response, Table, Sending) - Roman Catholic Mass and similar structures" required> 
-                                5-Fold Pattern (5-Fold Pattern (Gathering, Word, Response, Table, Sending) - Roman Catholic Mass and similar structures</md-radio-button>
-                            <md-radio-button class="block-input" value="4-Fold Pattern (Gathering, Word, Response, Sending) - Communion monthly or quarterly"> 
-                                4-Fold Pattern (Gathering, Word, Response, Sending) - Communion monthly or quarterly</md-radio-button>
-                            <md-radio-button class="block-input" value="2-Fold Pattern (Praise & Teaching) - Most Praise and Worship services"> 
-                                2-Fold Pattern (Praise & Teaching) - Most Praise and Worship services</md-radio-button>
-                            <md-radio-button class="block-input" value="other"> 
-                                <md-input-container>
-                                <input md-input mdInput type="text" 
-                                placeholder="Other Shape"
-                                [(ngModel)]="shapeOther"
-                                name=shapeOther/>
-                                </md-input-container>
-                            </md-radio-button>
-                        </md-radio-group>
+                        <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="shapeOne"
+                                [(ngModel)]="submission.data.shape['5-Fold Pattern']">
+                                5-Fold Pattern (Gathering, Word, Response, Table, Sending) - Roman Catholic Mass and similar structures
+                        </md-checkbox>
+                    
+                        <md-checkbox class="block-input"
+                            ng-true-value="true" 
+                            ng-false-value="false"
+                            name="shapeTwo"
+                            [(ngModel)]="submission.data.shape['4-Fold Pattern']">
+                            4-Fold Pattern (Gathering, Word, Response, Sending) - Communion monthly or quarterly"
+                        </md-checkbox>
+                
+                        <md-checkbox class="block-input"
+                            ng-true-value="true" 
+                            ng-false-value="false"
+                            name="shapeThree"
+                            [(ngModel)]="submission.data.shape['2-Fold Pattern']">
+                            2-Fold Pattern (Praise & Teaching) - Most Praise and Worship services
+                        </md-checkbox>
+                
+                        <md-checkbox class="block-input">                        
+                            <md-input-container class="full-width">
+                            <input md-input mdInput type="text"
+                            id="congregationShape" 
+                            class="form-control" 
+                            [(ngModel)]="submission.data.shape.Other"
+                            name="congregationShape"
+                            placeholder="Other shape"
+                            name="congregationShapeOther"/>
+                            </md-input-container>
+                        </md-checkbox>
                     </div> 
 
                     <div class="form-group">
                         <label for="orgAttire">What do pastors/priests wear for the majority of the congregations you serve?</label>
-                        <md-radio-group [(ngModel)]="submission.data.clothing" name="orgAttire" required>
-                            <md-radio-button class="block-input" value="Vestments" required> Vestments</md-radio-button>
-                            <md-radio-button class="block-input" value="Robes, with or without stoles" > Robes, with or without stoles</md-radio-button>
-                            <md-radio-button class="block-input" value="Business Attire" > Business Attire</md-radio-button>
-                            <md-radio-button class="block-input" value="Casual" > Casual</md-radio-button>
-                            <md-radio-button class="block-input" value="other">   
-                                <md-input-container>
-                                <input md-input mdInput type="text" 
-                                placeholder="Other form of attire"
-                                [(ngModel)]="attireOther"
-                                name="otherAttire"/>
-                                </md-input-container>
-                            </md-radio-button>
-                        </md-radio-group>
+                        <md-checkbox class="block-input"
+                            ng-true-value="true" 
+                            ng-false-value="false"
+                            name="congregationAttireFive"
+                            [(ngModel)]="submission.data.clothing['Vestments']">
+                            Vestments</md-checkbox>
+
+                        <md-checkbox class="block-input"
+                            ng-true-value="true" 
+                            ng-false-value="false"
+                            name="congregationAttireSix"
+                            [(ngModel)]="submission.data.clothing['Robes, with or without stoles']">
+                            Robes, with or without stoles</md-checkbox>
+                
+                        <md-checkbox class="block-input"
+                            ng-true-value="true" 
+                            ng-false-value="false"
+                            name="congregationAttireSeven"
+                            [(ngModel)]="submission.data.clothing['Business Attire']">
+                            Business Attire</md-checkbox>
+                
+                        <md-checkbox class="block-input"
+                            ng-true-value="true" 
+                            ng-false-value="false"
+                            name="congregationAttireEight"
+                            [(ngModel)]="submission.data.clothing['Casual']">
+                            Casual</md-checkbox>
+                
+                        <md-checkbox class="block-input">                        
+                            <md-input-container class="full-width">
+                            <input md-input mdInput type="text"
+                            id="congregationAttire" 
+                            class="form-control" 
+                            [(ngModel)]="submission.data.clothing.Other"
+                            name="congregationAttire"
+                            placeholder="Other forms of attire"
+                            name="congregationAttireOther"/>
+                            </md-input-container>
+                        </md-checkbox>
                     </div> 
 
             <div class="form-group">
