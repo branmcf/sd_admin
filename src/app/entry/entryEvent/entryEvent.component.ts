@@ -68,11 +68,11 @@ export class EntryEventComponent implements OnInit {
         country: 'United States',
         hymn_soc_member: '',
         ensembles: {
-          Choir: false,
-          Cantor: false,
-          Song_Enlivener: false,
-          Solo: false,
-          Lead_Singer_from_Band_with_Other_Vocalists: false,
+          'Choir': false,
+          'Cantor': false,
+          'Song-Enlivener': false,
+          'Lead Singer from Band (Solo)': false,
+          'Lead Singer from Band with Other Vocalists': false,
         },
         shape: {
           '5-Fold Pattern': false,
