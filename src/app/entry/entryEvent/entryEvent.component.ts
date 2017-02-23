@@ -74,7 +74,17 @@ export class EntryEventComponent implements OnInit {
           Solo: false,
           Lead_Singer_from_Band_with_Other_Vocalists: false,
         },
-        clothing: '',
+        shape: {
+          '5-Fold Pattern': false,
+          '4-Fold Pattern': false,
+          '2-Fold Pattern': false,
+        },
+        clothing: {
+          'Vestments': false,
+          'Robes, with or without stoles': false,
+          'Business Attire': false,
+          'Casual': false
+        },
         attendance: '',
       }
     };
