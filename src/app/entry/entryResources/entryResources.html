@@ -17,7 +17,6 @@
             *ngIf="submission">
 
             <div class="form-group">
-                <!--<label for="resourceTitle">Resource Title</label>-->
                 <md-input-container class="full-width">
                     <input md-input mdInput type="text"
                     placeholder="Resource Title"
@@ -40,14 +39,15 @@
             <div class="form-group">
                 <label for="resourceType">Resource Type</label>
                 <md-radio-group [(ngModel)]="submission.data.type" name="radioType">
-                    <md-radio-button class="block-input" name="type" value="Book" required> Book</md-radio-button>
-                    <md-radio-button class="block-input" name="type" value="Blog"> Blog</md-radio-button>
-                    <md-radio-button class="block-input" name="type" value="Podcast"> Podcast</md-radio-button>
-                    <md-radio-button class="block-input" name="type" value="Newsletter/E-News"> Newsletter/E-News</md-radio-button>
-                    <md-radio-button class="block-input" name="type" value="Forum"> Forum</md-radio-button>
                     <md-radio-button class="block-input" name="type" value="Audio Track(s)"> Audio Track(s)</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Article(s)"> Article(s)</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Blog"> Blog</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Book"> Book</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Forum"> Forum</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Hymnal/Songbook"> Hymnal/Songbook</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Newsletter/E-News"> Newsletter/E-News</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Podcast"> Podcast</md-radio-button>
                     <md-radio-button class="block-input" name="type" value="Video/Visual(s)"> Video/Visual(s)</md-radio-button>
-                     <md-radio-button class="block-input" name="type" value="Hymnal/Songbook"> Hymnal/Songbook</md-radio-button>
                     <md-radio-button class="block-input" name="type" value="other">                                         
                         <md-input-container class="full-width">
                         <input md-input mdInput type="text"
@@ -521,18 +521,18 @@
                     <md-radio-button class="block-input" value="No"> No</md-radio-button>
                 </md-radio-group>
             </div>
-
-                    <div class="form-group">
-                        <label for="resourcePractSchol">Is this resource practical or scholarly or both?</label>
-                        <md-radio-group [(ngModel)]="submission.data.pract_schol" name="resourcePractSchol" required>
-                            <md-radio-button class="block-input" value="Practical" required> 
-                                Practical</md-radio-button>
-                            <md-radio-button class="block-input" value="Scholarly"> 
-                                Scholarly</md-radio-button>
-                            <md-radio-button class="block-input" value="Both"> 
-                                Both</md-radio-button>
-                        </md-radio-group>
-                    </div>             
+            
+            <div class="form-group">
+                <label for="resourcePractSchol">Is this resource practical or scholarly or both?</label>
+                <md-radio-group [(ngModel)]="submission.data.pract_schol" name="resourcePractSchol" required>
+                    <md-radio-button class="block-input" value="Practical" required> 
+                        Practical</md-radio-button>
+                    <md-radio-button class="block-input" value="Scholarly"> 
+                        Scholarly</md-radio-button>
+                    <md-radio-button class="block-input" value="Both"> 
+                        Both</md-radio-button>
+                </md-radio-group>
+            </div>             
 
             <md-card-actions>
               <button md-raised-button color="primary" type="submit" 

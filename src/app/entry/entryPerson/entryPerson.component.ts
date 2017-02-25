@@ -63,6 +63,7 @@ export class EntryPersonComponent implements OnInit {
         social_other: '',
         emphasis: '',
         hymn_soc_member: '',
+        pract_schol: '',
         topics: {
           'Contemporary Song Band': false,
           'Traditional Hymnody': false,
