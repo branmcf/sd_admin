@@ -65,6 +65,7 @@ export class EntryResourcesComponent implements OnInit {
           'Song from another country (or World Song)': false,
           'Secular Song': false,
           'A song written by our own artist/leader': false,
+          'Liturgical Music': false,
         },
         topics: {
           'Psalm Setting': false,
@@ -81,6 +82,8 @@ export class EntryResourcesComponent implements OnInit {
           'Orchestra/Wind Ensemble': false,
           'Handbells': false,
           'Obligato Instruments (flute, clarinet, trumpet, etc...)': false,
+          'Descants': false,
+          'Pre-Recorded Tracks/Accompaniments': false,
         },
         languages: {
           English: false,
