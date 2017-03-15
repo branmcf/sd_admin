@@ -128,7 +128,7 @@ export class EntryEventComponent implements OnInit {
       this.submission.data.type = this.typeOther;
     }
     console.log(this.submission);
-    // this.submitService.submitEvent(this.submission).then(() => location.reload());
+    this.submitService.submitEvent(this.submission).then(() => location.reload());
   }
 }
 
