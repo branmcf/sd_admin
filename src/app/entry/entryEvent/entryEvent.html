@@ -37,7 +37,7 @@
 
                     <div class="form-group">
                         <label for="eventOccurance">Is Your Event...</label>
-                            <md-radio-group [(ngModel)]="submission.data.occurance" name="eventOccrance" required>
+                            <md-radio-group [(ngModel)]="submission.data.occurance" name="eventOccurance" required>
                                 <md-radio-button class="block-input" name="occurance" value="Annual" required>Annual</md-radio-button>
                                 <md-radio-button class="block-input" name="occurance" value="Every-Other-Year (once every 2 years)">Every-Other-Year (once every 2 years)</md-radio-button>
                                 <md-radio-button class="block-input" name="occurance" value="One Time Only">One Time Only</md-radio-button>
@@ -45,10 +45,31 @@
                                     <md-input-container class="full-width">
                                         <input md-input mdInput type="text"
                                         placeholder="Other occurance"
-                                        id="eventOccurance" 
+                                        id="occuranceOther" 
                                         class="form-control" 
-                                        [(ngModel)]="eventOccurance"
+                                        [(ngModel)]="occuranceOther"
                                         name="submission.data.occurance"/>
+                                    </md-input-container> 
+                                </md-radio-button>
+                            </md-radio-group>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventType">What Type of Event is This?</label>
+                            <md-radio-group [(ngModel)]="submission.data.type" name="eventType" required>
+                                <md-radio-button class="block-input" name="type" value="One-Day Conference" required>One-Day Conference</md-radio-button>
+                                <md-radio-button class="block-input" name="type" value="Multi-Day Conference">Multi-Day Conference</md-radio-button>
+                                <md-radio-button class="block-input" name="type" value="Hymn Festival">Hymn Festival</md-radio-button>
+                                <md-radio-button class="block-input" name="type" value="Concert">Concert</md-radio-button>
+                                <md-radio-button class="block-input" name="type" value="Worship Service">Worship Service</md-radio-button>
+                                <md-radio-button class="block-input" name="type" value="other">
+                                    <md-input-container class="full-width">
+                                        <input md-input mdInput type="text"
+                                        placeholder="Other type"
+                                        id="typeOther" 
+                                        class="form-control" 
+                                        [(ngModel)]="typeOther"
+                                        name="submission.data.type"/>
                                     </md-input-container> 
                                 </md-radio-button>
                             </md-radio-group>
@@ -181,7 +202,7 @@
                                 <md-radio-button class="block-input" name="cost" value="Over $1000">Over $1000</md-radio-button>
                             </md-radio-group>
                     </div> 
-
+                    <br>
                     <div class="form-group">
                         <md-select placeholder="Event Country" [(ngModel)]="submission.data.country" name="eventCountry" required>
                             <md-option *ngFor="let country of all_countries" [value]="country">

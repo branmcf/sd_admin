@@ -77,6 +77,7 @@ export class EntryOrgsComponent implements OnInit {
           'Song from another country (or World Song)': false,
           'Secular Song': false,
           'A song written by our own artist/leader': false,
+          'Liturgical Music': false,
         },
         shape: {
           '5-Fold Pattern': false,
@@ -98,6 +99,8 @@ export class EntryOrgsComponent implements OnInit {
           'Orchestra/Wind Ensemble': false,
           'Handbells': false,
           'Obligato Instruments (flute, clarinet, trumpet, etc...)': false,
+          'Descants': false,
+          'Pre-Recorded Tracks/Accompaniments': false,
         },
         ethnicities: {
           'White': false,

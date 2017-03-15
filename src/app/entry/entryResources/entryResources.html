@@ -125,8 +125,7 @@
             </div>
 
             <div class="form-group">
-                <label for="resourceCategories">What categories does this resource
-                fit into or relate to?
+                <label for="resourceCategories">What categories does this resource fit into or relate to?
                 </label>
                     <md-checkbox class="block-input" 
                         ng-true-value="true" 
@@ -190,6 +189,13 @@
                         name="personTypeEight"
                         [(ngModel)]="submission.data.categories['Secular Song']"
                         >Secular Song</md-checkbox>
+
+                    <md-checkbox class="block-input"
+                        ng-true-value="true" 
+                        ng-false-value="false"
+                        name="personTypeNine"
+                        [(ngModel)]="submission.data.categories['Liturgical Music']"
+                        >Liturgical Music</md-checkbox>
 
                     <md-checkbox class="block-input">                        
                         <md-input-container class="full-width">
@@ -302,6 +308,20 @@
                         name="personInstrumentEight"
                         [(ngModel)]="submission.data.accompaniment['Obligato Instruments (flute, clarinet, trumpet, etc...)']">
                         Obligato Instruments (flute, clarinet, trumpet, etc...)</md-checkbox>
+
+                    <md-checkbox class="block-input"
+                        ng-true-value="true" 
+                        ng-false-value="false"
+                        name="personInstrumentNine"
+                        [(ngModel)]="submission.data.accompaniment['Descants']">
+                        Descants</md-checkbox>
+
+                    <md-checkbox class="block-input"
+                        ng-true-value="true" 
+                        ng-false-value="false"
+                        name="personInstrumentTen"
+                        [(ngModel)]="submission.data.accompaniment['Pre-Recorded Tracks/Accompaniments']">
+                        Pre-Recorded Tracks/Accompaniments</md-checkbox>
             
                     <md-checkbox class="block-input" name="other">                       
                         <md-input-container class="full-width">
@@ -419,8 +439,8 @@
                     ng-true-value="true"
                     ng-false-value="false"
                     name="congregationEthnicityFive"
-                    [(ngModel)]="submission.data.ethnicities['Asian - Southest Asian Non-Chinese']">
-                    Asian - Southest Asian Non-Chinese
+                    [(ngModel)]="submission.data.ethnicities['Asian - Southeast Asian Non-Chinese']">
+                    Asian - Southeast Asian Non-Chinese
                 </md-checkbox>
                 <md-checkbox class="block-input"
                     ng-true-value="true"

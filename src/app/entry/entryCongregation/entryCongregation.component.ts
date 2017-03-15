@@ -75,7 +75,7 @@ export class EntryCongregationComponent {
           'Song from another country (or World Song)': false,
           'Secular Song': false,
           'A song written by our own artist/leader': false,
-
+          'Liturgical Music': false,
         },
         instruments: {
           'Acappella': false,
@@ -86,6 +86,8 @@ export class EntryCongregationComponent {
           'Orchestra/Wind Ensemble': false,
           'Handbells': false,
           'Obligato Instruments (flute, clarinet, trumpet, etc...)': false,
+          'Descants': false,
+          'Pre-Recorded Tracks/Accompaniments': false,
         },
         shape: {
           '5-Fold Pattern': false,
@@ -156,7 +158,7 @@ export class EntryCongregationComponent {
       this.submission.data.geography = this.geographyOther;
     }
     console.log(this.submission);
-    this.submitService.submitCongregation(this.submission).then(() => location.reload());
+    // this.submitService.submitCongregation(this.submission).then(() => location.reload());
   }
 }
 

@@ -305,8 +305,8 @@
                                 ng-true-value="true"
                                 ng-false-value="false"
                                 name="congregationEthnicityFive"
-                                [(ngModel)]="submission.data.ethnicities['Asian - Southest Asian Non-Chinese']">
-                                Asian - Southest Asian Non-Chinese
+                                [(ngModel)]="submission.data.ethnicities['Asian - Southeast Asian Non-Chinese']">
+                                Asian - Southeast Asian Non-Chinese
                             </md-checkbox>
                             <md-checkbox class="block-input"
                                 ng-true-value="true"
@@ -505,6 +505,13 @@
                                 [(ngModel)]="submission.data.categories['Secular Song']"
                                 >Secular Song</md-checkbox>
 
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personTypeNine"
+                                [(ngModel)]="submission.data.categories['Liturgical Music']"
+                                >Liturgical Music</md-checkbox>
+
                             <md-checkbox class="block-input">                        
                                 <md-input-container class="full-width">
                                 <input md-input mdInput type="text"
@@ -574,8 +581,22 @@
                                 ng-true-value="true" 
                                 ng-false-value="false"
                                 name="personInstrumentEight"
-                                [(ngModel)]="submission.data.instruments['Obligato Instruments (flute, clarinet, trumpet, etc...)']">
-                                Obligato Instruments (flute, clarinet, trumpet, etc...)</md-checkbox>
+                                [(ngModel)]="submission.data.instruments['Descants']">
+                                Descants</md-checkbox>
+
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personInstrumentNine"
+                                [(ngModel)]="submission.data.instruments['Descants']">
+                                Descants</md-checkbox>
+
+                            <md-checkbox class="block-input"
+                                ng-true-value="true" 
+                                ng-false-value="false"
+                                name="personInstrumentTen"
+                                [(ngModel)]="submission.data.instruments['Pre-Recorded Tracks/Accompaniments']">
+                                Pre-Recorded Tracks/Accompaniments</md-checkbox>
                     
                             <md-checkbox class="block-input">                        
                                 <md-input-container class="full-width">

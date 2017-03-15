@@ -110,7 +110,7 @@ export class EntryPersonComponent implements OnInit {
           'Song from another country (or World Song)': false,
           'Secular Song': false,
           'A song written by our own artist/leader': false,
-
+          'Liturgical Music': false,
         },
         instruments: {
           'Acappella': false,
@@ -121,6 +121,8 @@ export class EntryPersonComponent implements OnInit {
           'Orchestra/Wind Ensemble': false,
           'Handbells': false,
           'Obligato Instruments (flute, clarinet, trumpet, etc...)': false,
+          'Descants': false,
+          'Pre-Recorded Tracks/Accompaniments': false,
         },
       }
     };

@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { SubmitService } from './../../services/submit.service';
 import { ReviewService } from './../../services/review.service';
+import { MdDialog, MdDialogRef } from '@angular/material';
 
 @Component({
   selector: 'hymn-edit-resources',
@@ -15,7 +16,7 @@ export class EditResourcesComponent implements OnInit {
   resource: any;
   catArr: any[];
   approved: boolean;
-  eleted: boolean;
+  deleted: boolean;
 
   constructor (private route: ActivatedRoute,
     private router: Router,
@@ -43,9 +44,12 @@ export class EditResourcesComponent implements OnInit {
 
 
     approve(id) {
-        console.log(this.id);
         this.reviewService.approveResource(this.id);
         this.router.navigate(['/review/resources']);
+    }
+    
+    edit(id) {
+        this.router.navigate([]);
     }
 
     delete(id) {
@@ -53,3 +57,4 @@ export class EditResourcesComponent implements OnInit {
         this.router.navigate(['/review/resources']);
     }
 }
+

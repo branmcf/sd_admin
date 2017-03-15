@@ -15,9 +15,10 @@ import { MdDialog, MdDialogRef } from '@angular/material';
 export class EntryEventComponent implements OnInit {
   content: JSON;
   submission: any;
-  eventOccurance: any;
+  occuranceOther: any;
   shapeOther: string;
   attireOther: string;
+  typeOther: string;
   all_countries: [any];
   countries: any;
    dialogRef: MdDialogRef<EventDialog>;
@@ -56,6 +57,7 @@ export class EntryEventComponent implements OnInit {
       data: {
         title: '',
         occurance: '',
+        type: '',
         url: '',
         parent: '',
         theme: '',
@@ -113,8 +115,8 @@ export class EntryEventComponent implements OnInit {
     this.submission.user = obj.first_name + ' ' + obj.last_name;
     this.submission.uid = obj.id;
 
-    if (this.eventOccurance) {
-      this.submission.data.occurance = this.eventOccurance;
+    if (this.occuranceOther) {
+      this.submission.data.occurance = this.occuranceOther;
     }
     if (this.shapeOther) {
       this.submission.data.shape = this.shapeOther;
@@ -122,8 +124,11 @@ export class EntryEventComponent implements OnInit {
     if (this.attireOther) {
       this.submission.data.clothing = this.attireOther;
     }
+    if(this.typeOther) {
+      this.submission.data.type = this.typeOther;
+    }
     console.log(this.submission);
-    this.submitService.submitEvent(this.submission).then(() => location.reload());
+    // this.submitService.submitEvent(this.submission).then(() => location.reload());
   }
 }
 
