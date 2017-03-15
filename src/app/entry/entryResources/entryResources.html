@@ -47,6 +47,7 @@
                     <md-radio-button class="block-input" name="type" value="Hymnal/Songbook"> Hymnal/Songbook</md-radio-button>
                     <md-radio-button class="block-input" name="type" value="Newsletter/E-News"> Newsletter/E-News</md-radio-button>
                     <md-radio-button class="block-input" name="type" value="Podcast"> Podcast</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Thesis/Dissertation"> Thesis/Dissertation</md-radio-button>
                     <md-radio-button class="block-input" name="type" value="Video/Visual(s)"> Video/Visual(s)</md-radio-button>
                     <md-radio-button class="block-input" name="type" value="other">                                         
                         <md-input-container class="full-width">
@@ -180,8 +181,8 @@
                         ng-true-value="true" 
                         ng-false-value="false"
                         name="personTypeSeven"
-                        [(ngModel)]="submission.data.categories['Song from another country (or World Song)']"
-                        >Song from another country (or 'World Song')</md-checkbox>
+                        [(ngModel)]="submission.data.categories['World Song (a song not from the U.S. or Canada)']"
+                        >World Song (a song not from the U.S. or Canada)</md-checkbox>
             
                     <md-checkbox class="block-input"
                         ng-true-value="true" 

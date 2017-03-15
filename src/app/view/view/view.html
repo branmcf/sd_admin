@@ -1,0 +1,27 @@
+<div class="entry-container right">
+    <hymn-header></hymn-header>
+    <div class="view-content"><!-- content field -->
+        <h1>Select content</h1>
+        <md-grid-list cols="3" rowHeight="400px" gutterSize="4px">
+            <md-grid-tile
+                *ngFor="let tile of tiles"
+                [colspan]="tile.cols"
+                [rowspan]="tile.rows">
+
+                <md-card class="example-card">
+                    <md-card-header>
+                        <div md-card-avatar class="example-header-image"><md-icon>{{tile.icon}}</md-icon></div>
+                        <md-card-title>Shiba Inu</md-card-title>
+                        <md-card-subtitle>Dog Breed</md-card-subtitle>
+                    </md-card-header>
+                    <img md-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+                    <md-card-content>
+                        <p>
+                        {{tile.text}}
+                        </p>
+                    </md-card-content>
+                </md-card>
+            </md-grid-tile>
+        </md-grid-list>
+    </div> <!-- content field -->
+</div>
