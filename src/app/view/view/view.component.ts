@@ -17,7 +17,8 @@ export class ViewComponent implements OnInit {
     {text: 'Persons', cols: 1, rows: 1, color: 'lightgreen', icon: 'face'},
   ];
   constructor (private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private contentful: ContentfulService) {
   }
 
   ngOnInit() {}
