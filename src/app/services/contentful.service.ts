@@ -67,5 +67,12 @@ export class ContentfulService {
                 return JSON.stringify(form);
             }));
     }
+
+    getResourceImages() {
+        return Promise.resolve(this.client.getEntry('3wAUlZ2ny0GWMeekQq4UAI')
+            .then((form) => {
+                return JSON.stringify(form);
+            }));
+    }
 }
 

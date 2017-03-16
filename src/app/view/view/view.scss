@@ -1,11 +1,14 @@
 .view-content {
-    padding: 5% 10% 5% 10%; 
+    padding: 10% 10% 5% 10%; 
+    .col-6, .col-md-4 {
+      margin-bottom: 4%;
+    }
 }
 
-.example-card {
+.resource-card {
+  background-color: lightblue;
 }
 
-.example-header-image {
-/*   background-image: url('https://material.angular.io/assets/img/examples/shiba2.jpg');*/
+.resource-header-image {
   background-size: cover;
 }

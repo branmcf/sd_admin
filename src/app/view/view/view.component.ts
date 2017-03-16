@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { ReviewService } from './../../services/review.service';
+import { ContentfulService } from './../../services/contentful.service';
 
 @Component({
   selector: 'hymn-view',
@@ -15,7 +15,6 @@ export class ViewComponent implements OnInit {
     {text: 'Organizations', cols: 1, rows: 1, color: 'lightpink', icon: 'group_work'},
     {text: 'Events', cols: 1, rows: 1, color: 'lightblue', icon: 'event'},
     {text: 'Persons', cols: 1, rows: 1, color: 'lightgreen', icon: 'face'},
-    {text: '6', cols: 1, rows: 1, color: 'lightpink'},
   ];
   constructor (private route: ActivatedRoute,
     private router: Router) {
