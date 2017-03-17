@@ -1,6 +1,6 @@
 <div class="entry-container right">
     <hymn-header></hymn-header>
-    <div class="view-content container"><!-- content field -->
+    <div class="view-content"><!-- content field -->
         <h1>Select content</h1>
             <div class="row">
                 <div class="col-6 col-md-4" 
@@ -11,11 +11,9 @@
                             <div md-card-avatar class="resource-header-image"><md-icon>{{tile.icon}}</md-icon></div>
                             <md-card-title>{{tile.text}}</md-card-title>
                         </md-card-header>
-                        <img md-card-image src="https://static.pexels.com/photos/46274/pexels-photo-46274.jpeg">
+                        <img md-card-image src={{tile.image}}>
                         <md-card-content>
-                            <p>
-                            {{tile.text}}
-                            </p>
+                            
                         </md-card-content>
                     </md-card>
 

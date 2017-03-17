@@ -1,19 +1,27 @@
 .view-content {
   text-align: center;
-    padding: 10% 10% 5% 10%; 
-    .col-6, .col-md-4 {
+  padding: 10% 10% 5% 10%; 
+  .col-6, .col-md-4 {
       margin-bottom: 4%;
-    }
+  }
 }
 
 .resource-card {
+  cursor: pointer;
   img {
     height: 230px;
-    // background-color: dodgerblue;
   }
-  background-color: lightblue;
+  background-color: #2196F3;
+}
+
+.resource-card:hover {
+  background-color: #64B5F6;
 }
 
 .resource-header-image {
   background-size: cover;
+}
+
+md-card-header {
+  overflow: scroll;
 }
