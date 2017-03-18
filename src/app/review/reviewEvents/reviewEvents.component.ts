@@ -16,7 +16,7 @@ export class ReviewEventsComponent implements OnInit {
     private router: Router,
     private reviewService: ReviewService) {
 
-      this.reviewService.getAllEvents().then(x => this.resources = x);
+      this.reviewService.getAllEvents().then(x => this.resources = x).catch(err => {});
   }
 
   ngOnInit() {}

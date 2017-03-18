@@ -6,7 +6,7 @@
                 <div class="col-6 col-md-4" 
                     *ngFor="let tile of tiles">
 
-                    <md-card class="resource-card">
+                    <md-card class="resource-card" (click)="navigate(tile.routerLink)">
                         <md-card-header>
                             <div md-card-avatar class="resource-header-image"><md-icon>{{tile.icon}}</md-icon></div>
                             <md-card-title>{{tile.text}}</md-card-title>
