@@ -5,23 +5,41 @@ import { ReviewService } from './../../services/review.service';
 @Component({
   selector: 'hymn-view-resources',
   templateUrl: './viewResources.html',
+  styleUrls: ['./viewResources.scss']
 })
 
 export class ViewResourcesComponent implements OnInit {
   resources: any[];
-  id: number;
+  type: string;
+  icon: string;
   private sub: any;
 
   constructor (private route: ActivatedRoute,
     private router: Router,
     private reviewService: ReviewService) {
-      this.reviewService.getAllResources().then(x => this.resources = x);
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(param => {
-        console.log(param['type']);
-      });
+      if (param['type'] === 'events') {
+        this.reviewService.getAllEvents().then(x => this.resources = x);
+        this.icon = 'event';
+      } else if (param['type'] === 'congregations') {
+        this.reviewService.getAllCongregations().then(x => this.resources = x);
+        this.icon = 'room';
+      } else if (param['type'] === 'orgs') {
+        this.reviewService.getAllOrganizations().then(x => this.resources = x);
+        this.icon = 'group_work';
+      } else if (param['type'] === 'persons') {
+        this.reviewService.getAllPersons().then(x => this.resources = x);
+        this.icon = 'face';
+      } else if (param['type'] === 'resources') {
+        this.reviewService.getAllResources().then(x => this.resources = x);
+        this.icon = 'book';
+      }
+      this.type = param['type'];
+      console.log(param['type']);
+    });
   }
 
   ngOnDestroy() {

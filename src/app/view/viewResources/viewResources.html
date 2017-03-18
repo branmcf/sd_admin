@@ -1,33 +1,18 @@
 <div class="entry-container right">
     <hymn-header></hymn-header>
-    <div class="entry-body row">
-        <div class="col-md-8 offset-md-3">
-            <md-card>
-                <md-card-subtitle>Resources</md-card-subtitle>
-                <md-card-title><h4>Select a resource to review</h4></md-card-title>
+    <div class="view-content">
+        <div class="col-sm-8">
+            <md-card *ngFor="let resource of resources">
+                <md-card-header>
+                    <div md-card-avatar class="resource-header-image"><md-icon>{{icon}}</md-icon></div>
+                    <md-card-subtitle>{{type}}</md-card-subtitle>
+                    <md-card-title [ngSwitch]="type">
+                            <h4 *ngSwitchCase="persons">{{resource?.first_name}} {{resource?.last_name}}</h4>
+                            <h4 *ngSwitchDefault>{{resource?.title}}</h4>
+                    </md-card-title>
+                </md-card-header>
                 <md-card-content>
-
-                    <div *ngIf="resources?.length == 0" class="well">
-                        There are no unapproved resources in the database.
-                    </div>
-
-                    <div *ngIf="resources?.length > 0">
-                        <div class="media" *ngFor="let resources of resources; let index = index;">
-                            <div class="media-body">
-                                <div>
-                                    <h6 class="media-heading">
-                                        <ul>
-                                            <li>
-                                                <a [routerLink]="resources.id" md-button>{{ resources.title }}, submitted by {{ resources.user }} </a>
-                                            </li>
-                                       </ul>
-                                    </h6>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
+    
                 </md-card-content> <!-- end class card-block-->
             </md-card> <!-- end class card -->
         </div> <!-- end class col-md-8 offset-md-2 -->
