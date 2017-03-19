@@ -44,10 +44,11 @@ export class EditResourcesComponent implements OnInit {
 
 
     approve(id) {
-        this.reviewService.approveResource(this.id);
-        this.router.navigate(['/review/resources']);
+        this.reviewService.approveResource(this.id).then(() => {
+            this.router.navigate(['/review/resources']);
+        });
     }
-    
+
     edit(id) {
         this.router.navigate([]);
     }

@@ -82,7 +82,7 @@ export class ReviewService {
 
   approveResource(id: number): Promise<any> {
     return this.http
-    .put(`${this._apiUrl}resource/approved/1/${id}`, id)
+    .put(`${this._apiUrl}resource/${id}`, {'column': 'is_approved', 'value': 1})
     .toPromise();
   }
 
@@ -93,7 +93,7 @@ export class ReviewService {
   }
   approvePerson(id: number): Promise<any> {
     return this.http
-    .put(`${this._apiUrl}person/approved/1/${id}`, id)
+    .put(`${this._apiUrl}person/${id}`, {'column': 'is_approved', 'value': 1})
     .toPromise();
   }
 
@@ -104,7 +104,7 @@ export class ReviewService {
   }
   approveEvent(id: number): Promise<any> {
     return this.http
-    .put(`${this._apiUrl}event/approved/1/${id}`, id)
+    .put(`${this._apiUrl}event/${id}`, {'column': 'is_approved', 'value': 1})
     .toPromise();
   }
 
@@ -115,7 +115,7 @@ export class ReviewService {
   }
   approveCongregation(id: number): Promise<any> {
     return this.http
-    .put(`${this._apiUrl}congregation/approved/1/${id}`, id)
+    .put(`${this._apiUrl}congregation/${id}`, {'column': 'is_approved', 'value': 1})
     .toPromise();
   }
 
@@ -126,7 +126,7 @@ export class ReviewService {
   }
   approveOrganization(id: number): Promise<any> {
     return this.http
-    .put(`${this._apiUrl}orgs/approved/1/${id}`, id)
+    .put(`${this._apiUrl}orgs/${id}`, {'column': 'is_approved', 'value': 1})
     .toPromise();
   }
 

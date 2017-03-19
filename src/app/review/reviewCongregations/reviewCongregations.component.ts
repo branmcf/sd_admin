@@ -16,7 +16,7 @@ export class ReviewCongregationsComponent implements OnInit {
     private router: Router,
     private reviewService: ReviewService) {
 
-      this.reviewService.getAllCongregations().then(x => this.resources = x);
+      this.reviewService.getAllCongregations().then(x => this.resources = x).catch(err => {});
   }
 
   ngOnInit() {}
