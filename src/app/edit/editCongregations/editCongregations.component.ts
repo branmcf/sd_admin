@@ -41,12 +41,14 @@ export class EditCongregationsComponent implements OnInit {
     }
 
     approve(id) {
-        this.reviewService.approveCongregation(this.id);
-        this.router.navigate(['/review/congregations']);
+        this.reviewService.approveCongregation(this.id).then(() => {
+            this.router.navigate(['/review/congregations']);
+        });
     }
 
     delete(id) {
-        this.reviewService.deleteCongregation(this.id);
-        this.router.navigate(['/review/congregations']);
+        this.reviewService.deleteCongregation(this.id).then(() => {
+            this.router.navigate(['/review/congregations']);
+        });
     }
 }

@@ -40,12 +40,14 @@ export class EditOrganizationsComponent implements OnInit {
     }
 
     approve(id) {
-        this.reviewService.approveOrganization(this.id);
-        this.router.navigate(['/review/organizations']);
+        this.reviewService.approveOrganization(this.id).then(() => {
+            this.router.navigate(['/review/organizations']);
+        });
     }
 
     delete(id) {
-        this.reviewService.deleteOrganization(this.id);
-        this.router.navigate(['/review/organizations']);
+        this.reviewService.deleteOrganization(this.id).then(()=> {
+            this.router.navigate(['/review/organizations']);
+        });
     }
 }
