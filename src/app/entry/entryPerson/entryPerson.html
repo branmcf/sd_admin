@@ -64,16 +64,8 @@
                             class="form-control" 
                             [(ngModel)]="submission.data.email"
                             name="personEmail"
-                            #personEmail="ngModel"
-                            required/>
+                            #personEmail="ngModel"/>
                         </md-input-container>
-                        <div class="alert alert-danger" *ngIf="personEmail.errors && personEmail.touched">
-                            <ul>
-                                <li [hidden]="!personEmail.errors.required">
-                                    Email is required
-                                </li>
-                            </ul>
-                        </div>
                     </div>
 
                     <div class="form-group">

@@ -53,7 +53,7 @@ a {
   flex-direction: column;
   min-height: 100%;
 
-  /*background: url('https://static.pexels.com/photos/2324/skyline-buildings-new-york-skyscrapers.jpg') no-repeat center center fixed; */
+  background: url('https://static.pexels.com/photos/2324/skyline-buildings-new-york-skyscrapers.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -151,6 +151,11 @@ a {
 .block-input {
   display: block;
   width: inherit;
+}
+
+.alert-danger {
+  background: none;
+  border: none;
 }
 /*
  * Sidebar
