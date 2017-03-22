@@ -1,0 +1,19 @@
+.quiz-content {
+  padding: 10% 10% 5% 10%; 
+  .col-sm-12 {
+      margin-bottom: 5%;
+  }
+}
+
+.resource-header-image {
+  background-size: cover;
+}
+
+md-card-header {
+  overflow: scroll;
+  min-height: 75px;
+}
+
+md-card-actions {
+    text-align: right;
+}

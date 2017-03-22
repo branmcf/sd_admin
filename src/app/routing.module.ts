@@ -18,6 +18,10 @@ const routes: Routes = [
     {
         path: 'view',
         loadChildren: './view/view.module#ViewModule'
+    },
+    {
+        path: 'quiz',
+        loadChildren: './quiz/quiz.module#QuizModule'
     }
 ];
 

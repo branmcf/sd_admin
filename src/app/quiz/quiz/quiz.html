@@ -1,0 +1,38 @@
+<div class="entry-container right">
+    <hymn-header></hymn-header>
+    <div class="quiz-content">
+        <div class="col-sm-12">
+            <md-card>
+                <md-card-header>
+                    <md-card-title><h2>Answer the following questions:</h2></md-card-title>
+                    <md-card-subtitle>Click next and prev to navigate between questions</md-card-subtitle>
+                </md-card-header>
+
+                <md-card-content>
+
+                    <h5>{{questions[index].question}}</h5>
+                    <md-checkbox *ngFor="let answer of questions[index].answers"
+                        class="block-input" 
+                        ng-true-value="true" 
+                        ng-false-value="false">
+                        {{answer}}
+                    </md-checkbox>
+
+                </md-card-content> <!-- end class card-block-->
+
+                <md-card-actions>
+                    <button md-button md-raised-button
+                    [disabled]="index <= 0" (click)="previous()">
+                        Previous
+                    </button>
+                    <button md-raised-button 
+                    [disabled]="index >= 6"  (click)="next()">
+                        Next
+                    </button>
+                </md-card-actions>
+
+            </md-card> <!-- end class card -->
+
+        </div> <!-- end class col-md-8 offset-md-2 -->
+    </div> <!-- end entry-body row -->
+</div>

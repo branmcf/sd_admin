@@ -88,7 +88,7 @@ export class ReviewService {
 
   deleteResource(id: number): Promise<any> {
     return this.http
-      .put(`${this._apiUrl}resource/is_active/0/${id}`, id)
+      .delete(`${this._apiUrl}resource/${id}`, id)
       .toPromise();
   }
   approvePerson(id: number): Promise<any> {
@@ -99,7 +99,7 @@ export class ReviewService {
 
   deletePerson(id: number): Promise<any> {
     return this.http
-      .put(`${this._apiUrl}person/is_active/0/${id}`, id)
+      .delete(`${this._apiUrl}person/${id}`, id)
       .toPromise();
   }
   approveEvent(id: number): Promise<any> {
@@ -110,7 +110,7 @@ export class ReviewService {
 
   deleteEvent(id: number): Promise<any> {
     return this.http
-      .put(`${this._apiUrl}event/is_active/0/${id}`, id)
+      .delete(`${this._apiUrl}event/${id}`, id)
       .toPromise();
   }
   approveCongregation(id: number): Promise<any> {
@@ -121,7 +121,7 @@ export class ReviewService {
 
   deleteCongregation(id: number): Promise<any> {
     return this.http
-      .put(`${this._apiUrl}congregation/is_active/0/${id}`, id)
+      .delete(`${this._apiUrl}congregation/${id}`, id)
       .toPromise();
   }
   approveOrganization(id: number): Promise<any> {
@@ -132,7 +132,7 @@ export class ReviewService {
 
   deleteOrganization(id: number): Promise<any> {
     return this.http
-      .put(`${this._apiUrl}orgs/is_active/0/${id}`, id)
+      .delete(`${this._apiUrl}orgs/${id}`, id)
       .toPromise();
   }
 }
