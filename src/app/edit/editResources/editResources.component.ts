@@ -81,10 +81,6 @@ export class EditResourcesComponent implements OnInit {
       <h1 md-dialog-title>Edit Resource</h1>
       <md-dialog-actions>
 
-        <form name="editResourceForm"
-        (ngSubmit)="update()"
-        #editResourceForm="ngForm">
-
         <div class="panel-body">
             <div class="form-group">
                 <label for="resourceTitle">
@@ -94,20 +90,12 @@ export class EditResourcesComponent implements OnInit {
                 id="resourceTitle" 
                 class="form-control" 
                 name="resourceTitle"
-                #resourceTitle="ngModel"
-                [(ngModel)]="passedResource.data.title"
-                required/>
-            </div>
-            <div class="alert alert-danger"
-                *ngIf="passedResource.data.title.errors && passedResource.data.titletouched">
-                <ul>
-                    <li [hidden]="!passedResource.data.title.errors.required">
-                            Name is required
-                    </li>
-                </ul>
+                [(ngModel)]="passedResource.data.title"/>
             </div>
         </div>
+
         <br>
+
         <div class="form-group">
                 <label for="resourceType">Resource Type</label>
                 <md-radio-group [(ngModel)]="passedResource.data.type" name="radioType">
@@ -123,7 +111,71 @@ export class EditResourcesComponent implements OnInit {
                 </md-radio-group>
         </div>
 
-         </form>
+        <br>
+
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="resourceUrl">
+                    URL
+                </label>
+                <input type="url"
+                id="resourceUrl" 
+                class="form-control" 
+                name="resourceUrl"
+                [(ngModel)]="passedResource.data.url"/>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="resourceAuthor">
+                    Author/Creator
+                </label>
+                <input type="text"
+                id="resourceAuthor" 
+                class="form-control" 
+                name="resourceAuthor"
+                [(ngModel)]="passedResource.data.author"/>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="resourceParent">
+                    Resource Description
+                </label>
+                <input type="text"
+                id="resourceParent" 
+                class="form-control" 
+                name="resourceParent"
+                [(ngModel)]="passedResource.data.parent"/>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="resourceDescription">
+                    Description
+                </label>
+                <textarea 
+                rows="4"
+                cols="50"
+                id="resourceDescription" 
+                class="form-control" 
+                name="resourceDescription"
+                [(ngModel)]="passedResource.data.description"></textarea>
+            </div>
+        </div>
+
+        <br>
+
+       
       </md-dialog-actions>
     </div>
   `,
