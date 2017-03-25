@@ -28,8 +28,10 @@ export class EditResourcesComponent implements OnInit {
     // console.log(resource);
     let dialogRef = this.dialog.open(ResourceDialog, {
       disableClose: false,
-      
+      width: '90%',
+      height: '90%',
     });
+    dialogRef.componentInstance.passedResource = resource;
     dialogRef.afterClosed().subscribe(result => {
 
     });
@@ -78,7 +80,18 @@ export class EditResourcesComponent implements OnInit {
     <div class="cong-dialog">
       <h1 md-dialog-title>Edit Resource</h1>
       <md-dialog-actions>
-        {{ resource?.data.title }}
+
+        <div class="form-group">
+            <label for="account_name">
+                Title
+            </label>
+            <input type="text"
+            id="resourceTitle" 
+            class="form-control" 
+            name="resourceTitle"
+            value="{{ passedResource.data.title }}"/>
+        </div>
+
       </md-dialog-actions>
     </div>
   `,
@@ -86,7 +99,7 @@ export class EditResourcesComponent implements OnInit {
 
 export class ResourceDialog {  
   passedResource: any;
-  
+
   constructor(public dialogRef: MdDialogRef<ResourceDialog>) {
 //   debugger;
 }
