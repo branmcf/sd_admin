@@ -81,17 +81,49 @@ export class EditResourcesComponent implements OnInit {
       <h1 md-dialog-title>Edit Resource</h1>
       <md-dialog-actions>
 
+        <form name="editResourceForm"
+        (ngSubmit)="update()"
+        #editResourceForm="ngForm">
+
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="resourceTitle">
+                    Title
+                </label>
+                <input type="text"
+                id="resourceTitle" 
+                class="form-control" 
+                name="resourceTitle"
+                #resourceTitle="ngModel"
+                [(ngModel)]="passedResource.data.title"
+                required/>
+            </div>
+            <div class="alert alert-danger"
+                *ngIf="passedResource.data.title.errors && passedResource.data.titletouched">
+                <ul>
+                    <li [hidden]="!passedResource.data.title.errors.required">
+                            Name is required
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br>
         <div class="form-group">
-            <label for="account_name">
-                Title
-            </label>
-            <input type="text"
-            id="resourceTitle" 
-            class="form-control" 
-            name="resourceTitle"
-            value="{{ passedResource.data.title }}"/>
+                <label for="resourceType">Resource Type</label>
+                <md-radio-group [(ngModel)]="passedResource.data.type" name="radioType">
+                    <md-radio-button class="block-input" name="type" value="Audio Track(s)"> Audio Track(s)</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Article(s)"> Article(s)</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Blog"> Blog</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Book"> Book</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Forum"> Forum</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Hymnal/Songbook"> Hymnal/Songbook</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Newsletter/E-News"> Newsletter/E-News</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Podcast"> Podcast</md-radio-button>
+                    <md-radio-button class="block-input" name="type" value="Video/Visual(s)"> Video/Visual(s)</md-radio-button>
+                </md-radio-group>
         </div>
 
+         </form>
       </md-dialog-actions>
     </div>
   `,
@@ -103,5 +135,8 @@ export class ResourceDialog {
   constructor(public dialogRef: MdDialogRef<ResourceDialog>) {
 //   debugger;
 }
+    update() {
+
+    }
 
 }
