@@ -16,7 +16,7 @@ import { ReviewCongregationsComponent } from './reviewCongregations/reviewCongre
 import { ReviewPersonsComponent } from './reviewPersons/reviewPersons.component';
 import { ReviewOrganizationsComponent } from './reviewOrganizations/reviewOrganizations.component';
 
-import { EditResourcesComponent } from './../edit/editResources/editResources.component';
+import { EditResourcesComponent, ResourceDialog } from './../edit/editResources/editResources.component';
 import { EditPersonComponent } from './../edit/editPerson/editPerson.component';
 import { EditEventsComponent } from './../edit/editEvents/editEvents.component';
 import { EditOrganizationsComponent } from './../edit/editOrganizations/editOrganizations.component';
@@ -41,7 +41,8 @@ import { ReviewService } from '../services/review.service';
     EditEventsComponent,
     EditCongregationsComponent,
     EditOrganizationsComponent,
-    EditPersonComponent
+    EditPersonComponent,
+    ResourceDialog,
   ],
   imports: [
     CommonModule,

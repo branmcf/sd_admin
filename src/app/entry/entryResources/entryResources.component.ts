@@ -3,11 +3,12 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ContentfulService } from './../../services/contentful.service';
 import { SubmitService } from './../../services/submit.service';
 import { MdDialog, MdDialogRef } from '@angular/material';
+import { EditResourcesComponent } from './../../edit/editResources/editResources.component'
 
 @Component({
   selector: 'hymn-entry-resources',
   templateUrl: './entryResources.html',
-  providers: [ContentfulService]
+  providers: [ContentfulService, EditResourcesComponent],
 })
 
 export class EntryResourcesComponent implements OnInit {
@@ -15,6 +16,7 @@ export class EntryResourcesComponent implements OnInit {
   submission: any;
   resourceTypeOther: any;
   dialogRef: MdDialogRef<ResourceDialog>;
+  @Input() resource: any;
 
   constructor (private route: ActivatedRoute,
    public dialog: MdDialog,
@@ -42,7 +44,19 @@ export class EntryResourcesComponent implements OnInit {
       window.scrollTo(0, 0);
     });
 
+    // this.route.params.forEach((params: Params) => {
+    //   debugger;
+    //   if(params['user.id']) {
+    //     this.loadID(['user.id']);
+    //   }
+    //   if(params['Object']) {
+    //     this.loadR(['resource']);
+    //   }
+    // });
+
+    debugger;
     this.route.params.forEach(x => this.load(+x['user.id']));
+    console.log(this.resource);
 
     this.submission = {
       type: 'Resource',
@@ -120,6 +134,8 @@ export class EntryResourcesComponent implements OnInit {
   }
 
   private load(id) {
+    // console.log(id);
+
     if (!id) {
       return;
     }
@@ -132,6 +148,17 @@ export class EntryResourcesComponent implements OnInit {
       }
     };
   }
+
+  // private load(resource){
+  //   if(!resource) {
+  //     console.log("No data was passed in.");
+  //   } 
+  //   else {
+  //       this.submission.data = resource.data;
+  //       console.log(resource.data);
+  //       console.log(this.submission.data);
+  //   }
+  // }
 
   submit() {
     var userInfo = sessionStorage.getItem('userInfo');

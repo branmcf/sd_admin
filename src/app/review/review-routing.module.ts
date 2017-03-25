@@ -11,7 +11,7 @@ import { ReviewCongregationsComponent } from './reviewCongregations/reviewCongre
 import { ReviewPersonsComponent } from './reviewPersons/reviewPersons.component';
 import { ReviewOrganizationsComponent } from './reviewOrganizations/reviewOrganizations.component';
 
-import { EditResourcesComponent } from './../edit/editResources/editResources.component';
+import { EditResourcesComponent, ResourceDialog } from './../edit/editResources/editResources.component';
 import { EditPersonComponent } from './../edit/editPerson/editPerson.component';
 import { EditEventsComponent } from './../edit/editEvents/editEvents.component';
 import { EditOrganizationsComponent } from './../edit/editOrganizations/editOrganizations.component';
@@ -26,6 +26,7 @@ const routes: Routes = [
     { path: 'organizations', component: ReviewOrganizationsComponent, canActivate: [AdminService] },
     { path: 'congregations', component: ReviewCongregationsComponent, canActivate: [AdminService] },
     { path: 'resources/:id', component: EditResourcesComponent, canActivate: [AdminService] },
+    { path: 'resources/:id', component: ResourceDialog },
     { path: 'person/:id', component: EditPersonComponent, canActivate: [AdminService] },
     { path: 'events/:id', component: EditEventsComponent, canActivate: [AdminService] },
     { path: 'organizations/:id', component: EditOrganizationsComponent, canActivate: [AdminService] },
