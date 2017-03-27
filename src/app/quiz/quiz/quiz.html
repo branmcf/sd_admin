@@ -5,7 +5,7 @@
             <md-card>
                 <md-card-header>
                     <md-card-title><h2>Answer the following questions:</h2></md-card-title>
-                    <md-card-subtitle>Click next and prev to navigate between questions</md-card-subtitle>
+                    <md-card-subtitle>Click next and previous to navigate between questions</md-card-subtitle>
                 </md-card-header>
 
                 <md-card-content>
@@ -13,6 +13,7 @@
                     <h5>{{questions[index].question}}</h5>
                     <md-checkbox *ngFor="let answer of questions[index].answers"
                         class="block-input" 
+                        [(ngModel)]="submission.data[questions[index].type][answer]"
                         ng-true-value="true" 
                         ng-false-value="false">
                         {{answer}}
@@ -21,15 +22,26 @@
                 </md-card-content> <!-- end class card-block-->
 
                 <md-card-actions>
-                    <button md-button md-raised-button
-                    [disabled]="index <= 0" (click)="previous()">
-                        Previous
-                    </button>
-                    <button md-raised-button 
-                    [disabled]="index >= 6"  (click)="next()">
-                        Next
-                    </button>
+                        <button md-button md-raised-button
+                        [disabled]="index <= 0" (click)="previous()">
+                            Previous
+                        </button>
+                        <button md-raised-button *ngIf="index < 6"
+                        [disabled]="index >= 6"  (click)="next()">
+                            Next
+                        </button>
+                        <button md-raised-button *ngIf="index == 6"
+                        color='primary' (click)="submit()">
+                            Submit
+                        </button>
                 </md-card-actions>
+
+                <md-progress-bar
+                    class="example-margin"
+                    color="primary"
+                    mode="determinate"
+                    [value]="(index+1)/7.0*100">
+                </md-progress-bar>
 
             </md-card> <!-- end class card -->
 
