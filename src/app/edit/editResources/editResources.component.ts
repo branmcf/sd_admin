@@ -25,16 +25,53 @@ export class EditResourcesComponent implements OnInit {
   }
 
    openDialog(resource) {
-    // console.log(resource);
     let dialogRef = this.dialog.open(ResourceDialog, {
       disableClose: false,
       width: '90%',
       height: '90%',
     });
     dialogRef.componentInstance.passedResource = resource;
+    this.createObject(resource);
     dialogRef.afterClosed().subscribe(result => {
-
+        if (result === 'submitEdit') {
+            this.submitEdit(resource);
+        }
     });
+  }
+
+  createObject(resource) {
+      var categories = {};
+      var topics = {};
+      var accompaniment = {};
+      var languages = {};
+      var ensembles = {};
+      var ethnicities = {};
+
+      for(let i of resource.data.categories) {
+        categories[i] = true;
+      }
+      for(let i of resource.data.topics) {
+        topics[i] = true;
+      }
+      for(let i of resource.data.accompaniment) {
+        accompaniment[i] = true;
+      }
+      for(let i of resource.data.languages) {
+        languages[i] = true;
+      }
+      for(let i of resource.data.ensembles) {
+        ensembles[i] = true;
+      }
+      for(let i of resource.data.ethnicities) {
+        ethnicities[i] = true;
+      }
+
+      resource.data.categories = categories;
+      resource.data.topics = topics;
+      resource.data.accompaniment = accompaniment;
+      resource.data.languages = languages;
+      resource.data.ensembles = ensembles;
+      resource.data.ethnicities = ethnicities;
   }
 
   ngOnInit() {
@@ -63,9 +100,12 @@ export class EditResourcesComponent implements OnInit {
     }
     
     edit(id) {
-        // console.log(this.resource);
-        // this.router.navigate(['../entry/resources']);
         this.openDialog(this.resource);
+    }
+
+    submitEdit(resource) {
+        console.log(resource);
+        this.router.navigate(['/review/resources']);
     }
 
     delete(id) {
@@ -77,6 +117,7 @@ export class EditResourcesComponent implements OnInit {
 @Component({
   selector: 'resource-dialog',
   template: `
+  <body ng-app="myApp" ng-controller="appController">
     <div class="cong-dialog">
       <h1 md-dialog-title>Edit Resource</h1>
       <md-dialog-actions>
@@ -145,8 +186,8 @@ export class EditResourcesComponent implements OnInit {
 
         <div class="panel-body">
             <div class="form-group">
-                <label for="resourceParent">
-                    Resource Description
+                <label for="resourceParent">    
+                    Parent Organization or Source
                 </label>
                 <input type="text"
                 id="resourceParent" 
@@ -175,9 +216,471 @@ export class EditResourcesComponent implements OnInit {
 
         <br>
 
-       
+         <div class="form-group">
+                <label for="resourceCategories">What categories does this resource fit into or relate to?
+                </label>
+                <br>
+                <md-checkbox class="block-input" 
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personTypeOne"
+                    [(ngModel)]="passedResource.data.categories['A hymn written prior to 1970']"
+                    >A hymn written prior to 1970
+                    </md-checkbox>
+        
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personTypeTwo"
+                    [(ngModel)]="passedResource.data.categories['Newly composed hymn (within the last 10 years)']"
+                    >Newly composed hymn (within the last 10 years)</md-checkbox>
+                
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personTypeNine"
+                    [(ngModel)]="passedResource.data.categories['A song written by our own artist/leader']"
+                    >A song written by our own artist/leader</md-checkbox>
+        
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personTypeThree"
+                    checked="Praise and Worship Song (CCM)"
+                    [(ngModel)]="passedResource.data.categories['Praise and Worship Song (CCM)']"
+                    >Praise and Worship Song (CCM)</md-checkbox>
+        
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personTypeFour"
+                    [(ngModel)]="passedResource.data.categories['Psalm Setting']"
+                    >Psalm Setting</md-checkbox>
+        
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personTypeFive"
+                    [(ngModel)]="passedResource.data.categories['Chant (Gregorian, Anglican, Pointed or Taize)']"
+                    >Chant (Gregorian, Anglican, Pointed or Taize)</md-checkbox>
+        
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personTypeSix"
+                    [(ngModel)]="passedResource.data.categories['Older hymn text set to a new contemporary tune (or re-tuned)']"
+                    >Older hymn text set to a new contemporary tune (or 're-tuned')</md-checkbox>
+        
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personTypeSeven"
+                    [(ngModel)]="passedResource.data.categories['Song from another country (or World Song)']"
+                    >Song from another country (or 'World Song')</md-checkbox>
+        
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personTypeEight"
+                    [(ngModel)]="passedResource.data.categories['Secular Song']"
+                    >Secular Song</md-checkbox>
+
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personTypeNine"
+                    [(ngModel)]="passedResource.data.categories['Liturgical Music']"
+                    >Liturgical Music</md-checkbox>
+
+                <md-checkbox class="block-input">                        
+                    <md-input-container class="full-width">
+                    <input md-input mdInput type="text"
+                    id="resourceCategories" 
+                    class="form-control" 
+                    [(ngModel)]="passedResource.data.categories.Other"
+                    name="resourceCategories"
+                    placeholder="Other Category"/>
+                    </md-input-container>
+                </md-checkbox>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <label for="resourceTopic">Does this resource address any of these specific topics/concerns?</label>
+                <md-checkbox class="block-input"
+                    ng-true-value = "true"
+                    ng-false-value = "false"
+                    name="resourceTopicOne"
+                    [(ngModel)]="passedResource.data.topics['Psalm Setting']">
+                    Psalm Setting
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value = "true"
+                    ng-false-value = "false"
+                    name="resourceTopicTwo"
+                    [(ngModel)]="passedResource.data.topics['Lectionary Based']">
+                    Lectionary Based
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value = "true"
+                    ng-false-value = "false"
+                    name="resourceTopicThree"
+                    [(ngModel)]="passedResource.data.topics['Social Justice']">
+                    Social Justice
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value = "true"
+                    ng-false-value = "false"
+                    name="resourceTopicFour"
+                    [(ngModel)]="passedResource.data.topics['Worship']">
+                    Worship
+                </md-checkbox>
+                <md-checkbox class="block-input">                    
+                    <md-input-container class="full-width">
+                    <input md-input mdInput type="text"
+                    id="resourceTopic" 
+                    class="form-control" 
+                    [(ngModel)]="passedResource.data.topics.Other"
+                    name="resourceTopic"
+                    placeholder="Other Topic"/>
+                    </md-input-container>
+                </md-checkbox>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <label for="resourceAccompany">What kind of accompaniment does this resource address or lend itself toward?</label>
+                <md-checkbox class="block-input" 
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personInstrumentOne"
+                    [(ngModel)]="passedResource.data.accompaniment['Acappella']">
+                    Acappella</md-checkbox>
+        
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personInstrumentTwo"
+                    [(ngModel)]="passedResource.data.accompaniment['Organ']">
+                    Organ</md-checkbox>
+        
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personInstrumentThree"
+                    [(ngModel)]="passedResource.data.accompaniment['Piano']">
+                    Piano</md-checkbox>
+        
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personInstrumentFour"
+                    [(ngModel)]="passedResource.data.accompaniment['Guitar (not full band)']">
+                    Guitar (not full band)</md-checkbox>
+        
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personInstrumentFive"
+                    [(ngModel)]="passedResource.data.accompaniment['Band (guitar, bass, drums, etc...)']">
+                    Band (guitar, bass, drums, etc...)</md-checkbox>
+
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personInstrumentSix"
+                    [(ngModel)]="passedResource.data.accompaniment['Orchestra/Wind Ensemble']">
+                    Orchestra/Wind Ensemble</md-checkbox>
+        
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personInstrumentSeven"
+                    [(ngModel)]="passedResource.data.accompaniment['Handbells']">
+                    Handbells</md-checkbox>
+        
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personInstrumentEight"
+                    [(ngModel)]="passedResource.data.accompaniment['Obligato Instruments (flute, clarinet, trumpet, etc...)']">
+                    Obligato Instruments (flute, clarinet, trumpet, etc...)</md-checkbox>
+
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personInstrumentNine"
+                    [(ngModel)]="passedResource.data.accompaniment['Descants']">
+                    Descants</md-checkbox>
+
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="personInstrumentTen"
+                    [(ngModel)]="passedResource.data.accompaniment['Pre-Recorded Tracks/Accompaniments']">
+                    Pre-Recorded Tracks/Accompaniments</md-checkbox>
+        
+                <md-checkbox class="block-input" name="other">                       
+                    <md-input-container class="full-width">
+                    <input md-input mdInput type="text"
+                    id="resourceAccompaniment" 
+                    class="form-control" 
+                    [(ngModel)]="passedResource.data.accompaniment.Other"
+                    name="resourceAccompaniment"
+                    placeholder="Other Accompaniment"/>
+                    </md-input-container>
+                </md-checkbox>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <label for="resourceLang">What languages are represented in this resource?</label>
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="resourceLangOne"
+                    [(ngModel)]="passedResource.data.languages.English">
+                    English
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="resourceLangTwo"
+                    [(ngModel)]="passedResource.data.languages.Spanish">
+                    Spanish
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="resourceLangThree"
+                    [(ngModel)]="passedResource.data.languages.French">
+                    French
+                </md-checkbox>
+                <md-checkbox class="block-input">
+                    <md-input-container class="full-width">
+                    <input md-input mdInput type="text"
+                    id="resourceLangFour" 
+                    class="form-control" 
+                    [(ngModel)]="passedResource.data.languages.Other"
+                    name="resourceLang"
+                    placeholder="Other Language"/>
+                    </md-input-container>
+                </md-checkbox>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <label for="resourceEnsemble">What types of ensembles are addressed in this resource?</label>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="personEnsembleOne"
+                    [(ngModel)]="passedResource.data.ensembles['Choir']">
+                    Choir
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="personEnsembleTwo"
+                    [(ngModel)]="passedResource.data.ensembles['Cantor']">
+                    Cantor
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="personEnsembleThree"
+                    [(ngModel)]="passedResource.data.ensembles['Song Enlivener']">
+                    Song-Enlivener
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="personEnsembleFour"
+                    [(ngModel)]="passedResource.data.ensembles['Lead Singer from Band (Solo)']">
+                    Lead Singer from Band (Solo)
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="personEnsembleFive"
+                    [(ngModel)]="passedResource.data.ensembles['Lead Singer from Band with Other Vocalists']">
+                    Lead Singer from Band with Other Vocalists
+                </md-checkbox>
+                <md-checkbox class="block-input">
+                    <md-input-container class="full-width">
+                    <input md-input mdInput type="text"
+                    id="resourceEnsemble" 
+                    class="form-control" 
+                    [(ngModel)]="passedResource.data.ensembles.Other"
+                    name="resourceEnsemble"
+                    placeholder="Other Ensemble"/>
+                    </md-input-container>    
+                </md-checkbox>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <label for="resourceEthnicity">What ethnicities/races does this resource represent?</label>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="congregationEthnicityOne"
+                    [(ngModel)]="passedResource.data.ethnicities['Asian - Chinese Language/Heritage']">
+                    Asian - Chinese Language/Heritage
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="congregationEthnicityTwo"
+                    [(ngModel)]="passedResource.data.ethnicities['Asian - Indian']">
+                    Asian - Indian
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="congregationEthnicityThree"
+                    [(ngModel)]="passedResource.data.ethnicities['Asian - Southeast Asian Non-Chinese']">
+                    Asian - Southeast Asian Non-Chinese
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="congregationEthnicityFour"
+                    [(ngModel)]="passedResource.data.ethnicities['Asian - Korean']">
+                    Asian - Korean
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="congregationEthnicityFive"
+                    [(ngModel)]="passedResource.data.ethnicities['Asian - Japanese']">
+                    Asian - Japanese
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="congregationEthnicitySix"
+                    [(ngModel)]="passedResource.data.ethnicities['Black - African-American']">
+                    Black - African-American
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="congregationEthnicitySeven"
+                    [(ngModel)]="passedResource.data.ethnicities['Black - Sub-Saharan African']">
+                    Black - Sub-Saharan African
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="congregationEthnicityEight"
+                    [(ngModel)]="passedResource.data.ethnicities['Hispanic/Latino/Spanish - Central/South American']">
+                    Hispanic/Latino/Spanish - Central/South American
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="congregationEthnicityNine"
+                    [(ngModel)]="passedResource.data.ethnicities['Hispanic/Latino/Spanish - Caribbean']">
+                    Hispanic/Latino/Spanish - Caribbean
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="congregationEthnicityTen"
+                    [(ngModel)]="passedResource.data.ethnicities['Native American/Indigenous Peoples']">
+                    Native American/Indigenous Peoples
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="congregationEthnicityEleven"
+                    [(ngModel)]="passedResource.data.ethnicities['Native American/Pacific Islander']">
+                    Native American/Pacific Islander
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="congregationEthnicityTwelve"
+                    [(ngModel)]="passedResource.data.ethnicities['North African/Middle Eastern']">
+                    North African/Middle Eastern
+                </md-checkbox>
+                <md-checkbox class="block-input"
+                    ng-true-value="true"
+                    ng-false-value="false"
+                    name="congregationEthnicityThirteen"
+                    [(ngModel)]="passedResource.data.ethnicities['White']">
+                    White
+                </md-checkbox>
+                    <md-checkbox class="block-input">
+                        <md-input-container class="full-width">
+                        <input md-input mdInput type="text"
+                        id="resourceEthnicityOther" 
+                        class="form-control" 
+                        name="resourceEthnicityEight"
+                        [(ngModel)]="passedResource.data.ethnicities.Other"
+                        placeholder="Other Ethnicity"/>
+                        </md-input-container>
+                </md-checkbox>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <label for="resourceIsInvolved">Is a Hymn Society member involved?</label>
+                <md-radio-group name="resourceIsInvolved" [(ngModel)]="passedResource.data.hymn_soc_member" required>
+                    <md-radio-button class="block-input" value="true" required> Yes</md-radio-button>
+                    <md-radio-button class="block-input" value="false"> No</md-radio-button>
+                    <md-radio-button class="block-input" value="Unknown"> Unknown</md-radio-button>
+                </md-radio-group>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <label for="resourceFree">Is this resource free?</label>
+                <md-radio-group name="resourceFree" [(ngModel)]="passedResource.data.is_free" required>
+                    <md-radio-button class="block-input" value="true" required> Yes</md-radio-button>
+                    <md-radio-button class="block-input" value="Partially"> Partially with paywall</md-radio-button>
+                    <md-radio-button class="block-input" value="false"> No</md-radio-button>
+                </md-radio-group>
+            </div>
+
+            <br>
+            
+            <div class="form-group">
+                <label for="resourcePractSchol">Is this resource practical or scholarly or both?</label>
+                <md-radio-group [(ngModel)]="passedResource.data.pract_schol" name="resourcePractSchol" required>
+                    <md-radio-button 
+                    class="block-input" value="Practical" required>
+                    Practical</md-radio-button>
+                    <md-radio-button class="block-input" value="Scholarly"> 
+                        Scholarly</md-radio-button>
+                    <md-radio-button class="block-input" value="both"> 
+                        Both</md-radio-button>
+                </md-radio-group>
+            </div>   
+
+            <br>  
+
+            <md-card-actions>
+              <button md-raised-button color="primary" type="submit" (click)="dialogRef.close('submitEdit')">
+                Submit
+              </button>
+              
+              <button md-button md-dialog-close>
+                Cancel
+              </button>
+            </md-card-actions>
+
       </md-dialog-actions>
     </div>
+    </body>
   `,
 })
 
@@ -185,10 +688,7 @@ export class ResourceDialog {
   passedResource: any;
 
   constructor(public dialogRef: MdDialogRef<ResourceDialog>) {
-//   debugger;
-}
-    update() {
 
-    }
+}
 
 }
