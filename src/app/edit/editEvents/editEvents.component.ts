@@ -122,7 +122,7 @@ export class EditEventsComponent implements OnInit {
   template:`
     <div>
         <form>
-            <h1 md-dialog-title>Edit event</h1>
+            <h1 md-dialog-title>Edit Event</h1>
             <md-dialog-actions>
 
             <div class="form-group">
