@@ -30,43 +30,43 @@ export class ViewComponent implements OnInit {
   tiles = [
     {text: 'Books', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/46274/pexels-photo-46274.jpeg',
-      routerLink: 'resources'
+      routerLink: 'book'
     },
     {text: 'Hymnals/Songbooks', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/46227/hymnal-book-sing-music-46227.jpeg',
-      routerLink: 'resources'
+      routerLink: 'hymnal'
     },
     {text: 'Thesis/Dissertation', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/51342/books-education-school-literature-51342.jpeg',
-      routerLink: 'resources'
+      routerLink: 'thesis'
     },
     {text: 'Articles', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/209151/pexels-photo-209151.jpeg',
-      routerLink: 'resources'
+      routerLink: 'article'
     },
     {text: 'Blog', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/265667/pexels-photo-265667.jpeg',
-      routerLink: 'resources'
+      routerLink: 'blog'
     },
     {text: 'Forum', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/209151/pexels-photo-209151.jpeg',
-      routerLink: 'resources'
+      routerLink: 'forum'
     },
     {text: 'Newsletter/E-News', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/209151/pexels-photo-209151.jpeg',
-      routerLink: 'resources'
+      routerLink: 'newsletter'
     },
     {text: 'Audio Tracks', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/185030/pexels-photo-185030.jpeg',
-      routerLink: 'resources'
+      routerLink: 'audio'
     },
     {text: 'Podcast', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/227661/pexels-photo-227661.jpeg',
-      routerLink: 'resources'
+      routerLink: 'podcast'
     },
     {text: 'Video/Visuals', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/34407/pexels-photo.jpg',
-      routerLink: 'resources'
+      routerLink: 'video'
     },
     {text: 'Congregations', cols: 1, rows: 1, color: 'lightgreen', icon: 'room',
       image: 'https://static.pexels.com/photos/161060/church-bank-wood-benches-161060.jpeg',

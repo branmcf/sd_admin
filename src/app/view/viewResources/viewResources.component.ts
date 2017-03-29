@@ -21,6 +21,7 @@ export class ViewResourcesComponent implements OnInit {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(param => {
+      this.type = param['type'];
       if (param['type'] === 'events') {
         this.reviewService.getAllEvents('approved').then(x => this.resources = x).catch(err => console.log(err));
         this.icon = 'event';
@@ -33,11 +34,11 @@ export class ViewResourcesComponent implements OnInit {
       } else if (param['type'] === 'persons') {
         this.reviewService.getAllPersons('approved').then(x => this.resources = x).catch(err => console.log(err));
         this.icon = 'face';
-      } else if (param['type'] === 'resources') {
-        this.reviewService.getAllResources('approved').then(x => this.resources = x).catch(err => console.log(err));
+      } else {
+        this.reviewService.getAllResources('approved/type/' + param['type']).then(x => this.resources = x).catch(err => console.log(err));
         this.icon = 'book';
+        this.type = 'resources';
       }
-      this.type = param['type'];
       console.log(param['type']);
     });
   }
