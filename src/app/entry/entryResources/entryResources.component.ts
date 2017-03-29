@@ -16,7 +16,6 @@ export class EntryResourcesComponent implements OnInit {
   submission: any;
   resourceTypeOther: any;
   dialogRef: MdDialogRef<ResourceDialog>;
-  @Input() resource: any;
 
   constructor (private route: ActivatedRoute,
    public dialog: MdDialog,
@@ -141,7 +140,7 @@ export class EntryResourcesComponent implements OnInit {
 
     this.submission.user = obj.first_name + ' ' + obj.last_name;
     this.submission.uid = obj.id;
-    
+
     if (this.resourceTypeOther) {
       this.submission.data.type = this.resourceTypeOther;
     }
