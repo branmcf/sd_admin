@@ -18,8 +18,8 @@ import { ReviewOrganizationsComponent } from './reviewOrganizations/reviewOrgani
 
 import { EditResourcesComponent, ResourceDialog } from './../edit/editResources/editResources.component';
 import { EditPersonComponent, PersonDialog } from './../edit/editPerson/editPerson.component';
-import { EditEventsComponent } from './../edit/editEvents/editEvents.component';
-import { EditOrganizationsComponent } from './../edit/editOrganizations/editOrganizations.component';
+import { EditEventsComponent, EventDialog } from './../edit/editEvents/editEvents.component';
+import { EditOrganizationsComponent, OrgDialog } from './../edit/editOrganizations/editOrganizations.component';
 import { EditCongregationsComponent } from './../edit/editCongregations/editCongregations.component';
 
 import { SubmitService } from '../services/submit.service';
@@ -44,6 +44,8 @@ import { ReviewService } from '../services/review.service';
     EditPersonComponent,
     ResourceDialog,
     PersonDialog,
+    OrgDialog,
+    EventDialog,
   ],
   imports: [
     CommonModule,

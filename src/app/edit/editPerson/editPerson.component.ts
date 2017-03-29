@@ -12,7 +12,6 @@ import { MdDialog, MdDialogRef } from '@angular/material';
 
 export class EditPersonComponent implements OnInit {
   id: number;
-  catArr: any[];
   approved: boolean;
   deleted: boolean;
   person: any;
@@ -23,7 +22,7 @@ export class EditPersonComponent implements OnInit {
     public dialog: MdDialog,) {
   }
 
-     openDialog(person) {
+  openDialog(person) {
     let dialogRef = this.dialog.open(PersonDialog, {
       disableClose: false,
       width: '90%',
@@ -98,14 +97,10 @@ export class EditPersonComponent implements OnInit {
     }
 
     edit(id) {
-        console.log(this.person);
         this.openDialog(this.person);
     }
 
     submitEdit(person) {
-        console.log(person);
-
-
         this.router.navigate(['/review/person']);
     }
 

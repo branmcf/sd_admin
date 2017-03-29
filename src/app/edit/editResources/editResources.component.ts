@@ -16,7 +16,7 @@ export class EditResourcesComponent implements OnInit {
   approved: boolean;
   deleted: boolean;
   resource: any;
-  
+
   resourceTypeOther: any;
 
   constructor (private route: ActivatedRoute,
@@ -32,10 +32,11 @@ export class EditResourcesComponent implements OnInit {
       height: '90%',
     });
     dialogRef.componentInstance.passedResource = resource;
+    dialogRef.componentInstance.resourceTypeOther = this.resourceTypeOther;
     this.createObject(resource);
     dialogRef.afterClosed().subscribe(result => {
         if (result === 'submitEdit') {
-            this.submitEdit(resource);
+            this.submitEdit(resource, this.resourceTypeOther);
         }
     });
   }
@@ -104,12 +105,11 @@ export class EditResourcesComponent implements OnInit {
         this.openDialog(this.resource);
     }
 
-    submitEdit(resource) {
-        console.log(resource);
-
+    submitEdit(resource, resourceTypeOther) {
         if (this.resourceTypeOther) {
             this.resource.data.type = this.resourceTypeOther;
         }
+
         this.router.navigate(['/review/resources']);
     }
 
@@ -160,7 +160,7 @@ export class EditResourcesComponent implements OnInit {
                         class="full-width"
                         id="resourceTitle" 
                         class="form-control" 
-                        [(ngModel)]="resourceTypeOther"
+                        [(ngModel)]="resourceTypeOther"/>
                      </md-radio-button>
                 </md-radio-group>
             </fieldset>
@@ -705,6 +705,8 @@ export class EditResourcesComponent implements OnInit {
 
 export class ResourceDialog {  
   passedResource: any;
+
+  resourceTypeOther: any;
 
   constructor(public dialogRef: MdDialogRef<ResourceDialog>) {
 
