@@ -7,6 +7,8 @@ import { MaterialModule } from '@angular/material';
 import { HeaderModule } from '../header/header.module';
 import { QuizRoutingModule } from './quiz-routing.module';
 import { QuizComponent } from './quiz/quiz.component';
+import { QuizResultsComponent } from './quizResults/quizResults.component';
+import { QuizNextComponent } from './quizNext/quizNext.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { QuizComponent } from './quiz/quiz.component';
     MaterialModule.forRoot(),
   ],
   declarations: [
-    QuizComponent
+    QuizComponent,
+    QuizResultsComponent,
+    QuizNextComponent,
   ],
   exports: [
     QuizRoutingModule
