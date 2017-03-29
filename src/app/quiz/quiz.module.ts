@@ -4,11 +4,14 @@ import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
+
 import { HeaderModule } from '../header/header.module';
 import { QuizRoutingModule } from './quiz-routing.module';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuizResultsComponent } from './quizResults/quizResults.component';
 import { QuizNextComponent } from './quizNext/quizNext.component';
+
+import { QuizService } from './../services/quiz.service';
 
 
 @NgModule({
@@ -25,6 +28,9 @@ import { QuizNextComponent } from './quizNext/quizNext.component';
     QuizComponent,
     QuizResultsComponent,
     QuizNextComponent,
+  ],
+  providers: [
+    QuizService
   ],
   exports: [
     QuizRoutingModule

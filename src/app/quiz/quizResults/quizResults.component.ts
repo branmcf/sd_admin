@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ReviewService } from './../../services/review.service';
+import { QuizService } from './../../services/quiz.service';
 
 @Component({
   selector: 'hymn-quiz-results',
@@ -16,7 +17,8 @@ export class QuizResultsComponent implements OnInit {
 
   constructor (private route: ActivatedRoute,
     private router: Router,
-    private reviewService: ReviewService) {
+    private reviewService: ReviewService,
+    private quizService: QuizService) {
   }
 
   ngOnInit() {
@@ -44,9 +46,5 @@ export class QuizResultsComponent implements OnInit {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
-  }
-
-  edit(id) {
-    this.router.navigate(['/quiz/result/resources', id]);
   }
 }

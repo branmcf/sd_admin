@@ -13,7 +13,7 @@
                     <h5>{{questions[index].question}}</h5>
                     <md-checkbox *ngFor="let answer of questions[index].answers"
                         class="block-input" 
-                        [(ngModel)]="submission.data[questions[index].type][answer]"
+                        [(ngModel)]="submission.quiz[questions[index].type][answer]"
                         ng-true-value="true" 
                         ng-false-value="false">
                         {{answer}}

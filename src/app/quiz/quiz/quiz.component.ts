@@ -108,7 +108,7 @@ export class QuizComponent implements OnInit {
     private router: Router,
     private contentful: ContentfulService) {
         this.submission = {
-            data: {
+            quiz: {
                 categories: {
                     'A hymn written prior to 1970': false,
                     'Newly composed hymn (within the last 10 years)': false,
@@ -193,6 +193,7 @@ export class QuizComponent implements OnInit {
   }
 
   submit() {
-      console.log(this.submission);
+      sessionStorage.setItem('quizAnswers', JSON.stringify(this.submission));
+      this.router.navigate(['/quiz/results']);
   }
 }

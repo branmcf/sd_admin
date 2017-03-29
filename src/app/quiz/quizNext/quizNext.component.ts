@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ContentfulService } from './../../services/contentful.service';
+import { QuizService } from './../../services/quiz.service';
 
 @Component({
   selector: 'hymn-quiz-next',
@@ -10,16 +11,44 @@ import { ContentfulService } from './../../services/contentful.service';
 
 export class QuizNextComponent implements OnInit {
   tiles = [
-    {text: 'Books, Hymnals/Songbooks, Thesis/Dissertation', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+    {text: 'Books', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/46274/pexels-photo-46274.jpeg',
       routerLink: 'resources'
     },
-    {text: 'Articles, Blog, Forum, Newsletter/E-News', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+    {text: 'Hymnals/Songbooks', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+      image: 'https://static.pexels.com/photos/46227/hymnal-book-sing-music-46227.jpeg',
+      routerLink: 'resources'
+    },
+    {text: 'Thesis/Dissertation', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+      image: 'https://static.pexels.com/photos/51342/books-education-school-literature-51342.jpeg',
+      routerLink: 'resources'
+    },
+    {text: 'Articles', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/209151/pexels-photo-209151.jpeg',
       routerLink: 'resources'
     },
-    {text: 'Audio Tracks, Podcast, Video/Visuals', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+    {text: 'Blog', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+      image: 'https://static.pexels.com/photos/265667/pexels-photo-265667.jpeg',
+      routerLink: 'resources'
+    },
+    {text: 'Forum', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+      image: 'https://static.pexels.com/photos/209151/pexels-photo-209151.jpeg',
+      routerLink: 'resources'
+    },
+    {text: 'Newsletter/E-News', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+      image: 'https://static.pexels.com/photos/209151/pexels-photo-209151.jpeg',
+      routerLink: 'resources'
+    },
+    {text: 'Audio Tracks', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/185030/pexels-photo-185030.jpeg',
+      routerLink: 'resources'
+    },
+    {text: 'Podcast', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+      image: 'https://static.pexels.com/photos/227661/pexels-photo-227661.jpeg',
+      routerLink: 'resources'
+    },
+    {text: 'Video/Visuals', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+      image: 'https://static.pexels.com/photos/34407/pexels-photo.jpg',
       routerLink: 'resources'
     },
     {text: 'Congregations', cols: 1, rows: 1, color: 'lightgreen', icon: 'room',
@@ -42,10 +71,13 @@ export class QuizNextComponent implements OnInit {
 
   constructor (private route: ActivatedRoute,
     private router: Router,
+    private quizService: QuizService,
     private contentful: ContentfulService) {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    const quizAnswers = sessionStorage.getItem('quizAnswers');
+  }
 
   navigate(type) {
     console.log(type);
