@@ -7,6 +7,8 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class QuizService implements CanActivate {
     private _apiUrl = environment.API_URL;
+    // private _apiUrl = 'https://private-7e6d8-node46.apiary-mock.com/';
+
     constructor(private http: Http) { }
 
     canActivate() {
@@ -18,33 +20,33 @@ export class QuizService implements CanActivate {
     }
 
 
-    submitQuizsResources(quizAnswers): Promise<any[]> {
+    submitQuizResources(quizAnswers): Promise<any[]> {
         return this.http.
-        post(this._apiUrl + 'quiz/resource/', quizAnswers)
+        post(this._apiUrl + 'quiz/resource', quizAnswers)
             .toPromise()
             .then(x => x.json() as any[]);
     }
-    submitQuizsCongregations(quizAnswers): Promise<any[]> {
+    submitQuizCongregations(quizAnswers): Promise<any[]> {
         return this.http.
-        post(this._apiUrl + 'quiz/congregation/', quizAnswers)
+        post(this._apiUrl + 'quiz/congregation', quizAnswers)
             .toPromise()
             .then(x => x.json() as any[]);
     }
-    submitQuizsEvents(quizAnswers): Promise<any[]> {
+    submitQuizEvents(quizAnswers): Promise<any[]> {
         return this.http.
-        post(this._apiUrl + 'quiz/event/', quizAnswers)
+        post(this._apiUrl + 'quiz/event', quizAnswers)
             .toPromise()
             .then(x => x.json() as any[]);
     }
-    submitQuizsOrganizations(quizAnswers): Promise<any[]> {
+    submitQuizOrganizations(quizAnswers): Promise<any[]> {
         return this.http.
-        post(this._apiUrl + 'quiz/orgs/', quizAnswers)
+        post(this._apiUrl + 'quiz/orgs', quizAnswers)
             .toPromise()
             .then(x => x.json() as any[]);
     }
-    submitQuizsPersons(quizAnswers): Promise<any[]> {
+    submitQuizPersons(quizAnswers): Promise<any[]> {
         return this.http.
-        post(this._apiUrl + 'quiz/person/', quizAnswers)
+        post(this._apiUrl + 'quiz/person', quizAnswers)
             .toPromise()
             .then(x => x.json() as any[]);
     }

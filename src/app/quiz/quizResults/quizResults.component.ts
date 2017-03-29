@@ -22,25 +22,25 @@ export class QuizResultsComponent implements OnInit {
   }
 
   ngOnInit() {
+    const quizAnswers = JSON.parse(sessionStorage.getItem('quizAnswers'));
     this.sub = this.route.params.subscribe(param => {
       if (param['type'] === 'events') {
-        this.reviewService.getAllEvents('approved').then(x => this.resources = x).catch(err => console.log(err));
+        this.quizService.submitQuizEvents(quizAnswers).then(x => this.resources = x).catch(err => console.log(err));
         this.icon = 'event';
       } else if (param['type'] === 'congregations') {
-        this.reviewService.getAllCongregations('approved').then(x => this.resources = x).catch(err => console.log(err));
+        this.quizService.submitQuizCongregations(quizAnswers).then(x => this.resources = x).catch(err => console.log(err));
         this.icon = 'room';
       } else if (param['type'] === 'orgs') {
-        this.reviewService.getAllOrganizations('approved').then(x => this.resources = x).catch(err => console.log(err));
+        this.quizService.submitQuizOrganizations(quizAnswers).then(x => this.resources = x).catch(err => console.log(err));
         this.icon = 'group_work';
       } else if (param['type'] === 'persons') {
-        this.reviewService.getAllPersons('approved').then(x => this.resources = x).catch(err => console.log(err));
+        this.quizService.submitQuizPersons(quizAnswers).then(x => this.resources = x).catch(err => console.log(err));
         this.icon = 'face';
       } else if (param['type'] === 'resources') {
-        this.reviewService.getAllResources('approved').then(x => this.resources = x).catch(err => console.log(err));
+        this.quizService.submitQuizResources(quizAnswers).then(x => this.resources = x).catch(err => console.log(err));
         this.icon = 'book';
       }
       this.type = param['type'];
-      console.log(param['type']);
     });
   }
 
