@@ -97,7 +97,7 @@ export class EditOrganizationsComponent implements OnInit {
         this.router.navigate(['/review/organizations']);
     }
 
-    edit(id) {
+    edit() {
         this.openDialog(this.organization);
     }
 
@@ -112,6 +112,7 @@ export class EditOrganizationsComponent implements OnInit {
             this.organization.data.geographic_area = this.geoOther;
         }
 
+        this.reviewService.editOrganization(this.id, organization);
         this.router.navigate(['/review/organizations'])
     }
 

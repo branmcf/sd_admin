@@ -36,6 +36,8 @@ export class EditResourcesComponent implements OnInit {
     this.createObject(resource);
     dialogRef.afterClosed().subscribe(result => {
         if (result === 'submitEdit') {
+            debugger;
+            console.log(this.resourceTypeOther);
             this.submitEdit(resource, this.resourceTypeOther);
         }
     });
@@ -101,7 +103,7 @@ export class EditResourcesComponent implements OnInit {
         this.router.navigate(['/review/resources']);
     }
     
-    edit(id) {
+    edit() {
         this.openDialog(this.resource);
     }
 
@@ -109,7 +111,8 @@ export class EditResourcesComponent implements OnInit {
         if (this.resourceTypeOther) {
             this.resource.data.type = this.resourceTypeOther;
         }
-
+        
+        this.reviewService.editResource(this.id, resource);
         this.router.navigate(['/review/resources']);
     }
 
@@ -155,11 +158,15 @@ export class EditResourcesComponent implements OnInit {
                     <md-radio-button class="block-input" name="type" value="Newsletter/E-News"> Newsletter/E-News</md-radio-button>
                     <md-radio-button class="block-input" name="type" value="Podcast"> Podcast</md-radio-button>
                     <md-radio-button class="block-input" name="type" value="Video/Visual(s)"> Video/Visual(s)</md-radio-button>
-                    <md-radio-button class="block-input" name="type" value="other">                                         
+                    <md-radio-button class="block-input" name="type"> 
+                        <label for="resourceTypeOther">
+                            Other Type
+                        </label>                                        
                         <input type="text"
                         class="full-width"
                         id="resourceTitle" 
                         class="form-control" 
+                        name="resourceTypeOther"
                         [(ngModel)]="resourceTypeOther"/>
                      </md-radio-button>
                 </md-radio-group>

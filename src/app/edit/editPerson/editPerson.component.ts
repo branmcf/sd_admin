@@ -96,11 +96,12 @@ export class EditPersonComponent implements OnInit {
         this.router.navigate(['/review/person']);
     }
 
-    edit(id) {
+    edit() {
         this.openDialog(this.person);
     }
 
     submitEdit(person) {
+        this.reviewService.editPerson(this.id, person);
         this.router.navigate(['/review/person']);
     }
 

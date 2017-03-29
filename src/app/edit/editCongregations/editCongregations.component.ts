@@ -92,7 +92,7 @@ export class EditCongregationsComponent implements OnInit {
         this.router.navigate(['/review/congregations']);
     }
 
-    edit(id) {
+    edit() {
         this.openDialog(this.congregation);
     }
 
@@ -106,6 +106,9 @@ export class EditCongregationsComponent implements OnInit {
         if (this.geographyOther) {
         this.congregation.data.geography = this.geographyOther;
         }   
+
+        this.reviewService.editCongregation(this.id, congregation);
+        this.router.navigate(['/review/congregations']);
     }
 
     delete(id) {
@@ -392,11 +395,11 @@ export class EditCongregationsComponent implements OnInit {
                 <fieldset>
                 <legend for="congregationShape">Which best describes the shape of your worship?</legend>
                 <md-checkbox class="block-input"
-                        ng-true-value="true" 
-                        ng-false-value="false"
-                        name="shapeOne"
-                        [(ngModel)]="passedCong.data.shape['5-Fold Pattern']">
-                        5-Fold Pattern (Gathering, Word, Response, Table, Sending) - Roman Catholic Mass and similar structures
+                    ng-true-value="true" 
+                    ng-false-value="false"
+                    name="shapeOne"
+                    [(ngModel)]="passedCong.data.shape['5-Fold Pattern']">
+                    5-Fold Pattern (Gathering, Word, Response, Table, Sending) - Roman Catholic Mass and similar structures
                 </md-checkbox>
                 <md-checkbox class="block-input"
                     ng-true-value="true" 

@@ -135,4 +135,34 @@ export class ReviewService {
       .put(`${this._apiUrl}orgs/is_active/0/${id}`, id)
       .toPromise();
   }
+
+  editResource(id: number, data: any): Promise<any> {
+    return this.http
+      .put(`${this._apiUrl}resource/${id}`, id, data)
+      .toPromise();
+  }
+
+  editPerson(id: number, data: any): Promise<any> {
+    return this.http
+      .put(`${this._apiUrl}person/${id}`, id, data)
+      .toPromise();
+  }
+
+  editOrganization(id: number, data: any): Promise<any> {
+    return this.http
+      .put(`${this._apiUrl}orgs/${id}`, id, data)
+      .toPromise();
+  }
+
+  editEvent(id: number, data: any): Promise<any> {
+    return this.http
+      .put(`${this._apiUrl}event/${id}`, id, data)
+      .toPromise();
+  }
+
+  editCongregation(id: number, data: any): Promise<any> {
+    return this.http
+      .put(`${this._apiUrl}congregation/${id}`, id, data)
+      .toPromise();
+  }
 }

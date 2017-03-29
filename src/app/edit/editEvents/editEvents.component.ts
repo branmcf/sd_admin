@@ -94,7 +94,7 @@ export class EditEventsComponent implements OnInit {
         this.openDialog(this.event)
     }
 
-    submitEdit(event) {
+    submitEdit() {
         if (this.occuranceOther) {
             this.event.data.occurance = this.occuranceOther;
         }
@@ -108,6 +108,7 @@ export class EditEventsComponent implements OnInit {
             this.event.data.type = this.typeOther;
         }
 
+        this.reviewService.editEvent(this.id, event);
         this.router.navigate(['/review/events']);
     }
 
