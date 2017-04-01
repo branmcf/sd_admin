@@ -7,14 +7,14 @@
 
 @import '~@angular/material/core/theming/all-theme';
 
-@include md-core();
+@include mat-core();
 
-$hymn-app-primary: md-palette($md-blue, 800);
-$hymn-app-accent:  md-palette($md-light-blue, 600, A100, A400);
+$hymn-app-primary: mat-palette($mat-blue, 800);
+$hymn-app-accent:  mat-palette($mat-light-blue, 600, A100, A400);
 
-$hymn-app-warn:    md-palette($md-red);
+$hymn-app-warn:    mat-palette($mat-red);
 
-$hymn-app-theme: md-light-theme($hymn-app-primary, $hymn-app-accent, $hymn-app-warn);
+$hymn-app-theme: mat-light-theme($hymn-app-primary, $hymn-app-accent, $hymn-app-warn);
 
 @include angular-material-theme($hymn-app-theme);
 
