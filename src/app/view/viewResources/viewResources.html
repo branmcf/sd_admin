@@ -31,12 +31,11 @@
                             <li><b>Languages represented in this resource?</b> {{ resource?.data.languages }}</li>
                             <li><b>Ensembles are addressed:</b> {{ resource?.data.ensembles }}</li>
                             <li><b>Ethnicities represented:</b> {{ resource?.data.ethnicities }}</li>
-                            <li><b>Is a Hymn Society member involved?</b> {{ resource?.data.hymn_soc_member }}</li>
-                            <li><b>Is this resource free?</b> {{ resource?.data.is_free }}</li>
                         </ul>
-                        <ul>
-                            <li *ngIf="resource?.data.pract_schol === 'both'"> This resource is <b>{{ resource?.data.pract_schol }}</b> practical and scholarly</li>
-                            <li *ngIf="resource?.data.pract_schol != 'both'"> This resource is <b>{{ resource?.data.pract_schol }}</b></li>
+                        <ul class="float-right">
+                            <li *ngIf="resource?.data.pract_schol === 'both'"> A practical and scholarly resource</li>
+                            <li *ngIf="resource?.data.pract_schol != 'both'"> A {{ resource?.data.pract_schol }} resource</li>
+                            <li *ngIf="resource?.data.is_free == 'true'"> This is a free resource</li>
                             <li *ngIf="resource?.data.url" ><a href="{{ resource?.data.url }}"><md-icon>launch</md-icon> Link to this resource website</a></li>
                         </ul>
                     </md-card-content> <!-- end resource card-block -->
@@ -64,7 +63,7 @@
                             <li><b>Ethnicities worked with in at least 20% of your events:</b> {{ resource?.data.ethnicities }}</li>
                             <li><b>Do you work with resources that are practical, scholarly, or both:</b> {{ resource?.data.pract_schol }}</li>      
                         </ul>
-                        <ul>
+                        <ul class="float-right">
                             <li *ngIf="resource?.data.url"><a href="{{ resource?.data.url }}"><md-icon>launch</md-icon> Link to this person's website</a></li>
                         </ul>
                     </md-card-content> <!-- end persons card-block -->
@@ -118,7 +117,7 @@
                             <li><b>What does your pastor/priest wear when he/she preaches?</b> {{ resource?.data.clothing }}</li>
                             <li><b>On average, how many people will attend your event?</b> {{ resource?.data.attendance }}</li>
                         </ul>
-                        <ul>
+                        <ul class="float-right">
                             <li *ngIf="resource?.data.url" ><a href="{{ resource?.data.url }}"><md-icon>launch</md-icon> Link to this event website</a></li>
                         </ul>
                     </md-card-content> <!-- end events card-block -->
@@ -141,7 +140,7 @@
                             <li><b>Ethnicities making up at least 20% of the congregation:</b> {{ resource?.data.ethnicities }}</li>
                             <li><b>On average, how many people attend your weekly worship services?</b> {{ congregation?.data.attendance }}</li>
                         </ul>
-                        <ul>
+                        <ul class="float-right">
                             <li *ngIf="resource?.data.url" ><a href="{{ resource?.data.url }}"><md-icon>launch</md-icon> Link to this congregation website</a></li>
                         </ul>
                     </md-card-content>
