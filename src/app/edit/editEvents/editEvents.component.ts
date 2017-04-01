@@ -94,7 +94,7 @@ export class EditEventsComponent implements OnInit {
         this.openDialog(this.event)
     }
 
-    submitEdit() {
+    submitEdit(event) {
         if (this.occuranceOther) {
             this.event.data.occurance = this.occuranceOther;
         }
