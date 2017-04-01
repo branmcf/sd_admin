@@ -3,24 +3,24 @@
     <div class="view-content">
         <div class="col-sm-10">
             <md-card *ngFor="let resource of resources">
-                <md-card-header>
-                    <div md-card-avatar class="resource-header-image"></div>
+                <div class="resource-card-header">
                     <md-card-subtitle>{{type}}</md-card-subtitle>
                         <md-card-title [ngSwitch]="type">
                                 <h3 *ngSwitchCase="'persons'"><md-icon>{{icon}}</md-icon> {{resource?.data.first_name}} {{resource?.data.last_name}}</h3>
                                 <h3 *ngSwitchCase="'orgs'"><md-icon>{{icon}}</md-icon> {{resource?.data.name}}</h3>
                                 <h3 *ngSwitchCase="'congregations'"><md-icon>{{icon}}</md-icon> {{resource?.data.name}}</h3>
-                                <h3 *ngSwitchDefault><md-icon>{{icon}}</md-icon> {{resource?.data.title}}</h3>
+                                <h3 *ngSwitchCase="'events'"><md-icon>{{icon}}</md-icon> {{resource?.data.name}} </h3>
+                                <div *ngSwitchDefault>
+                                    <h3><md-icon>{{icon}}</md-icon> {{resource?.data.title}}</h3>
+                                    <h5> by {{ resource?.data.author }} </h5>
+                                </div>
                         </md-card-title>
-                </md-card-header>
-                <br>
+                </div>
                 <hr>
                 <div [ngSwitch]="type">
                     <md-card-content *ngSwitchCase="'resources'">
                         <ul>
                             <li><b>URL:</b> <a href={{resource?.data.url}}>{{resource?.data.url}}</a></li>
-                            <li><b>Author/Creator:</b> {{ resource?.data.author }}</li>
-                            <li><b>Type:</b> {{ resource?.data.type }}</li>
                             <li><b>Parent Organization or Source:</b> {{ resource?.data.parent }}</li>
                             <li><b>Description:</b>  {{ resource?.data.description }}</li>
                         </ul>

@@ -3,28 +3,28 @@
     <div class="view-content">
         <div class="col-sm-10">
             <md-card *ngFor="let resource of resources">
-                <md-card-header>
-                    <div md-card-avatar class="resource-header-image"></div>
+                <div class="resource-card-header">
                     <md-card-subtitle>{{type}}</md-card-subtitle>
-                        <md-card-title [ngSwitch]="type">
-                                <h3 *ngSwitchCase="'persons'"><md-icon>{{icon}}</md-icon> {{resource?.data.first_name}} {{resource?.data.last_name}}</h3>
-                                <h3 *ngSwitchCase="'orgs'"><md-icon>{{icon}}</md-icon> {{resource?.data.name}}</h3>
-                                <h3 *ngSwitchCase="'congregations'"><md-icon>{{icon}}</md-icon> {{resource?.data.name}}</h3>
-                                <h3 *ngSwitchDefault><md-icon>{{icon}}</md-icon> {{resource?.data.title}}</h3>
-                        </md-card-title>
-                </md-card-header>
-                <br>
+                    <md-icon class="float-right" *ngIf="resource?.data.hymn_soc_member">star</md-icon>
+                    <md-card-title [ngSwitch]="type">
+                            <h3 *ngSwitchCase="'persons'"><md-icon>{{icon}}</md-icon> {{resource?.data.first_name}} {{resource?.data.last_name}}</h3>
+                            <h3 *ngSwitchCase="'orgs'"><md-icon>{{icon}}</md-icon> {{resource?.data.name}}</h3>
+                            <h3 *ngSwitchCase="'congregations'"><md-icon>{{icon}}</md-icon> {{resource?.data.name}}</h3>
+                            <h3 *ngSwitchCase="'events'"><md-icon>{{icon}}</md-icon> {{resource?.data.name}} </h3>
+                            <div *ngSwitchDefault>
+                                <h3><md-icon>{{icon}}</md-icon> {{resource?.data.title}}</h3>
+                                <h5> by {{ resource?.data.author }} </h5>
+                            </div>
+                    </md-card-title>
+                </div>
                 <hr>
                 <div [ngSwitch]="type">
                     <md-card-content *ngSwitchCase="'resources'">
                         <ul>
-                            <li><b>URL:</b> <a href={{resource?.data.url}}>{{resource?.data.url}}</a></li>
-                            <li><b>Author/Creator:</b> {{ resource?.data.author }}</li>
-                            <li><b>Type:</b> {{ resource?.data.type }}</li>
-                            <li><b>Parent Organization or Source:</b> {{ resource?.data.parent }}</li>
-                            <li><b>Description:</b>  {{ resource?.data.description }}</li>
+                            <i> {{ resource?.data.description }}</i>
                         </ul>
                         <ul>
+                            <li *ngIf="resource?.data.parent"><b>Parent Organization or Source:</b> {{ resource?.data.parent }}</li>
                             <li><b>Categories that this resource relates into:</b> {{ resource?.data.categories }}</li>
                             <li><b>Topics/concerns addressed by this resource:</b> {{ resource?.data.topics }} </li>
                             <li><b>Accompaniments that this resource address or lend itself toward:</b> {{ resource?.data.accompaniment }}</li>
@@ -33,7 +33,11 @@
                             <li><b>Ethnicities represented:</b> {{ resource?.data.ethnicities }}</li>
                             <li><b>Is a Hymn Society member involved?</b> {{ resource?.data.hymn_soc_member }}</li>
                             <li><b>Is this resource free?</b> {{ resource?.data.is_free }}</li>
-                            <li><b>Is this resource practical or scholarly or both?</b> {{ resource?.data.pract_schol }}</li>
+                        </ul>
+                        <ul>
+                            <li *ngIf="resource?.data.pract_schol === 'both'"> This resource is <b>{{ resource?.data.pract_schol }}</b> practical and scholarly</li>
+                            <li *ngIf="resource?.data.pract_schol != 'both'"> This resource is <b>{{ resource?.data.pract_schol }}</b></li>
+                            <li *ngIf="resource?.data.url" ><a href="{{ resource?.data.url }}"><md-icon>launch</md-icon> Link to this resource website</a></li>
                         </ul>
                     </md-card-content> <!-- end resource card-block -->
 
@@ -43,7 +47,6 @@
                             <li><b>Country:</b> {{ resource?.data.country }}</li>
                             <li><b>State/Province:</b> {{ resource?.data.state }}</li>
                             <li><b>City:</b> {{ resource?.data.city }}</li>
-                            <li><b>Website:</b> <a href="{{ resource?.data.url }}">{{ resource?.data.url }}</a></li>
                             <li><b>Facebook:</b> <a href="{{ resource?.data.social_facebook }}">{{ resource?.data.social_facebook }}</a></li>
                             <li><b>Twitter:</b> <a href="{{ resource?.data.social_twitter }}">{{ resource?.data.social_twitter }}</a></li>
                             <li><b>Other social media connections:</b> <a href="{{ resource?.data.social_other }}">{{ resource?.data.social_other }}</a> </li>
@@ -61,12 +64,14 @@
                             <li><b>Ethnicities worked with in at least 20% of your events:</b> {{ resource?.data.ethnicities }}</li>
                             <li><b>Do you work with resources that are practical, scholarly, or both:</b> {{ resource?.data.pract_schol }}</li>      
                         </ul>
+                        <ul>
+                            <li *ngIf="resource?.data.url"><a href="{{ resource?.data.url }}"><md-icon>launch</md-icon> Link to this person's website</a></li>
+                        </ul>
                     </md-card-content> <!-- end persons card-block -->
                     <md-card-content *ngSwitchCase="'orgs'">
                         <ul>
                             <li><b>Name:</b> {{ resource?.data.name }}</li>
-                            <li><b>Website:</b> <a href="{{ resource?.data.url }}">{{ resource?.data.url }}</a> </li>
-                            <li><b>Parent Organization or Source:</b> {{ resource?.data.parent }}</li>
+                            <li *ngIf="resource?.data.parent"><b>Parent Organization or Source:</b> {{ resource?.data.parent }}</li>
                             <li><b>Denomination/Tradition:</b> {{ resource?.data.denomination }}</li>
                             <li><b>Country:</b> {{ resource?.data.country }}</li>
                             <li><b>State/Province:</b> {{ resource?.data.state }}</li>
@@ -85,6 +90,9 @@
                             <li><b>Pastor/priest clothing when he/she preaches?</b> {{ resource?.data.clothing }}</li>
                             <li><b>Ethnicities make up at least 20% of organization:</b> {{ resource?.data.ethnicities }}</li>
                         </ul>
+                        <ul>
+                            <li *ngIf="resource?.data.url" ><a href="{{ resource?.data.url }}"><md-icon>launch</md-icon> Link to this organization website</a></li>
+                        </ul>
                     </md-card-content> <!-- end orgs card-block -->
                         
                     <md-card-content *ngSwitchCase="'events'">
@@ -92,7 +100,6 @@
                             <li><b>Event Title:</b> {{ resource?.data.title }}</li>
                             <li><b>Event Frequency:</b> {{ resource?.data.frequency}}</li>
                             <li><b>Event Type:</b> {{ resource?.data.type }}</li>
-                            <li><b>Event website:</b> <a href="{{ resource?.data.url }}">{{ resource?.data.url }}</a></li>
                         </ul>
                         <ul>
                             <li><b>Parent Organization or Source:</b> {{ resource?.data.parent }}</li>
@@ -111,12 +118,14 @@
                             <li><b>What does your pastor/priest wear when he/she preaches?</b> {{ resource?.data.clothing }}</li>
                             <li><b>On average, how many people will attend your event?</b> {{ resource?.data.attendance }}</li>
                         </ul>
+                        <ul>
+                            <li *ngIf="resource?.data.url" ><a href="{{ resource?.data.url }}"><md-icon>launch</md-icon> Link to this event website</a></li>
+                        </ul>
                     </md-card-content> <!-- end events card-block -->
 
                     <md-card-content *ngSwitchCase="'congregations'">
                         <ul>
                             <li><b>Name:</b> {{ resource?.data.name }}</li>
-                            <li><b>Website:</b> <a href="{{ resource?.data.url }} ">{{ resource?.data.url }}</a></li>
                             <li><b>Country:</b> {{ resource?.data.country }}</li>
                             <li><b>State/Province:</b> {{ resource?.data.state }}</li>
                             <li><b>City:</b> {{ resource?.data.city }}</li>
@@ -132,8 +141,13 @@
                             <li><b>Ethnicities making up at least 20% of the congregation:</b> {{ resource?.data.ethnicities }}</li>
                             <li><b>On average, how many people attend your weekly worship services?</b> {{ congregation?.data.attendance }}</li>
                         </ul>
+                        <ul>
+                            <li *ngIf="resource?.data.url" ><a href="{{ resource?.data.url }}"><md-icon>launch</md-icon> Link to this congregation website</a></li>
+                        </ul>
                     </md-card-content>
+                    
                 </div>
+
             </md-card> <!-- end class card -->
         </div> <!-- end class col-md-8 offset-md-2 -->
     </div> <!-- end entry-body row -->

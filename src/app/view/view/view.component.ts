@@ -32,11 +32,11 @@ export class ViewComponent implements OnInit {
       image: 'https://static.pexels.com/photos/46274/pexels-photo-46274.jpeg',
       routerLink: 'book'
     },
-    {text: 'Hymnals/Songbooks', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+    {text: 'Hymnals / Songbooks', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/46227/hymnal-book-sing-music-46227.jpeg',
       routerLink: 'hymnal'
     },
-    {text: 'Thesis/Dissertation', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+    {text: 'Thesis / Dissertation', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/51342/books-education-school-literature-51342.jpeg',
       routerLink: 'thesis'
     },
@@ -52,7 +52,7 @@ export class ViewComponent implements OnInit {
       image: 'https://static.pexels.com/photos/209151/pexels-photo-209151.jpeg',
       routerLink: 'forum'
     },
-    {text: 'Newsletter/E-News', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+    {text: 'Newsletter / E-News', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/209151/pexels-photo-209151.jpeg',
       routerLink: 'newsletter'
     },
@@ -64,7 +64,7 @@ export class ViewComponent implements OnInit {
       image: 'https://static.pexels.com/photos/227661/pexels-photo-227661.jpeg',
       routerLink: 'podcast'
     },
-    {text: 'Video/Visuals', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+    {text: 'Video / Visuals', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/34407/pexels-photo.jpg',
       routerLink: 'video'
     },

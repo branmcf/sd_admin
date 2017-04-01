@@ -23,3 +23,17 @@ md-card-content {
   font-size: medium;
 }
 
+.resource-card-header {
+    padding-left: 5%;
+}
+
+md-card-footer {
+    ul {
+      list-style-type: none;
+    }
+}
+
+.float-right {
+  float: right;
+}
+
