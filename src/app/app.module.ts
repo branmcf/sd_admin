@@ -8,6 +8,7 @@ import { InMemoryWebApiModule, InMemoryBackendService } from 'angular-in-memory-
 import { AppRoutingModule } from './routing.module';
 import { HeaderModule } from './header/header.module';
 import { EntryModule } from './entry/entry.module';
+import { ViewModule } from './view/view.module';
 import { ReviewModule } from './review/review.module';
 import { ContentfulService } from './services/contentful.service';
 
@@ -26,7 +27,8 @@ import { LandingModule } from './landing/landing.module';
     AppRoutingModule,
     LandingModule,
     EntryModule,
-    ReviewModule
+    ReviewModule,
+    ViewModule
   ],
   providers: [
     ContentfulService

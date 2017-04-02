@@ -85,8 +85,9 @@ export class EditEventsComponent implements OnInit {
     }
 
     approve(id) {
-        this.reviewService.approveEvent(this.id);
-        this.router.navigate(['/review/events']);
+        this.reviewService.approveEvent(this.id).then(() => {
+            this.router.navigate(['/review/events']);
+        });
     }
 
     edit(id) {
@@ -113,8 +114,9 @@ export class EditEventsComponent implements OnInit {
     }
 
     delete(id) {
-        this.reviewService.deleteEvent(this.id);
-        this.router.navigate(['/review/events']);
+        this.reviewService.deleteEvent(this.id).then(() => {
+            this.router.navigate(['/review/events']);
+        });
     }
 }
 

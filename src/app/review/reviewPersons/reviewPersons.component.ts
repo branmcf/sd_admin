@@ -16,7 +16,7 @@ export class ReviewPersonsComponent implements OnInit {
     private router: Router,
     private reviewService: ReviewService) {
 
-      this.reviewService.getAllPersons().then(x => this.resources = x);
+      this.reviewService.getAllPersons().then(x => this.resources = x).catch(err => {});
   }
 
   ngOnInit() {}

@@ -1,6 +1,7 @@
 <div class="col-sm-3 col-md-2 sidebar">
     <ul class="nav-sidebar">
-      <li>Resource Entry</li>
+      <br>
+      <h5>Resource Entry</h5>
       <li><a md-button (click)="openDialog('/entry/resources')">Resources</a></li>
       <li><a md-button (click)="openDialog('/entry/person')">Person</a></li>
       <li><a md-button (click)="openDialog('/entry/congregations')">Congregation</a></li>
@@ -9,7 +10,7 @@
     </ul>
     <br>
     <ul class="nav-sidebar" *ngIf="isAdmin">
-      <li>Admin Options</li>
+      <h5>Admin Options</h5>
       <li><a md-button (click)="openDialog('/entry/register')">Register Users</a></li>
        <li><a md-button (click)="openDialog('/review')">Review Entries</a></li>
     </ul>

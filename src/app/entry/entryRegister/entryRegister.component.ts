@@ -40,8 +40,9 @@ export class EntryRegisterComponent {
   }
 
     register() {
-    console.log(this.user);
-    this.userService.register(this.user);
-    location.reload();
+      console.log(this.user);
+      this.userService.register(this.user).then(() => {
+        location.reload();
+      });
     }
 }

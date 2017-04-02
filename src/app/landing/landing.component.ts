@@ -16,4 +16,12 @@ export class LandingComponent implements OnInit {
     this.router.navigate(['entry/']);
   }
 
+  toViewAll() {
+    this.router.navigate(['view/']);
+  }
+
+  toQuiz() {
+    this.router.navigate(['quiz/']);
+  }
+
 }

@@ -1,0 +1,29 @@
+.view-content {
+  text-align: center;
+  padding: 10% 10% 5% 10%; 
+  .col-6, .col-md-4 {
+      margin-bottom: 4%;
+  }
+}
+
+.resource-card {
+  cursor: pointer;
+  img {
+    height: 230px;
+  }
+}
+
+.resource-card:hover {
+  background-color: #64B5F6;
+  img {
+    opacity: .5;
+  }
+}
+
+.resource-header-image {
+  background-size: cover;
+}
+
+md-card-header {
+  overflow: hidden;
+}

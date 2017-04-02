@@ -74,7 +74,7 @@ export class EntryOrgsComponent implements OnInit {
           'Psalm Setting': false,
           'Chant (Gregorian, Anglican, Pointed or Taize)': false,
           'Older hymn text set to a new contemporary tune (or re-tuned)': false,
-          'Song from another country (or World Song)': false,
+          'World Song (a song not from the U.S. or Canada)': false,
           'Secular Song': false,
           'A song written by our own artist/leader': false,
           'Liturgical Music': false,

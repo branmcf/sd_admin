@@ -7,14 +7,14 @@
 
 @import '~@angular/material/core/theming/all-theme';
 
-@include md-core();
+@include mat-core();
 
-$hymn-app-primary: md-palette($md-blue, 800);
-$hymn-app-accent:  md-palette($md-light-blue, 600, A100, A400);
+$hymn-app-primary: mat-palette($mat-blue, 800);
+$hymn-app-accent:  mat-palette($mat-light-blue, 600, A100, A400);
 
-$hymn-app-warn:    md-palette($md-red);
+$hymn-app-warn:    mat-palette($mat-red);
 
-$hymn-app-theme: md-light-theme($hymn-app-primary, $hymn-app-accent, $hymn-app-warn);
+$hymn-app-theme: mat-light-theme($hymn-app-primary, $hymn-app-accent, $hymn-app-warn);
 
 @include angular-material-theme($hymn-app-theme);
 
@@ -30,6 +30,7 @@ html, body, #root {
   margin: 0;
   height: 100%;
   font-family: 'Open Sans', sans-serif;
+  background-color: #fafafa;
 }
 
 body, h1, h2, h3 {
@@ -151,6 +152,11 @@ a {
   display: block;
   width: inherit;
 }
+
+.alert-danger {
+  background: none;
+  border: none;
+}
 /*
  * Sidebar
  */
@@ -167,10 +173,10 @@ a {
     left: 0;
     z-index: 1;
     display: block;
+    background-color: #fff;
     padding: 20px;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #f5f5f5;
     border-right: 1px solid #eee;
   }
 }
@@ -191,8 +197,8 @@ a {
   }
 }
 .nav-sidebar{
+  text-align: center;
   li {
-    text-align: center;
     a {
       padding-right: 20px;
       padding-left: 20px;

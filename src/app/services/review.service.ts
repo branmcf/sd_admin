@@ -9,33 +9,33 @@ export class ReviewService {
   private _apiUrl = environment.API_URL;
   constructor(private http: Http) { }
 
-  getAllResources(): Promise<any[]> {
+  getAllResources(param = ''): Promise<any[]> {
     return this.http.
-      get(this._apiUrl + 'resource')
+      get(this._apiUrl + 'resource/' + param)
         .toPromise()
         .then(x => x.json() as any[]);
   }
-  getAllCongregations(): Promise<any[]> {
+  getAllCongregations(param = ''): Promise<any[]> {
     return this.http.
-      get(this._apiUrl + 'congregation')
+      get(this._apiUrl + 'congregation/' + param)
         .toPromise()
         .then(x => x.json() as any[]);
   }
-  getAllEvents(): Promise<any[]> {
+  getAllEvents(param = ''): Promise<any[]> {
     return this.http.
-      get(this._apiUrl + 'event')
+      get(this._apiUrl + 'event/' + param)
         .toPromise()
         .then(x => x.json() as any[]);
   }
-  getAllOrganizations(): Promise<any[]> {
+  getAllOrganizations(param = ''): Promise<any[]> {
     return this.http.
-      get(this._apiUrl + 'orgs')
+      get(this._apiUrl + 'orgs/' + param)
         .toPromise()
         .then(x => x.json() as any[]);
   }
-  getAllPersons(): Promise<any[]> {
+  getAllPersons(param = ''): Promise<any[]> {
     return this.http.
-      get(this._apiUrl + 'person')
+      get(this._apiUrl + 'person/' + param)
         .toPromise()
         .then(x => x.json() as any[]);
   }
@@ -82,57 +82,57 @@ export class ReviewService {
 
   approveResource(id: number): Promise<any> {
     return this.http
-    .put(`${this._apiUrl}resource/approved/1/${id}`, id)
+    .put(`${this._apiUrl}resource/update/${id}`, {'column': 'approved', 'value': 1})
     .toPromise();
   }
 
   deleteResource(id: number): Promise<any> {
     return this.http
-      .put(`${this._apiUrl}resource/is_active/0/${id}`, id)
+      .delete(`${this._apiUrl}resource/${id}`, id)
       .toPromise();
   }
   approvePerson(id: number): Promise<any> {
     return this.http
-    .put(`${this._apiUrl}person/approved/1/${id}`, id)
+    .put(`${this._apiUrl}person/update/${id}`, {'column': 'approved', 'value': 1})
     .toPromise();
   }
 
   deletePerson(id: number): Promise<any> {
     return this.http
-      .put(`${this._apiUrl}person/is_active/0/${id}`, id)
+      .delete(`${this._apiUrl}person/${id}`, id)
       .toPromise();
   }
   approveEvent(id: number): Promise<any> {
     return this.http
-    .put(`${this._apiUrl}event/approved/1/${id}`, id)
+    .put(`${this._apiUrl}event/update/${id}`, {'column': 'approved', 'value': 1})
     .toPromise();
   }
 
   deleteEvent(id: number): Promise<any> {
     return this.http
-      .put(`${this._apiUrl}event/is_active/0/${id}`, id)
+      .delete(`${this._apiUrl}event/${id}`, id)
       .toPromise();
   }
   approveCongregation(id: number): Promise<any> {
     return this.http
-    .put(`${this._apiUrl}congregation/approved/1/${id}`, id)
+    .put(`${this._apiUrl}congregation/update/${id}`, {'column': 'approved', 'value': 1})
     .toPromise();
   }
 
   deleteCongregation(id: number): Promise<any> {
     return this.http
-      .put(`${this._apiUrl}congregation/is_active/0/${id}`, id)
+      .delete(`${this._apiUrl}congregation/${id}`, id)
       .toPromise();
   }
   approveOrganization(id: number): Promise<any> {
     return this.http
-    .put(`${this._apiUrl}orgs/approved/1/${id}`, id)
+    .put(`${this._apiUrl}orgs/update/${id}`, {'column': 'approved', 'value': 1})
     .toPromise();
   }
 
   deleteOrganization(id: number): Promise<any> {
     return this.http
-      .put(`${this._apiUrl}orgs/is_active/0/${id}`, id)
+      .delete(`${this._apiUrl}orgs/${id}`, id)
       .toPromise();
   }
 

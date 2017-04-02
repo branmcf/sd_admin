@@ -1,0 +1,29 @@
+.view-content {
+  padding: 10% 10% 5% 10%; 
+}
+
+md-card {
+  margin-bottom: 4%;
+  .resource-header-image {
+    background-size: cover;
+  }
+  overflow: scroll;
+  a {
+    color: #64B5F6;
+  }
+  md-icon {
+    color: #64B5F6;
+  }
+}
+
+md-card-content {
+  ul {
+    list-style-type: none;
+  }
+  font-size: medium;
+}
+
+.resource-card-header {
+    padding-left: 5%;
+}
+
