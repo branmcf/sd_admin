@@ -49,10 +49,6 @@ export class EditResourcesComponent implements OnInit {
         });
     }
 
-    edit(id) {
-        this.router.navigate([]);
-    }
-
     delete(id) {
         this.reviewService.deleteResource(this.id).then(() => {
             this.router.navigate(['/review/resources']);
