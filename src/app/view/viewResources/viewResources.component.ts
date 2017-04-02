@@ -37,7 +37,6 @@ export class ViewResourcesComponent implements OnInit {
       } else {
         this.reviewService.getAllResources('approved/type/' + param['type']).then(x => this.resources = x).catch(err => console.log(err));
         this.icon = 'book';
-        this.type = 'resources';
       }
       console.log(param['type']);
     });

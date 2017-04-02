@@ -19,7 +19,7 @@
                 </div>
                 <hr>
                 <div [ngSwitch]="type">
-                    <md-card-content *ngSwitchCase="'resources'">
+                    <md-card-content *ngSwitchDefault>
                         <ul>
                             <i> {{ resource?.data.description }}</i>
                         </ul>
@@ -33,9 +33,9 @@
                             <li><b>Ethnicities represented:</b> {{ resource?.data.ethnicities }}</li>
                         </ul>
                         <ul class="float-right">
-                            <li *ngIf="resource?.data.pract_schol === 'both'"> A practical and scholarly resource</li>
+                            <li *ngIf="resource?.data.pract_schol === 'both'"> <i>A practical and scholarly resource</i></li>
                             <li *ngIf="resource?.data.pract_schol != 'both'"> A {{ resource?.data.pract_schol }} resource</li>
-                            <li *ngIf="resource?.data.is_free == 'true'"> This is a free resource</li>
+                            <li *ngIf="resource?.data.is_free == 'true'"> <i>This is a free resource</i></li>
                             <li *ngIf="resource?.data.url" ><a href="{{ resource?.data.url }}"><md-icon>launch</md-icon> Link to this resource website</a></li>
                         </ul>
                     </md-card-content> <!-- end resource card-block -->
