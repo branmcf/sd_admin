@@ -41,18 +41,5 @@ export class EditResourcesComponent implements OnInit {
         };
         this.reviewService.getResourceByID(id).then(onload);
     }
-
-
-    approve(id) {
-        this.reviewService.approveResource(this.id).then(() => {
-            this.router.navigate(['/review/resources']);
-        });
-    }
-
-    delete(id) {
-        this.reviewService.deleteResource(this.id).then(() => {
-            this.router.navigate(['/review/resources']);
-        });
-    }
 }
 
