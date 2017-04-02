@@ -97,7 +97,6 @@ export class EditResourcesComponent implements OnInit {
         this.reviewService.getResourceByID(id).then(onload);
     }
 
-
     approve(id) {
         this.reviewService.approveResource(this.id);
         this.router.navigate(['/review/resources']);
@@ -111,7 +110,6 @@ export class EditResourcesComponent implements OnInit {
         if (this.resourceTypeOther) {
             this.resource.data.type = this.resourceTypeOther;
         }
-        
         this.reviewService.editResource(this.id, resource);
         this.router.navigate(['/review/resources']);
     }
