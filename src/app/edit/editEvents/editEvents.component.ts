@@ -104,7 +104,6 @@ export class EditEventsComponent implements OnInit {
     <div>
         <form>
             <h1 md-dialog-title>Edit Event</h1>
-            <md-dialog-actions>
 
             <div class="form-group">
                 <label>
@@ -125,8 +124,11 @@ export class EditEventsComponent implements OnInit {
                 <legend for="eventOccurance">Is Your Event...</legend>
                     <md-radio-group [(ngModel)]="passedEvent.data.occurance" name="eventOccurance" required>
                         <md-radio-button class="block-input" name="occurance" value="Annual" required>Annual</md-radio-button>
+                        <br>
                         <md-radio-button class="block-input" name="occurance" value="Every-Other-Year (once every 2 years)">Every-Other-Year (once every 2 years)</md-radio-button>
+                        <br>
                         <md-radio-button class="block-input" name="occurance" value="One Time Only">One Time Only</md-radio-button>
+                        <br>
                         <md-radio-button class="block-input" name="occurance" value="other">
                             <label for="eventOccur">
                                 Other Occurance
@@ -149,10 +151,15 @@ export class EditEventsComponent implements OnInit {
                 <legend for="eventType">What Type of Event is This?</legend>
                     <md-radio-group [(ngModel)]="passedEvent.data.type" name="eventType" required>
                         <md-radio-button class="block-input" name="type" value="One-Day Conference" required>One-Day Conference</md-radio-button>
+                        <br>
                         <md-radio-button class="block-input" name="type" value="Multi-Day Conference">Multi-Day Conference</md-radio-button>
+                        <br>
                         <md-radio-button class="block-input" name="type" value="Hymn Festival">Hymn Festival</md-radio-button>
+                        <br>
                         <md-radio-button class="block-input" name="type" value="Concert">Concert</md-radio-button>
+                        <br>
                         <md-radio-button class="block-input" name="type" value="Worship Service">Worship Service</md-radio-button>
+                        <br>
                         <md-radio-button class="block-input" name="type" value="other">
                             <label for="eventTypeOther">
                                 Other Type
@@ -254,9 +261,13 @@ export class EditEventsComponent implements OnInit {
                 <legend for="eventCost">Registration Cost</legend>
                     <md-radio-group [(ngModel)]="passedEvent.data.cost" name="eventCost" required>
                         <md-radio-button class="block-input" name="cost" value="Free" required>Free</md-radio-button>
+                        <br>
                         <md-radio-button class="block-input" name="cost" value="Under $100">Under $100</md-radio-button>
+                        <br>
                         <md-radio-button class="block-input" name="cost" value="Between $100 and $250">Between $100 and $250</md-radio-button>
+                        <br>
                         <md-radio-button class="block-input" name="cost" value="Between $250 and $500">Between $250 and $500</md-radio-button>
+                        <br>
                         <md-radio-button class="block-input" name="cost" value="Over $1000">Over $1000</md-radio-button>
                     </md-radio-group>
                 </fieldset>
@@ -311,6 +322,7 @@ export class EditEventsComponent implements OnInit {
                 <legend for="eventMember">Is a Hymn Society member involved?</legend>
                     <md-radio-group [(ngModel)]="passedEvent.data.hymn_soc_member" name="isMember" required>
                         <md-radio-button class="block-input" name="hymn_soc_member" value="Yes">Yes</md-radio-button>
+                        <br>
                         <md-radio-button class="block-input" name="hymn_soc_member" value="No">No</md-radio-button>
                     </md-radio-group>
                 </fieldset>
@@ -454,9 +466,13 @@ export class EditEventsComponent implements OnInit {
                 <legend for="eventAttendance">On average, how many people will attend your event?</legend>
                 <md-radio-group [(ngModel)]="passedEvent.data.attendance" name="eventAttendance" required>
                     <md-radio-button class="block-input" value="Under 100" required> Under 100</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" value="Between 100 and 250"> Between 100 and 250</md-radio-button>
+                    <br>
                     <md-radio-button  class="block-input" value="Between 250 and 500"> Between 250 and 500</md-radio-button>
+                    <br>
                     <md-radio-button  class="block-input" value="Between 500 and 1000"> Between 500 and 1000</md-radio-button>
+                    <br>
                     <md-radio-button  class="block-input" value="Over 1000"> Over 1000</md-radio-button>
                 </md-radio-group>
                 </fieldset>
@@ -471,7 +487,6 @@ export class EditEventsComponent implements OnInit {
               </button>
             </md-card-actions>
 
-            </md-dialog-actions>
         </form>  
     </div>    
 
@@ -484,7 +499,6 @@ export class EventDialog {
     passedEvent: any;
 
     occuranceOther: any;
-    shapeOther: any;
     attireOther: any;
     typeOther: any;
 
@@ -495,9 +509,6 @@ export class EventDialog {
     bind() {
         if (this.occuranceOther) {
             this.passedEvent.data.occurance = this.occuranceOther;
-        }
-        if (this.shapeOther) {
-            this.passedEvent.data.shape = this.shapeOther;
         }
         if (this.attireOther) {
             this.passedEvent.data.clothing = this.attireOther;

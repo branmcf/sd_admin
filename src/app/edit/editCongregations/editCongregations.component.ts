@@ -185,13 +185,21 @@ export class EditCongregationsComponent implements OnInit {
                 <legend for="congregationDenom">Denomination/Tradition</legend>
                 <md-radio-group [(ngModel)]="passedCong.data.denomination" name="congregationDenom" required>
                     <md-radio-button class="block-input" value="Roman Catholic" required>Roman Catholic</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" value="Anglican" >Anglican/Episcopal</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" value="Lutheran" >Lutheran</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" value="Wesleyan (United Methodist, AME, etc...)" >Wesleyan (United Methodist, AME, etc...)</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" value="Reformed (Presbyterian, RCA, etc...)" >Reformed (Presbyterian, RCA, etc...)</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" value="Baptist/Free-Church" >Baptist/Free-Church</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" value="Pentecostal" >Pentecostal</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" value="Non-Denominational" >Non-Denominational</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" value="other">   
                         <label for="congDenom">
                             Other Denomination/Tradion
@@ -211,6 +219,7 @@ export class EditCongregationsComponent implements OnInit {
                 <legend for="congregationMembers">Are there any Hymn Society members in your congregation or on your church staff?</legend>
                 <md-radio-group [(ngModel)]="passedCong.data.hymn_soc_member" name="congregationMember" required>
                     <md-radio-button class="block-input" name="hymn_soc_member" value="yes" required>Yes</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" name="hymn_soc_member" value="no">No</md-radio-button>
                 </md-radio-group>
                 </fieldset>
@@ -466,14 +475,18 @@ export class EditCongregationsComponent implements OnInit {
                     <md-radio-button class="block-input"
                         value="Urban (downtown churches in a large metropolitan area)">
                         Urban (downtown churches in a large metropolitan area)</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" 
                         value="Suburban"> 
                         Suburban</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input"
                         value="Rural - In a small city"> Rural - In a small city</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input"
                         value="Rural - Not in a city"> 
                         Rural - Not in a city</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" value="other"> 
                         <label fr="congGeoOther">
                             Other
@@ -603,9 +616,13 @@ export class EditCongregationsComponent implements OnInit {
                 <legend for="congregationAttendance">On average, how many people attend your weekly worship services?</legend>
                 <md-radio-group [(ngModel)]="passedCong.data.attendance" name="congAttendance" required>
                     <md-radio-button class="block-input" value="Under 100" required> Under 100</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" value="Between 100 and 250"> Between 100 and 250</md-radio-button>
+                    <br>
                     <md-radio-button  class="block-input" value="Between 250 and 500"> Between 250 and 500</md-radio-button>
+                    <br>
                     <md-radio-button  class="block-input" value="Between 500 and 1000"> Between 500 and 1000</md-radio-button>
+                    <br>
                     <md-radio-button  class="block-input" value="Over 1000"> Over 1000</md-radio-button>
                 </md-radio-group>
                 </fieldset>
@@ -643,9 +660,6 @@ export class CongDialog {
     }
 
     bind() {
-        if (this.countryOther) {
-        this.passedCong.data.country = this.countryOther;
-        }
         if (this.denomOther) {
         this.passedCong.data.denomination = this.denomOther;
         }
