@@ -16,11 +16,6 @@ export class EditEventsComponent implements OnInit {
   deleted: boolean;
   event: any;
 
-  occuranceOther: any;
-  shapeOther: any;
-  attireOther: any;
-  typeOther: any;
-
   constructor (private route: ActivatedRoute,
     private router: Router,
     private reviewService: ReviewService,
@@ -34,10 +29,6 @@ export class EditEventsComponent implements OnInit {
       height: '90%',
     });
     dialogRef.componentInstance.passedEvent = event;
-    dialogRef.componentInstance.occuranceOther = this.occuranceOther;
-    dialogRef.componentInstance.attireOther = this.attireOther;
-    dialogRef.componentInstance.shapeOther = this.shapeOther;
-    dialogRef.componentInstance.typeOther = this.typeOther;
     this.createObject(event);
     dialogRef.afterClosed().subscribe(result => {
         if (result === 'submitEdit') {
@@ -96,19 +87,6 @@ export class EditEventsComponent implements OnInit {
     }
 
     submitEdit(event) {
-        if (this.occuranceOther) {
-            this.event.data.occurance = this.occuranceOther;
-        }
-        if (this.shapeOther) {
-            this.event.data.shape = this.shapeOther;
-        }
-        if (this.attireOther) {
-            this.event.data.clothing = this.attireOther;
-        }
-        if(this.typeOther) {
-            this.event.data.type = this.typeOther;
-        }
-
         this.reviewService.editEvent(this.id, event);
         this.router.navigate(['/review/events']);
     }
@@ -485,7 +463,7 @@ export class EditEventsComponent implements OnInit {
             </div>
 
             <md-card-actions>
-              <button md-raised-button color="primary" type="submit" (click)="dialogRef.close('submitEdit')">
+              <button md-raised-button color="primary" type="submit" (click)="bind(); dialogRef.close('submitEdit');">
                 Submit
               </button>
               <button md-button md-dialog-close>
@@ -512,5 +490,20 @@ export class EventDialog {
 
     constructor(public dialogRef: MdDialogRef<EventDialog>) {
 
+    }
+
+    bind() {
+        if (this.occuranceOther) {
+            this.passedEvent.data.occurance = this.occuranceOther;
+        }
+        if (this.shapeOther) {
+            this.passedEvent.data.shape = this.shapeOther;
+        }
+        if (this.attireOther) {
+            this.passedEvent.data.clothing = this.attireOther;
+        }
+        if(this.typeOther) {
+            this.passedEvent.data.type = this.typeOther;
+        }
     }
 }

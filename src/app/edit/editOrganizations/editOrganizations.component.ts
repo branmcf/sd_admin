@@ -16,10 +16,6 @@ export class EditOrganizationsComponent implements OnInit {
   deleted: boolean;
   organization: any;
 
-  countryOther: any;
-  denomOther: any;
-  geoOther: any;
-
   constructor (private route: ActivatedRoute,
     private router: Router,
     private reviewService: ReviewService,
@@ -33,9 +29,6 @@ export class EditOrganizationsComponent implements OnInit {
       height: '90%',
     });
     dialogRef.componentInstance.passedOrganization = organization;
-    dialogRef.componentInstance.passedCountryOther = this.countryOther;
-    dialogRef.componentInstance.passedDenomOther = this.denomOther;
-    dialogRef.componentInstance.passedGeoOther = this.geoOther;
     this.createObject(organization);
     dialogRef.afterClosed().subscribe(result => {
         if (result === 'submitEdit') {
@@ -103,16 +96,6 @@ export class EditOrganizationsComponent implements OnInit {
     }
 
     submitEdit(organization) {
-        if (this.countryOther) {
-            this.organization.data.country = this.countryOther;
-        }
-        if (this.denomOther) {
-            this.organization.data.denomination = this.denomOther;
-        }
-        if (this.geoOther) {
-            this.organization.data.geographic_area = this.geoOther;
-        }
-
         this.reviewService.editOrganization(this.id, organization);
         this.router.navigate(['/review/organizations'])
     }
@@ -694,7 +677,7 @@ export class EditOrganizationsComponent implements OnInit {
             <br>
 
             <md-card-actions>
-              <button md-raised-button color="primary" type="submit" (click)="dialogRef.close('submitEdit')">
+              <button md-raised-button color="primary" type="submit" (click)="bind(); dialogRef.close('submitEdit');">
                 Submit
               </button>
               <button md-button md-dialog-close>
@@ -713,11 +696,23 @@ export class EditOrganizationsComponent implements OnInit {
 export class OrgDialog {
     passedOrganization: any;
 
-    passedCountryOther: any;
-    passedDenomOther: any;
-    passedGeoOther: any;
+    countryOther: any;
+    denomOther: any;
+    geoOther: any;
 
     constructor(public dialogRef: MdDialogRef<OrgDialog>) {
 
+    }
+
+    bind() {
+        if (this.countryOther) {
+            this.passedOrganization.data.country = this.countryOther;
+        }
+        if (this.denomOther) {
+            this.passedOrganization.data.denomination = this.denomOther;
+        }
+        if (this.geoOther) {
+            this.passedOrganization.data.geographic_area = this.geoOther;
+        }
     }
 }

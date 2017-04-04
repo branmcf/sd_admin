@@ -17,8 +17,6 @@ export class EditResourcesComponent implements OnInit {
   deleted: boolean;
   resource: any;
 
-  resourceTypeOther: any;
-
   constructor (private route: ActivatedRoute,
     private router: Router,
     private reviewService: ReviewService,
@@ -32,13 +30,10 @@ export class EditResourcesComponent implements OnInit {
       height: '90%',
     });
     dialogRef.componentInstance.passedResource = resource;
-    dialogRef.componentInstance.resourceTypeOther = this.resourceTypeOther;
     this.createObject(resource);
     dialogRef.afterClosed().subscribe(result => {
         if (result === 'submitEdit') {
-            debugger;
-            console.log(this.resourceTypeOther);
-            this.submitEdit(resource, this.resourceTypeOther);
+            this.submitEdit(resource);
         }
     });
   }
@@ -106,11 +101,9 @@ export class EditResourcesComponent implements OnInit {
         this.openDialog(this.resource);
     }
 
-    submitEdit(resource, resourceTypeOther) {
-        if (this.resourceTypeOther) {
-            this.resource.data.type = this.resourceTypeOther;
-        }
+    submitEdit(resource) {
         this.reviewService.editResource(this.id, resource);
+        console.log(resource);
         this.router.navigate(['/review/resources']);
     }
 
@@ -126,10 +119,9 @@ export class EditResourcesComponent implements OnInit {
   <div>
     <form>
       <h1 md-dialog-title>Edit Resource</h1>
-      <md-dialog-actions>
+
 
         <div class="form-group">
-            <div class="form-group">
                 <label for="resourceTitle">
                     Title
                 </label>
@@ -138,7 +130,7 @@ export class EditResourcesComponent implements OnInit {
                 class="form-control" 
                 name="resourceTitle"
                 [(ngModel)]="passedResource.data.title"/>
-            </div>
+
         </div>
 
         <br>
@@ -148,14 +140,23 @@ export class EditResourcesComponent implements OnInit {
                 <legend for="resourceType">Resource Type</legend>
                 <md-radio-group [(ngModel)]="passedResource.data.type" name="radioType">
                     <md-radio-button class="block-input" name="type" value="Audio Track(s)"> Audio Track(s)</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" name="type" value="Article(s)"> Article(s)</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" name="type" value="Blog"> Blog</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" name="type" value="Book"> Book</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" name="type" value="Forum"> Forum</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" name="type" value="Hymnal/Songbook"> Hymnal/Songbook</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" name="type" value="Newsletter/E-News"> Newsletter/E-News</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" name="type" value="Podcast"> Podcast</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" name="type" value="Video/Visual(s)"> Video/Visual(s)</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" name="type"> 
                         <label for="resourceTypeOther">
                             Other Type
@@ -652,7 +653,9 @@ export class EditResourcesComponent implements OnInit {
                 <legend for="resourceIsInvolved">Is a Hymn Society member involved?</legend>
                 <md-radio-group name="resourceIsInvolved" [(ngModel)]="passedResource.data.hymn_soc_member" required>
                     <md-radio-button class="block-input" value="true" required> Yes</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" value="false"> No</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" value="Unknown"> Unknown</md-radio-button>
                 </md-radio-group>
                 </fieldset>
@@ -665,7 +668,9 @@ export class EditResourcesComponent implements OnInit {
                 <legend for="resourceFree">Is this resource free?</legend>
                 <md-radio-group name="resourceFree" [(ngModel)]="passedResource.data.is_free" required>
                     <md-radio-button class="block-input" value="true" required> Yes</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" value="Partially"> Partially with paywall</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" value="false"> No</md-radio-button>
                 </md-radio-group>
                 </fieldset>
@@ -679,9 +684,11 @@ export class EditResourcesComponent implements OnInit {
                 <md-radio-group [(ngModel)]="passedResource.data.pract_schol" name="resourcePractSchol" required>
                     <md-radio-button 
                     class="block-input" value="Practical" required>
-                    Practical</md-radio-button>
+                        Practical</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" value="Scholarly"> 
                         Scholarly</md-radio-button>
+                    <br>
                     <md-radio-button class="block-input" value="both"> 
                         Both</md-radio-button>
                 </md-radio-group>
@@ -691,7 +698,7 @@ export class EditResourcesComponent implements OnInit {
             <br>  
 
             <md-card-actions>
-              <button md-raised-button color="primary" type="submit" (click)="dialogRef.close('submitEdit')">
+              <button md-raised-button color="primary" type="submit" (click)="bind(); dialogRef.close('submitEdit');">
                 Submit
               </button>
               
@@ -700,7 +707,6 @@ export class EditResourcesComponent implements OnInit {
               </button>
             </md-card-actions>
 
-      </md-dialog-actions>
       </form>
     </div>
   `
@@ -715,6 +721,11 @@ export class ResourceDialog {
 
   constructor(public dialogRef: MdDialogRef<ResourceDialog>) {
 
+  }
+
+  bind() {
+      if(this.resourceTypeOther)
+         this.passedResource.data.type = this.resourceTypeOther;
   }
 
 }

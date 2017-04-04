@@ -119,7 +119,6 @@ export class EditPersonComponent implements OnInit {
   <div>
     <form>
       <h1 md-dialog-title>Edit Person</h1>
-      <md-dialog-actions>
 
         <div class="form-group">
             <label for="personFName">
@@ -730,7 +729,6 @@ export class EditPersonComponent implements OnInit {
               </button>
             </md-card-actions>
 
-            </md-dialog-actions>
         </form>  
     </div>
     `

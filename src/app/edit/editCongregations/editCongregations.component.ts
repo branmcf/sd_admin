@@ -17,10 +17,6 @@ export class EditCongregationsComponent implements OnInit {
   deleted: boolean;
   congregation: any;
 
-  countryOther: string;
-  denomOther: string;
-  geographyOther: string;
-
   constructor (private route: ActivatedRoute,
     private router: Router,
     private reviewService: ReviewService,
@@ -34,9 +30,6 @@ export class EditCongregationsComponent implements OnInit {
       height: '90%',
     });
     dialogRef.componentInstance.passedCong = congregation;
-    dialogRef.componentInstance.countryOther = this.countryOther;
-    dialogRef.componentInstance.denomOther = this.denomOther;
-    dialogRef.componentInstance.geographyOther = this.geographyOther;
     this.createObject(congregation);
     dialogRef.afterClosed().subscribe(result => {
         if (result === 'submitEdit') {
@@ -98,16 +91,6 @@ export class EditCongregationsComponent implements OnInit {
     }
 
     submitEdit(congregation) {
-        if (this.countryOther) {
-        this.congregation.data.country = this.countryOther;
-        }
-        if (this.denomOther) {
-        this.congregation.data.denomination = this.denomOther;
-        }
-        if (this.geographyOther) {
-        this.congregation.data.geography = this.geographyOther;
-        }   
-
         this.reviewService.editCongregation(this.id, congregation);
         this.router.navigate(['/review/congregations']);
     }
@@ -631,7 +614,7 @@ export class EditCongregationsComponent implements OnInit {
             <br>
 
             <md-card-actions>
-              <button md-raised-button color="primary" type="submit" (click)="dialogRef.close('submitEdit')">
+              <button md-raised-button color="primary" type="submit" (click)="bind(); dialogRef.close('submitEdit');">
                 Submit
               </button>
               <button md-button md-dialog-close>
@@ -657,5 +640,17 @@ export class CongDialog {
 
     constructor(public dialogRef: MdDialogRef<CongDialog>) {
 
+    }
+
+    bind() {
+        if (this.countryOther) {
+        this.passedCong.data.country = this.countryOther;
+        }
+        if (this.denomOther) {
+        this.passedCong.data.denomination = this.denomOther;
+        }
+        if (this.geographyOther) {
+        this.passedCong.data.geography = this.geographyOther;
+        }   
     }
 }
