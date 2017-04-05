@@ -31,6 +31,7 @@ export class ViewResourcesComponent implements OnInit {
       } else if (param['type'] === 'orgs') {
         this.reviewService.getAllOrganizations('approved').then(x => this.resources = x).catch(err => console.log(err));
         this.icon = 'group_work';
+        this.type = 'organization';
       } else if (param['type'] === 'persons') {
         this.reviewService.getAllPersons('approved').then(x => this.resources = x).catch(err => console.log(err));
         this.icon = 'face';

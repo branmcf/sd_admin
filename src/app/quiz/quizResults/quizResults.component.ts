@@ -33,6 +33,7 @@ export class QuizResultsComponent implements OnInit {
       } else if (param['type'] === 'orgs') {
         this.quizService.submitQuizOrganizations(quizAnswers).then(x => this.resources = x).catch(err => console.log(err));
         this.icon = 'group_work';
+        this.type = 'organization';
       } else if (param['type'] === 'persons') {
         this.quizService.submitQuizPersons(quizAnswers).then(x => this.resources = x).catch(err => console.log(err));
         this.icon = 'face';

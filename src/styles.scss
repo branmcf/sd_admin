@@ -153,6 +153,11 @@ a {
   width: inherit;
 }
 
+md-radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
 .alert-danger {
   background: none;
   border: none;
