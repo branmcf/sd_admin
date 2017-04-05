@@ -1,7 +1,7 @@
 <div class="entry-container right">
     <hymn-header></hymn-header>
     <div class="view-content">
-        <div class="col-sm-10">
+        <div class="col-sm-9">
             <md-card *ngFor="let resource of resources">
                 <div class="resource-card-header">
                     <md-card-subtitle>{{type}}</md-card-subtitle>
@@ -148,5 +148,13 @@
 
             </md-card> <!-- end class card -->
         </div> <!-- end class col-md-8 offset-md-2 -->
+        <div class="col-sm-3">
+            <md-card>
+                <md-input-container>
+                    <input mdInput placeholder="Search for Keyword" [(ngModel)]="searchTerm">
+                </md-input-container>
+                <button [disabled]='!searchTerm' md-raised-button color="primary" (click)=search(searchTerm)>search</button> 
+            </md-card>
+        </div>
     </div> <!-- end entry-body row -->
 </div>

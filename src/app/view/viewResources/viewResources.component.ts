@@ -12,6 +12,7 @@ export class ViewResourcesComponent implements OnInit {
   resources: any[];
   type: string;
   icon: string;
+  searchTerm: string;
   private sub: any;
 
   constructor (private route: ActivatedRoute,
@@ -47,7 +48,7 @@ export class ViewResourcesComponent implements OnInit {
     this.sub.unsubscribe();
   }
 
-  edit(id) {
-    this.router.navigate(['/entry/review/resources', id]);
+  search(term:string) {
+    console.log(this.resources.indexOf(term));
   }
 }
