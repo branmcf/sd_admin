@@ -15,6 +15,7 @@ export class EditPersonComponent implements OnInit {
   approved: boolean;
   deleted: boolean;
   person: any;
+  submission: any;
 
   constructor (private route: ActivatedRoute,
     private router: Router,
@@ -74,6 +75,8 @@ export class EditPersonComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach(x => this.load(+x['id']));
+
+    this.submission = {};
   }
 
     private load(id) {
@@ -102,7 +105,10 @@ export class EditPersonComponent implements OnInit {
     }
 
     submitEdit(person) {
-        this.reviewService.editPerson(this.id, person);
+        this.submission.data = person; 
+        this.submission.user = person.user;
+
+        this.reviewService.editPerson(this.id, this.submission);
         this.router.navigate(['/review/person']);
     }
 
