@@ -61,9 +61,10 @@
                             <li><b>Instruments used by your congregation during congregational singing:</b> {{ resource?.instruments.join(', ') }} </li>
                             <li><b>Languages spoken:</b> {{ resource?.languages }}</li>
                             <li><b>Ethnicities worked with in at least 20% of your events:</b> {{ resource?.ethnicities.join(', ') }}</li>
-                            <li><b>Do you work with resources that are practical, scholarly, or both:</b> {{ resource?.pract_schol }}</li>      
                         </ul>
                         <ul class="float-right">
+                            <li *ngIf="resource?.pract_schol === 'Both'"> <i>Works with Practical and Scholarly Resources</i></li>
+                            <li *ngIf="resource?.pract_schol != 'Both'"> <i>Works with {{ resource?.pract_schol }} Resources</i></li>
                             <li *ngIf="resource?.url"><a href="{{ resource?.url }}"><md-icon>launch</md-icon> Link to this person's website</a></li>
                         </ul>
                     </md-card-content> <!-- end persons card-block -->
