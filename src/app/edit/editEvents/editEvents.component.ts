@@ -15,6 +15,7 @@ export class EditEventsComponent implements OnInit {
   approved: boolean;
   deleted: boolean;
   event: any;
+  submission: any;
 
   constructor (private route: ActivatedRoute,
     private router: Router,
@@ -31,8 +32,13 @@ export class EditEventsComponent implements OnInit {
     dialogRef.componentInstance.passedEvent = event;
     this.createObject(event);
     dialogRef.afterClosed().subscribe(result => {
+        debugger;
         if (result === 'submitEdit') {
             this.submitEdit(event);
+        }
+        else {
+            console.log("Reload");
+            window.location.reload(true);
         }
     });
   }
@@ -82,13 +88,16 @@ export class EditEventsComponent implements OnInit {
     }
 
     edit(id) {
-
         this.openDialog(this.event)
     }
 
     submitEdit(event) {
-        this.reviewService.editEvent(this.id, event);
+        this.submission.data = event;
+        this.submission.user = event.user;
+        
+        this.reviewService.editEvent(this.id, this.submission);
         this.router.navigate(['/review/events']);
+        window.location.reload(true);
     }
 
     delete(id) {
@@ -482,7 +491,7 @@ export class EditEventsComponent implements OnInit {
               <button md-raised-button color="primary" type="submit" (click)="bind(); dialogRef.close('submitEdit');">
                 Submit
               </button>
-              <button md-button md-dialog-close>
+              <button md-button md-dialog-close (click)="dialogRef.close('cancel');">
                 Cancel
               </button>
             </md-card-actions>

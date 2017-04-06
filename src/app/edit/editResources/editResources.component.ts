@@ -16,6 +16,7 @@ export class EditResourcesComponent implements OnInit {
   approved: boolean;
   deleted: boolean;
   resource: any;
+  submission: any;
 
   constructor (private route: ActivatedRoute,
     private router: Router,
@@ -75,6 +76,8 @@ export class EditResourcesComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach(x => this.load(+x['id']));
+    
+    this.submission = {}
   }
 
     private load(id){
@@ -84,9 +87,11 @@ export class EditResourcesComponent implements OnInit {
 
         const onload = (data) => {
             if (data){
+                debugger;
                 this.id = id;
-                data.categories = JSON.stringify(data);
+                // data.categories = JSON.stringify(data);
                 this.resource = data;
+                console.log(this.resource);
             }
         };
         this.reviewService.getResourceByID(id).then(onload);
@@ -98,12 +103,17 @@ export class EditResourcesComponent implements OnInit {
     }
     
     edit() {
+        // console.log(this.resource);
         this.openDialog(this.resource);
     }
 
     submitEdit(resource) {
-        this.reviewService.editResource(this.id, resource);
-        console.log(resource);
+        // console.log(this.submission);
+        this.submission.data = resource;
+        this.submission.user = resource.user;
+
+        this.reviewService.editResource(this.id, this.submission);
+        // console.log(resource);
         this.router.navigate(['/review/resources']);
     }
 

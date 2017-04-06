@@ -15,6 +15,7 @@ export class EditOrganizationsComponent implements OnInit {
   approved: boolean;
   deleted: boolean;
   organization: any;
+  submission: any;
 
   constructor (private route: ActivatedRoute,
     private router: Router,
@@ -69,6 +70,8 @@ export class EditOrganizationsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach(x => this.load(+x['id']));
+
+    this.submission = {};
   }
 
     private load(id){
@@ -96,7 +99,10 @@ export class EditOrganizationsComponent implements OnInit {
     }
 
     submitEdit(organization) {
-        this.reviewService.editOrganization(this.id, organization);
+        this.submission.data = organization;
+        this.submission.user = organization.user;
+
+        this.reviewService.editOrganization(this.id, this.submission);
         this.router.navigate(['/review/organizations'])
     }
 

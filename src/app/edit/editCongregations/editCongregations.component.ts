@@ -16,6 +16,7 @@ export class EditCongregationsComponent implements OnInit {
   approved: boolean;
   deleted: boolean;
   congregation: any;
+  submission: any;
 
   constructor (private route: ActivatedRoute,
     private router: Router,
@@ -64,6 +65,8 @@ export class EditCongregationsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach(x => this.load(+x['id']));
+
+    this.submission = {};
   }
 
     private load(id){
@@ -91,7 +94,10 @@ export class EditCongregationsComponent implements OnInit {
     }
 
     submitEdit(congregation) {
-        this.reviewService.editCongregation(this.id, congregation);
+        this.submission.data = congregation;
+        this.submission.user = congregation.user;
+
+        this.reviewService.editCongregation(this.id, this.submission);
         this.router.navigate(['/review/congregations']);
     }
 
