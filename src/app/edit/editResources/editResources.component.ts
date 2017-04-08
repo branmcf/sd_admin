@@ -87,7 +87,6 @@ export class EditResourcesComponent implements OnInit {
 
         const onload = (data) => {
             if (data){
-                debugger;
                 this.id = id;
                 // data.categories = JSON.stringify(data);
                 this.resource = data;
@@ -113,7 +112,7 @@ export class EditResourcesComponent implements OnInit {
         this.submission.user = resource.user;
 
         this.reviewService.editResource(this.id, this.submission);
-        // console.log(resource);
+        console.log(this.submission);
         this.router.navigate(['/review/resources']);
     }
 
@@ -666,7 +665,7 @@ export class EditResourcesComponent implements OnInit {
                     <br>
                     <md-radio-button class="block-input" value="false"> No</md-radio-button>
                     <br>
-                    <md-radio-button class="block-input" value="Unknown"> Unknown</md-radio-button>
+                    <md-radio-button class="block-input" value="partially"> Unknown</md-radio-button>
                 </md-radio-group>
                 </fieldset>
             </div>
@@ -677,11 +676,11 @@ export class EditResourcesComponent implements OnInit {
                 <fieldset>
                 <legend for="resourceFree">Is this resource free?</legend>
                 <md-radio-group name="resourceFree" [(ngModel)]="passedResource.data.is_free" required>
-                    <md-radio-button class="block-input" value="true" required> Yes</md-radio-button>
+                    <md-radio-button class="block-input" value="yes" required> Yes</md-radio-button>
                     <br>
-                    <md-radio-button class="block-input" value="Partially"> Partially with paywall</md-radio-button>
+                    <md-radio-button class="block-input" value="we do not offer this"> Partially with paywall</md-radio-button>
                     <br>
-                    <md-radio-button class="block-input" value="false"> No</md-radio-button>
+                    <md-radio-button class="block-input" value="no"> No</md-radio-button>
                 </md-radio-group>
                 </fieldset>
             </div>
@@ -699,7 +698,7 @@ export class EditResourcesComponent implements OnInit {
                     <md-radio-button class="block-input" value="Scholarly"> 
                         Scholarly</md-radio-button>
                     <br>
-                    <md-radio-button class="block-input" value="both"> 
+                    <md-radio-button class="block-input" value="Both"> 
                         Both</md-radio-button>
                 </md-radio-group>
                 </fieldset>

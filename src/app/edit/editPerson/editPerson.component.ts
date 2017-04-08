@@ -284,8 +284,8 @@ export class EditPersonComponent implements OnInit {
             <fieldset>
             <legend for="personMember">Are you a Hymn Society Member?</legend>
             <md-radio-group [(ngModel)]="passedPerson.data.hymn_soc_member" name="personMember" required>
-                <md-radio-button class="block-input" name="isMember" value="yes" required>Yes</md-radio-button>
-                <md-radio-button class="block-input"  name="isMember" value="no">No</md-radio-button>
+                <md-radio-button class="block-input" name="isMember" value="true" required>Yes</md-radio-button>
+                <md-radio-button class="block-input"  name="isMember" value="false">No</md-radio-button>
             </md-radio-group>
             </fieldset>
         </div>

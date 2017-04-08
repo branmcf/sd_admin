@@ -282,7 +282,7 @@ export class EditOrganizationsComponent implements OnInit {
                         <br>
                         <md-radio-button class="block-input" name="resource" value="No">No</md-radio-button>
                         <br>
-                        <md-radio-button class="block-input" name="resource" value="We don't offer resources">We don't offer resources</md-radio-button>
+                        <md-radio-button class="block-input" name="resource" value="We do not offer this">We don't offer resources</md-radio-button>
                     </md-radio-group>
                 </fieldset>
             </div>
@@ -297,7 +297,7 @@ export class EditOrganizationsComponent implements OnInit {
                         <br>
                         <md-radio-button class="block-input" name="conference" value="No">No</md-radio-button>
                         <br>
-                        <md-radio-button class="block-input" name="conference" value="We don't offer events/conferences">We don't offer events/conferences</md-radio-button>
+                        <md-radio-button class="block-input" name="conference" value="We do not offer this">We don't offer events/conferences</md-radio-button>
                     </md-radio-group>
                 </fieldset>
             </div>      
@@ -312,7 +312,7 @@ export class EditOrganizationsComponent implements OnInit {
                         <br>
                         <md-radio-button class="block-input" name="membership" value="No">No</md-radio-button>
                         <br>
-                        <md-radio-button class="block-input" name="membership" value="We don't offer memberships">We don't offer memberships</md-radio-button>
+                        <md-radio-button class="block-input" name="membership" value="We do not offer this">We don't offer memberships</md-radio-button>
                     </md-radio-group>
                 </fieldset>
             </div>

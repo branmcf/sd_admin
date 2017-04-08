@@ -224,9 +224,9 @@ export class EditCongregationsComponent implements OnInit {
                 <fieldset>
                 <legend for="congregationMembers">Are there any Hymn Society members in your congregation or on your church staff?</legend>
                 <md-radio-group [(ngModel)]="passedCong.data.hymn_soc_member" name="congregationMember" required>
-                    <md-radio-button class="block-input" name="hymn_soc_member" value="yes" required>Yes</md-radio-button>
+                    <md-radio-button class="block-input" name="hymn_soc_member" value="true" required>Yes</md-radio-button>
                     <br>
-                    <md-radio-button class="block-input" name="hymn_soc_member" value="no">No</md-radio-button>
+                    <md-radio-button class="block-input" name="hymn_soc_member" value="false">No</md-radio-button>
                 </md-radio-group>
                 </fieldset>
             </div>
