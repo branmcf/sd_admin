@@ -145,7 +145,7 @@ export class EntryResourcesComponent implements OnInit {
       this.submission.data.type = this.resourceTypeOther;
     }
     console.log((this.submission));
-    this.submitService.submitResource(this.submission);
+    this.submitService.submitResource(this.submission).then(() => location.reload());
   }
 }
 
