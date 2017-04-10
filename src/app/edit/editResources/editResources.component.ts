@@ -4,7 +4,7 @@ import { SubmitService } from './../../services/submit.service';
 import { ReviewService } from './../../services/review.service';
 import { MdDialog, MdDialogRef } from '@angular/material';
 
-@Component({
+@Component({            
   selector: 'hymn-edit-resources',
   templateUrl: './editResources.html',
   styleUrls: ['./editResources.scss']
@@ -76,7 +76,6 @@ export class EditResourcesComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach(x => this.load(+x['id']));
-    
     this.submission = {}
   }
 
@@ -88,9 +87,7 @@ export class EditResourcesComponent implements OnInit {
         const onload = (data) => {
             if (data){
                 this.id = id;
-                // data.categories = JSON.stringify(data);
                 this.resource = data;
-                console.log(this.resource);
             }
         };
         this.reviewService.getResourceByID(id).then(onload);
@@ -102,19 +99,16 @@ export class EditResourcesComponent implements OnInit {
     }
     
     edit() {
-        // console.log(this.resource);
         this.openDialog(this.resource);
     }
 
     submitEdit(resource) {
-        // console.log(this.submission);
-        this.submission.data = resource;
+        this.submission.data = resource.data;
         this.submission.user = resource.user;
 
         this.reviewService.editResource(this.id, this.submission).then(() => {
             this.router.navigate(['/review/resources']);
         });
-        // console.log(this.submission);
     }
 
     delete(id) {
@@ -677,11 +671,11 @@ export class EditResourcesComponent implements OnInit {
                 <fieldset>
                 <legend for="resourceFree">Is this resource free?</legend>
                 <md-radio-group name="resourceFree" [(ngModel)]="passedResource.data.is_free" required>
-                    <md-radio-button class="block-input" value="yes" required> Yes</md-radio-button>
+                    <md-radio-button class="block-input" value="Yes" required> Yes</md-radio-button>
                     <br>
-                    <md-radio-button class="block-input" value="we do not offer this"> Partially with paywall</md-radio-button>
+                    <md-radio-button class="block-input" value="We do not offer this"> Partially with paywall</md-radio-button>
                     <br>
-                    <md-radio-button class="block-input" value="no"> No</md-radio-button>
+                    <md-radio-button class="block-input" value="No"> No</md-radio-button>
                 </md-radio-group>
                 </fieldset>
             </div>
