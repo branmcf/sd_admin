@@ -97,8 +97,9 @@ export class EditCongregationsComponent implements OnInit {
         this.submission.data = congregation;
         this.submission.user = congregation.user;
 
-        this.reviewService.editCongregation(this.id, this.submission);
-        this.router.navigate(['/review/congregations']);
+        this.reviewService.editCongregation(this.id, this.submission).then(() => {
+            this.router.navigate(['/review/congregations']);
+        });
     }
 
     delete(id) {

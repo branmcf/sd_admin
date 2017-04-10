@@ -102,8 +102,9 @@ export class EditOrganizationsComponent implements OnInit {
         this.submission.data = organization;
         this.submission.user = organization.user;
 
-        this.reviewService.editOrganization(this.id, this.submission);
-        this.router.navigate(['/review/organizations'])
+        this.reviewService.editOrganization(this.id, this.submission).then(() => {
+            this.router.navigate(['/review/organizations']);
+        });
     }
 
     delete(id) {

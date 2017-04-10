@@ -108,8 +108,9 @@ export class EditPersonComponent implements OnInit {
         this.submission.data = person; 
         this.submission.user = person.user;
 
-        this.reviewService.editPerson(this.id, this.submission);
-        this.router.navigate(['/review/person']);
+        this.reviewService.editPerson(this.id, this.submission).then(() => {
+            this.router.navigate(['/review/person']);
+        });
     }
 
     delete(id) {

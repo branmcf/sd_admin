@@ -111,9 +111,10 @@ export class EditResourcesComponent implements OnInit {
         this.submission.data = resource;
         this.submission.user = resource.user;
 
-        this.reviewService.editResource(this.id, this.submission);
-        console.log(this.submission);
-        this.router.navigate(['/review/resources']);
+        this.reviewService.editResource(this.id, this.submission).then(() => {
+            this.router.navigate(['/review/resources']);
+        });
+        // console.log(this.submission);
     }
 
     delete(id) {

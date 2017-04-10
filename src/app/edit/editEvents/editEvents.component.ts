@@ -95,9 +95,9 @@ export class EditEventsComponent implements OnInit {
         this.submission.data = event;
         this.submission.user = event.user;
         
-        this.reviewService.editEvent(this.id, this.submission);
-        this.router.navigate(['/review/events']);
-        window.location.reload(true);
+        this.reviewService.editEvent(this.id, this.submission).then(() => {
+            this.router.navigate(['/review/events']);
+        });
     }
 
     delete(id) {
