@@ -94,7 +94,7 @@ export class EditCongregationsComponent implements OnInit {
     }
 
     submitEdit(congregation) {
-        this.submission.data = congregation;
+        this.submission.data = congregation.data;
         this.submission.user = congregation.user;
 
         this.reviewService.editCongregation(this.id, this.submission).then(() => {
