@@ -99,7 +99,7 @@ export class EditOrganizationsComponent implements OnInit {
     }
 
     submitEdit(organization) {
-        this.submission.data = organization;
+        this.submission.data = organization.data;
         this.submission.user = organization.user;
 
         this.reviewService.editOrganization(this.id, this.submission).then(() => {
