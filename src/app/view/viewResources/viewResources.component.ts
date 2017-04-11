@@ -50,4 +50,12 @@ export class ViewResourcesComponent implements OnInit {
   edit(id) {
     this.router.navigate(['/entry/review/resources', id]);
   }
+
+  expand(resource) {
+    if (resource.show) {
+      resource.show = false;
+    } else {
+      resource.show = true;
+    }
+  }
 }
