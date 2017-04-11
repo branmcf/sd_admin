@@ -94,8 +94,9 @@ export class EditResourcesComponent implements OnInit {
     }
 
     approve(id) {
-        this.reviewService.approveResource(this.id);
-        this.router.navigate(['/review/resources']);
+        this.reviewService.approveResource(this.id).then(() => {
+            this.router.navigate(['/review/resources']);
+        });
     }
     
     edit() {
@@ -112,8 +113,9 @@ export class EditResourcesComponent implements OnInit {
     }
 
     delete(id) {
-        this.reviewService.deleteResource(this.id);
-        this.router.navigate(['/review/resources']);
+        this.reviewService.deleteResource(this.id).then(() => {
+            this.router.navigate(['/review/resources']);
+        });
     }
 }
 
