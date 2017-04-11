@@ -105,7 +105,7 @@ export class EditPersonComponent implements OnInit {
     }
 
     submitEdit(person) {
-        this.submission.data = person; 
+        this.submission.data = person.data; 
         this.submission.user = person.user;
 
         this.reviewService.editPerson(this.id, this.submission).then(() => {
