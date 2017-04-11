@@ -92,7 +92,7 @@ export class EditEventsComponent implements OnInit {
     }
 
     submitEdit(event) {
-        this.submission.data = event;
+        this.submission.data = event.data;
         this.submission.user = event.user;
         
         this.reviewService.editEvent(this.id, this.submission).then(() => {
