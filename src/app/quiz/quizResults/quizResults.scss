@@ -7,30 +7,43 @@ md-card {
   .resource-header-image {
     background-size: cover;
   }
-  overflow: scroll;
   a {
     color: #64B5F6;
   }
   md-icon {
     color: #64B5F6;
   }
-}
-
-md-card-content {
   ul {
     list-style-type: none;
   }
+}
+
+md-card-content {
   font-size: medium;
 }
 
 .resource-card-header {
-    padding-left: 5%;
+  display: flex;
+  flex-direction: row;
+  padding-left: 5%;
+  hr {
+    margin-bottom: 0;
+  }
 }
 
-md-card-footer {
-    ul {
-      list-style-type: none;
-    }
+.resource-card-footer {
+  display: flex; 
+  flex-direction: column;
+  align-items: flex-end; 
+
+}
+
+md-card-title {
+  width: 95%;
+  ul {
+    font-size: 14px; 
+  }
+  margin-bottom: 0;
 }
 
 .float-right {

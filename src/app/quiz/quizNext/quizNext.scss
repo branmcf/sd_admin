@@ -1,17 +1,18 @@
 .view-content {
   text-align: center;
-  padding: 10% 10% 5% 10%; 
+  padding: 60px 10% 5% 10%; 
   .col-6, .col-md-4 {
       margin-bottom: 4%;
   }
 }
 
 .resource-card {
+  text-align: center;
   cursor: pointer;
   img {
-    height: 230px;
+    height: 200px;
   }
-  /* background-color: #2196F3;*/
+  padding-bottom: 0;
 }
 
 .resource-card:hover {

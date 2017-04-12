@@ -20,9 +20,9 @@ export class QuizService implements CanActivate {
     }
 
 
-    submitQuizResources(quizAnswers): Promise<any[]> {
+    submitQuizResources(quizAnswers, type = ''): Promise<any[]> {
         return this.http.
-        post(this._apiUrl + 'quiz/resource', quizAnswers)
+        post(this._apiUrl + 'quiz/resource/' + type, quizAnswers)
             .toPromise()
             .then(x => x.json() as any[]);
     }

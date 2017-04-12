@@ -51,4 +51,12 @@ export class ViewResourcesComponent implements OnInit {
   search(term:string) {
     console.log(this.resources.indexOf(term));
   }
+
+  expand(resource) {
+    if (resource.show) {
+      resource.show = false;
+    } else {
+      resource.show = true;
+    }
+  }
 }

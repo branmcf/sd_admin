@@ -2,41 +2,58 @@
     <hymn-header></hymn-header>
     <div class="view-content">
         <div class="col-sm-10">
+            <md-card *ngIf="!resources">
+                <p> Sorry, we didn't find any matches for you in this category. Click <a routerLink="/view/resources/{{type}}">here</a> to browse all our {{type}}</p>
+            </md-card>
             <md-card *ngFor="let resource of resources">
                 <div class="resource-card-header">
-                    <md-card-subtitle>{{type}}</md-card-subtitle>
-                    <md-icon class="float-right" *ngIf="resource?.hymn_soc_member=='true'">star</md-icon>
                     <md-card-title [ngSwitch]="type">
-                            <h3 *ngSwitchCase="'persons'"><md-icon>{{icon}}</md-icon> {{resource?.first_name}} {{resource?.last_name}}</h3>
+                        <div *ngSwitchCase="'persons'">
+                            <h3><md-icon>{{icon}}</md-icon> {{resource?.first_name}} {{resource?.last_name}}</h3>
+                            <ul class="resource-card-footer">
+                                <li *ngIf="resource?.pract_schol === 'Both'"> <i>Works with Practical and Scholarly Resources</i></li>
+                                <li *ngIf="resource?.pract_schol != 'Both'"> <i>Works with {{ resource?.pract_schol }} Resources</i></li>
+                            </ul>
+                        </div>
                             <h3 *ngSwitchCase="'organization'"><md-icon>{{icon}}</md-icon> {{resource?.name}}</h3>
                             <h3 *ngSwitchCase="'congregations'"><md-icon>{{icon}}</md-icon> {{resource?.name}}</h3>
-                            <h3 *ngSwitchCase="'events'"><md-icon>{{icon}}</md-icon> {{resource?.title}} </h3>
+                        <div *ngSwitchCase="'events'">
+                            <h3><md-icon>{{icon}}</md-icon> {{resource?.title}} </h3>
+                            <ul class="resource-card-footer">
+                                <li *ngIf="resource?.is_org_free =='Yes'"> <i>Offers free resources</i> </li>
+                                <li *ngIf="resource?.events_free =='Yes'"> <i>Offers free events</i> </li>
+                                <li *ngIf="resource?.membership_free =='Yes'"> <i>Offers free membership</i> </li>
+                            </ul>
+                        </div>
                             <div *ngSwitchDefault>
                                 <h3><md-icon>{{icon}}</md-icon> {{resource?.title}}</h3>
                                 <h5> by {{ resource?.author }} </h5>
+                                 <ul  class="resource-card-footer">
+                                    <li *ngIf="resource?.pract_schol === 'Both'"> <i>A Practical and Scholarly Resource</i></li>
+                                    <li *ngIf="resource?.pract_schol != 'Both'"> <i>A {{ resource?.pract_schol }} Resource</i></li>
+                                    <li *ngIf="resource?.is_free == 'Yes'"> <i>This is a free resource</i></li>
+                                </ul>
                             </div>
                     </md-card-title>
+                    <md-icon *ngIf="resource?.hymn_soc_member=='true'">star</md-icon>
                 </div>
+
                 <hr>
-                <div [ngSwitch]="type">
+                <div *ngIf="resource?.show" [ngSwitch]="type">
                     <md-card-content *ngSwitchDefault>
                         <ul>
                             <i> {{ resource?.description }}</i>
                         </ul>
                         <ul>
                             <li *ngIf="resource?.parent"><b>Parent Organization or Source:</b> {{ resource?.parent }}</li>
-                            <li><b>Categories that this resource relates into:</b> {{ resource?.categories }}</li>
-                            <li><b>Topics/concerns addressed by this resource:</b> {{ resource?.topics }} </li>
-                            <li><b>Accompaniments that this resource address or lend itself toward:</b> {{ resource?.accompaniment }}</li>
-                            <li><b>Languages represented in this resource?</b> {{ resource?.languages }}</li>
-                            <li><b>Ensembles are addressed:</b> {{ resource?.ensembles }}</li>
-                            <li><b>Ethnicities represented:</b> {{ resource?.ethnicities }}</li>
+                            <li><b>Categories that this resource relates into:</b> {{ resource?.categories.join(', ') }}</li>
+                            <li><b>Topics/concerns addressed by this resource:</b> {{ resource?.topics.join(', ') }} </li>
+                            <li><b>Accompaniments that this resource address or lend itself toward:</b> {{ resource?.accompaniment.join(', ') }}</li>
+                            <li><b>Languages represented in this resource?</b> {{ resource?.languages.join(', ') }}</li>
+                            <li><b>Ensembles are addressed:</b> {{ resource?.ensembles.join(', ') }}</li>
                         </ul>
-                        <ul class="float-right">
-                            <li *ngIf="resource?.pract_schol === 'Both'"> <i>A Practical and Scholarly Resource</i></li>
-                            <li *ngIf="resource?.pract_schol != 'Both'"> <i>A {{ resource?.pract_schol }} Resource</i></li>
-                            <li *ngIf="resource?.is_free == 'true'"> <i>This is a free resource</i></li>
-                            <li *ngIf="resource?.url" ><a href="{{ resource?.url }}"><md-icon>launch</md-icon> Link to this resource website</a></li>
+                        <ul  class="resource-card-footer">
+                            <li *ngIf="resource?.url" ><a target="_blank" href="{{ resource?.url }}"><md-icon>launch</md-icon> Go to  this resource</a></li>
                         </ul>
                     </md-card-content> <!-- end resource card-block -->
 
@@ -46,9 +63,9 @@
                             <li><b>Country:</b> {{ resource?.country }}</li>
                             <li><b>State/Province:</b> {{ resource?.state }}</li>
                             <li><b>City:</b> {{ resource?.city }}</li>
-                            <li><b>Facebook:</b> <a href="{{ resource?.social_facebook }}">{{ resource?.social_facebook }}</a></li>
-                            <li><b>Twitter:</b> <a href="{{ resource?.social_twitter }}">{{ resource?.social_twitter }}</a></li>
-                            <li><b>Other social media connections:</b> <a href="{{ resource?.social_other }}">{{ resource?.social_other }}</a> </li>
+                            <li><b>Facebook:</b> <a target="_blank" href="{{ resource?.social_facebook }}">{{ resource?.social_facebook }}</a></li>
+                            <li><b>Twitter:</b> <a target="_blank" href="{{ resource?.social_twitter }}">{{ resource?.social_twitter }}</a></li>
+                            <li><b>Other social media connections:</b> <a target="_blank" href="{{ resource?.social_other }}">{{ resource?.social_other }}</a> </li>
                         </ul>
                         <ul>
                             <li><b>Main Topic/Emphasis: </b> {{ resource?.emphasis }}</li>
@@ -56,15 +73,13 @@
                             <li *ngIf="resource?.hymn_soc_member == 'false'"><b>{{resource?.last_name}} is not a Hymn Society Member</b></li>
                         </ul>
                         <ul>
-                            <li><b>Ensembles you are comfortable working with:</b> {{ resource?.ensembles }}</li>
-                            <li><b>Song/hymn(s) has your congregation sung in the last 2 months:</b> {{ resource?.categories }}</li>
-                            <li><b>Instruments used by your congregation during congregational singing:</b> {{ resource?.instruments }} </li>
+                            <li><b>Ensembles you are comfortable working with:</b> {{ resource?.ensembles.join(', ') }}</li>
+                            <li><b>Song/hymn(s) has your congregation sung in the last 2 months:</b> {{ resource?.categories.join(', ') }}</li>
+                            <li><b>Instruments used by your congregation during congregational singing:</b> {{ resource?.instruments.join(', ') }} </li>
                             <li><b>Languages spoken:</b> {{ resource?.languages }}</li>
-                            <li><b>Ethnicities worked with in at least 20% of your events:</b> {{ resource?.ethnicities }}</li>
-                            <li><b>Do you work with resources that are practical, scholarly, or both:</b> {{ resource?.pract_schol }}</li>      
                         </ul>
-                        <ul class="float-right">
-                            <li *ngIf="resource?.url"><a href="{{ resource?.url }}"><md-icon>launch</md-icon> Link to this person's website</a></li>
+                        <ul class="resource-card-footer">
+                            <li *ngIf="resource?.url"><a target="_blank" href="{{ resource?.url }}"><md-icon>launch</md-icon> Go to  this person's website</a></li>
                         </ul>
                     </md-card-content> <!-- end persons card-block -->
                     <md-card-content *ngSwitchCase="'organization'">
@@ -80,17 +95,13 @@
                             <li><b>Geographic area(s) served by this organization:</b> {{ resource?.geographic_area }}</li>
                             <li><b>Organization mission:</b> {{ resource?.mission }}</li>
                             <li><b>Organization encourages congregational song by:</b> {{ resource?.process }}</li>
-                            <li><b>Types of song/hymn(s) used or referenced in the past year:</b> {{ resource?.categories }}</li>
-                            <li><b>Types of instruments used during congregational singing:</b> {{ resource?.instruments }}</li> 
-                            <li><b>Shape of worship:</b> {{ resource?.shape }}</li>
-                            <li><b>Pastor/priest clothing when he/she preaches?</b> {{ resource?.clothing }}</li>
-                            <li><b>Ethnicities make up at least 20% of organization:</b> {{ resource?.ethnicities }}</li>
+                            <li><b>Types of song/hymn(s) used or referenced in the past year:</b> {{ resource?.categories.join(', ') }}</li>
+                            <li><b>Types of instruments used during congregational singing:</b> {{ resource?.instruments.join(', ') }}</li> 
+                            <li><b>Shape of worship:</b> {{ resource?.shape.join(', ') }}</li>
+                            <li><b>Pastor/priest clothing when he/she preaches?</b> {{ resource?.clothing.join(', ') }}</li>
                         </ul>
-                        <ul class="float-right">
-                            <li *ngIf="resource?.is_org_free =='true'"> <i>Offers free resources</i> </li>
-                            <li *ngIf="resource?.events_free =='true'"> <i>Offers free events</i> </li>
-                            <li *ngIf="resource?.membership_free =='true'"> <i>Offers free membership</i> </li>
-                            <li *ngIf="resource?.url" ><a href="{{ resource?.url }}"><md-icon>launch</md-icon> Link to this organization website</a></li>
+                        <ul class="resource-card-footer">
+                            <li *ngIf="resource?.url" ><a target="_blank" href="{{ resource?.url }}"><md-icon>launch</md-icon> Go to  this organization website</a></li>
                         </ul>
                     </md-card-content> <!-- end orgs card-block -->
                         
@@ -110,14 +121,14 @@
                             <li><b>Country:</b> {{ resource?.country }}</li>
                             <li><b>State/Province:</b> {{ resource?.state }}</li>
                             <li><b>City:</b> {{ resource?.city }}</li>
-                            <li><b>What types of ensembles are you comfortable working with?</b> {{ resource?.ensembles }}</li>
-                            <li><b>Which best describes the shape of your worship?</b> {{ resource?.shape }}</li>
-                            <li><b>What types of ensembles are addressed in this event?</b> {{ resource?.ensembles }}</li>
-                            <li><b>What does your pastor/priest wear when he/she preaches?</b> {{ resource?.clothing }}</li>
+                            <li><b>What types of ensembles are you comfortable working with?</b> {{ resource?.ensembles.join(', ') }}</li>
+                            <li><b>Which best describes the shape of your worship?</b> {{ resource?.shape.join(', ') }}</li>
+                            <li><b>What types of ensembles are addressed in this event?</b> {{ resource?.ensembles.join(', ') }}</li>
+                            <li><b>What does your pastor/priest wear when he/she preaches?</b> {{ resource?.clothing.join(', ') }}</li>
                             <li><b>On average, how many people will attend your event?</b> {{ resource?.attendance }}</li>
                         </ul>
-                        <ul class="float-right">
-                            <li *ngIf="resource?.url" ><a href="{{ resource?.url }}"><md-icon>launch</md-icon> Link to this event website</a></li>
+                        <ul class="resource-card-footer">
+                            <li *ngIf="resource?.url" ><a target="_blank" href="{{ resource?.url }}"><md-icon>launch</md-icon> Go to  this event website</a></li>
                         </ul>
                     </md-card-content> <!-- end events card-block -->
 
@@ -131,19 +142,22 @@
                         <ul>
                             <li><b>Denomination/Tradition:</b> {{ resource?.denomination }}</li>
                             <li><b>Hymn Society members in congregation or on church staff?</b>  {{ resource?.hymn_soc_member }}</li>
-                            <li><b>Song/hymn(s) congregation sang in the last 2 months:</b> {{ resource?.categories }}</li>
-                            <li><b>Instruments congregation used during congregational singing:</b> {{ resource?.instruments }}</li> 
-                            <li><b>Shape of worship:</b> {{ resource?.shape }}</li>
-                            <li><b>Pastor/priest wears when he/she preaches:</b> {{ resource?.clothing }}</li>
+                            <li><b>Song/hymn(s) congregation sang in the last 2 months:</b> {{ resource?.categories.join(', ') }}</li>
+                            <li><b>Instruments congregation used during congregational singing:</b> {{ resource?.instruments.join(', ') }}</li> 
+                            <li><b>Shape of worship:</b> {{ resource?.shape.join(', ') }}</li>
+                            <li><b>Pastor/priest wears when he/she preaches:</b> {{ resource?.clothing.join(', ') }}</li>
                             <li><b>The congregation is:</b> {{ resource?.geography }}</li>
-                            <li><b>Ethnicities making up at least 20% of the congregation:</b> {{ resource?.ethnicities }}</li>
                             <li><b>On average, how many people attend your weekly worship services?</b> {{ congregation?.attendance }}</li>
                         </ul>
-                        <ul class="float-right">
-                            <li *ngIf="resource?.url" ><a href="{{ resource?.url }}"><md-icon>launch</md-icon> Link to this congregation website</a></li>
+                        <ul class="resource-card-footer">
+                            <li *ngIf="resource?.url" ><a target="_blank" href="{{ resource?.url }}"><md-icon>launch</md-icon> Go to  this congregation website</a></li>
                         </ul>
                     </md-card-content>
                     
+                </div>
+                <div style="text-align: center" [ngSwitch]="resource?.show">
+                    <button *ngSwitchDefault md-button color="accent" (click)=expand(resource)><md-icon>keyboard_arrow_down</md-icon></button> 
+                    <button *ngSwitchCase="true" md-button color="accent" (click)=expand(resource)><md-icon>keyboard_arrow_up</md-icon></button> 
                 </div>
 
             </md-card> <!-- end class card -->

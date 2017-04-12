@@ -37,12 +37,20 @@ export class QuizResultsComponent implements OnInit {
       } else if (param['type'] === 'persons') {
         this.quizService.submitQuizPersons(quizAnswers).then(x => this.resources = x).catch(err => console.log(err));
         this.icon = 'face';
-      } else if (param['type'] === 'resources') {
-        this.quizService.submitQuizResources(quizAnswers).then(x => this.resources = x).catch(err => console.log(err));
+      } else {
+        this.quizService.submitQuizResources(quizAnswers, param['type']).then(x => this.resources = x).catch(err => console.log(err));
         this.icon = 'book';
       }
       this.type = param['type'];
     });
+  }
+
+  expand(resource) {
+    if (resource.show) {
+      resource.show = false;
+    } else {
+      resource.show = true;
+    }
   }
 
   ngOnDestroy() {
