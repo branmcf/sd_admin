@@ -47,10 +47,6 @@ export class ViewResourcesComponent implements OnInit {
     this.sub.unsubscribe();
   }
 
-  edit(id) {
-    this.router.navigate(['/entry/review/resources', id]);
-  }
-
   expand(resource) {
     if (resource.show) {
       resource.show = false;

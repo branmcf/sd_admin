@@ -4,7 +4,7 @@
         <div class="col-sm-12">
             <md-card>
                 <md-card-header>
-                    <md-card-title><h2>Answer the following questions:</h2></md-card-title>
+                    <md-card-title><h2>Question {{index+1}} of 7: </h2></md-card-title>
                     <md-card-subtitle>Click next and previous to navigate between questions</md-card-subtitle>
                 </md-card-header>
 
@@ -17,6 +17,13 @@
                         ng-true-value="true" 
                         ng-false-value="false">
                         {{answer}}
+                        <md-input-container *ngIf="answer == 'Other'">
+                            <input md-input mdInput type="text"
+                            [(ngModel)]="submission.quiz[questions[index].type][answer]"
+                            id="resourceTitle" 
+                            class="form-control" 
+                            name="resourceTitle"/>
+                        </md-input-container> 
                     </md-checkbox>
 
                 </md-card-content> <!-- end class card-block-->
@@ -32,7 +39,7 @@
                         </button>
                         <button md-raised-button *ngIf="index == 6"
                         color='primary' (click)="submit()">
-                            Submit
+                            See my results
                         </button>
                 </md-card-actions>
 

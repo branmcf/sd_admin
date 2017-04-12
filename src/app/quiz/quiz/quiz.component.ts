@@ -13,7 +13,7 @@ export class QuizComponent implements OnInit {
     private submission: any;
     public questions = [
         {
-            question: 'Which types of song/hymn(s) has your congregation sung in the last 2 months?',
+            question: 'Which types of song/hymn(s) has your congregation sung recently?',
             type: 'categories',
             answers: [
                 'A hymn written prior to 1970',
@@ -28,7 +28,7 @@ export class QuizComponent implements OnInit {
             ],
         },
         {
-            question: 'Select instrumental leadership do you use in worship?',
+            question: 'What instrumental leadership do you have available?',
             type: 'instruments',
             answers: [
                 'Acappella',
@@ -42,7 +42,7 @@ export class QuizComponent implements OnInit {
             ],
          },
         {
-            question: 'What vocal leadership do you use in worship?',
+            question: 'What vocal leadership do you have available?',
             type: 'ensembles',
             answers: [
                 'Choir',
@@ -58,12 +58,13 @@ export class QuizComponent implements OnInit {
             answers: [
                 '5-Fold Pattern (Gathering, Word, Response, Table, Sending) - Roman Catholic Mass and similar structures',
                 '4-Fold Pattern (Gathering, Word, Response, Sending) - Communion monthly or quarterly',
-                '2-Fold Pattern (Praise & Teaching) - Most Praise and Worship services'
+                '2-Fold Pattern (Praise & Teaching) - Most Praise and Worship services', 
+                'Other'
             ],
         },
 
         {
-            question: 'What does your pastor/priest wear when he/she preaches?',
+            question: 'What does your pastor/priest wear when they preach?',
             type: 'clothing',
             answers: [
                 'Vestments',
@@ -89,6 +90,7 @@ export class QuizComponent implements OnInit {
                 'Native American/Pacific Islander',
                 'North African/Middle Eastern',
                 'White',
+                'White - Non-English-speaking'
             ]
         },
         {
@@ -143,7 +145,8 @@ export class QuizComponent implements OnInit {
                 shape: {
                     '5-Fold Pattern (Gathering, Word, Response, Table, Sending) - Roman Catholic Mass and similar structures': false,
                     '4-Fold Pattern (Gathering, Word, Response, Sending) - Communion monthly or quarterly': false,
-                    '2-Fold Pattern (Praise & Teaching) - Most Praise and Worship services': false
+                    '2-Fold Pattern (Praise & Teaching) - Most Praise and Worship services': false,
+                    'Other': ''
                 },
                 clothing: {
                     'Vestments': false,
@@ -153,6 +156,7 @@ export class QuizComponent implements OnInit {
                 },
                 ethnicities: {
                     'White': false,
+                    'White - Non-English-speaking': false,
                     'Asian - Chinese Heritage/Language': false,
                     'Asian - Indian': false,
                     'Asian - Southeast Asian Non-Chinese': false,
@@ -164,7 +168,7 @@ export class QuizComponent implements OnInit {
                     'Hispanic/Latino/Spanish - Caribbean': false,
                     'Native American/Indigenous Peoples': false,
                     'Native American/Pacific Islander': false,
-                    'North African/Middle Easternn': false,
+                    'North African/Middle Eastern': false,
                 },
                 size: {
                     'Under 100': false,

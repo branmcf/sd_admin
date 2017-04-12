@@ -153,8 +153,8 @@
                     
                 </div>
                 <div style="text-align: center" [ngSwitch]="resource?.show">
-                    <button *ngSwitchDefault md-button color="accent" (click)=expand(resource)>Show More</button> 
-                    <button *ngSwitchCase="true" md-button color="accent" (click)=expand(resource)>Collapse</button> 
+                    <button *ngSwitchDefault md-button color="accent" (click)=expand(resource)><md-icon>keyboard_arrow_down</md-icon></button> 
+                    <button *ngSwitchCase="true" md-button color="accent" (click)=expand(resource)><md-icon>keyboard_arrow_up</md-icon></button> 
                 </div>
 
             </md-card> <!-- end class card -->

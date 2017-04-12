@@ -45,6 +45,14 @@ export class QuizResultsComponent implements OnInit {
     });
   }
 
+  expand(resource) {
+    if (resource.show) {
+      resource.show = false;
+    } else {
+      resource.show = true;
+    }
+  }
+
   ngOnDestroy() {
     this.sub.unsubscribe();
   }

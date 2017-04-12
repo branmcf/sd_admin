@@ -1,21 +1,18 @@
 <div class="entry-container right">
     <hymn-header></hymn-header>
     <div class="view-content"><!-- content field -->
-        <h2>Click on a card to find your matches!</h2>
+        <h3>These are the resources we suggest for you</h3>
+        <h5>Click a category to see your list</h5>
         <br>
             <div class="row">
                 <div class="col-6 col-md-4" 
                     *ngFor="let tile of tiles">
 
                     <md-card class="resource-card" (click)="navigate(tile.routerLink)">
-                        <md-card-header>
-                            <div md-card-avatar class="resource-header-image"><md-icon>{{tile.icon}}</md-icon></div>
-                            <md-card-title>{{tile.text}}</md-card-title>
-                        </md-card-header>
+                        <!--<div md-card-avatar class="resource-header-image"><md-icon>{{tile.icon}}</md-icon></div>-->
+                        <p><b>{{tile.text}}</b></p>
                         <img md-card-image src={{tile.image}}>
-                        <md-card-content>
-                            
-                        </md-card-content>
+                      
                     </md-card>
 
                 </div> <!-- cols -->

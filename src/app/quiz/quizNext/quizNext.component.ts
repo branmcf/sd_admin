@@ -24,7 +24,7 @@ export class QuizNextComponent implements OnInit {
       routerLink: 'thesis'
     },
     {text: 'Articles', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
-      image: 'https://static.pexels.com/photos/209151/pexels-photo-209151.jpeg',
+      image: 'https://static.pexels.com/photos/26045/pexels-photo-26045.jpg',
       routerLink: 'article'
     },
     {text: 'Blog', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
