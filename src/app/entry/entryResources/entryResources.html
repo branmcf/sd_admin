@@ -5,6 +5,7 @@
   <div class="entry-body row">
     <div class="col-md-8 offset-md-3">
       <md-card>
+        <div>
         <md-card-content>
             <md-card-subtitle class="entry-card-header">
                 {{content?.fields.instructions}} 
@@ -552,8 +553,8 @@
                     <md-radio-button class="block-input" value="Both"> 
                         Both</md-radio-button>
                 </md-radio-group>
-            </div>             
-
+            </div>      
+ 
             <md-card-actions>
               <button md-raised-button color="primary" type="submit" 
               [disabled]="resourceForm.invalid">
@@ -566,6 +567,7 @@
           </form>
           
         </md-card-content>
+        </div>
       </md-card>
     </div>
   </div>

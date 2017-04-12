@@ -3,11 +3,12 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ContentfulService } from './../../services/contentful.service';
 import { SubmitService } from './../../services/submit.service';
 import { MdDialog, MdDialogRef } from '@angular/material';
+import { EditResourcesComponent } from './../../edit/editResources/editResources.component'
 
 @Component({
   selector: 'hymn-entry-resources',
   templateUrl: './entryResources.html',
-  providers: [ContentfulService]
+  providers: [ContentfulService],
 })
 
 export class EntryResourcesComponent implements OnInit {
@@ -139,6 +140,7 @@ export class EntryResourcesComponent implements OnInit {
 
     this.submission.user = obj.first_name + ' ' + obj.last_name;
     this.submission.uid = obj.id;
+
     if (this.resourceTypeOther) {
       this.submission.data.type = this.resourceTypeOther;
     }
