@@ -2,6 +2,9 @@
     <hymn-header></hymn-header>
     <div class="view-content">
         <div class="col-sm-9">
+            <md-card *ngIf="resources?.length < 1">
+                <p> Sorry, we didn't find any matches for you</p>
+            </md-card>
             <md-card *ngFor="let resource of resources">
                 <div class="resource-card-header">
                     <md-card-title [ngSwitch]="type">
@@ -161,10 +164,14 @@
         </div> <!-- end class col-md-8 offset-md-2 -->
         <div class="col-sm-3">
             <md-card>
+                <md-card-subtitle><md-icon>star</md-icon> indicates Hymn Society involvement</md-card-subtitle>
+            </md-card>
+            <md-card>
                 <md-input-container>
                     <input mdInput placeholder="Search for Keyword" [(ngModel)]="searchTerm">
                 </md-input-container>
-                <button [disabled]='!searchTerm' md-raised-button color="primary" (click)=search(searchTerm)>search</button> 
+                <button [disabled]='!searchTerm' md-raised-button color="primary" (click)=search(searchTerm)>Search</button>
+                <button md-button (click)=clearSearch()>Clear All</button> 
             </md-card>
         </div>
     </div> <!-- end entry-body row -->
