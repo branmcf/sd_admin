@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ReviewService } from './../../services/review.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'hymn-view-resources',
@@ -40,7 +41,6 @@ export class ViewResourcesComponent implements OnInit {
         this.reviewService.getAllResources('approved/type/' + param['type']).then(x => this.resources = x).catch(err => console.log(err));
         this.icon = 'book';
       }
-      console.log(param['type']);
     });
   }
 
@@ -48,8 +48,9 @@ export class ViewResourcesComponent implements OnInit {
     this.sub.unsubscribe();
   }
 
-  search(term:string) {
-    console.log(this.resources.indexOf(term));
+  search(term: string) {
+    const res = ['thinking out loud', 'this', 'is', 'abcde', 'omg', 'omg', 'this'];
+    console.log(res.indexOf(term));
   }
 
   expand(resource) {
