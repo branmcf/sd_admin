@@ -52,7 +52,12 @@
                 <br>
                 <br>
                 <br>
-                <b style="font-weight: 700;">Are you a Hymn Society members</b>  {{ person?.data.hymn_soc_member }}
+                <span *ngIf="person?.data.hymn_soc_member == 'true'">
+                    <b style="font-weight: 700;">Are you a Hymn Society members</b> Yes
+                </span>
+                <span *ngIf="person?.data.hymn_soc_member == 'false'">
+                    <b style="font-weight: 700;">Are you a Hymn Society members</b> No
+                </span>
                 <br>
                 <br>
                 <br>

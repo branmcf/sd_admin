@@ -64,7 +64,12 @@
                 <br>
                 <br>
                 <br>
-                <b style="font-weight: 700;">Is a hymn society member involved?</b>  {{ event?.data.hymn_soc_member }}
+                <span *ngIf="event?.data.hymn_soc_member == 'true'">
+                    <b style="font-weight: 700;">Is a hymn society member involved?</b> Yes
+                </span>
+                <span *ngIf="event?.data.hymn_soc_member == 'false'">
+                    <b style="font-weight: 700;">Is a hymn society member involved?</b> No
+                </span>
                 <br>
                 <br>
                 <br>

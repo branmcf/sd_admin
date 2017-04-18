@@ -44,15 +44,30 @@
                 <br>
                 <br>
                 <br>
-                <b style="font-weight: 700;">Are any of your resources free?</b> {{ organization?.data.is_org_free }}
+                <span *ngIf="organization?.data.is_org_free === 'We do not offer this'">
+                    <b style="font-weight: 700;">Are any of your resources free?</b> We don't offer resources
+                </span>
+                <span *ngIf="organization?.data.is_org_free != 'We do not offer this'">
+                    <b style="font-weight: 700;">Are any of your resources free?</b> {{ organization?.data.is_org_free }}
+                </span>
                 <br>
                 <br>
                 <br>
-                <b style="font-weight: 700;">Are any of your events free?</b> {{ organization?.data.events_free }}
+                <span *ngIf="organization?.data.events_free === 'We do not offer this'">
+                    <b style="font-weight: 700;">Are any of your events free?</b> We don't offer events/conferences
+                </span>
+                <span *ngIf="organization?.data.events_free != 'We do not offer this'">
+                    <b style="font-weight: 700;">Are any of your events free?</b> {{ organization?.data.events_free }}
+                </span>
                 <br>
                 <br>
                 <br>
-                <b style="font-weight: 700;">Do you charge for membership?</b> {{ organization?.data.membership_free }}
+                <span *ngIf="organization?.data.events_free === 'We do not offer this'">
+                    <b style="font-weight: 700;">Do you charge for membership?</b> We don't offer memberships
+                </span>
+                <span *ngIf="organization?.data.events_free != 'We do not offer this'">
+                    <b style="font-weight: 700;">Do you charge for membership?</b> {{ organization?.data.membership_free }}
+                </span>
                 <br>
                 <br>
                 <br>

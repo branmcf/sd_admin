@@ -36,7 +36,12 @@
                 <br>
                 <br>
                 <br>
-                <b style="font-weight: 700;">Are there any Hymn Society members in your congregation or on your church staff?:</b>  {{ congregation?.data.hymn_soc_member }}
+                <span *ngIf="congregation?.data.hymn_soc_member == 'true'">
+                    <b style="font-weight: 700;">Are there any Hymn Society members in your congregation or on your church staff?:</b> Yes
+                </span>
+                <span *ngIf="congregation?.data.hymn_soc_member == 'false'">
+                    <b style="font-weight: 700;">Are there any Hymn Society members in your congregation or on your church staff?:</b> No
+                </span>
                 <br>
                 <br>
                 <br>

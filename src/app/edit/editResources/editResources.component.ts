@@ -708,7 +708,7 @@ export class EditResourcesComponent implements OnInit {
                 Submit
               </button>
               
-              <button md-button md-dialog-close>
+              <button md-button md-dialog-close (click)="toArray();">
                 Cancel
               </button>
             </md-card-actions>
@@ -734,4 +734,7 @@ export class ResourceDialog {
          this.passedResource.data.type = this.resourceTypeOther;
   }
 
+  toArray() {
+      
+  }
 }
