@@ -35,6 +35,9 @@ export class EditOrganizationsComponent implements OnInit {
         if (result === 'submitEdit') {
             this.submitEdit(organization);
         }
+        else {
+            window.location.reload(true);
+        }
     });
   }
 
@@ -168,23 +171,14 @@ export class EditOrganizationsComponent implements OnInit {
                 <legend for="orgDenomination">Are you related to or a part of a specific denomination or tradition?</legend>
                 <md-radio-group [(ngModel)]="passedOrganization.data.denomination" name="orgDenomination" required>
                     <md-radio-button class="block-input" name="denomination" value="Ecumenical/Multi-Denominational">Ecumenical/Multi-Denominational</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="denomination" value="Non-Denominational">Non-Denominational</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="denomination" value="Roman Catholic">Roman Catholic</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="denomination" value="Anglican/Episcopal">Anglican/Episcopal</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="denomination" value="Lutheran">Lutheran</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="denomination" value="Wesleyan (United Methodist, AME, etc...)">Wesleyan (United Methodist, AME, etc...)</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="denomination" value="Reformed (Presbyterian, RCA, etc...)">Reformed (Presbyterian, RCA, etc...)</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="denomination" value="Baptist/Free-Church">Baptist/Free-Church</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="denomination" value="Pentecostal">Pentecostal</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="denomination" value="other">
                         <label>
                             Other Denomination/Tradition
@@ -248,17 +242,11 @@ export class EditOrganizationsComponent implements OnInit {
                 <legend for="orgGeogrpahics">What geographic area(s) do you serve?</legend>
                 <md-radio-group [(ngModel)]="passedOrganization.data.geographic_area" name="orgGeographics" required>
                     <md-radio-button class="block-input" name="geographics" value="Our City Only" required>Our City Only</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="geographics" value="Our Region/Synod/Presbytery/Dioceses Only">Our Region/Synod/Presbytery/Dioceses Only</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="geographics" value="Our Region Only">Our Region Only</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="geographics" value="U.S. Only">U.S. Only</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="geographics" value="Canada Only">Canada Only</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="geographics" value="Worldwide">Worldwide</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="geographics" value="other">
                         <label>
                             Other Geographic Area
@@ -280,9 +268,7 @@ export class EditOrganizationsComponent implements OnInit {
                 <legend for="orgResource">Are any of your resources free?</legend>
                     <md-radio-group [(ngModel)]="passedOrganization.data.is_org_free" name="orgResource" required>
                         <md-radio-button class="block-input" name="resource" value="Yes" required>Yes</md-radio-button>
-                        <br>
                         <md-radio-button class="block-input" name="resource" value="No">No</md-radio-button>
-                        <br>
                         <md-radio-button class="block-input" name="resource" value="We do not offer this">We don't offer resources</md-radio-button>
                     </md-radio-group>
                 </fieldset>
@@ -295,9 +281,7 @@ export class EditOrganizationsComponent implements OnInit {
                 <legend for="orgConference">Are any of your events/conferences free?</legend>
                     <md-radio-group [(ngModel)]="passedOrganization.data.events_free" name="orgConference" required>
                         <md-radio-button class="block-input" name="conference" value="Yes" required>Yes</md-radio-button>
-                        <br>
                         <md-radio-button class="block-input" name="conference" value="No">No</md-radio-button>
-                        <br>
                         <md-radio-button class="block-input" name="conference" value="We do not offer this">We don't offer events/conferences</md-radio-button>
                     </md-radio-group>
                 </fieldset>
@@ -310,9 +294,7 @@ export class EditOrganizationsComponent implements OnInit {
                 <legend for="orgMembership">Do you charge for membership?</legend>
                     <md-radio-group [(ngModel)]="passedOrganization.data.membership_free" name="orgMembership" required>
                         <md-radio-button class="block-input" name="membership" value="Yes" required>Yes</md-radio-button>
-                        <br>
                         <md-radio-button class="block-input" name="membership" value="No">No</md-radio-button>
-                        <br>
                         <md-radio-button class="block-input" name="membership" value="We do not offer this">We don't offer memberships</md-radio-button>
                     </md-radio-group>
                 </fieldset>

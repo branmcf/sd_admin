@@ -36,6 +36,9 @@ export class EditResourcesComponent implements OnInit {
         if (result === 'submitEdit') {
             this.submitEdit(resource);
         }
+        else {
+            window.location.reload(true);
+        }
     });
   }
 
@@ -146,23 +149,14 @@ export class EditResourcesComponent implements OnInit {
                 <legend for="resourceType">Resource Type</legend>
                 <md-radio-group [(ngModel)]="passedResource.data.type" name="radioType">
                     <md-radio-button class="block-input" name="type" value="Audio Track(s)"> Audio Track(s)</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="type" value="Article(s)"> Article(s)</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="type" value="Blog"> Blog</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="type" value="Book"> Book</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="type" value="Forum"> Forum</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="type" value="Hymnal/Songbook"> Hymnal/Songbook</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="type" value="Newsletter/E-News"> Newsletter/E-News</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="type" value="Podcast"> Podcast</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="type" value="Video/Visual(s)"> Video/Visual(s)</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" name="type"> 
                         <label for="resourceTypeOther">
                             Other Type
@@ -659,9 +653,7 @@ export class EditResourcesComponent implements OnInit {
                 <legend for="resourceIsInvolved">Is a Hymn Society member involved?</legend>
                 <md-radio-group name="resourceIsInvolved" [(ngModel)]="passedResource.data.hymn_soc_member" required>
                     <md-radio-button class="block-input" value="true" required> Yes</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" value="false"> No</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" value="partially"> Unknown</md-radio-button>
                 </md-radio-group>
                 </fieldset>
@@ -674,9 +666,7 @@ export class EditResourcesComponent implements OnInit {
                 <legend for="resourceFree">Is this resource free?</legend>
                 <md-radio-group name="resourceFree" [(ngModel)]="passedResource.data.is_free" required>
                     <md-radio-button class="block-input" value="Yes" required> Yes</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" value="We do not offer this"> Partially with paywall</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" value="No"> No</md-radio-button>
                 </md-radio-group>
                 </fieldset>
@@ -691,10 +681,8 @@ export class EditResourcesComponent implements OnInit {
                     <md-radio-button 
                     class="block-input" value="Practical" required>
                         Practical</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" value="Scholarly"> 
                         Scholarly</md-radio-button>
-                    <br>
                     <md-radio-button class="block-input" value="Both"> 
                         Both</md-radio-button>
                 </md-radio-group>

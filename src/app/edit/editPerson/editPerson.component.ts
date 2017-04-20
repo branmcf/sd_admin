@@ -35,6 +35,9 @@ export class EditPersonComponent implements OnInit {
         if (result === 'submitEdit') {
             this.submitEdit(person);
         }
+        else {
+            window.location.reload(true);
+        }
     });
   }
 
