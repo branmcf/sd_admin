@@ -73,7 +73,6 @@ export class EditOrganizationsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach(x => this.load(+x['id']));
-
     this.submission = {};
   }
 

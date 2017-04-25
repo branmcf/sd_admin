@@ -46,6 +46,8 @@ export class EditEventsComponent implements OnInit {
       const clothing = {};
       const ensembles = {};
 
+      var count = 0;
+
       for(const i of event.data.shape) {
         shape[i] = true;
       }
@@ -63,6 +65,7 @@ export class EditEventsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach(x => this.load(+x['id']));
+    this.submission = {};
   }
 
     private load(id) {
@@ -74,6 +77,7 @@ export class EditEventsComponent implements OnInit {
             if (data) {
                 this.id = id;
                 this.event = data;
+                console.log(this.event);
             }
         };
         this.reviewService.getEventByID(id).then(onload);
@@ -86,12 +90,15 @@ export class EditEventsComponent implements OnInit {
     }
 
     edit(id) {
-        this.openDialog(this.event)
+        console.log(this.event);
+        this.openDialog(this.event);
     }
 
     submitEdit(event) {
         this.submission.data = event.data;
         this.submission.user = event.user;
+
+        console.log(event);
         
         this.reviewService.editEvent(this.id, this.submission).then(() => {
             this.router.navigate(['/review/events']);
@@ -133,7 +140,7 @@ export class EditEventsComponent implements OnInit {
                         <md-radio-button class="block-input" name="occurance" value="Annual" required>Annual</md-radio-button>
                         <md-radio-button class="block-input" name="occurance" value="Every-Other-Year (once every 2 years)">Every-Other-Year (once every 2 years)</md-radio-button>
                         <md-radio-button class="block-input" name="occurance" value="One Time Only">One Time Only</md-radio-button>
-                        <md-radio-button class="block-input" name="occurance" value="other">
+                        <md-radio-button class="block-input" name="occurance" style="opacity:100%;">
                             <label for="eventFrequencyOccur">
                                 Other Occurance
                             </label>
@@ -142,7 +149,7 @@ export class EditEventsComponent implements OnInit {
                             id="frequencyOther" 
                             class="form-control" 
                             [(ngModel)]="frequencyOther"
-                            name="passedEvent.data.frequency"/>
+                            name="eventOccuranceOther"/>
                         </md-radio-button>
                     </md-radio-group>
                 </fieldset>
@@ -159,16 +166,19 @@ export class EditEventsComponent implements OnInit {
                         <md-radio-button class="block-input" name="type" value="Hymn Festival">Hymn Festival</md-radio-button>
                         <md-radio-button class="block-input" name="type" value="Concert">Concert</md-radio-button>
                         <md-radio-button class="block-input" name="type" value="Worship Service">Worship Service</md-radio-button>
-                        <md-radio-button class="block-input" name="type" value="other">
+                        <md-radio-button  *ngIf="passedEvent.data.type != 'One-Day Conference' && 'Multi-Day Conference' && 'Hymn Festival'
+                                && 'Concert' && 'Worship Service'" 
+                                class="block-input" name="type" value="passedEvent.data.type">
                             <label for="eventTypeOther">
                                 Other Type
                             </label>
                             <input type="text" 
+                           
                             class="full-width"
                             id="typeOther" 
                             class="form-control" 
-                            [(ngModel)]="typeOther"
-                            name="passedEvent.data.type"/>
+                            [(ngModel)]="passedEvent.data.type"
+                            name="passedEventOther"/>
                         </md-radio-button>
                     </md-radio-group>
                 </fieldset>
@@ -402,42 +412,45 @@ export class EditEventsComponent implements OnInit {
                     [(ngModel)]="passedEvent.data.shape['2-Fold Pattern']">
                     2-Fold Pattern (Praise & Teaching) - Most Praise and Worship services
                 </md-checkbox>
-                <md-checkbox class="block-input">                        
+                <md-checkbox class="block-input">     
+                    <label>
+                        Other Shape of Worship  
+                    </label>                 
                     <input type="text" 
                     class="full-width"
-                    id="congregationShape" 
+                    id="eventShape" 
                     class="form-control" 
                     [(ngModel)]="passedEvent.data.shape.Other"
-                    name="congregationShapeOther"/>
+                    name="eventShapeOther"/>
                 </md-checkbox>
                 </fieldset>
             </div> 
 
-            <div class="form-group">
+            <div class="form-group" >
                 <fieldset>
                 <legend for="eventAttire">What does your pastor/priest wear when he/she preaches?</legend>
                 <md-checkbox class="block-input"
                     ng-true-value="true" 
                     ng-false-value="false"
-                    name="congregationAttireFive"
+                    name="eventAttireFive"
                     [(ngModel)]="passedEvent.data.clothing['Vestments']">
                     Vestments</md-checkbox>
                 <md-checkbox class="block-input"
                     ng-true-value="true" 
                     ng-false-value="false"
-                    name="congregationAttireSix"
+                    name="eventAttireSix"
                     [(ngModel)]="passedEvent.data.clothing['Robes, with or without stoles']">
                     Robes, with or without stoles</md-checkbox>       
                 <md-checkbox class="block-input"
                     ng-true-value="true" 
                     ng-false-value="false"
-                    name="congregationAttireSeven"
+                    name="eventAttireSeven"
                     [(ngModel)]="passedEvent.data.clothing['Business Attire']">
                     Business Attire</md-checkbox>
                 <md-checkbox class="block-input"
                     ng-true-value="true" 
                     ng-false-value="false"
-                    name="congregationAttireEight"
+                    name="eventAttireEight"
                     [(ngModel)]="passedEvent.data.clothing['Casual']">
                     Casual</md-checkbox>
                 <md-checkbox class="block-input">     
@@ -446,11 +459,11 @@ export class EditEventsComponent implements OnInit {
                     </label>                   
                     <input type="text"
                     class="full-width"
-                    id="congregationAttire" 
+                    id="eventAttire" 
                     class="form-control" 
                     [(ngModel)]="passedEvent.data.clothing.Other"
-                    name="congregationAttire"
-                    name="congregationAttireOther"/>
+                    name="eventAttire"
+                    name="eventAttireOther"/>
                 </md-checkbox>
                 </fieldset>
             </div> 
@@ -489,22 +502,61 @@ export class EventDialog {
     passedEvent: any;
 
     frequencyOther: any;
-    attireOther: any;
+    clothingOther: any;
+    shapeOther: any;
     typeOther: any;
+    ensemblesOther: any;
 
     constructor(public dialogRef: MdDialogRef<EventDialog>) {
+        
+    }
 
+    ngOnInit() {
+        this.checkOther();
+    }
+
+    checkOther() {
+        for(const clothing of Object.keys(this.passedEvent.data.clothing)) {
+            if(clothing !== 'Vestments'
+            && clothing !== 'Robes, with or without stoles'
+            && clothing !== 'Business Attire'
+            && clothing !== 'Casual') {
+                this.clothingOther = clothing;
+                this.passedEvent.data.clothing.Other = clothing;
+            }
+        }
+
+        for(const shape of Object.keys(this.passedEvent.data.shape)) {
+            if(shape !== '5-Fold Pattern' 
+            && shape !== '4-Fold Pattern'
+            && shape !== '2-Fold Pattern') {
+                this.shapeOther = shape;
+                this.passedEvent.data.shape.Other = shape;
+            }
+        }
+
+        for(const ensembles of Object.keys(this.passedEvent.data.ensembles)) {
+            if(ensembles !== 'Choir' 
+            && ensembles !== 'Cantor'
+            && ensembles !== 'Song Enlivener' 
+            && ensembles !== 'Lead Singer from Band (Solo)'
+            && ensembles !== 'Lead Singer from Band with Other Vocalists') {
+                this.ensemblesOther = ensembles;
+                this.passedEvent.data.ensembles.Other = ensembles;
+            }
+        }
     }
 
     bind() {
         if (this.frequencyOther) {
             this.passedEvent.data.frequency = this.frequencyOther;
         }
-        if (this.attireOther) {
-            this.passedEvent.data.clothing = this.attireOther;
-        }
         if(this.typeOther) {
             this.passedEvent.data.type = this.typeOther;
         }
+
+        delete this.passedEvent.data.clothing[this.clothingOther];
+        delete this.passedEvent.data.shape[this.shapeOther];
+        delete this.passedEvent.data.ensembles[this.ensemblesOther];
     }
 }

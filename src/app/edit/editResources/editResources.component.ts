@@ -79,7 +79,7 @@ export class EditResourcesComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach(x => this.load(+x['id']));
-    this.submission = {}
+    this.submission = {};
   }
 
     private load(id){
@@ -104,6 +104,7 @@ export class EditResourcesComponent implements OnInit {
     
     edit() {
         this.openDialog(this.resource);
+        console.log(this.resource);
     }
 
     submitEdit(resource) {
@@ -162,11 +163,15 @@ export class EditResourcesComponent implements OnInit {
                             Other Type
                         </label>                                        
                         <input type="text"
+                        *ngIf="passedResource.data.type != 'Audio Track(s)' && 'Article(s)' && 'Blog'
+                            && 'Book' && 'Forum' && 'Hymnal/Songbook' && 'Newsletter/E-News'
+                            && 'Podcast' && 'Video/Visual(s)'"
                         class="full-width"
                         id="resourceTitle" 
                         class="form-control" 
                         name="resourceTypeOther"
-                        [(ngModel)]="resourceTypeOther"/>
+                        value="passedResource.data.type"
+                        [(ngModel)]="passedResource.data.type"/>
                      </md-radio-button>
                 </md-radio-group>
             </fieldset>

@@ -78,7 +78,6 @@ export class EditPersonComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach(x => this.load(+x['id']));
-
     this.submission = {};
   }
 
