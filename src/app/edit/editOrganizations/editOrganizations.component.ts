@@ -382,7 +382,7 @@ export class EditOrganizationsComponent implements OnInit {
                         ng-true-value="true" 
                         ng-false-value="false"
                         name="personTypeSeven"
-                        [(ngModel)]="passedOrganization.data.categories['Song from another country (or World Song)']"
+                        [(ngModel)]="passedOrganization.data.categories['World Song (a song not from the U.S. or Canada)']"
                         >Song from another country (or 'World Song')</md-checkbox>
                     <md-checkbox class="block-input"
                         ng-true-value="true" 
@@ -703,23 +703,106 @@ export class EditOrganizationsComponent implements OnInit {
 export class OrgDialog {
     passedOrganization: any;
 
-    countryOther: any;
     denomOther: any;
     geoOther: any;
 
-    constructor(public dialogRef: MdDialogRef<OrgDialog>) {
+    categoriesOther: any;
+    instrumentsOther: any;
+    shapeOther: any;
+    clothingOther: any;
+    ethnicitiesOther: any;
 
+    constructor(public dialogRef: MdDialogRef<OrgDialog>) {
+    }
+
+    ngOnInit() {
+        this.checkOther();
+    }
+
+    checkOther() {
+        for(const category of Object.keys(this.passedOrganization.data.categories)) {
+            if(category !== 'Secular Song'
+            && category !== 'Psalm Setting'
+            && category !== 'Liturgical Music'
+            && category !== 'A hymn written prior to 1970'
+            && category !== 'Praise and Worship Song (CCM)'
+            && category !== 'A song written by our own artist/leader'
+            && category !== 'Chant (Gregorian, Anglican, Pointed or Taize)'
+            && category !== 'Newly composed hymn (within the last 10 years)'
+            && category !== 'World Song (a song not from the U.S. or Canada)'
+            && category !== 'Older hymn text set to a new contemporary tune (or re-tuned)') {
+                this.categoriesOther = category;
+                this.passedOrganization.data.categories.Other = category;
+            }
+        }
+
+        for(const clothing of Object.keys(this.passedOrganization.data.clothing)) {
+            if(clothing !== 'Vestments'
+            && clothing !== 'Robes, with or without stoles'
+            && clothing !== 'Business Attire'
+            && clothing !== 'Casual') {
+                this.clothingOther = clothing;
+                this.passedOrganization.data.clothing.Other = clothing;
+            }
+        }
+
+        for(const ethnicity of Object.keys(this.passedOrganization.data.ethnicities)) {
+            if(ethnicity !== 'White'
+            && ethnicity !== 'Asian - Indian'
+            && ethnicity !== 'Asian - Korean'
+            && ethnicity !== 'Asian - Japanese'
+            && ethnicity !== 'Black - African-American'
+            && ethnicity !== 'Black - Sub-Saharan African'
+            && ethnicity !== 'North African/Middle Eastern'
+            && ethnicity !== 'Native American/Pacific Islander'
+            && ethnicity !== 'Asian - Chinese Language/Heritage'
+            && ethnicity !== 'Native American/Indigenous Peoples'
+            && ethnicity !== 'Asian - Southeast Asian Non-Chinese'
+            && ethnicity !== 'Hispanic/Latino/Spanish - Caribbean'
+            && ethnicity !== 'Hispanic/Latino/Spanish - Central/South American') {
+                this.ethnicitiesOther = ethnicity;
+                this.passedOrganization.data.ethnicities.Other = ethnicity;
+            }
+        }
+
+        for(const instrument of Object.keys(this.passedOrganization.data.instruments)) {
+            if(instrument !== 'Organ'
+            && instrument !== 'Piano'
+            && instrument !== 'Descants'
+            && instrument !== 'Acappella'
+            && instrument !== 'Handbells'
+            && instrument !== 'Guitar (not full band)'
+            && instrument !== 'Orchestra/Wind Ensemble'
+            && instrument !== 'Band (guitar, bass, drums, etc...)'
+            && instrument !== 'Pre-Recorded Tracks/Accompaniments'
+            && instrument !== 'Obligato Instruments (flute, clarinet, trumpet, etc...)') {
+                this.instrumentsOther = instrument;
+                this.passedOrganization.data.instruments.Other = instrument;
+            }
+        }
+
+        for(const shape of Object.keys(this.passedOrganization.data.shape)) {
+            if(shape !== '5-Fold Pattern'
+            && shape !== '4-Fold Pattern'
+            && shape !== '2-Fold Pattern') {
+                this.shapeOther = shape;
+                this.passedOrganization.data.shape.Other = shape;
+            }
+        }
     }
 
     bind() {
-        if (this.countryOther) {
-            this.passedOrganization.data.country = this.countryOther;
-        }
         if (this.denomOther) {
             this.passedOrganization.data.denomination = this.denomOther;
         }
         if (this.geoOther) {
             this.passedOrganization.data.geographic_area = this.geoOther;
         }
+
+        delete this.passedOrganization.data.categories[this.categoriesOther];
+        delete this.passedOrganization.data.clothing[this.clothingOther];
+        delete this.passedOrganization.data.ethnicities[this.ethnicitiesOther];
+        delete this.passedOrganization.data.instruments[this.instrumentsOther];
+        delete this.passedOrganization.data.shape[this.shapeOther];
     }
 }

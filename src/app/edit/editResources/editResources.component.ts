@@ -293,7 +293,7 @@ export class EditResourcesComponent implements OnInit {
                     ng-true-value="true" 
                     ng-false-value="false"
                     name="resourceTypeSeven"
-                    [(ngModel)]="passedResource.data.categories['Song from another country (or World Song)']"
+                    [(ngModel)]="passedResource.data.categories['World Song (a song not from the U.S. or Canada)']"
                     >Song from another country (or 'World Song')</md-checkbox>
                 <md-checkbox class="block-input"
                     ng-true-value="true" 
@@ -701,7 +701,7 @@ export class EditResourcesComponent implements OnInit {
                 Submit
               </button>
               
-              <button md-button md-dialog-close (click)="toArray();">
+              <button md-button md-dialog-close>
                 Cancel
               </button>
             </md-card-actions>
@@ -718,16 +718,112 @@ export class ResourceDialog {
 
   resourceTypeOther: any;
 
-  constructor(public dialogRef: MdDialogRef<ResourceDialog>) {
+  categoriesOther: any;
+  topicsOther: any;
+  accompanimentOther: any;
+  languagesOther: any;
+  ensemblesOther: any;
+  ethnicitiesOther: any;
 
+  constructor(public dialogRef: MdDialogRef<ResourceDialog>) {
+  }
+
+  ngOnInit() {
+      this.checkOther();
+  }
+
+  checkOther() {
+      for(const category of Object.keys(this.passedResource.data.categories)) {
+            if(category !== 'Secular Song'
+            && category !== 'Psalm Setting'
+            && category !== 'Liturgical Music'
+            && category !== 'A hymn written prior to 1970'
+            && category !== 'Praise and Worship Song (CCM)'
+            && category !== 'A song written by our own artist/leader'
+            && category !== 'Chant (Gregorian, Anglican, Pointed or Taize)'
+            && category !== 'Newly composed hymn (within the last 10 years)'
+            && category !== 'World Song (a song not from the U.S. or Canada)'
+            && category !== 'Older hymn text set to a new contemporary tune (or re-tuned)') {
+                this.categoriesOther = category;
+                this.passedResource.data.categories.Other = category;
+            }
+        }
+
+        for(const topic of Object.keys(this.passedResource.data.topics)) {
+            if(topic !== 'Vestments'
+            && topic !== 'Robes, with or without stoles'
+            && topic !== 'Business Attire'
+            && topic !== 'Casual') {
+                this.topicsOther = topic;
+                this.passedResource.data.topics.Other = topic;
+            }
+        }
+
+        for(const accompaniment of Object.keys(this.passedResource.data.accompaniment)) {
+            if(accompaniment !== 'Organ'
+            && accompaniment !== 'Piano'
+            && accompaniment !== 'Descants'
+            && accompaniment !== 'Acappella'
+            && accompaniment !== 'Handbells'
+            && accompaniment !== 'Guitar (not full band)'
+            && accompaniment !== 'Orchestra/Wind Ensemble'
+            && accompaniment !== 'Band (guitar, bass, drums, etc...)'
+            && accompaniment !== 'Pre-Recorded Tracks/Accompaniments'
+            && accompaniment !== 'Obligato Instruments (flute, clarinet, trumpet, etc...)') {
+                this.accompanimentOther = accompaniment;
+                this.passedResource.data.accompaniment.Other = accompaniment;
+            }
+        }
+
+        for(const language of Object.keys(this.passedResource.data.languages)) {
+            if(language !== 'English'
+            && language !== 'Spanish'
+            && language !== 'French') {
+                this.languagesOther = language;
+                this.passedResource.data.languages.Other = language;
+            }
+        }
+
+        for(const ensembles of Object.keys(this.passedResource.data.ensembles)) {
+            if(ensembles !== 'Choir'
+            && ensembles !== 'Cantor'
+            && ensembles !== 'Song Enlivener'
+            && ensembles !== 'Lead Singer from Band (Solo)'
+            && ensembles !== 'Lead Singer from Band with Other Vocalists') {
+                this.ensemblesOther = ensembles;
+                this.passedResource.data.ensembles.Other = ensembles;
+            }
+        }
+
+        for(const ethnicity of Object.keys(this.passedResource.data.ethnicities)) {
+            if(ethnicity !== 'White'
+            && ethnicity !== 'Asian - Indian'
+            && ethnicity !== 'Asian - Korean'
+            && ethnicity !== 'Asian - Japanese'
+            && ethnicity !== 'Black - African-American'
+            && ethnicity !== 'Black - Sub-Saharan African'
+            && ethnicity !== 'North African/Middle Eastern'
+            && ethnicity !== 'Native American/Pacific Islander'
+            && ethnicity !== 'Asian - Chinese Language/Heritage'
+            && ethnicity !== 'Native American/Indigenous Peoples'
+            && ethnicity !== 'Asian - Southeast Asian Non-Chinese'
+            && ethnicity !== 'Hispanic/Latino/Spanish - Caribbean'
+            && ethnicity !== 'Hispanic/Latino/Spanish - Central/South American') {
+                this.ethnicitiesOther = ethnicity;
+                this.passedResource.data.ethnicities.Other = ethnicity;
+            }
+        }
   }
 
   bind() {
       if(this.resourceTypeOther)
          this.passedResource.data.type = this.resourceTypeOther;
-  }
 
-  toArray() {
-      
+      delete this.passedResource.data.ensembles[this.ensemblesOther];
+      delete this.passedResource.data.categories[this.categoriesOther];
+      delete this.passedResource.data.languages[this.languagesOther];
+      delete this.passedResource.data.ethnicities[this.ethnicitiesOther];
+      delete this.passedResource.data.topics[this.topicsOther];
+      delete this.passedResource.data.accompaniment[this.accompanimentOther];
   }
 }

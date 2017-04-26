@@ -730,7 +730,7 @@ export class EditPersonComponent implements OnInit {
             <br>        
     
             <md-card-actions>
-              <button md-raised-button color="primary" type="submit" (click)="dialogRef.close('submitEdit')">
+              <button md-raised-button color="primary" type="submit" (click)="bind(); dialogRef.close('submitEdit');">
                 Submit
               </button>
               <button md-button md-dialog-close>
@@ -748,8 +748,98 @@ export class EditPersonComponent implements OnInit {
 export class PersonDialog {  
   passedPerson: any;
 
+  instrumentsOther: any;
+  ethnicitiesOther: any;
+  categoriesOther: any;
+  ensemblesOther: any;
+  languagesOther: any;
+
   constructor(public dialogRef: MdDialogRef<PersonDialog>) {
-  
+  }
+
+  ngOnInit() {
+      this.checkOther();
+  }
+
+  checkOther() {
+      for(const ethnicity of Object.keys(this.passedPerson.data.ethnicities)) {
+            if(ethnicity !== 'White'
+            && ethnicity !== 'Asian - Indian'
+            && ethnicity !== 'Asian - Korean'
+            && ethnicity !== 'Asian - Japanese'
+            && ethnicity !== 'Black - African-American'
+            && ethnicity !== 'Black - Sub-Saharan African'
+            && ethnicity !== 'North African/Middle Eastern'
+            && ethnicity !== 'Native American/Pacific Islander'
+            && ethnicity !== 'Asian - Chinese Language/Heritage'
+            && ethnicity !== 'Native American/Indigenous Peoples'
+            && ethnicity !== 'Asian - Southeast Asian Non-Chinese'
+            && ethnicity !== 'Hispanic/Latino/Spanish - Caribbean'
+            && ethnicity !== 'Hispanic/Latino/Spanish - Central/South American') {
+                this.ethnicitiesOther = ethnicity;
+                this.passedPerson.data.ethnicities.Other = ethnicity;
+            }
+        }
+
+    for(const ensembles of Object.keys(this.passedPerson.data.ensembles)) {
+            if(ensembles !== 'Choir'
+            && ensembles !== 'Cantor'
+            && ensembles !== 'Song Enlivener'
+            && ensembles !== 'Lead Singer from Band (Solo)'
+            && ensembles !== 'Lead Singer from Band with Other Vocalists') {
+                this.ensemblesOther = ensembles;
+                this.passedPerson.data.ensembles.Other = ensembles;
+        }
+    }
+
+    for(const category of Object.keys(this.passedPerson.data.categories)) {
+            if(category !== 'Secular Song'
+            && category !== 'Psalm Setting'
+            && category !== 'Liturgical Music'
+            && category !== 'A hymn written prior to 1970'
+            && category !== 'Praise and Worship Song (CCM)'
+            && category !== 'A song written by our own artist/leader'
+            && category !== 'Chant (Gregorian, Anglican, Pointed or Taize)'
+            && category !== 'Newly composed hymn (within the last 10 years)'
+            && category !== 'World Song (a song not from the U.S. or Canada)'
+            && category !== 'Older hymn text set to a new contemporary tune (or re-tuned)') {
+                this.categoriesOther = category;
+                this.passedPerson.data.categories.Other = category;
+        }
+    }
+
+    for(const instrument of Object.keys(this.passedPerson.data.instruments)) {
+            if(instrument !== 'Organ'
+            && instrument !== 'Piano'
+            && instrument !== 'Descants'
+            && instrument !== 'Acappella'
+            && instrument !== 'Handbells'
+            && instrument !== 'Guitar (not full band)'
+            && instrument !== 'Orchestra/Wind Ensemble'
+            && instrument !== 'Band (guitar, bass, drums, etc...)'
+            && instrument !== 'Pre-Recorded Tracks/Accompaniments'
+            && instrument !== 'Obligato Instruments (flute, clarinet, trumpet, etc...)') {
+                this.instrumentsOther = instrument;
+                this.passedPerson.data.instruments.Other = instrument;
+        }
+    }
+
+    for(const language of Object.keys(this.passedPerson.data.languages)) {
+            if(language !== 'English'
+            && language !== 'Spanish'
+            && language !== 'French') {
+                this.languagesOther = language;
+                this.passedPerson.data.languages.Other = language;
+        }
+    }
+  }
+
+  bind() {
+      delete this.passedPerson.data.ensembles[this.ensemblesOther];
+      delete this.passedPerson.data.categories[this.categoriesOther];
+      delete this.passedPerson.data.languages[this.languagesOther];
+      delete this.passedPerson.data.ethnicities[this.ethnicitiesOther];
+      delete this.passedPerson.data.instruments[this.instrumentsOther];
   }
 
 }

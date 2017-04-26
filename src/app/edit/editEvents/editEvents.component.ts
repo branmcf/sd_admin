@@ -16,6 +16,8 @@ export class EditEventsComponent implements OnInit {
   deleted: boolean;
   event: any;
   submission: any;
+  startDate: any;
+  endDate: any;
 
   constructor (private route: ActivatedRoute,
     private router: Router,
@@ -77,10 +79,15 @@ export class EditEventsComponent implements OnInit {
             if (data) {
                 this.id = id;
                 this.event = data;
-                console.log(this.event);
+                this.modifyDate();
             }
         };
         this.reviewService.getEventByID(id).then(onload);
+    }
+
+    modifyDate() {
+        this.startDate = this.event.data.event_date.substr(0, 10);
+        this.endDate = this.event.data.event_end_date.substr(0, 10);
     }
 
     approve(id) {
@@ -90,15 +97,12 @@ export class EditEventsComponent implements OnInit {
     }
 
     edit(id) {
-        console.log(this.event);
         this.openDialog(this.event);
     }
 
     submitEdit(event) {
         this.submission.data = event.data;
         this.submission.user = event.user;
-
-        console.log(event);
         
         this.reviewService.editEvent(this.id, this.submission).then(() => {
             this.router.navigate(['/review/events']);
@@ -140,7 +144,7 @@ export class EditEventsComponent implements OnInit {
                         <md-radio-button class="block-input" name="occurance" value="Annual" required>Annual</md-radio-button>
                         <md-radio-button class="block-input" name="occurance" value="Every-Other-Year (once every 2 years)">Every-Other-Year (once every 2 years)</md-radio-button>
                         <md-radio-button class="block-input" name="occurance" value="One Time Only">One Time Only</md-radio-button>
-                        <md-radio-button class="block-input" name="occurance" style="opacity:100%;">
+                        <md-radio-button class="block-input" name="type">
                             <label for="eventFrequencyOccur">
                                 Other Occurance
                             </label>
@@ -166,14 +170,11 @@ export class EditEventsComponent implements OnInit {
                         <md-radio-button class="block-input" name="type" value="Hymn Festival">Hymn Festival</md-radio-button>
                         <md-radio-button class="block-input" name="type" value="Concert">Concert</md-radio-button>
                         <md-radio-button class="block-input" name="type" value="Worship Service">Worship Service</md-radio-button>
-                        <md-radio-button  *ngIf="passedEvent.data.type != 'One-Day Conference' && 'Multi-Day Conference' && 'Hymn Festival'
-                                && 'Concert' && 'Worship Service'" 
-                                class="block-input" name="type" value="passedEvent.data.type">
+                        <md-radio-button class="block-input" name="type">
                             <label for="eventTypeOther">
                                 Other Type
                             </label>
                             <input type="text" 
-                           
                             class="full-width"
                             id="typeOther" 
                             class="form-control" 
@@ -243,18 +244,14 @@ export class EditEventsComponent implements OnInit {
 
             <br>
             
-            <div class="form-group">
+            <div>
                 <label for="eventDate">Event Start Date</label>
                 <input type="date" 
                 id="eventStartDate" 
                 class="form-control" 
                 [(ngModel)]="passedEvent.data.event_start_date"
                 name="eventStartDate"/>
-            </div>
 
-            <br>
-
-            <div class="form-group">
                 <label for="eventDate">Event End Date</label>
                 <input type="date" 
                 id="eventEndDate" 
@@ -502,13 +499,12 @@ export class EventDialog {
     passedEvent: any;
 
     frequencyOther: any;
+    
     clothingOther: any;
     shapeOther: any;
-    typeOther: any;
     ensemblesOther: any;
 
     constructor(public dialogRef: MdDialogRef<EventDialog>) {
-        
     }
 
     ngOnInit() {
@@ -527,7 +523,7 @@ export class EventDialog {
         }
 
         for(const shape of Object.keys(this.passedEvent.data.shape)) {
-            if(shape !== '5-Fold Pattern' 
+            if(shape !== '5-Fold Pattern'
             && shape !== '4-Fold Pattern'
             && shape !== '2-Fold Pattern') {
                 this.shapeOther = shape;
@@ -536,9 +532,9 @@ export class EventDialog {
         }
 
         for(const ensembles of Object.keys(this.passedEvent.data.ensembles)) {
-            if(ensembles !== 'Choir' 
+            if(ensembles !== 'Choir'
             && ensembles !== 'Cantor'
-            && ensembles !== 'Song Enlivener' 
+            && ensembles !== 'Song Enlivener'
             && ensembles !== 'Lead Singer from Band (Solo)'
             && ensembles !== 'Lead Singer from Band with Other Vocalists') {
                 this.ensemblesOther = ensembles;
@@ -550,9 +546,6 @@ export class EventDialog {
     bind() {
         if (this.frequencyOther) {
             this.passedEvent.data.frequency = this.frequencyOther;
-        }
-        if(this.typeOther) {
-            this.passedEvent.data.type = this.typeOther;
         }
 
         delete this.passedEvent.data.clothing[this.clothingOther];

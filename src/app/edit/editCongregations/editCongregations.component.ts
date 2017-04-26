@@ -641,12 +641,92 @@ export class EditCongregationsComponent implements OnInit {
 export class CongDialog {
     passedCong: any;
 
-    countryOther: string;
     denomOther: string;
     geographyOther: string;
 
-    constructor(public dialogRef: MdDialogRef<CongDialog>) {
+    categoriesOther: any;
+    instrumentsOther: any;
+    shapeOther: any;
+    clothingOther: any;
+    ethnicitiesOther: any;
 
+    constructor(public dialogRef: MdDialogRef<CongDialog>) {
+    }
+
+    ngOnInit() {
+        this.checkOther();
+    }
+
+    checkOther() {
+        for(const category of Object.keys(this.passedCong.data.categories)) {
+            if(category !== 'Secular Song'
+            && category !== 'Psalm Setting'
+            && category !== 'Liturgical Music'
+            && category !== 'A hymn written prior to 1970'
+            && category !== 'Praise and Worship Song (CCM)'
+            && category !== 'A song written by our own artist/leader'
+            && category !== 'Chant (Gregorian, Anglican, Pointed or Taize)'
+            && category !== 'Newly composed hymn (within the last 10 years)'
+            && category !== 'World Song (a song not from the U.S. or Canada)'
+            && category !== 'Older hymn text set to a new contemporary tune (or re-tuned)') {
+                this.categoriesOther = category;
+                this.passedCong.data.categories.Other = category;
+            }
+        }
+
+        for(const clothing of Object.keys(this.passedCong.data.clothing)) {
+            if(clothing !== 'Vestments'
+            && clothing !== 'Robes, with or without stoles'
+            && clothing !== 'Business Attire'
+            && clothing !== 'Casual') {
+                this.clothingOther = clothing;
+                this.passedCong.data.clothing.Other = clothing;
+            }
+        }
+
+        for(const ethnicity of Object.keys(this.passedCong.data.ethnicities)) {
+            if(ethnicity !== 'White'
+            && ethnicity !== 'Asian - Indian'
+            && ethnicity !== 'Asian - Korean'
+            && ethnicity !== 'Asian - Japanese'
+            && ethnicity !== 'Black - African-American'
+            && ethnicity !== 'Black - Sub-Saharan African'
+            && ethnicity !== 'North African/Middle Eastern'
+            && ethnicity !== 'Native American/Pacific Islander'
+            && ethnicity !== 'Asian - Chinese Language/Heritage'
+            && ethnicity !== 'Native American/Indigenous Peoples'
+            && ethnicity !== 'Asian - Southeast Asian Non-Chinese'
+            && ethnicity !== 'Hispanic/Latino/Spanish - Caribbean'
+            && ethnicity !== 'Hispanic/Latino/Spanish - Central/South American') {
+                this.ethnicitiesOther = ethnicity;
+                this.passedCong.data.ethnicities.Other = ethnicity;
+            }
+        }
+
+        for(const instrument of Object.keys(this.passedCong.data.instruments)) {
+            if(instrument !== 'Organ'
+            && instrument !== 'Piano'
+            && instrument !== 'Descants'
+            && instrument !== 'Acappella'
+            && instrument !== 'Handbells'
+            && instrument !== 'Guitar (not full band)'
+            && instrument !== 'Orchestra/Wind Ensemble'
+            && instrument !== 'Band (guitar, bass, drums, etc...)'
+            && instrument !== 'Pre-Recorded Tracks/Accompaniments'
+            && instrument !== 'Obligato Instruments (flute, clarinet, trumpet, etc...)') {
+                this.instrumentsOther = instrument;
+                this.passedCong.data.instruments.Other = instrument;
+            }
+        }
+
+        for(const shape of Object.keys(this.passedCong.data.shape)) {
+            if(shape !== '5-Fold Pattern'
+            && shape !== '4-Fold Pattern'
+            && shape !== '2-Fold Pattern') {
+                this.shapeOther = shape;
+                this.passedCong.data.shape.Other = shape;
+            }
+        }
     }
 
     bind() {
@@ -655,6 +735,12 @@ export class CongDialog {
         }
         if (this.geographyOther) {
         this.passedCong.data.geography = this.geographyOther;
-        }   
+        }
+
+        delete this.passedCong.data.categories[this.categoriesOther];
+        delete this.passedCong.data.clothing[this.clothingOther];
+        delete this.passedCong.data.ethnicities[this.ethnicitiesOther];
+        delete this.passedCong.data.instruments[this.instrumentsOther];
+        delete this.passedCong.data.shape[this.shapeOther];
     }
 }
