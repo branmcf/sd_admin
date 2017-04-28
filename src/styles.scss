@@ -16,7 +16,7 @@
 $hymn-app-warn:    mat-palette($mat-red);
 
 $hymn-app-primary: mat-palette($mat-orange);
-$hymn-app-accent:  mat-palette($mat-orange, 300, A100, A400);
+$hymn-app-accent:  mat-palette($mat-orange, 300, A200, A400);
 
 $hymn-app-theme: mat-light-theme($hymn-app-primary, $hymn-app-accent, $hymn-app-warn);
 
@@ -52,7 +52,7 @@ a {
   text-decoration: none;
 
   &:hover {
-    color: $primary-color;
+    color: #FF9800;
     text-decoration: none;
   }
 }
@@ -225,7 +225,7 @@ md-radio-group {
     a {
       padding-right: 20px;
       padding-left: 20px;
-      color: $secondary-color;
+      color: #FF9800;
     }
   }
   li:hover {
