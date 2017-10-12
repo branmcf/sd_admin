@@ -36,23 +36,23 @@ export class ViewComponent implements OnInit {
       image: 'https://static.pexels.com/photos/46227/hymnal-book-sing-music-46227.jpeg',
       routerLink: 'hymnal'
     },
-    {text: 'Thesis / Dissertation', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+    {text: 'Theses / Dissertations', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/51342/books-education-school-literature-51342.jpeg',
       routerLink: 'thesis'
     },
     {text: 'Articles', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
-      image: 'https://static.pexels.com/photos/26045/pexels-photo-26045.jpg',
+      image: 'https://static.pexels.com/photos/6335/man-coffee-cup-pen.jpg',
       routerLink: 'article'
     },
-    {text: 'Blog', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+    {text: 'Blogs', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/265667/pexels-photo-265667.jpeg',
       routerLink: 'blog'
     },
-    {text: 'Forum', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+    {text: 'Forums', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/209151/pexels-photo-209151.jpeg',
       routerLink: 'forum'
     },
-    {text: 'Newsletter / E-News', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+    {text: 'Newsletters / E-News', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/242492/pexels-photo-242492.jpeg',
       routerLink: 'newsletter'
     },
@@ -60,11 +60,11 @@ export class ViewComponent implements OnInit {
       image: 'https://static.pexels.com/photos/185030/pexels-photo-185030.jpeg',
       routerLink: 'audio'
     },
-    {text: 'Podcast', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
-      image: 'https://static.pexels.com/photos/227661/pexels-photo-227661.jpeg',
+    {text: 'Podcasts', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+      image: 'https://static.pexels.com/photos/55800/microphone-audio-computer-sound-recording-55800.jpeg',
       routerLink: 'podcast'
     },
-    {text: 'Video / Visuals', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
+    {text: 'Videos / Visuals', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/34407/pexels-photo.jpg',
       routerLink: 'video'
     },
@@ -81,7 +81,7 @@ export class ViewComponent implements OnInit {
       routerLink: 'events'
     },
     {text: 'Persons', cols: 1, rows: 1, color: 'lightgreen', icon: 'face',
-      image: 'https://static.pexels.com/photos/185405/pexels-photo-185405.jpeg',
+      image: 'https://static.pexels.com/photos/515169/pexels-photo-515169.jpeg',
       routerLink: 'persons'
     },
   ];
