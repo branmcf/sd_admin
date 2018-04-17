@@ -10,6 +10,7 @@ import { ReviewEventsComponent } from './reviewEvents/reviewEvents.component';
 import { ReviewCongregationsComponent } from './reviewCongregations/reviewCongregations.component';
 import { ReviewPersonsComponent } from './reviewPersons/reviewPersons.component';
 import { ReviewOrganizationsComponent } from './reviewOrganizations/reviewOrganizations.component';
+import { ViewAllResourcesComponent } from './view-all-resources/view-all-resources.component';
 
 import { EditResourcesComponent, ResourceDialog } from './../edit/editResources/editResources.component';
 import { EditPersonComponent, PersonDialog } from './../edit/editPerson/editPerson.component';
@@ -21,6 +22,7 @@ import { EditCongregationsComponent, CongDialog } from './../edit/editCongregati
 const routes: Routes = [
     { path: '', component: ReviewLandingComponent, canActivate: [AdminService]},
     { path: 'resources', component: ReviewResourcesComponent, canActivate: [AdminService] },
+    { path: 'allResources', component: ViewAllResourcesComponent, canActivate: [AdminService] },
     { path: 'person', component: ReviewPersonsComponent, canActivate: [AdminService] },
     { path: 'events', component: ReviewEventsComponent, canActivate: [AdminService] },
     { path: 'organizations', component: ReviewOrganizationsComponent, canActivate: [AdminService] },

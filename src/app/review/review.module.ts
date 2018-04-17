@@ -15,6 +15,8 @@ import { ReviewEventsComponent } from './reviewEvents/reviewEvents.component';
 import { ReviewCongregationsComponent } from './reviewCongregations/reviewCongregations.component';
 import { ReviewPersonsComponent } from './reviewPersons/reviewPersons.component';
 import { ReviewOrganizationsComponent } from './reviewOrganizations/reviewOrganizations.component';
+import { ViewAllResourcesComponent } from './view-all-resources/view-all-resources.component';
+
 
 import { EditResourcesComponent, ResourceDialog } from './../edit/editResources/editResources.component';
 import { EditPersonComponent, PersonDialog } from './../edit/editPerson/editPerson.component';
@@ -47,6 +49,7 @@ import { ReviewService } from '../services/review.service';
     OrgDialog,
     EventDialog,
     CongDialog,
+    ViewAllResourcesComponent,
   ],
   imports: [
     CommonModule,
