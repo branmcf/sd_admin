@@ -3,7 +3,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { SubmitService } from './../../services/submit.service';
 import { ReviewService } from './../../services/review.service';
 import {MdTableModule} from '@angular/material';
-import {CdkTableModule} from '@angular/cdk';
+import {CdkTableModule} from '@angular/cdk/table';
 
 
 @Component({
