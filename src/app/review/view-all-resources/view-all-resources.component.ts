@@ -2,11 +2,11 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { SubmitService } from './../../services/submit.service';
 import { ReviewService } from './../../services/review.service';
-// import { MdTableModule } from '@angular/material';
-// import { MatTableDataSource } from '@angular/material';
-import { DataSource } from '@angular/cdk/collections';
+import { DataSource } from '@angular/cdk/table';
 import { CdkTableModule } from '@angular/cdk/table';
-import {Observable} from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
+// import { MatTableModule } from '@angular/material';
+// import { MatTableDataSource } from '@angular/material';
 
 
 @Component({
@@ -44,6 +44,26 @@ export class ViewAllResourcesComponent implements OnInit {
   }
 }
 
+export interface Element {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+}
+
+export class eDataSource extends DataSource<any> {
+
+  constructor(private element: Element[]) {
+    super();
+  }
+
+  connect(): Observable<Element[]> {
+    return Observable.of(this.element);
+  }
+
+  disconnect() {}
+}
+
   // resources: any[];
   // id: number;
   // arrLen: Number;
@@ -64,23 +84,4 @@ export class ViewAllResourcesComponent implements OnInit {
   // edit(id) {
   //   this.router.navigate(['/entry/review/resources', id]);
   // }
-  
-  export interface Element {
-    name: string;
-    position: number;
-    weight: number;
-    symbol: string;
-  }
-  export class eDataSource extends DataSource<any> {
-
-    constructor(private element: Element[]) {
-      super();
-    }
-  
-    connect(): Observable<Element[]> {
-      return Observable.of(this.element);
-    }
-  
-    disconnect() {}
-  }
 // }
