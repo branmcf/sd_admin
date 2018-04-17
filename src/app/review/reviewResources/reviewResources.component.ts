@@ -11,12 +11,14 @@ import { ReviewService } from './../../services/review.service';
 export class ReviewResourcesComponent implements OnInit {
   resources: any[];
   id: number;
+  arrLen: number;
 
   constructor (private route: ActivatedRoute,
     private router: Router,
     private reviewService: ReviewService) {
       this.reviewService.getAllResources()
         .then(x => this.resources = x)
+        .then(arrLen => this.resources.length = this.arrLen)
         .then(x => console.log('RESOURCES ARE: ', this.resources))
         .catch(err => {});
   }
