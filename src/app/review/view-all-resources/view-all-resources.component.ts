@@ -2,7 +2,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { SubmitService } from './../../services/submit.service';
 import { ReviewService } from './../../services/review.service';
-import { MatTableModule } from '@angular/material';
+// import { MdTableModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 
 

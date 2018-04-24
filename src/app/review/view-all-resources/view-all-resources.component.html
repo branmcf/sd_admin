@@ -8,35 +8,36 @@
               <md-card-subtitle>All Resources</md-card-subtitle>
               <md-card-title><h4>Total resources: {{ arrLen }}</h4></md-card-title>
               <md-card-content>
-
-                    <mat-table #table [dataSource]="dataSource">
-                            <ng-container matColumnDef="position">
-                              <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-                              <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-                            </ng-container>
-                            
-                            
-                            <ng-container matColumnDef="name">
-                              <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-                              <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-                            </ng-container>
-                            
-                            
-                            <ng-container matColumnDef="weight">
-                              <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
-                              <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
-                            </ng-container>
-                            
-                            
-                            <ng-container matColumnDef="symbol">
-                              <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-                              <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-                            </ng-container>
-                            
-                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-                            </mat-table> test
-
+                    <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                              </tr>
+                            </tbody>
+                        </table>
                   <!-- <div *ngIf="resources?.length == 0" class="well">
                       There are no unapproved resources in the database.
                   </div>
