@@ -19,7 +19,7 @@
                             </thead>
                             <tbody>
                             <tr *ngFor="let resource of resources; let index = index;">
-                                <td><a [routerLink]="resource.id">{{ resource.id }}</a></td>
+                                <td><a [routerLink]="resource.id"><button class="btn btn-primary">{{ resource.id }}</button></a></td>
                                 <td>{{ resource.type }}</td>
                                 <td>{{ resource.author }}</td>
                             </tr>
