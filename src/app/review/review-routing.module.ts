@@ -23,6 +23,8 @@ const routes: Routes = [
     { path: '', component: ReviewLandingComponent, canActivate: [AdminService]},
     { path: 'resources', component: ReviewResourcesComponent, canActivate: [AdminService] },
     { path: 'allResources', component: ViewAllResourcesComponent, canActivate: [AdminService] },
+    { path: 'allResources/:id', component: EditResourcesComponent, canActivate: [AdminService] },
+    { path: 'allResources/:id', component: ResourceDialog },
     { path: 'person', component: ReviewPersonsComponent, canActivate: [AdminService] },
     { path: 'events', component: ReviewEventsComponent, canActivate: [AdminService] },
     { path: 'organizations', component: ReviewOrganizationsComponent, canActivate: [AdminService] },
