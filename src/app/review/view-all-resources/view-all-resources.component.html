@@ -13,6 +13,7 @@
                               <tr>
                                 <th scope="col">id</th>
                                 <th scope="col">Type</th>
+                                <th scope="col">Title</th>
                                 <th scope="col">Author</th>
                                 <!-- <th scope="col">Handle</th> -->
                               </tr>
@@ -21,6 +22,7 @@
                             <tr *ngFor="let resource of resources; let index = index;">
                                 <td><a [routerLink]="resource.id"><button class="btn btn-primary">{{ resource.id }}</button></a></td>
                                 <td>{{ resource.type }}</td>
+                                <td>{{ resource.title }}</td>
                                 <td>{{ resource.author }}</td>
                             </tr>
                             </tbody>
@@ -28,8 +30,8 @@
                   <!-- <div *ngIf="resources?.length == 0" class="well">
                       There are no unapproved resources in the database.
                   </div> -->
-<!-- 
-                  <div *ngIf="resources?.length > 0">
+
+                 <!--  <div *ngIf="resources?.length > 0">
                       <div class="media" *ngFor="let resources of resources; let index = index;">
                           <div class="media-body">
                               <div>
