@@ -18,8 +18,8 @@
                               </tr>
                             </thead>
                             <tbody>
-                            <tr *ngFor="let resource of resources" onclick="window.location='{{ resource.id }}';">
-                                <td>{{ resource.id }}</td>
+                            <tr *ngFor="let resource of resources">
+                                <td><a [routerLink]="resource.id">{{ resource.id }}</a></td>
                                 <td>{{ resource.type }}</td>
                                 <td>{{ resource.author }}</td>
                             </tr>
