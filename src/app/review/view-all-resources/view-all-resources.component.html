@@ -8,7 +8,7 @@
               <md-card-subtitle>All Resources</md-card-subtitle>
               <md-card-title><h4>Total resources: {{ arrLen }}</h4></md-card-title>
               <md-card-content>
-                    <table *ngIf="arrLen > 0" class="table">
+                    <table *ngIf="arrLen > 0" class="table table-hover">
                             <thead>
                               <tr>
                                 <th scope="col">id</th>
@@ -18,7 +18,7 @@
                               </tr>
                             </thead>
                             <tbody>
-                            <tr *ngFor="let resource of resources">
+                            <tr *ngFor="let resource of resources" [routerLink]="{{ resource.id }}">
                                 <td>{{ resource.id }}</td>
                                 <td>{{ resource.type }}</td>
                                 <td>{{ resource.author }}</td>
