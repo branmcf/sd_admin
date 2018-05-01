@@ -106,7 +106,7 @@ export class EditResourcesComponent implements OnInit {
         this.openDialog(this.resource);
         console.log(this.resource);
     }
-
+    
     submitEdit(resource) {
         this.submission.data = resource.data;
         this.submission.user = resource.user;

@@ -20,7 +20,8 @@
                             </thead>
                             <tbody>
                             <tr *ngFor="let resource of resources; let index = index;">
-                                <td><a [routerLink]="resource.id"><button class="btn btn-primary">{{ resource.id }}</button></a></td>
+                                <!-- <td><a [routerLink]="['../', 'resources', resource.id]"><button class="btn btn-primary">{{ resource.id }}</button></a></td> -->
+                                <td><a (click)="edit(resource)"><button class="btn btn-primary">{{ resource.id }}</button></a></td>
                                 <td>{{ resource.type }}</td>
                                 <td>{{ resource.title }}</td>
                                 <td>{{ resource.author }}</td>
