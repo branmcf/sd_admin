@@ -198,6 +198,7 @@ export class QuizComponent implements OnInit {
 
   submit() {
       sessionStorage.setItem('quizAnswers', JSON.stringify(this.submission));
+      console.log('QUIZ SUBMISSION IS: ', this.submission);
       this.router.navigate(['/quiz/results']);
   }
 }

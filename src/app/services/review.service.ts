@@ -11,7 +11,7 @@ export class ReviewService {
 
   getAllResources(param = ''): Promise<any[]> {
     return this.http.
-      get(this._apiUrl + 'resource/' + param)
+      get(this._apiUrl + 'all/' + param)
         .toPromise()
         .then(x => x.json() as any[]);
   }
