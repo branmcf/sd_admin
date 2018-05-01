@@ -11,6 +11,13 @@ export class ReviewService {
 
   getAllResources(param = ''): Promise<any[]> {
     return this.http.
+      get(this._apiUrl + 'resource/' + param)
+        .toPromise()
+        .then(x => x.json() as any[]);
+  }
+  getAllResourcesCombined(param = ''): Promise<any[]> {
+    console.log('CALLING ENDPOINT: ', this._apiUrl + 'all/' )
+    return this.http.
       get(this._apiUrl + 'all/' + param)
         .toPromise()
         .then(x => x.json() as any[]);

@@ -18,9 +18,9 @@ export class ViewAllResourcesComponent implements OnInit {
   constructor (private route: ActivatedRoute,
     private router: Router,
     private reviewService: ReviewService) {
-      this.reviewService.getAllResources()
-        .then(x => this.resources = x)
-        .then(x => this.arrLen = this.resources.length)
+      this.reviewService.getAllResourcesCombined()
+        .then(x => this.resources[0] = x)
+        .then(x => this.arrLen = this.resources[0].length)
         .then(x => console.log('ARE LEN IS: ', this.arrLen))
         .then(x => console.log('RESOURCES ARE: ', this.resources))
         .catch(err => {});
