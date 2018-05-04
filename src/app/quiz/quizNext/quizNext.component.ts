@@ -12,59 +12,59 @@ import { QuizService } from './../../services/quiz.service';
 export class QuizNextComponent implements OnInit {
   tiles = [
     {text: 'Books', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
-      image: 'https://static.pexels.com/photos/46274/pexels-photo-46274.jpeg',
+      image: 'https://s3-us-west-2.amazonaws.com/hymndbphotos/books-education-school-literature-48126.jpg',
       routerLink: 'book'
     },
     {text: 'Hymnals / Songbooks', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
-      image: 'https://static.pexels.com/photos/46227/hymnal-book-sing-music-46227.jpeg',
+      image: 'https://s3-us-west-2.amazonaws.com/hymndbphotos/praise-to-god-hymnal-church-catholic-161287.jpg',
       routerLink: 'hymnal'
     },
     {text: 'Thesis / Dissertation', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
-      image: 'https://static.pexels.com/photos/51342/books-education-school-literature-51342.jpeg',
+      image: 'https://s3-us-west-2.amazonaws.com/hymndbphotos/open-book-library-education-read-159621.jpg',
       routerLink: 'thesis'
     },
     {text: 'Articles', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
-      image: 'https://static.pexels.com/photos/26045/pexels-photo-26045.jpg',
+      image: 'https://s3-us-west-2.amazonaws.com/hymndbphotos/pexels-photo-267569.jpg',
       routerLink: 'article'
     },
     {text: 'Blog', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
-      image: 'https://static.pexels.com/photos/265667/pexels-photo-265667.jpeg',
+      image: 'https://s3-us-west-2.amazonaws.com/hymndbphotos/startup-photos.jpg',
       routerLink: 'blog'
     },
     {text: 'Forum', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
-      image: 'https://static.pexels.com/photos/209151/pexels-photo-209151.jpeg',
+      image: 'https://s3-us-west-2.amazonaws.com/hymndbphotos/pexels-photo-261706.jpg',
       routerLink: 'forum'
     },
     {text: 'Newsletter / E-News', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
-      image: 'https://static.pexels.com/photos/242492/pexels-photo-242492.jpeg',
+      image: 'https://s3-us-west-2.amazonaws.com/hymndbphotos/pexels-photo-518543.jpg',
       routerLink: 'newsletter'
     },
     {text: 'Audio Tracks', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
-      image: 'https://static.pexels.com/photos/185030/pexels-photo-185030.jpeg',
+      image: 'https://s3-us-west-2.amazonaws.com/hymndbphotos/microphone-audio-computer-sound-recording-55800.jpg',
       routerLink: 'audio'
     },
     {text: 'Podcast', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
-      image: 'https://static.pexels.com/photos/227661/pexels-photo-227661.jpeg',
+      image: 'https://s3-us-west-2.amazonaws.com/hymndbphotos/pexels-photo-635005.jpg',
       routerLink: 'podcast'
     },
     {text: 'Video / Visuals', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
-      image: 'https://static.pexels.com/photos/34407/pexels-photo.jpg',
+      image: 'https://s3-us-west-2.amazonaws.com/hymndbphotos/pexels-photo-66134.jpg',
       routerLink: 'video'
     },
     {text: 'Congregations', cols: 1, rows: 1, color: 'lightgreen', icon: 'room',
-      image: 'https://static.pexels.com/photos/161060/church-bank-wood-benches-161060.jpeg',
+      image: 'https://s3-us-west-2.amazonaws.com/hymndbphotos/pexels-photo-133699.jpg',
       routerLink: 'congregations'
     },
     {text: 'Organizations', cols: 1, rows: 1, color: 'lightpink', icon: 'group_work',
-      image: 'https://static.pexels.com/photos/207896/pexels-photo-207896.jpeg',
+      image: 'https://s3-us-west-2.amazonaws.com/hymndbphotos/pexels-photo-296883.jpg',
       routerLink: 'orgs'
     },
     {text: 'Events', cols: 1, rows: 1, color: 'lightblue', icon: 'event',
-      image: 'https://static.pexels.com/photos/3867/explosion-firework-new-year-s-eve-december-31.jpg',
+      image: 'https://s3-us-west-2.amazonaws.com/hymndbphotos/people-eiffel-tower-lights-night.jpg',
       routerLink: 'events'
     },
     {text: 'Persons', cols: 1, rows: 1, color: 'lightgreen', icon: 'face',
-      image: 'https://static.pexels.com/photos/185405/pexels-photo-185405.jpeg',
+      image: 'https://s3-us-west-2.amazonaws.com/hymndbphotos/pexels-photo-296881.jpg',
       routerLink: 'persons'
     },
   ];
