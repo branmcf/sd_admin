@@ -88,10 +88,27 @@ export class ViewResourcesComponent implements OnInit {
     this.searchTerm = '';
   }
 
+
+  addClick(resource) {
+    this.reviewService.addClick(resource.id);
+    window.location.href =resource.url;
+  }
+
+  // TODO: fix below function to match function implementation
+  // TODO: ensure expand resource calls function correctly
+  addLike(resource) {
+    if (typeof resource.hasBeenLiked === "undefined"){
+    resource.likes = resource.likes + 1
+    this.reviewService.addLike(resource.id);
+    resource.hasBeenLiked = true
+  }
+  }
+
   expand(resource) {
     if (resource.show) {
       resource.show = false;
     } else {
+      this.reviewService.addView(resource.id);
       resource.show = true;
     }
   }

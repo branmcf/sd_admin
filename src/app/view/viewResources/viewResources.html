@@ -51,9 +51,11 @@
                             <li><b>Accompaniments that this resource address or lend itself toward:</b> {{ resource?.accompaniment.join(', ') }}</li>
                             <li><b>Languages represented in this resource?</b> {{ resource?.languages.join(', ') }}</li>
                             <li><b>Ensembles are addressed:</b> {{ resource?.ensembles.join(', ') }}</li>
+                            <li><b>Liked by:</b> {{ resource?.likes }} people</li>
                         </ul>
                         <ul  class="resource-card-footer">
-                            <li *ngIf="resource?.url" ><a target="_blank" href="{{ resource?.url }}"><md-icon>launch</md-icon> Go to  this resource</a></li>
+                            <button md-button color="accent" (click)=addLike(resource)>Like this resource!</button>
+                            <li *ngIf="resource?.url" (click)=addClick(resource)><md-icon>launch</md-icon> Go to this resource</li>
                         </ul>
                     </md-card-content> <!-- end resource card-block -->
 
@@ -79,6 +81,7 @@
                             <li><b>Languages spoken:</b> {{ resource?.languages }}</li>
                         </ul>
                         <ul class="resource-card-footer">
+                          <!-- TODO: copy below conditional for data target in resource -->
                             <li *ngIf="resource?.url"><a target="_blank" href="{{ resource?.url }}"><md-icon>launch</md-icon> Go to  this person's website</a></li>
                         </ul>
                     </md-card-content> <!-- end persons card-block -->
@@ -96,7 +99,7 @@
                             <li><b>Organization mission:</b> {{ resource?.mission }}</li>
                             <li><b>Organization encourages congregational song by:</b> {{ resource?.process }}</li>
                             <li><b>Types of song/hymn(s) used or referenced in the past year:</b> {{ resource?.categories.join(', ') }}</li>
-                            <li><b>Types of instruments used during congregational singing:</b> {{ resource?.instruments.join(', ') }}</li> 
+                            <li><b>Types of instruments used during congregational singing:</b> {{ resource?.instruments.join(', ') }}</li>
                             <li><b>Shape of worship:</b> {{ resource?.shape.join(', ') }}</li>
                             <li><b>Pastor/priest clothing when he/she preaches?</b> {{ resource?.clothing.join(', ') }}</li>
                         </ul>
@@ -104,7 +107,7 @@
                             <li *ngIf="resource?.url" ><a target="_blank" href="{{ resource?.url }}"><md-icon>launch</md-icon> Go to  this organization website</a></li>
                         </ul>
                     </md-card-content> <!-- end orgs card-block -->
-                        
+
                     <md-card-content *ngSwitchCase="'events'">
                         <ul>
                             <li><b>Event Title:</b> {{ resource?.title }}</li>
@@ -143,7 +146,7 @@
                             <li><b>Denomination/Tradition:</b> {{ resource?.denomination }}</li>
                             <li><b>Hymn Society members in congregation or on church staff?</b>  {{ resource?.hymn_soc_member }}</li>
                             <li><b>Song/hymn(s) congregation sang in the last 2 months:</b> {{ resource?.categories.join(', ') }}</li>
-                            <li><b>Instruments congregation used during congregational singing:</b> {{ resource?.instruments.join(', ') }}</li> 
+                            <li><b>Instruments congregation used during congregational singing:</b> {{ resource?.instruments.join(', ') }}</li>
                             <li><b>Shape of worship:</b> {{ resource?.shape.join(', ') }}</li>
                             <li><b>Pastor/priest wears when he/she preaches:</b> {{ resource?.clothing.join(', ') }}</li>
                             <li><b>The congregation is:</b> {{ resource?.geography }}</li>
@@ -153,11 +156,11 @@
                             <li *ngIf="resource?.url" ><a target="_blank" href="{{ resource?.url }}"><md-icon>launch</md-icon> Go to  this congregation website</a></li>
                         </ul>
                     </md-card-content>
-                    
+
                 </div>
                 <div style="text-align: center" [ngSwitch]="resource?.show">
-                    <button *ngSwitchDefault md-button color="accent" (click)=expand(resource)><md-icon>keyboard_arrow_down</md-icon></button> 
-                    <button *ngSwitchCase="true" md-button color="accent" (click)=expand(resource)><md-icon>keyboard_arrow_up</md-icon></button> 
+                    <button *ngSwitchDefault md-button color="accent" (click)=expand(resource)><md-icon>keyboard_arrow_down</md-icon></button>
+                    <button *ngSwitchCase="true" md-button color="accent" (click)=expand(resource)><md-icon>keyboard_arrow_up</md-icon></button>
                 </div>
 
             </md-card> <!-- end class card -->
@@ -171,7 +174,7 @@
                     <input mdInput placeholder="Search for Keyword" [(ngModel)]="searchTerm">
                 </md-input-container>
                 <button [disabled]='!searchTerm' md-raised-button color="primary" (click)=search(searchTerm)>Search</button>
-                <button md-button (click)=clearSearch()>Clear All</button> 
+                <button md-button (click)=clearSearch()>Clear All</button>
             </md-card>
         </div>
     </div> <!-- end entry-body row -->
