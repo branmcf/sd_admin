@@ -12,5 +12,5 @@ export const environment = {
 
   // API_URL: 'http://localhost:3000/'
   // API_URL: 'https://private-91abd-node46.apiary-mock.com/'
-  API_URL: 'http://production.fpbmw68xg5.us-west-2.elasticbeanstalk.com/'
+  API_URL: 'https://backend.ccshymndb.com'
 };
