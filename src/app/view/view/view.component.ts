@@ -34,15 +34,15 @@ export class ViewComponent implements OnInit {
     },
     {text: 'Hymnals / Songbooks', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/46227/hymnal-book-sing-music-46227.jpeg',
-      routerLink: 'hymnal'
+      routerLink: 'Hymnal%2FSongbook'
     },
     {text: 'Theses / Dissertations', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/51342/books-education-school-literature-51342.jpeg',
-      routerLink: 'thesis'
+      routerLink: 'thesis%2Fdissertation'
     },
     {text: 'Articles', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/6335/man-coffee-cup-pen.jpg',
-      routerLink: 'article'
+      routerLink: 'article(s)'
     },
     {text: 'Blogs', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/265667/pexels-photo-265667.jpeg',
@@ -54,11 +54,11 @@ export class ViewComponent implements OnInit {
     },
     {text: 'Newsletters / E-News', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/242492/pexels-photo-242492.jpeg',
-      routerLink: 'newsletter'
+      routerLink: 'Newsletter%2FE-News'
     },
     {text: 'Audio Tracks', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/185030/pexels-photo-185030.jpeg',
-      routerLink: 'audio'
+      routerLink: 'Audio%20Track(s)'
     },
     {text: 'Podcasts', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/55800/microphone-audio-computer-sound-recording-55800.jpeg',
@@ -66,7 +66,7 @@ export class ViewComponent implements OnInit {
     },
     {text: 'Videos / Visuals', cols: 1, rows: 1, color: 'lightblue', icon: 'book',
       image: 'https://static.pexels.com/photos/34407/pexels-photo.jpg',
-      routerLink: 'video'
+      routerLink: 'Video%2FVisual(s)'
     },
     {text: 'Congregations', cols: 1, rows: 1, color: 'lightgreen', icon: 'room',
       image: 'https://static.pexels.com/photos/161060/church-bank-wood-benches-161060.jpeg',

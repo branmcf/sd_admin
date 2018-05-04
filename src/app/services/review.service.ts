@@ -172,4 +172,22 @@ export class ReviewService {
       .put(`${this._apiUrl}congregation/${id}`, data)
       .toPromise();
   }
+
+  addLike(id: number): Promise<any> {
+    return this.http
+      .post(`${this._apiUrl}resources/addLike/${id}`, id)
+      .toPromise();
+  }
+
+  addView(id: number): Promise<any> {
+    return this.http
+      .post(`${this._apiUrl}resources/addView/${id}`, id)
+      .toPromise();
+  }
+
+  addClick(id: number): Promise<any> {
+    return this.http
+      .post(`${this._apiUrl}resources/addClick/${id}`, id)
+      .toPromise();
+  }
 }
